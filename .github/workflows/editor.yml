@@ -1,0 +1,45 @@
+name: Released editor qualification
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'models/**'
+      - 'verification/vscode-*'
+      - '.github/workflows/editor.yml'
+permissions:
+  contents: read
+jobs:
+  editor:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: linux-x64
+          - os: windows-latest
+            target: win32-x64
+          - os: macos-latest
+            target: darwin-arm64
+          - os: macos-15-intel
+            target: darwin-x64
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    env:
+      WORKSHOP_VSIX_TARGET: ${{ matrix.target }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated test harness
+        shell: bash
+        run: npm install --prefix "$HOME/scratch/rumoca-workshop/ui-tools" --cache "$HOME/scratch/rumoca-workshop/cache/npm" @vscode/test-electron@2.5.2
+      - if: runner.os == 'Linux'
+        run: xvfb-run -a node verification/vscode-ci.mjs
+      - if: runner.os != 'Linux'
+        run: node verification/vscode-ci.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: editor-${{ matrix.target }}
+          path: verification/vscode-${{ matrix.target }}.json

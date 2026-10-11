@@ -6,6 +6,6 @@
     "All authored slide text survives actual PPTX rendering",
     "All extracted text lies within page bounds"
   ],
-  "pptx_sha256": "c9aa55ca0d6f4962b21afb9391aad3b0c7e506053faee30fdfd4a3398bc99140",
+  "pptx_sha256": "2861601dd33cf04f592a9b3095e6f33af904b2c6c69c8adc0efea7e4b5fb81d0",
   "scope": "Actual LibreOffice rendering. PowerPoint and the venue projector require presenter preflight."
 }

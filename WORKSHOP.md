@@ -22,11 +22,17 @@ Today’s data are **synthetic**. Today’s control result is an **open-loop tra
 The example does not certify a real aircraft or implement MPC.
 
 **Optional challenge, announced now:** create an app with coding agents and put
-it on your GitHub. The theme is open. Build throughout the workshop, then show
-a short demo at **12:50**. An audience hand vote chooses the winner of a
+it on your GitHub. Apply Rumoca to a problem you care about during downtime
+and independent work. Enter by **12:40**; up to five presenters give short demos
+at **12:50**. An audience hand vote chooses the winner of a
 **free CogniPilot stocking cap**. Our lead example is `rumoca_fixed_wing`;
 `slam_web` is another example in development. See [CHALLENGE.md](CHALLENGE.md).
 You can begin when ready and return to your app during independent work.
+Copy [APP_PROMPT.md](APP_PROMPT.md) for inspiration: an Artemis-style launch
+experience with Three.js, or a flight lab extending the working fixed-wing app.
+These are prompts, not assigned projects. AD-based fixed-wing MPC is an ambitious
+optional extension. Any subject is welcome. More than five ready entries are shortlisted
+by random draw; selection is not a quality judgment.
 
 ## 10:20–10:40 · Get running
 
@@ -250,7 +256,8 @@ autopilot experiment: change its controller rate, restart and observe.
 This is the lead example of an app we built with coding agents. `slam_web` is
 another example **in development**; `mocap_sysid` is a stored-results viewer.
 No agent account or API key is required to explore the examples manually.
-App builders can use this time to finish their demo and open their GitHub repo.
+Selected app builders can use this time to rehearse their 45-second demo and
+open their app and GitHub repo. All entries remain in the shared gallery.
 
 **Checkpoint 5:** describe one observation and one test needed before trusting
 it. These apps use their own models and data. The workshop’s planar-model Lean
@@ -261,7 +268,8 @@ results rather than retraining methods in your browser.
 ## 12:50–12:55 · Participant demos and audience vote
 
 Show your app and GitHub repository, explain your contribution, and demonstrate
-one working interaction. The theme is open. An audience **show-of-hands vote**
+one working interaction in **45 seconds**. Name the agent used and elapsed
+build time, labeling estimates. Any subject is welcome. An audience **show-of-hands vote**
 chooses the winner of a **free CogniPilot stocking cap**.
 [CHALLENGE.md](CHALLENGE.md) gives the short-demo format and voting rules.
 

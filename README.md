@@ -10,7 +10,7 @@ constrained trajectory. CPU only; no GPU or AI assistant required.
 
 Want an extra challenge? Build an app with coding agents on your GitHub during
 the workshop. Short demos and an audience hand vote at **12:50** decide who wins
-a **free CogniPilot stocking cap**. Any app theme is welcome;
+a **free CogniPilot stocking cap**. Apply Rumoca to a problem you care about;
 [challenge details](CHALLENGE.md).
 
 ## Choose your route in 60 seconds
@@ -56,6 +56,7 @@ estimate/use drag parameters explicitly.
 | [VERIFICATION.md](VERIFICATION.md) | Measured results and unverified items |
 | [BROWSER_APPS.md](BROWSER_APPS.md) | Experiment with three agent-built browser apps |
 | [CHALLENGE.md](CHALLENGE.md) | Optional open app competition, demos and audience vote |
+| [APP_PROMPT.md](APP_PROMPT.md) | Optional creative prompts: Three.js launch lab, flight lab and ambitious MPC |
 | [PUBLICATION.md](PUBLICATION.md) | Cloud access, preflight and prebuild guidance |
 
 Rumoca is an evolving compiler and less mature than established Modelica tools.

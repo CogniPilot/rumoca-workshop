@@ -81,7 +81,7 @@ def generatedRhs (_t : ℝ) (s : State) (u : Control) (p : Params) : State :=
               "-- Real-arithmetic interpretation of the checked scalar Solve program.\n"
               "-- Floating-point execution, compiler correctness, and this translator are outside the proof.\n"
               + types + "\n".join(lines) + "\n\nend\nend Workshop\n")
-    (ROOT / "formal/Generated.lean").write_text(source)
+    (ROOT / "formal/Generated.lean").write_text(source, encoding="utf-8", newline="\n")
     write_json(ROOT / "formal/provenance.json", {
         "model_sha256": source_hash(), "rumoca_version": rm.version(),
         "state_names": export.state_names, "parameter_names": export.parameter_names,

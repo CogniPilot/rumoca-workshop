@@ -140,7 +140,8 @@ def main():
               "rumoca_version": rm.version()}
     write_json(dest / "fit_drag.json", report)
     print(f"Drag estimates: linear={fitted['k_linear']:.5f}, quadratic={fitted['k_quad']:.5f}")
-    print(f"Loss {initial_loss:.2f} -> {result.fun:.3f}; holdout RMS {rms['validation_before']:.3f} -> {rms['validation_after']:.3f}")
+    print(f"Loss {initial_loss:.2f} -> {result.fun:.3f}; dimensionless noise-scaled holdout RMS "
+          f"{scaled_rms['validation_before']:.3f} -> {scaled_rms['validation_after']:.3f}")
     print(f"Sensitivity condition number {conditioning:.2f}; {report['runtime_seconds']:.2f}s")
     print(f"Saved {dest / 'fit_drag.png'} and fit_drag.json")
 

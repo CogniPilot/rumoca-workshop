@@ -25,13 +25,13 @@ Layout: cards
 Badge: OPEN APP CHALLENGE · demos + audience vote at 12:50
 
 - Core: edit a model, fit data, optimize a trajectory
-- Extra: create an app with coding agents
-- Open theme: show your idea on your GitHub
+- Apply Rumoca to a problem you care about
+- Optional idea: a Three.js Artemis-style launch
 - Audience favorite wins a CogniPilot stocking cap
 
-Checkpoint: Start whenever ready · CHALLENGE.md · core needs no agent account
+Checkpoint: Enter by 12:40 · up to 5 demos · CHALLENGE.md · APP_PROMPT.md
 Notes:
-Announce the challenge now: “If you want an extra challenge, build an app with coding agents during the workshop. The theme is open. Put it on your GitHub, show a working interaction at 12:50, and the audience will choose the winner by a show of hands. The prize is a free CogniPilot stocking cap.” Introduce rumoca_fixed_wing as the lead example; BROWSER_APPS.md has its live link. Participants may extend an existing app or start a new one and should explain their contribution. Core exercises need no agent account or GitHub account. Experienced attendees can begin once their environment is ready and keep building during independent work. Ask for a show of hands for Modelica/JAX/CasADi experience. Today's data are synthetic and the trajectory is open loop.
+Announce the challenge now: “Power users: apply Rumoca to a problem you care about. Use your coding agent during downtime and independent work, put the app on your GitHub, and show one working interaction. The prize is a free CogniPilot stocking cap, chosen by an audience hand vote.” The core Modelica → JAX → CasADi exercises remain the main activity and need no agent or GitHub account. Point to APP_PROMPT.md for creative inspiration: an Artemis-inspired launch experience with Three.js visuals, or a flight lab extending rumoca_fixed_wing. These are optional prompts, not assigned projects; no Artemis app is supplied. Encourage participants to choose their own question and design. Full AD-based fixed-wing MPC is ambitious and optional. Entries close at 12:40: collect GitHub link, problem, agent/tool used and elapsed build time with estimates labeled. Up to five ready apps present at 12:50 for 45 seconds each; if more are ready, use a random draw plus a backup, with order drawn too. Selection is not a quality judgment; share all entry links in a gallery. Announce the selection by 12:45. Each demo names the agent and build time, contribution, working interaction and checked result. Ask for a show of hands for Modelica/JAX/CasADi experience. Today's data are synthetic and the trajectory is open loop.
 
 ## 03 · Make declared physics reusable
 Time: 10:10–10:15
@@ -263,13 +263,13 @@ Time: 12:50–12:55
 Layout: statement
 Badge: OPEN CHALLENGE · short demos · audience show of hands
 
-- Show one working interaction and your GitHub repo
-- Explain your contribution and one result you checked
+- Up to 5 demos · 45 seconds each · your GitHub
+- One checked result · agent used · elapsed build time
 - Audience favorite wins a free CogniPilot stocking cap
 
-Checkpoint: Short participant demos → one show-of-hands vote per person
+Checkpoint: Random draw if more than 5 ready entries → audience hand vote
 Notes:
-Use the first four minutes for participant demos: allow up to four one-minute demos; if more entries arrive, shorten each equally so every entry can be shown. Any app theme is welcome. Each entrant shows a working interaction, their own GitHub repository and their contribution. Reserve the final minute for a show-of-hands vote. Each attendee votes for one entry; count visibly. If tied, run a quick vote between the tied entries; if still tied, draw among them. Award one stocking cap to the winning entry; a team chooses its recipient. If there are no entries, invite a brief question about the fixed-wing example and continue to the closing slide. CHALLENGE.md carries the same rules.
+Use up to five 45-second demos, selected by the announced readiness check and random draw if needed. Draw order and a backup in advance. Each entrant shows how Rumoca addresses their chosen problem, one working interaction, their GitHub and contribution, a checked result, and the agent/tool used plus elapsed build time. Label estimated times. Have tabs ready and keep the same limit for everyone. Five demos leave 75 seconds for a show-of-hands vote and award. Each attendee votes for one entry; count visibly. If tied, run a quick vote between the tied entries; if still tied, draw among them. Award one stocking cap to the winning entry; a team chooses its recipient. Share all entry links in a gallery, including those not drawn. If there are no entries, invite a brief question about the fixed-wing example and continue to the closing slide. CHALLENGE.md carries the same rules. Keep the core exercise as the workshop's main focus.
 
 ## 22 · Questions + your next problem
 Time: 12:55–13:00

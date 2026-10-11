@@ -11,7 +11,7 @@ INK, TEAL, GOLD, PAPER, WHITE = "23252A", "007C91", "B59A55", "F7F5F0", "FFFFFF"
 
 
 def parse():
-    text = (ROOT/"slides/workshop.md").read_text()
+    text = (ROOT/"slides/workshop.md").read_text(encoding="utf-8")
     slides = []
     for part in re.split(r"^## ", text, flags=re.M)[1:]:
         title, rest = part.split("\n", 1)

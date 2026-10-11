@@ -170,15 +170,38 @@ research question together.”
 
 ## Optional app challenge
 
-Announce [CHALLENGE.md](CHALLENGE.md) on slide 2. The theme is open: participants
-can build a new app or extend an existing one with coding agents, publish it on
-their own GitHub and explain their contribution. The main exercise remains
+Announce [CHALLENGE.md](CHALLENGE.md) on slide 2: apply Rumoca to a problem you
+care about. Participants can build a new app or extend an existing one with
+coding agents, publish it on their own GitHub and explain their contribution.
+Any subject is welcome. The main exercise remains
 accessible without agent tools or a GitHub account. Keep advanced participants
-working during the independent portions; use the practical checkpoints rather
+building during downtime and independent portions; use the practical checkpoints rather
 than requiring a specialist aerodynamics discussion.
 
-At 12:50, allow four minutes for short demos and one minute for an audience vote.
-Up to four entries get one minute each; more entries share the time equally.
+Point to [APP_PROMPT.md](APP_PROMPT.md) immediately. Its creative example is an
+Artemis-inspired launch experience with Three.js visuals and a small Modelica
+model; it is only a prompt, not software supplied by the workshop. Participants
+choose the narrative and design. Another prompt extends the working fixed-wing
+app into a “Tune the autopilot” flight lab. Both ask for an early deployment
+and one working interaction. The full
+AD-based fixed-wing MPC version is labeled **ambitious** and optional. The
+example is a project specification; its new features have their own acceptance
+checks and are not advertised as completed workshop software.
+
+Collect entries by 12:40: GitHub link, one-sentence problem, coding agent/tool,
+model/version when available, elapsed build wall time (estimates labeled), and a working
+interaction using Rumoca. Use the [entry gallery](https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/1)
+for every link. The readiness
+check does not rank polish, complexity or experience. If more than five entries
+are ready, draw five at random plus one backup; otherwise all present. Draw
+their order and announce it by 12:45. Explain these rules at the opening so
+selection is understood as a time limit, not a quality judgment.
+
+At 12:50, give each of up to five presenters 45 seconds. Five demos leave
+75 seconds for voting and the award. Have tabs ready, keep the same time limit
+for everyone and use the backup if a selected presenter is unavailable. Each
+demo includes the agent used and elapsed build time; complexity and speed are
+not scored in the readiness check.
 Each attendee votes for one entry by a show of hands. Count visibly, resolve a
 tie with a quick vote among the tied entries and, if needed, a draw. Award one
 free CogniPilot stocking cap to the winning entry. A winning team chooses its

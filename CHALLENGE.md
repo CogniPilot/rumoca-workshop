@@ -2,16 +2,25 @@
 
 **Announced at the opening · build throughout the workshop · demos and vote at 12:50**
 
-Create an app with coding agents, publish it on **your GitHub**, and show a
-working interaction. The theme is open: choose a problem that interests you.
+Apply **Rumoca to a problem you care about**. Build an app with coding agents,
+publish it on **your GitHub**, and show a working interaction.
 The audience favorite wins a **free CogniPilot stocking cap**.
+[App gallery and entry comments](https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/1).
+
+**Any subject, your own idea.** Choose the interface and supporting tools that
+fit your problem. The fixed-wing example prompt is optional inspiration.
 
 This is optional. The core Modelica → Rumoca → JAX → CasADi exercises need no
 agent account, GitHub account or competition entry. Experienced participants
-can start as soon as their environment is ready and use independent work time
-to develop their app.
+can start as soon as their environment is ready and use downtime and independent
+work time to develop their app. Keep the core walkthrough available when needed.
 
 ## Inspiration and a small starting point
+
+Copy an [example agent prompt](APP_PROMPT.md): invent an Artemis-inspired
+launch experience with Three.js visuals, or extend the working fixed-wing app
+into a “Tune the autopilot” flight lab. Both are optional starting ideas.
+AD-based MPC is the **ambitious optional extension**.
 
 Our lead example is
 [rumoca_fixed_wing](https://cognipilot.github.io/rumoca_fixed_wing/): an
@@ -34,17 +43,39 @@ also choose a completely different subject.
 - Your GitHub repository and what you contributed.
 - One working interaction: change something and show the result.
 - One result you checked and how you checked it.
+- The coding agent/tool used, model/version when available, and elapsed build
+  time. List multiple tools if used; label an estimated time as an estimate.
 
-Have your app and repository open by **12:50**. Tell the instructor you would
-like to demo before the showcase starts. Individual and team entries are welcome.
+Enter by **12:40**: give the instructor your GitHub link, a one-sentence problem
+description, agent/tool and elapsed build time, and a ready working interaction.
+Post these in the [app gallery](https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/1)
+and tell the instructor you are ready.
+Record wall time from starting the app to the demo-ready version, including
+debugging and deployment; record active work separately if useful. Show where Rumoca is used and
+explain what you contributed during the workshop. Individual and team entries
+are welcome; each app gets one entry. Keep all submitted links in a shared
+gallery so everyone can explore the work, including apps not drawn to present.
 Use your own available agent tools; keep credentials out of the published repo.
+
+## Selecting presenters
+
+The readiness check asks only whether the app uses Rumoca, has a GitHub link
+and has a working interaction to show. It does not score visual polish,
+technical complexity, aerospace relevance or the participant's experience.
+
+If five or fewer entries are ready, all present. Otherwise, draw **five entries
+at random**, plus one backup, from the ready entries. Draw the presentation
+order too. Announce the selection by **12:45**. Give each entry the same chance;
+selection is not a judgment of its quality. An unavailable presenter is replaced
+by the backup. These rules are announced at the opening.
 
 ## Demos and audience vote
 
-The showcase runs **12:50–12:55**. We reserve four minutes for short participant
-demos and one minute for voting. With up to four entries, each demo gets one
-minute; with more entries, demos are shortened equally so everyone can show
-their app.
+The showcase runs **12:50–12:55**. Each presenter gets **45 seconds**: the problem,
+one working interaction, one checked result, and “built with [agent] in [time].”
+Five demos take 3 minutes
+45 seconds, leaving 75 seconds for the vote and stocking-cap award. Open tabs
+in advance and stop each demo at the same time limit.
 
 After the demos, the instructor names each entry and counts a **show of hands**.
 Each attendee votes for one entry. The entry with the most votes wins one

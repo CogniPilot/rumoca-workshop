@@ -1,0 +1,37 @@
+{
+  "name": "rumoca_fixed_wing",
+  "url": "Static localhost rehearsal",
+  "tested_at": "2026-10-11T20:56:04.592Z",
+  "browser": "Chromium, software WebGL fallback",
+  "steps": [
+    "Autopilot tab",
+    "Start sim",
+    "compiled Modelica controller + plant",
+    "simulation advances",
+    "change controller rate 50 \u2192 20 Hz",
+    "Start sim again to recompile at new rate",
+    "simulation advances at 20 Hz",
+    "Pause"
+  ],
+  "status_text": "CubControl autopilot running lockstep at 50 Hz.",
+  "waypoint_before": "Target WP 2/6 | 5.13 m | 50 Hz target | sim 1.0 s",
+  "waypoint_after": "Target WP 1/6 | 3.74 m | 20 Hz target | sim 0.7 s",
+  "scope": "Fresh source checkout, pinned Rumoca WASM 0.9.12, default autopilot 50 and 20 Hz, pause. New flight-lab comparison features and arbitrary source edits are project specifications, not qualified here.",
+  "status": "PASS",
+  "elapsed_seconds": 13.388,
+  "wasm": [
+    {
+      "url": "public/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+      "status": 200
+    }
+  ],
+  "page_errors": [],
+  "source_repository": "https://github.com/CogniPilot/rumoca_fixed_wing",
+  "source_commit": "3b972ccb1d5f795771ca9132f9a7e3d00d802145",
+  "setup": [
+    "fresh clone",
+    "npm ci: 2 packages installed, audit reports zero vulnerabilities",
+    "python results.py check-site: 7 scenarios, 7 datasets, 102 comparison rows",
+    "static localhost serving of original site/"
+  ]
+}

@@ -12,7 +12,7 @@
     "results/reference/math_audit.png": "e5cd008036cb9f2e810e0526a80839c1887ff8d6dc326d22be8b3e8fbd55ba4c",
     "results/reference/optimization.png": "8d3faf3355dac7c3bf1f081e19161dc04360766e299388be53457c36327458c7",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
-    "scripts/build_slides.py": "ce1c41c19b6a3b02229c27781b6d9034bea0ddc4b65342bf9a1ffc52893db8f3",
+    "scripts/build_slides.py": "54777ced7761bbb110b31ab25e4f8b70028baed32698a4c8acdc12cd9bc71adf",
     "scripts/slide_assets.py": "5251751fa062e586348c5ba08cb617c04b3647a71ea61994a85f1630cc4123a9",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
     "slides/assets/architecture.png": "9e50941a894991436f5fa6569d0585df54f79ad1fc5f8378c0c212e4fefb2ba7",
@@ -28,12 +28,12 @@
     "slides/assets/research-loop.png": "4c4a4c7d057a4fd572eebcb0a0a2b4f5ae28037e7aace6f800e40df5060c7a0b",
     "slides/assets/simulation-hero.png": "2fc1abc7cf25f8c3dd763af9d2b081508b72176a98559c1793da2e8f21aecf80",
     "slides/assets/vscode-quadrotor.png": "e6002a5b2109928f38ff2598ba587ec0800c3947858c54fcc54bbd7b782467ed",
-    "slides/workshop.md": "ffc606cdcbe5b0fbf176886bc5838b2fe61a7505dbf5f3e3fbe616665cabd2cb",
+    "slides/workshop.md": "6922ade9f0412ad88ce124d1a89d8d5d7d1be98456e998e7e169379f869028fd",
     "uv.lock": "49c9f799e98db6fc5ead54544c50cfa02e36f0fe664ce53fecf66320153214c1"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "c9aa55ca0d6f4962b21afb9391aad3b0c7e506053faee30fdfd4a3398bc99140",
-    "slides/workshop.pdf": "657b00ff46b69aa764aa1476be0f945ff999e637cdae64f6ef724af5f5a2a864"
+    "slides/workshop.pptx": "2861601dd33cf04f592a9b3095e6f33af904b2c6c69c8adc0efea7e4b5fb81d0",
+    "slides/workshop.pdf": "db6c30476833e0f66a9930fb5705872d9a16a8ba474195b265c533687d09cbe7"
   },
   "rendered_text": [
     {
@@ -116,13 +116,13 @@
     },
     {
       "slide": "02",
-      "text": "Extra: create an app with coding agents",
+      "text": "Apply Rumoca to a problem you care about",
       "font_pt": 27,
       "lines": 2
     },
     {
       "slide": "02",
-      "text": "Open theme: show your idea on your GitHub",
+      "text": "Optional idea: a Three.js Artemis-style launch",
       "font_pt": 27,
       "lines": 2
     },
@@ -134,7 +134,7 @@
     },
     {
       "slide": "02",
-      "text": "Start whenever ready \u00b7 CHALLENGE.md \u00b7 core needs no agent account",
+      "text": "Enter by 12:40 \u00b7 up to 5 demos \u00b7 CHALLENGE.md \u00b7 APP_PROMPT.md",
       "font_pt": 20,
       "lines": 1
     },
@@ -1082,13 +1082,13 @@
     },
     {
       "slide": "21",
-      "text": "Show one working interaction and your GitHub repo",
+      "text": "Up to 5 demos \u00b7 45 seconds each \u00b7 your GitHub",
       "font_pt": 30,
       "lines": 1
     },
     {
       "slide": "21",
-      "text": "Explain your contribution and one result you checked",
+      "text": "One checked result \u00b7 agent used \u00b7 elapsed build time",
       "font_pt": 30,
       "lines": 1
     },
@@ -1100,7 +1100,7 @@
     },
     {
       "slide": "21",
-      "text": "Short participant demos \u2192 one show-of-hands vote per person",
+      "text": "Random draw if more than 5 ready entries \u2192 audience hand vote",
       "font_pt": 20,
       "lines": 1
     },

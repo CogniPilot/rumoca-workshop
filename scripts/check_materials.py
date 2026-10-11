@@ -10,7 +10,7 @@ from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 def read(name):
-    return json.loads((ROOT/name).read_text())
+    return json.loads((ROOT/name).read_text(encoding="utf-8"))
 def digest(name):
     return hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
 
@@ -19,7 +19,7 @@ def main():
     documents = [p for p in documents if p.name != "Rumoca_Workshop_Handoff.md"]
     links = 0
     for doc in documents:
-        for target in re.findall(r"\[[^\]]+\]\(([^)]+)\)", doc.read_text()):
+        for target in re.findall(r"\[[^\]]+\]\(([^)]+)\)", doc.read_text(encoding="utf-8")):
             if re.match(r"[a-zA-Z][\w+.-]*:", target) or target.startswith("#"):
                 continue
             target = unquote(target.split("#")[0].split(' "')[0]).strip("<>")
@@ -37,8 +37,8 @@ def main():
     assert proof["model_sha256"] == source
     assert proof["solve_program_sha256"] == digest("formal/solve_program.json")
     assert proof["lean_sha256"] == digest("formal/Generated.lean")
-    bundle = (ROOT/"browser/Quadrotor_browser.mo").read_text()
-    assert source in bundle and (ROOT/"models/Quadrotor.mo").read_text().strip() in bundle
+    bundle = (ROOT/"browser/Quadrotor_browser.mo").read_text(encoding="utf-8")
+    assert source in bundle and (ROOT/"models/Quadrotor.mo").read_text(encoding="utf-8").strip() in bundle
     with (ROOT/"data/noisy_flight.csv").open(newline="") as f:
         rows = list(csv.DictReader(f))
     assert len(rows) == 644 and len({r["flight"] for r in rows}) == 4
@@ -65,7 +65,7 @@ def main():
               "checks":["local links", "shared model/result/CSV/formal/browser provenance", "deck input/artifact hashes",
                         "PPTX slides, speaker notes and office-renderer provenance", "app rehearsal receipts"],
               "scope":"Packaging consistency. Mathematical, numerical and UI checks have separate receipts."}
-    (ROOT/"verification/materials.json").write_text(json.dumps(report, indent=2)+"\n")
+    (ROOT/"verification/materials.json").write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8", newline="\n")
     print(f"MATERIALS PASS: {links} local links, 26 slides with notes, 180 minutes, matching provenance")
 
 if __name__ == "__main__":

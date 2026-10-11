@@ -68,11 +68,13 @@ def main():
     for name in truth:
         require(abs(fit["drag"][name]/truth[name]-1) < 0.1, f"{name} recovered within 10%")
     require(fit["sensitivity_condition_number"] < 50, "drag sensitivities sufficiently distinct for this dataset")
-    require(fit["rms"]["validation_after"] < 0.05, "holdout trajectory RMS below 0.05 in combined observed units")
-    require(fit["rms"]["validation_after"] < fit["rms"]["validation_before"], "fit improves a flight excluded from optimization")
+    require(fit["noise_scaled_rms"]["validation_after"] < 1.5, "dimensionless holdout RMS below 1.5 measurement-noise scales")
+    require(fit["noise_scaled_rms"]["validation_after"] < fit["noise_scaled_rms"]["validation_before"], "fit improves a flight excluded from optimization")
     require(opt["success"] and opt["max_dynamics_defect"] < 1e-6, "IPOPT solves dynamics constraints")
     require(opt["terminal_max_error"] < 1e-6, "terminal hover constraints hold")
-    require(opt["fine_rollout_terminal_max_error"] < 0.02, "4x finer rollout reaches target within 0.02 in state units")
+    state_units = dict(zip(STATE_NAMES, ["m", "m", "rad", "m/s", "m/s", "rad/s"]))
+    for name, error in opt["fine_rollout_terminal_error_by_state"].items():
+        require(abs(error) < 0.02, f"4x finer rollout terminal {name} error below 0.02 {state_units[name]}")
     require(opt["thrust_range"][0] >= -1e-6 and opt["thrust_range"][1] <= 20.000001, "thrust bounds hold")
     require(max(abs(v) for v in opt["torque_range"]) <= 0.350001, "torque bounds hold")
     require(opt["rotor_pair_force_range"][0] >= -1e-6 and opt["rotor_pair_force_range"][1] <= 10.000001, "rotor pair forces are nonnegative and within capacity")

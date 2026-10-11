@@ -1,0 +1,39 @@
+name: Qualify portable macOS workshop wheels
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  qualify:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            arch: arm64
+          - os: macos-15-intel
+            arch: x86_64
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.11.21'
+      - run: uv sync --frozen
+      - name: Download and repair the exact released wheel
+        run: |
+          mkdir -p "$RUNNER_TEMP/upstream" "$RUNNER_TEMP/repaired"
+          wheel="rumoca-0.10.2-cp310-abi3-macosx_14_0_${{ matrix.arch }}.whl"
+          curl --fail --location "https://github.com/CogniPilot/rumoca/releases/download/v0.10.2/$wheel" --output "$RUNNER_TEMP/upstream/$wheel"
+          uv run --no-sync python scripts/repair_macos_wheel.py "$RUNNER_TEMP/upstream/$wheel" --output "$RUNNER_TEMP/repaired"
+          uv pip install --python .venv/bin/python --reinstall --no-deps "$RUNNER_TEMP/repaired/$wheel"
+      - run: uv run --no-sync python scripts/smoke_test.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portable-wheel-${{ matrix.arch }}
+          path: ${{ runner.temp }}/repaired/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qualification-${{ matrix.arch }}
+          path: results/live/

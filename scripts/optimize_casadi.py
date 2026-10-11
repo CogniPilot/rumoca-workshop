@@ -35,14 +35,24 @@ def main():
     opti.subject_to(opti.bounded(-0.54, X[2, :], 0.54))
     opti.subject_to(opti.bounded(0., U[0, :], 20.0))
     opti.subject_to(opti.bounded(-0.35, U[1, :], 0.35))
+    # Illustrative rotor pairs at +/- 0.2 m, each pair capable of 10 N.
+    # This also prevents physically impossible torque at zero total thrust.
+    arm = 0.2
+    pair_left = (U[0, :] + U[1, :]/arm)/2
+    pair_right = (U[0, :] - U[1, :]/arm)/2
+    opti.subject_to(opti.bounded(0., pair_left, 10.))
+    opti.subject_to(opti.bounded(0., pair_right, 10.))
     cost = 0
     for k in range(n):
         opti.subject_to(X[:, k+1] == rk4(export.rhs, k*dt, X[:, k], U[:, k], p, dt))
         error = X[:, k]-target
-        cost += dt*(0.3*ca.sumsqr(error[:2]) + 0.03*ca.sumsqr(error[3:5])
-                    + 0.02*(U[0, k]-hover)**2 + 3*U[1, k]**2 + 0.02*X[2, k]**2)
+        # Dimensionless cost: reference units 1 m, 1 m/s, 10 N, 0.35 N*m,
+        # 1 rad, and 1 s. Weights express tradeoffs, not quantities with mixed units.
+        cost += dt*(0.3*ca.sumsqr(error[:2]/1.0) + 0.03*ca.sumsqr(error[3:5]/1.0)
+                    + 2*((U[0, k]-hover)/10)**2
+                    + 0.3675*(U[1, k]/0.35)**2 + 0.02*(X[2, k]/1.0)**2)
         if k > 0:
-            cost += 0.005*ca.sumsqr(U[:, k]-U[:, k-1])
+            cost += 0.5*((U[0, k]-U[0, k-1])/10)**2 + 0.0006125*((U[1, k]-U[1, k-1])/0.35)**2
     opti.minimize(cost)
     # A stored successful primal solution is used when it matches this problem.
     warm_file = ROOT / "results/reference/trajectory.npz"
@@ -105,6 +115,8 @@ def main():
               "max_dynamics_defect": float(max(defects)), "fine_rollout_terminal_max_error": fine_error,
               "thrust_range": [float(us[0].min()), float(us[0].max())],
               "torque_range": [float(us[1].min()), float(us[1].max())],
+              "rotor_pair_force_range": [float(min(solution.value(pair_left).min(), solution.value(pair_right).min())),
+                                          float(max(solution.value(pair_left).max(), solution.value(pair_right).max()))],
               "pitch_abs_max": float(np.max(np.abs(xs[2]))),
               "altitude_range": [float(xs[1].min()), float(xs[1].max())],
               "fine_pitch_abs_max": float(np.max(np.abs(fine[:, 2]))),

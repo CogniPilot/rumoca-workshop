@@ -1,0 +1,26 @@
+{
+  "extensionVersion": "0.10.2",
+  "active": true,
+  "initialDiagnostics": [],
+  "completionLabels": [
+    "sign",
+    "sin",
+    "sinh",
+    "size"
+  ],
+  "hover": [
+    [
+      "```modelica\nparameter Real m\n```"
+    ]
+  ],
+  "errorDiagnostics": [
+    {
+      "message": "unexpected `;` (expected one of: (, +, -, ., [, break, ... (+13 more))",
+      "severity": 0
+    },
+    {
+      "message": "unexpected end of input (expected one of: ., algorithm, annotation, block, class, connector, ... (+31 more))",
+      "severity": 0
+    }
+  ]
+}

@@ -3,6 +3,39 @@ on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
 jobs:
+  math:
+    name: Generated equations and Lean proofs
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      LEAN_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.11.21'
+      - run: uv run --frozen python scripts/export_lean.py
+      - run: git diff --exit-code -- formal/Generated.lean formal/solve_program.json formal/provenance.json
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'true'
+          use-mathlib-cache: 'true'
+          leanchecker: 'true'
+          leanchecker-args: 'Generated Workshop'
+      - name: Audit theorem assumptions and reject admissions
+        run: |
+          set -o pipefail
+          cd formal
+          lake env lean Workshop.lean | tee ../verification/lean-ci.txt
+          if rg 'sorryAx' ../verification/lean-ci.txt; then exit 1; fi
+          if rg '^\s*(axiom|opaque).*|\b(sorry|admit|native_decide)\b' Generated.lean Workshop.lean; then exit 1; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lean-verification
+          path: verification/lean-ci.txt
   container:
     name: Devcontainer build and fresh startup commands
     runs-on: ubuntu-latest
@@ -40,6 +73,8 @@ jobs:
           enable-cache: true
       - run: uv sync --frozen
       - run: uv run --frozen python scripts/smoke_test.py
+      - if: matrix.os == 'ubuntu-latest'
+        run: uv run --frozen python scripts/math_audit.py --output results/live
       - uses: actions/upload-artifact@v4
         if: always()
         with:

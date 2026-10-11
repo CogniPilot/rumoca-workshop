@@ -1,0 +1,28 @@
+{
+  "model_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+  "rumoca_version": "0.10.2",
+  "state_names": [
+    "x",
+    "z",
+    "theta",
+    "vx",
+    "vz",
+    "omega"
+  ],
+  "parameter_names": [
+    "m",
+    "Iyy",
+    "g",
+    "k_linear",
+    "k_quad",
+    "damping",
+    "eps"
+  ],
+  "input_names": [
+    "T",
+    "tau"
+  ],
+  "solve_program_sha256": "c22b43487fa66b7ac279342c226e3d2f3eeb269ca8be7ea2f4530a80af88d621",
+  "lean_sha256": "7abbed396d282ef8ed7c6542ee9475b9e34bbba0cc7698f9a4606505f9c94a5e",
+  "scope": "Actual checked Solve RHS operations translated to real arithmetic; bridge not formally verified."
+}

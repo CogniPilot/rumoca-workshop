@@ -1,0 +1,32 @@
+{
+  "tested_at": "2026-10-11T19:41:44.832Z",
+  "url": "https://rumoca.cognipilot.org/playground/",
+  "frame_url": "https://rumoca.cognipilot.org/playground/app/index.html",
+  "browser": "Chromium",
+  "source": "browser/Quadrotor_browser.mo",
+  "runs": [
+    {
+      "k_quad": 0,
+      "elapsed_seconds": 1.367,
+      "summary": "501 pts, 8 vars (47ms)",
+      "runtime": "Rumoca v0.8.13 - Modelica Compiler"
+    },
+    {
+      "k_quad": 0.08,
+      "elapsed_seconds": 1.309,
+      "summary": "501 pts, 8 vars (9ms)",
+      "runtime": "Rumoca v0.8.13 - Modelica Compiler"
+    }
+  ],
+  "syntax_error_markers": [
+    {
+      "message": "unexpected `;` (expected one of: (, +, -, ., [, break, ... (+13 more))",
+      "startLineNumber": 2
+    },
+    {
+      "message": "unexpected end of input (expected one of: ., algorithm, annotation, block, class, connector, ... (+31 more))",
+      "startLineNumber": 3
+    }
+  ],
+  "scope": "Actual public playground UI; pasted model, selected BrowserFlight, clicked Play at both drag settings; screenshot and plot produced. Python backends execute separately."
+}

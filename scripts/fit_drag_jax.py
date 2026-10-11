@@ -86,6 +86,8 @@ def main():
     singular = np.linalg.svd(sensitivity, compute_uv=False)
     conditioning = float(singular[0]/singular[-1])
     rms = {}
+    rms_by_state = {}
+    scaled_rms = {}
     predictions_by_flight = []
     for flight in flights:
         before = np.asarray(rollout(before_p, flight["y"][0], flight["u"]))
@@ -96,6 +98,8 @@ def main():
         for label, idx in [("before", 1), ("after", 2)]:
             errors = np.concatenate([item[idx][1:, [0, 1, 3, 4]]-item[0]["y"][1:, [0, 1, 3, 4]] for item in group])
             rms[f"{split}_{label}"] = float(np.sqrt(np.mean(errors**2)))
+            rms_by_state[f"{split}_{label}"] = dict(zip(["x", "z", "vx", "vz"], np.sqrt(np.mean(errors**2, axis=0)).tolist()))
+            scaled_rms[f"{split}_{label}"] = float(np.sqrt(np.mean((errors/np.array(sigma))**2)))
 
     dest = output_dir(args.output)
     plot_style()
@@ -125,6 +129,8 @@ def main():
     report = {"drag": fitted, "initial_drag": dict(zip(names, initial.tolist())),
               "initial_loss": initial_loss, "final_loss": float(result.fun),
               "loss_reduction": initial_loss/float(result.fun), "rms": rms,
+              "rms_by_state": rms_by_state, "noise_scaled_rms": scaled_rms,
+              "rms_note": "Legacy rms combines metres and metres/second; inspect rms_by_state (each native unit) or dimensionless noise_scaled_rms for interpretation.",
               "sensitivity_condition_number": conditioning,
               "sensitivity_singular_values": singular.tolist(),
               "optimizer": "L-BFGS-B, JAX autodiff through generated RHS + RK4 scan; log-positive parameters",

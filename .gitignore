@@ -6,4 +6,5 @@ results/live/
 *.egg-info/
 .DS_Store
 node_modules/
+formal/.lake/
 /Rumoca_Workshop_Handoff.md

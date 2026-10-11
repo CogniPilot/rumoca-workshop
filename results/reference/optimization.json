@@ -2,47 +2,51 @@
   "success": true,
   "solver_status": "Solve_Succeeded",
   "iterations": 11,
-  "cost": 5.118301362527856,
+  "cost": 5.118301361227487,
   "drag": {
-    "k_linear": 0.1804156026649133,
-    "k_quad": 0.07990760779541266
+    "k_linear": 0.18041558636585436,
+    "k_quad": 0.07990761328151084
   },
   "horizon_seconds": 6.0,
   "shooting_intervals": 60,
   "terminal_max_error": 0.0,
-  "max_dynamics_defect": 1.4210854715202004e-14,
-  "fine_rollout_terminal_max_error": 0.002096535844417158,
+  "max_dynamics_defect": 1.7041923427996153e-14,
+  "fine_rollout_terminal_max_error": 0.002096535891889406,
   "thrust_range": [
-    11.39992807086602,
-    15.704925809952227
+    11.399928073798746,
+    15.70492578542121
   ],
   "torque_range": [
-    -0.298567483784903,
-    0.3500000089014572
+    -0.29856748263649624,
+    0.35000000890145744
   ],
-  "pitch_abs_max": 0.5400000092795986,
+  "rotor_pair_force_range": [
+    5.456103475734875,
+    8.538672265003903
+  ],
+  "pitch_abs_max": 0.5400000092795978,
   "altitude_range": [
     1.0,
-    2.0604759434047657
+    2.060475941962825
   ],
-  "fine_pitch_abs_max": 0.5415362297092006,
+  "fine_pitch_abs_max": 0.5415362296697033,
   "pitch_node_limit": 0.54,
   "pitch_physical_limit": 0.55,
   "fine_rollout_terminal_error_by_state": {
-    "x": 0.00030318959491992814,
-    "z": 0.002096535844417158,
-    "theta": 2.69490361532648e-09,
-    "vx": 2.622964387617622e-05,
-    "vz": 0.0002447365506541308,
-    "omega": -4.311845976920142e-09
+    "x": 0.0003031895925014183,
+    "z": 0.002096535891889406,
+    "theta": 2.6949043286510412e-09,
+    "vx": 2.6229644652830028e-05,
+    "vz": 0.0002447365660945953,
+    "omega": -4.31184597106545e-09
   },
   "fine_altitude_range": [
     1.0,
-    2.0611842893543324
+    2.0611842879145392
   ],
   "warm_start_used": true,
-  "runtime_seconds": 1.3566927339415997,
+  "runtime_seconds": 1.4112844408955425,
   "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
-  "fit_sha256": "936157b9724e8a5e7c776f22cd67bc9a6873ba85a04d3637d57ca9692342e6bc",
+  "fit_sha256": "eff7d7b6ab2fd3911746452bb5a3cff51ec643c63d4c2f6bf1d05548810f86ed",
   "rumoca_version": "0.10.2"
 }

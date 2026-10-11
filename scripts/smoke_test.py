@@ -75,6 +75,7 @@ def main():
     require(opt["fine_rollout_terminal_max_error"] < 0.02, "4x finer rollout reaches target within 0.02 in state units")
     require(opt["thrust_range"][0] >= -1e-6 and opt["thrust_range"][1] <= 20.000001, "thrust bounds hold")
     require(max(abs(v) for v in opt["torque_range"]) <= 0.350001, "torque bounds hold")
+    require(opt["rotor_pair_force_range"][0] >= -1e-6 and opt["rotor_pair_force_range"][1] <= 10.000001, "rotor pair forces are nonnegative and within capacity")
     require(opt["pitch_abs_max"] <= 0.540001 and opt["fine_pitch_abs_max"] <= 0.550001, "pitch bounds hold at nodes and finer rollout")
     require(opt["fine_altitude_range"][0] >= 0.249 and opt["fine_altitude_range"][1] <= 4.001, "altitude bounds hold in finer rollout")
     require(opt["drag"] == fit["drag"], "CasADi consumes the JAX-identified coefficients")

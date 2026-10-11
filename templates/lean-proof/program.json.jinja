@@ -1,0 +1,19 @@
+{"n_y": {{ solve.solve_layout.state_scalar_count }},
+ "n_p": {{ solve.solve_layout.parameter_count }},
+ "n_u": {{ solve.solve_layout.input_scalar_names | length }},
+ "ops": [
+{% for program in solve_blocks.continuous.derivative_rhs.scalar_plan.programs %}
+{% for op in program.ops %}
+  {"kind": "{{ op.kind }}"
+{% if op.kind == "Const" %}, "dst": {{ op.dst }}, "value": {{ op.value }}
+{% elif op.kind in ["LoadY", "LoadP"] %}, "dst": {{ op.dst }}, "index": {{ op.index }}
+{% elif op.kind == "LoadTime" %}, "dst": {{ op.dst }}
+{% elif op.kind == "Unary" %}, "dst": {{ op.dst }}, "operator": "{{ op.operator }}", "arg": {{ op.arg }}
+{% elif op.kind == "Binary" %}, "dst": {{ op.dst }}, "operator": "{{ op.operator }}", "lhs": {{ op.lhs }}, "rhs": {{ op.rhs }}
+{% elif op.kind == "Move" %}, "dst": {{ op.dst }}, "src": {{ op.src }}
+{% elif op.kind == "StoreOutput" %}, "index": {{ op.output_index }}, "src": {{ op.src }}
+{% else %}{{ fail("Unsupported proof export operation: " ~ op.kind) }}
+{% endif %}}{% if not loop.last or not program == solve_blocks.continuous.derivative_rhs.scalar_plan.programs[-1] %},{% endif %}
+{% endfor %}
+{% endfor %}
+]}

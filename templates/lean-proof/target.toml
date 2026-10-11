@@ -1,0 +1,18 @@
+version = 1
+ir = "solve"
+name = "workshop-proof-export"
+description = "Export the checked scalar Solve program for scoped Lean verification"
+
+[capabilities]
+continuous_states = true
+residual_equations = false
+scalar_fallback = true
+external_functions = false
+events = false
+runtime_events = false
+dynamic_ranges = false
+dynamic_control_flow = false
+
+[[files]]
+path = "solve_program.json"
+template = "program.json.jinja"

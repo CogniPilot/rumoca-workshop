@@ -1,0 +1,282 @@
+{"n_y": 6,
+ "n_p": 7,
+ "n_u": 2,
+ "ops": [
+
+
+  {"kind": "LoadY"
+, "dst": 0, "index": 3
+},
+
+  {"kind": "StoreOutput"
+, "index": 0, "src": 0
+},
+
+
+
+  {"kind": "LoadY"
+, "dst": 0, "index": 4
+},
+
+  {"kind": "StoreOutput"
+, "index": 1, "src": 0
+},
+
+
+
+  {"kind": "LoadY"
+, "dst": 0, "index": 5
+},
+
+  {"kind": "StoreOutput"
+, "index": 2, "src": 0
+},
+
+
+
+  {"kind": "LoadP"
+, "dst": 0, "index": 7
+},
+
+  {"kind": "LoadY"
+, "dst": 1, "index": 2
+},
+
+  {"kind": "Unary"
+, "dst": 2, "operator": "Sin", "arg": 1
+},
+
+  {"kind": "Binary"
+, "dst": 3, "operator": "Mul", "lhs": 0, "rhs": 2
+},
+
+  {"kind": "LoadP"
+, "dst": 4, "index": 3
+},
+
+  {"kind": "LoadY"
+, "dst": 5, "index": 3
+},
+
+  {"kind": "Binary"
+, "dst": 6, "operator": "Mul", "lhs": 4, "rhs": 5
+},
+
+  {"kind": "Binary"
+, "dst": 7, "operator": "Sub", "lhs": 3, "rhs": 6
+},
+
+  {"kind": "LoadP"
+, "dst": 8, "index": 4
+},
+
+  {"kind": "LoadY"
+, "dst": 9, "index": 3
+},
+
+  {"kind": "LoadY"
+, "dst": 10, "index": 3
+},
+
+  {"kind": "Binary"
+, "dst": 11, "operator": "Mul", "lhs": 9, "rhs": 10
+},
+
+  {"kind": "LoadP"
+, "dst": 12, "index": 6
+},
+
+  {"kind": "LoadP"
+, "dst": 13, "index": 6
+},
+
+  {"kind": "Binary"
+, "dst": 14, "operator": "Mul", "lhs": 12, "rhs": 13
+},
+
+  {"kind": "Binary"
+, "dst": 15, "operator": "Add", "lhs": 11, "rhs": 14
+},
+
+  {"kind": "Unary"
+, "dst": 16, "operator": "Sqrt", "arg": 15
+},
+
+  {"kind": "Binary"
+, "dst": 17, "operator": "Mul", "lhs": 8, "rhs": 16
+},
+
+  {"kind": "LoadY"
+, "dst": 18, "index": 3
+},
+
+  {"kind": "Binary"
+, "dst": 19, "operator": "Mul", "lhs": 17, "rhs": 18
+},
+
+  {"kind": "Binary"
+, "dst": 20, "operator": "Sub", "lhs": 7, "rhs": 19
+},
+
+  {"kind": "LoadP"
+, "dst": 21, "index": 0
+},
+
+  {"kind": "Binary"
+, "dst": 22, "operator": "Div", "lhs": 20, "rhs": 21
+},
+
+  {"kind": "StoreOutput"
+, "index": 3, "src": 22
+},
+
+
+
+  {"kind": "LoadP"
+, "dst": 0, "index": 7
+},
+
+  {"kind": "LoadY"
+, "dst": 1, "index": 2
+},
+
+  {"kind": "Unary"
+, "dst": 2, "operator": "Cos", "arg": 1
+},
+
+  {"kind": "Binary"
+, "dst": 3, "operator": "Mul", "lhs": 0, "rhs": 2
+},
+
+  {"kind": "LoadP"
+, "dst": 4, "index": 0
+},
+
+  {"kind": "LoadP"
+, "dst": 5, "index": 2
+},
+
+  {"kind": "Binary"
+, "dst": 6, "operator": "Mul", "lhs": 4, "rhs": 5
+},
+
+  {"kind": "Binary"
+, "dst": 7, "operator": "Sub", "lhs": 3, "rhs": 6
+},
+
+  {"kind": "LoadP"
+, "dst": 8, "index": 3
+},
+
+  {"kind": "LoadY"
+, "dst": 9, "index": 4
+},
+
+  {"kind": "Binary"
+, "dst": 10, "operator": "Mul", "lhs": 8, "rhs": 9
+},
+
+  {"kind": "Binary"
+, "dst": 11, "operator": "Sub", "lhs": 7, "rhs": 10
+},
+
+  {"kind": "LoadP"
+, "dst": 12, "index": 4
+},
+
+  {"kind": "LoadY"
+, "dst": 13, "index": 4
+},
+
+  {"kind": "LoadY"
+, "dst": 14, "index": 4
+},
+
+  {"kind": "Binary"
+, "dst": 15, "operator": "Mul", "lhs": 13, "rhs": 14
+},
+
+  {"kind": "LoadP"
+, "dst": 16, "index": 6
+},
+
+  {"kind": "LoadP"
+, "dst": 17, "index": 6
+},
+
+  {"kind": "Binary"
+, "dst": 18, "operator": "Mul", "lhs": 16, "rhs": 17
+},
+
+  {"kind": "Binary"
+, "dst": 19, "operator": "Add", "lhs": 15, "rhs": 18
+},
+
+  {"kind": "Unary"
+, "dst": 20, "operator": "Sqrt", "arg": 19
+},
+
+  {"kind": "Binary"
+, "dst": 21, "operator": "Mul", "lhs": 12, "rhs": 20
+},
+
+  {"kind": "LoadY"
+, "dst": 22, "index": 4
+},
+
+  {"kind": "Binary"
+, "dst": 23, "operator": "Mul", "lhs": 21, "rhs": 22
+},
+
+  {"kind": "Binary"
+, "dst": 24, "operator": "Sub", "lhs": 11, "rhs": 23
+},
+
+  {"kind": "LoadP"
+, "dst": 25, "index": 0
+},
+
+  {"kind": "Binary"
+, "dst": 26, "operator": "Div", "lhs": 24, "rhs": 25
+},
+
+  {"kind": "StoreOutput"
+, "index": 4, "src": 26
+},
+
+
+
+  {"kind": "LoadP"
+, "dst": 0, "index": 8
+},
+
+  {"kind": "LoadP"
+, "dst": 1, "index": 5
+},
+
+  {"kind": "LoadY"
+, "dst": 2, "index": 5
+},
+
+  {"kind": "Binary"
+, "dst": 3, "operator": "Mul", "lhs": 1, "rhs": 2
+},
+
+  {"kind": "Binary"
+, "dst": 4, "operator": "Sub", "lhs": 0, "rhs": 3
+},
+
+  {"kind": "LoadP"
+, "dst": 5, "index": 1
+},
+
+  {"kind": "Binary"
+, "dst": 6, "operator": "Div", "lhs": 4, "rhs": 5
+},
+
+  {"kind": "StoreOutput"
+, "index": 5, "src": 6
+}
+
+
+]}

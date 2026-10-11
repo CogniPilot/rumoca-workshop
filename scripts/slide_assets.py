@@ -9,7 +9,7 @@ def build_assets():
     from fit_drag_jax import load_flights
     dest = ROOT/"slides/assets"
     dest.mkdir(exist_ok=True)
-    ink, teal, gold, orange = "#23252a", "#007c91", "#b59a55", "#d65a31"
+    ink, teal, gold, orange = "#131d2a", "#007e87", "#cfb991", "#b65131"
     plt.rcParams.update({"font.size": 19, "axes.spines.top": False,
                          "axes.spines.right": False, "figure.dpi": 160,
                          "text.color": ink, "axes.labelcolor": ink})
@@ -21,14 +21,14 @@ def build_assets():
         ax.set(xlim=(0, 12), ylim=(0, height))
         ax.axis("off")
         return fig, ax
-    def box(ax, x, y, w, h, text, color="#e8f3f4", size=22):
+    def box(ax, x, y, w, h, text, color="#e7f2f3", size=22):
         ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.12",
                                   facecolor=color, edgecolor="none"))
         ax.text(x+w/2, y+h/2, text, ha="center", va="center", fontsize=size)
     def arrow(ax, a, b):
         ax.annotate("", xy=b, xytext=a, arrowprops={"arrowstyle": "->", "lw": 2.5, "color": teal})
     fig, ax = canvas(4)
-    box(ax, .2, 1.6, 2.5, 1.2, "Modelica\nQuadrotor.mo", "#eee6d2")
+    box(ax, .2, 1.6, 2.5, 1.2, "Modelica\nQuadrotor.mo", "#f0e7d5")
     box(ax, 4., 1.6, 2.4, 1.2, "Rumoca\ncompiler")
     box(ax, 8.1, 2.55, 3.3, 1.05, "JAX\nidentify drag")
     box(ax, 8.1, .5, 3.3, 1.05, "CasADi\noptimize flight")
@@ -77,7 +77,7 @@ def build_assets():
     save(fig, "simulation-hero.png")
     flights = load_flights(ROOT/"data/noisy_flight.csv")
     fig, ax = plt.subplots(figsize=(12, 4.1), layout="constrained")
-    for f, color in zip(flights, [teal, gold, orange, "#685a90"]):
+    for f, color in zip(flights, [teal, gold, orange, "#345fb5"]):
         label = f"Flight {f['id']} · {f['split']}"
         ax.plot(f["t"], f["y"][:, 3], color=color, lw=2.7, label=label)
     ax.set(xlabel="Time [s]", ylabel="Measured horizontal speed [m/s]")
@@ -105,8 +105,8 @@ def build_assets():
     axs[0].legend(fontsize=14)
     save(fig, "fit-hero.png")
     fig, ax = canvas(4.5)
-    box(ax, .2, 2.8, 3.1, 1., "Start hover\n(0, 1) m", "#eee6d2")
-    box(ax, 8.3, 2.8, 3.1, 1., "Target hover\n(4, 2) m", "#e8f3f4")
+    box(ax, .2, 2.8, 3.1, 1., "Start hover\n(0, 1) m", "#f0e7d5")
+    box(ax, 8.3, 2.8, 3.1, 1., "Target hover\n(4, 2) m", "#e7f2f3")
     arrow(ax, (3.6, 3.3), (8., 3.3))
     ax.text(5.8, 3.65, "6 s", ha="center", fontsize=24)
     ax.text(6, 2., "T: 0–20 N     τ: ±0.35 N m", ha="center", fontsize=24)
@@ -135,6 +135,8 @@ def build_assets():
     ax.text(6, .25, "Measure discrepancies. Improve the model and experiment.", ha="center", fontsize=22)
     save(fig, "research-loop.png")
     qrcode.make("https://github.com/CogniPilot/rumoca_workshop_amc2026").save(dest/"repo-qr.png")
+    qrcode.make("https://pylon-racing.geddes.rcac.purdue.edu/").save(dest/"pylon-qr.png")
+    qrcode.make("https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/COMMUNITY.md").save(dest/"community-qr.png")
 
 
 if __name__ == "__main__":

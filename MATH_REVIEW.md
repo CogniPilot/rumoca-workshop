@@ -1,5 +1,38 @@
 # Mathematical review and proof scope
 
+## Optional Torch and user-guide demonstrations
+
+The external Torch target renders the checked scalar Solve operations of the
+same Modelica vehicle. Its [backend checks](results/reference/torch_backend.json)
+compare 101 batched evaluations with JAX/CasADi, forward/reverse Jacobians and
+central-difference gradients, including zero velocity. Unsupported operations
+and events fail explicitly. This validates the teaching target for this model,
+not the whole Modelica language or arbitrary Torch programs.
+
+The [small hover policy](results/reference/torch_policy.json) uses two positive
+gains, zero torque, fixed known drag and 50 ms sampled feedback. Its dimensionless
+objective weights squared altitude error scaled by 1 m, vertical speed scaled
+by 1 m/s and thrust correction scaled by 6 N. Training and held-out initial
+conditions have distinct fixed seeds; the script checks complete policy-loss
+gradients and four-substep reintegration with the same feedback sampling period.
+The exact-real `vertical_subspace_tangent` theorem states that horizontal and
+pitch derivatives vanish at the restricted task's states and controls; it is
+pointwise tangency, not an ODE-solution or floating-point invariance theorem.
+[Heess et al., NeurIPS 2015](https://arxiv.org/abs/1510.09142) gives primary context
+for pathwise model/policy gradients. The demo is direct differentiable policy
+optimization; it does not implement their complete stochastic value-gradient
+algorithm or a model-free RL method.
+
+The deployed guide's NACA example uses artificial compressibility and a smooth
+solid penalization on a coarse grid. Primary method context:
+[Chorin's 1967 paper](https://math.berkeley.edu/~chorin/chorin67.pdf) and
+[Angot, Bruneau and Fabrie, 1999](https://www.math.u-bordeaux.fr/~chabrune/publi/ABF-NM.pdf).
+Those papers do not certify the guide's particular discretization or parameter
+choices. The [guide receipt](verification/user-guide.json) checks editor changes,
+a two-second WebGPU simulation and display controls only. It provides no
+lift/drag validation, convergence study, stability proof or hardware speedup
+benchmark. The guide uses a separate deployed browser compiler/runtime.
+
 This is a reproducible engineering teaching example for Purdue’s School of
 Aeronautics and Astronautics at Georgia Tech. Its exact-real invariants are
 checked in Lean; numerical claims have separate executable checks. Neither
@@ -236,6 +269,26 @@ Literature checks guide the approach; they are not a substitute for testing this
 implementation. The stored [numerical audit](results/reference/math_audit.json),
 [plot](results/reference/math_audit.png) and [verification report](VERIFICATION.md)
 are evidence for the specific workshop instance.
+
+## Mathematical context for the opening slides
+
+The broader research motivation uses several distinct kinds of analysis:
+
+- **Lie group theory:** [Solà, Deray & Atchuthan, *A micro Lie theory for state estimation in robotics*](https://arxiv.org/abs/1812.01537)
+  describes geometric representations, local perturbations and Jacobians used
+  in robotics estimation. The [CogniPilot model library](https://github.com/CogniPilot/modelica_models)
+  contains Lie-group, estimation and control building blocks. Today's planar
+  model does not exercise the full six-degree-of-freedom Lie-group workflow.
+- **Reachable sets:** [Althoff, Frehse & Girard, *Set Propagation Techniques for Reachability Analysis* (2021)](https://doi.org/10.1146/annurev-control-071420-081941)
+  surveys computation of guaranteed overapproximations under stated assumptions.
+  A nominal trajectory and sampled numerical checks do not constitute such an
+  enclosure. Today's workshop computes no reachable tube.
+- **Formal software verification:** the Lean companion checks selected exact-real
+  equations and invariants, with the trusted boundaries stated above. It does
+  not prove floating-point execution, compiler correctness or generated machine code.
+- **Identification and digital twins:** fitting physical parameters connects a
+  model to observations. Today's observations are synthetic; real-system twin
+  validation requires separate measurements and checks.
 
 ## Scope of the optional browser app experiments
 

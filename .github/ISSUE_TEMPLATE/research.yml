@@ -1,0 +1,33 @@
+name: Research or model collaboration
+description: Bring a problem, a model and one result we can check together.
+title: "Research/model: "
+body:
+  - type: markdown
+    attributes:
+      value: "Welcome! A small example and a clear question are enough to start a conversation."
+  - type: textarea
+    id: question
+    attributes:
+      label: What question do you want to investigate?
+      description: Tell us about your domain and the result you want to understand.
+    validations:
+      required: true
+  - type: textarea
+    id: model
+    attributes:
+      label: Model or starting point
+      description: Link a model or repository, paste a small example, or describe the model you want to build. Include units and assumptions where relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: check
+    attributes:
+      label: One result we can check together
+      description: An analytic case, measured comparison, numerical baseline or explicit mathematical property makes a useful first step.
+    validations:
+      required: true
+  - type: textarea
+    id: contribution
+    attributes:
+      label: What would you like to contribute or learn?
+      description: Models, experiments, geometry, identification, control, verification, compiler work and browser apps are all welcome.

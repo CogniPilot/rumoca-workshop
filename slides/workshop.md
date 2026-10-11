@@ -11,13 +11,14 @@ Layout: title
 Visual: assets/repo-qr.png
 Badge: American Modelica Conference · October 12, 2026
 
-- James Goppert
+- James Goppert · Micah Condie
 - Purdue University · School of Aeronautics and Astronautics
 - Georgia Tech · 10:00–13:00
+- Any modeling domain welcome · no aerospace background needed
 
 Checkpoint: github.com/CogniPilot/rumoca_workshop_amc2026
 Notes:
-Welcome to Hands-On with Rumoca. Introduce Purdue University, School of Aeronautics and Astronautics, and the Georgia Tech venue. Point to the QR and ask attendees to keep the participant worksheet open. No aerospace background is required. Allow five minutes for arrivals and orientation; announce the optional app challenge on the next slide.
+Welcome to Hands-On with Rumoca. Lead with the reason to care: “We want your declared physics to travel into simulation, identification, optimization and verification without silently becoming different models. Today you will take one small Modelica model through simulation, fitting and a constrained flight plan.” Introduce presenters James Goppert and Micah Condie, Purdue University, School of Aeronautics and Astronautics, and the Georgia Tech venue. Point to the QR and ask attendees to keep the participant worksheet open. No aerospace background is required. Welcome models and expertise from other disciplines; the closing slide has concrete ways to join the work. Allow five minutes for arrivals and orientation; announce the optional app challenge on the next slide.
 
 ## 02 · Run the core. Build something extra.
 Time: 10:05–10:10
@@ -33,18 +34,19 @@ Checkpoint: Enter by 12:40 · up to 5 demos · CHALLENGE.md · APP_PROMPT.md
 Notes:
 Announce the challenge now: “Power users: apply Rumoca to a problem you care about. Use your coding agent during downtime and independent work, put the app on your GitHub, and show one working interaction. The prize is a free CogniPilot stocking cap, chosen by an audience hand vote.” The core Modelica → JAX → CasADi exercises remain the main activity and need no agent or GitHub account. Point to APP_PROMPT.md for creative inspiration: an Artemis-inspired launch experience with Three.js visuals, or a flight lab extending rumoca_fixed_wing. These are optional prompts, not assigned projects; no Artemis app is supplied. Encourage participants to choose their own question and design. Full AD-based fixed-wing MPC is ambitious and optional. Entries close at 12:40: collect GitHub link, problem, agent/tool used and elapsed build time with estimates labeled. Up to five ready apps present at 12:50 for 45 seconds each; if more are ready, use a random draw plus a backup, with order drawn too. Selection is not a quality judgment; share all entry links in a gallery. Announce the selection by 12:45. Each demo names the agent and build time, contribution, working interaction and checked result. Ask for a show of hands for Modelica/JAX/CasADi experience. Today's data are synthetic and the trajectory is open loop.
 
-## 03 · Make declared physics reusable
+## 03 · Why Rumoca? One model, many questions.
 Time: 10:10–10:15
-Layout: statement
-Badge: Why we built Rumoca
+Layout: research
+Badge: Purdue + CogniPilot · how we are using declared mathematics
 
-- A physical model should travel with the question.
-- Simulation → identification → control → experiment
-- Open tools and explicit mathematics help us compare results.
+- Lie group theory: Represent rotations and motion with their geometric structure.
+- Reachable sets: Bound possible behavior of cyberphysical systems under uncertainty.
+- Formal software verification: Connect model equations to explicit proof obligations.
+- System identification + digital twins: Fit physical parameters; compare simulation with experiments.
 
-Checkpoint: Rumoca connects Modelica to modern computational tools.
+Checkpoint: Today: one Modelica model → simulation → identification → optimization.
 Notes:
-Explain the motivation: carry declared physical equations into simulation, parameter fitting and constrained optimization. Rumoca is an evolving open mathematical compiler; this workshop demonstrates a small tested workflow. OpenModelica, Dymola, Modelon, JuliaHub/Dyad, FMI, JAX and CasADi offer ecosystem and interoperability opportunities.
+Ask first: “How many versions of the same physics do you maintain?” Independently maintained simulation, fitting and control models drift apart. The payoff is a shared source that lets us compare tools without silently changing the plant. Attendees bring Modelica knowledge and models from domains beyond aerospace; that breadth is valuable to the research community. We are building a unified, declarative modeling and simulation environment for cyberphysical systems. Modelica expresses physical intent as equations, so execution choices can change without rewriting that intent. We want declared physics and mathematical structure to travel across computational tools, so we can inspect equations, compare implementations and check assumptions. Rumoca is our open Modelica compiler for this workflow. Explain our broader uses in plain language: Lie group theory keeps rotations and rigid-body motion geometrically structured; reachable-set computation asks which states may be possible under bounded initial conditions and disturbances; formal software verification connects specified properties to proof obligations; system identification and digital twins connect models with measured behavior and experiments. The CogniPilot modelica_models library includes LieGroups SO(2), SO(3), SE(2), SE(3), SE_2(3), geometric estimation/control, and pure functions intended for verification and reachable-set propagation. These functions are building blocks, not complete safety certificates. Today uses a compact planar model, synthetic data, JAX fitting, CasADi trajectory optimization and a scoped Lean companion proof. It does not demonstrate a full Lie-group vehicle, compute a reachable tube, certify generated machine code or validate a physical digital twin. References: https://github.com/CogniPilot/modelica_models; Solà, Deray and Atchuthan, A micro Lie theory for state estimation in robotics, https://arxiv.org/abs/1812.01537; Althoff, Frehse and Girard, Set Propagation Techniques for Reachability Analysis, https://doi.org/10.1146/annurev-control-071420-081941. These support the mathematical ideas, not a claim that Rumoca implements every cited algorithm. Welcome questions from any discipline; the workshop needs no aerospace background.
 
 ## 04 · Declare once. Ask different questions.
 Time: 10:15–10:20
@@ -52,11 +54,11 @@ Layout: wide
 Visual: assets/architecture.png
 Badge: Verified workshop architecture
 
-- Same Quadrotor.mo equations, two generated Python representations
+- Quadrotor.mo → JAX + CasADi · the same declared equations
 
 Checkpoint: Modelica declares physics · Rumoca compiles · backends compute.
 Notes:
-Explain that VS Code is the authoring/LSP path and the playground is browser modeling/simulation. Python 0.10.2 exports JAX and CasADi; deployed browser 0.8.13 is separate. Common Python code performs integration and builds optimization objectives, not another plant. Full language/backends are not certified by this example. Native compiler AD is not today's demonstration.
+Explain that VS Code is the authoring/LSP path and the playground is browser modeling/simulation. Python 0.10.2 exports JAX and CasADi; deployed browser 0.8.13 is separate. Common Python code performs integration and builds optimization objectives, not another plant. Full language/backends are not certified by this example. The compiler structure is an extension seam for solver specialization and heterogeneous compute. Fast Monte Carlo and RL, native AD or JAX/CasADi/PyTorch integrations, and extensible targets are research directions. Today's core qualifies particular CPU exports; the guide and small Torch target are separate demonstrations, not a general hardware-partitioning or throughput claim.
 
 ## 05 · Everyone gets a browser plot
 Time: 10:20–10:25
@@ -87,20 +89,34 @@ Notes:
 Codespaces URL https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1. Codespaces requires an account with allowance or billing enabled. Cloud qualification is recorded in VERIFICATION.md; account availability varies. Local: download/extract ZIP, install uv/extension, uv sync --frozen. Python and released editor are qualified on Linux/Windows x64 and macOS Intel/Apple Silicon. The local route uses uv and CPU packages.
 
 ## 07 · Edit with feedback. Check the pipeline.
-Time: 10:30–10:40
+Time: 10:30–10:35
 Layout: image
 Visual: assets/vscode-quadrotor.png
 Badge: HANDS-ON · released LSP verified on four platforms
 
-- Open models/Quadrotor.mo
+- Open Quadrotor.mo in models/
 - Hover m; try sin completion
 - Run the smoke test; open results/live
 Command: uv run --frozen python scripts/smoke_test.py
 Checkpoint: WORKSHOP PASS · model editor ready
 Notes:
-Give participants most of these ten minutes. Verify extension ID JamesGoppert.rumoca-modelica; choose Modelica language, trust workspace per policy. Show a temporary broken expression then undo for actual syntax diagnostics. Hover, completion and diagnostics passed in real VS Code 1.119.0 hosts on all four supported OS/architecture targets; navigation and Codespaces remote activation are separate checks. Smoke runs all three commands, checks gradient/backend agreement, fits, constraints and outputs. Local measured total about 12 seconds after setup. At 10:40 move to the exercise; use pair or demo recovery if setup is incomplete. App builders can begin their independent challenge once ready.
+Give participants most of these five minutes. Verify extension ID JamesGoppert.rumoca-modelica; choose Modelica language, trust workspace per policy. Show a temporary broken expression then undo for actual syntax diagnostics. Hover, completion and diagnostics passed in real VS Code 1.119.0 hosts on all four supported OS/architecture targets; Codespaces remote hover, completion and diagnostics are qualified separately. Smoke runs all three commands, checks gradient/backend agreement, fits, constraints and outputs. Local measured total about 12 seconds after setup. At 10:35 move to the user-guide showcase; use pair or demo recovery if setup is incomplete. App builders can begin their independent challenge once ready.
 
-## 08 · A planar quadrotor we can inspect
+## 08 · The user guide is a live modeling lab
+Time: 10:35–10:40
+Layout: image
+Visual: assets/user-guide-naca.png
+Badge: LIVE DEMO · NACA 2412 · embedded editor + WebGPU
+
+- Edit StopTime: 30 → 2 s
+- Simulate; select the final frame
+- Switch vorticity / pressure
+
+Checkpoint: User-guide link and recovery: WORKSHOP.md · no install needed
+Notes:
+Use the deployed user guide as a workshop resource, not only a reference manual. Open https://cognipilot.github.io/rumoca/user-guide/language/arrays-pde.html#2-d-navierstokes-flow-over-a-naca-2412-airfoil. This page embeds Monaco editors, simulation controls, plots and custom visualizations; it also has turkey heating and a vibrating membrane for other domains. Find AirfoilFlow, change StopTime = 30 to 2, leave NX=30 and NY=18, keep GPU checked and Interactive off, then Simulate. Move the time slider to the final frame and switch Field between Vorticity and Pressure. Our rehearsal used Chromium with a software WebGPU adapter; it demonstrates execution and UI, not a hardware speed claim. The NACA contour and coarse artificial-compressibility/penalization flow field make declared array equations visible; this is a qualitative teaching model, not a validated lift/drag or aircraft design calculation. If WebGPU is unavailable, clear GPU and use the CPU solver, or show the labeled saved capture; the CPU NACA route is not covered by this receipt. Do not spend the core exercise debugging graphics. The browser guide is a separately deployed compiler/runtime from the pinned Python release. Keep the warm successful tab ready before class. Five minutes maximum; participants can revisit these editors during downtime.
+
+## 09 · A planar quadrotor we can inspect
 Time: 10:40–10:45
 Layout: image
 Visual: assets/quadrotor.png
@@ -113,7 +129,7 @@ Checkpoint: Find velocities, pitch rate, thrust and torque in the model.
 Notes:
 States x,z,theta,vx,vz,omega; inputs T and tau. m=1.2 kg,Iyy=.025 kg m²,g=9.81. Diagram is generated from our convention, not a borrowed paper figure. Simplified world-axis drag; no roll/yaw/motors/wind/contact. The compact planar example keeps the equations inspectable and the computations short. Introduce pitch as the angle that directs the thrust; specialist aerodynamics is optional.
 
-## 09 · Your first engineering change: drag
+## 10 · Your first engineering change: drag
 Time: 10:45–10:55
 Layout: wide
 Visual: assets/drag-law.png
@@ -125,7 +141,7 @@ Checkpoint: What changes at high speed? What about negative velocity?
 Notes:
 Explain units kl N s/m,kq N s²/m²,epsilon .01 m/s. Smooth componentwise law approximates |v|v and never adds energy for nonnegative coefficients; Lean proves the signs and smoothing bound. It differs from Faessler et al.'s body-frame rotor-drag model; do not claim their flatness theorem. Allow 7–8 minutes editing/predicting. Browser users make the same coefficient change and Play again. Default parameter changes affect simulation; fitting estimates parameters explicitly.
 
-## 10 · More drag, less distance
+## 11 · More drag, less distance
 Time: 10:55–11:00
 Layout: wide
 Visual: assets/simulation-hero.png
@@ -136,19 +152,19 @@ Checkpoint: Compare your current default with the two reference cases.
 Notes:
 Open the actual live plot and ask participants to explain the sign. The slide plot uses emitted JAX equations and reference parameters; not real flight data. Browser wrapper coasts at level hover, so its numbers differ. Optional kl=.30 then restore .18. Instructor solution is an inheritance override, not a second dynamics implementation. Take two questions. End on time for break.
 
-## 11 · Break · back at 11:10
+## 12 · Break · back at 11:10
 Time: 11:00–11:10
 Layout: break
 Badge: Ten full minutes
 
 - Keep your editor and terminal open.
-- Recovery: results/reference/simulation.png
-- Next: fit drag from noisy flight data.
+- Your simulation plot is the recovery point.
+- Next: learn drag from noisy data.
 Checkpoint: Worksheet and commands: WORKSHOP.md · scan the opening QR.
 Notes:
 Actually pause for ten minutes. Help only small recovery questions; avoid turning the break into a lecture. Browser-only attendees can pair for the next exercise. Keep the next command in the worksheet, not a wall of terminal text.
 
-## 12 · Known experiment. Unknown coefficients.
+## 13 · Known experiment. Unknown coefficients.
 Time: 11:10–11:20
 Layout: wide
 Visual: assets/data-hero.png
@@ -159,7 +175,7 @@ Checkpoint: Speed variation helps separate linear and quadratic drag.
 Notes:
 Data generated by Rumoca CasADi + independent adaptive DOP853; JAX fit uses RK4. Position noise .025 m; velocity .035 m/s; angles/rates also noisy, but only exact initial angles/rates enter the fit. Commands and initial state assumed known. Holdout has different excitation and negative initial speed. The data are synthetic. Explain how real logs would bring actuator timing, wind and sensor bias. Truth is reporting only.
 
-## 13 · Differentiate the prediction error
+## 14 · Differentiate the prediction error
 Time: 11:20–11:30
 Layout: wide
 Visual: assets/fit-workflow.png
@@ -170,7 +186,7 @@ Checkpoint: JAX provides gradients. SciPy updates the coefficients.
 Notes:
 Show fit script's p_from_log, residual, value_and_grad, minimize. Each coefficient divided by one native SI unit equals exp(log parameter), so the logarithm is dimensionless; fitted bounds .001..2 in native units. Mean residual² divided by known noise variance is dimensionless, over x,z,vx,vz. Avoid differentiating noisy acceleration estimates. JAX derivative is of the implemented discrete rollout; finite differences are checks. The system ID is not an autodiff proof of model correctness. Participants can run the next command and inspect the provided algorithm.
 
-## 14 · Run the fit. Test the held-out flight.
+## 15 · Run the fit. Test the held-out flight.
 Time: 11:30–11:50
 Layout: wide
 Visual: assets/fit-hero.png
@@ -182,8 +198,8 @@ Checkpoint: Two coefficients · lower loss · improved held-out prediction
 Notes:
 Give at least 15 minutes for running the fit, inspecting outputs and individual questions. Participants who finish can return to the app challenge. Reference truth kl=.18 N s/m, kq=.08 N s²/m². Loss roughly 26932→1.073, about 25000×. Read rms_by_state with separate units or noise_scaled_rms; avoid calling mixed-unit legacy RMS metres. Recovery --one-coefficient assumes known kl=.18. Stretch: different initial guess; audit already checks six. Do not use holdout to tune parameters during this exercise. If live fails, label reference plot honestly.
 
-## 15 · Check your result. Keep building.
-Time: 11:50–12:00
+## 16 · Check your result. Keep building.
+Time: 11:50–11:55
 Layout: cards
 Badge: Checkpoint · go deeper at your own pace
 
@@ -194,21 +210,33 @@ Badge: Checkpoint · go deeper at your own pace
 
 Checkpoint: Fit complete? Continue your app or explore the optional checks.
 Notes:
-Spend two minutes showing where the result files are and eight minutes on independent work and questions. Ask whether the held-out prediction improved; no aerospace background is needed. App builders can continue the open challenge. Offer detailed gradient, excitation and proof discussion only when requested, using MATH_REVIEW.md and Appendix A1–A2. The audit checks six starting guesses, twelve noise seeds, Jacobians, analytic coasting and re-optimized profiles. Lean checks scoped exact-real equation equality and invariants; numerical and statistical claims have separate evidence.
+Spend one minute showing where the result files are and four minutes on independent work and questions. Ask whether the held-out prediction improved; no aerospace background is needed. App builders can continue the open challenge. Offer detailed gradient, excitation and proof discussion only when requested, using MATH_REVIEW.md and Appendix A1–A2. The audit checks six starting guesses, twelve noise seeds, Jacobians, analytic coasting and re-optimized profiles. Lean checks scoped exact-real equation equality and invariants; numerical and statistical claims have separate evidence.
 
-## 16 · Break · back at 12:10
+## 17 · Make a target. Learn a policy.
+Time: 11:55–12:00
+Layout: wide
+Visual: ../results/reference/torch_policy.png
+Badge: EXTENSIBILITY DEMO · same vehicle · Linux CPU / Codespaces
+
+- target.toml → generated Torch → differentiable policy learning
+Command: uv run --frozen --group torch python scripts/learn_hover_torch.py
+Checkpoint: Held-out cost ≈ 0.116 → 0.021 · optional instructions: BACKENDS.md
+Notes:
+Show templates/torch-ode/target.toml: ir="solve", explicit capabilities and output template. Open rhs.py.jinja and the generated/torch-ode/Quadrotor_torch.py output. The small external target maps the actual scalar Solve operations to Torch; it does not handwrite the vehicle dynamics or require a Rust compiler change. The target passes 101-point batched RHS comparisons, JAX/CasADi Jacobians, forward/reverse AD, finite differences and rejection gates. Use the optional preinstalled Torch environment in the Codespace; do not ask all attendees to download the extra CPU package during the five-minute demonstration. Run or show learn_hover_torch.py: two positive feedback gains learned through the same generated six-state vehicle's RK4 rollout, restricted to vertical hover with zero torque. Sixty Adam updates on 64 initial conditions; test on 128 new initial conditions. The dimensionless held-out cost drops about .116 to .021; complete objective gradients and fixed-sampling finer-integration checks pass. Call this differentiable model-based policy optimization, a bridge to RL, not PPO/DQN or full-flight autonomy. Known fixed drag coefficients are used for this separate teaching task. Source/template provenance is saved with results. The full target supports a small scalar ODE subset and rejects events/unsupported primitives. Invite compiler contributors to add one primitive and compare its derivatives before declaring support. This is one concrete extension seam toward fast Monte Carlo/RL, native AD or JAX/CasADi/PyTorch integrations and solver specialization for heterogeneous compute. Broad automatic partitioning and performance scaling remain research directions. Primary context: Heess et al. 2015 https://arxiv.org/abs/1510.09142. Stop at noon for a full break.
+
+## 18 · Break · back at 12:10
 Time: 12:00–12:10
 Layout: break
 Badge: Ten full minutes
 
-- Keep results/live/fit_drag.json.
-- Next: use your coefficients to optimize a flight.
-- Recovery: results/reference/fit_drag.png
+- Keep your fitted coefficients.
+- Next: plan a flight using your fit.
+- Your fit plot is the recovery point.
 Checkpoint: Same Modelica source; now compile to CasADi.
 Notes:
 Ten-minute break. Confirm most pairs have fit outputs. Do not edit the model again after fitting; a source hash will require refitting if it changes. Instructor has successful reference fit and primal trajectory warm start. No Mathlib or extra packages are needed for next exercise.
 
-## 17 · Move between hovers, respect limits
+## 19 · Move between hovers, respect limits
 Time: 12:10–12:20
 Layout: image
 Visual: assets/control-problem.png
@@ -221,7 +249,7 @@ Checkpoint: Identified drag is an input to this optimization.
 Notes:
 Explain 60 constant-input intervals and RK4 direct multiple shooting: decision states at each node, linked by continuity constraints. Bounds: thrust 0–20 N, torque ±0.35 N m, altitude 0.25–4 m, physical pitch ±0.55 rad, node pitch ±0.54 rad. Illustrative rotor pairs: each 0–10 N, arm 0.2 m. Normalize cost with physical reference scales before choosing weights. A stored successful primal solution warm-starts the default problem. Andersson et al. 2019, section 5.4 supports the transcription; their DAE/IDAS example differs from our ODE/RK4. Local feasible result; no global-optimality, electrical-energy or real-flight claim.
 
-## 18 · Solve. Inspect. Explain the braking.
+## 20 · Solve. Inspect. Explain the braking.
 Time: 12:20–12:40
 Layout: wide
 Visual: assets/control-hero.png
@@ -233,18 +261,21 @@ Checkpoint: Solve_Succeeded · limits respected · arrive near rest
 Notes:
 Allow about 15 minutes to run and inspect plots/JSON, with the remaining time for questions or app development. Live computation takes about 1–2 seconds locally. Show acceleration tilt and opposite tilt for braking. Confirm drag matches JAX values, defects near 1e−14, exact endpoint constraints at nodes, and about 2 mm altitude error under finer/adaptive integration. Analytic interval pitch extrema are about 0.542 rad, below 0.55. Checks allow 1e−6 numerical tolerance. Explain continuous/discretized differences and the absence of an all-time formal certificate. A source hash requires refitting after edits. Recover with canonical source/reference fit, then a clearly labeled reference figure. Optional --target-x 3 was separately rehearsed; its receipt is in verification/. MPC would repeat optimization online; it is not demonstrated.
 
-## 19 · Bring the model back to the experiment
+## 21 · Next up: pylon racing at PURT
 Time: 12:40–12:45
-Layout: wide
-Visual: assets/research-loop.png
-Badge: Public Purdue / CogniPilot work · separate from today’s demo
+Layout: race
+Visual: assets/pylon-qr.png
+Badge: Purdue UAS Research and Test Facility · upcoming competition
 
-- PURT: aircraft experiments, racing and security applications
-Checkpoint: Experimental validation is the next engineering step.
+- Design, simulate, then flight-test your autonomy
+- The next competition will leverage Rumoca
+- Digital twin → real aircraft at PURT
+
+Checkpoint: pylon-racing.geddes.rcac.purdue.edu
 Notes:
-Official PURT source: https://engineering.purdue.edu/PURT. Public workspace: https://github.com/CogniPilot/cognipilot_workspace documents pure Modelica, host Zephyr SIL and FastDyn/QEMU Cortex-M7 binary-in-the-loop. Documented upstream; not run here. Monte Carlo and reinforcement learning are application directions, not demonstrated results. Avoid unsupported benchmarks and facility superlatives. Synthetic fitting does not establish real-aircraft validity. Briefly connect the model to physical experiments, then introduce the lead fixed-wing app. Leave time for questions and move to app exploration at 12:45.
+Advertise the upcoming autonomous fixed-wing pylon racing competition at Purdue UAS Research and Test Facility (PURT). Say: “The next competition will leverage Rumoca. Build your autonomy, learn in a digital twin, and bring it to the experiment.” Point attendees to https://pylon-racing.geddes.rcac.purdue.edu/ for announcements and information. The published competition format connects software-in-the-loop digital-twin simulation with physical flight tests; current public dated details are for the April 2026 edition, so do not announce those dates as upcoming. Future-event dates, registration, rules and exact Rumoca integration will be announced by the organizers. The race-course graphic is illustrative, not an official course or safety envelope. Official facility source: https://engineering.purdue.edu/PURT. Public CogniPilot workspace https://github.com/CogniPilot/cognipilot_workspace documents pure Modelica, host Zephyr SIL and FastDyn/QEMU Cortex-M7 binary-in-the-loop; those paths were not executed here. Synthetic fitting does not establish real-aircraft validity. Briefly connect today's model → identify → optimize workflow with racing and physical validation. Collect challenge entries at 12:40, draw if more than five are ready, and announce presenters/order by 12:45. Move to the fixed-wing workbench at 12:45.
 
-## 20 · Explore the fixed-wing workbench
+## 22 · Explore the fixed-wing workbench
 Time: 12:45–12:50
 Layout: image
 Visual: assets/app-rumoca_fixed_wing.png
@@ -258,7 +289,7 @@ Checkpoint: Live links + short experiments: BROWSER_APPS.md
 Notes:
 Lead with rumoca_fixed_wing, the more complete app example. Coding agents helped build the interface and experiments; engineers review models and validate output. Briefly show Autopilot → Start sim, waypoint progress, then 50 to 20 Hz → Start sim again → pause. Invite participants to try that interaction or finish their challenge app. SLAM Lab is an additional example in development; only its inertial baseline and filter variant were rehearsed, not the complete visual-SLAM pipeline. Mocap is a viewer for stored benchmark results, not browser retraining. Fixed-wing and SLAM use WASM; the tested mocap viewer interaction does not. No login, agent account or API key is needed to explore these examples manually. They use different models from the core exercise and are outside its Lean proof scope. Keep the recorded screenshots available for network/graphics recovery. At 12:50 move to participant demos.
 
-## 21 · Show your app. Vote for the cap.
+## 23 · Show your app. Vote for the cap.
 Time: 12:50–12:55
 Layout: statement
 Badge: OPEN CHALLENGE · short demos · audience show of hands
@@ -271,19 +302,19 @@ Checkpoint: Random draw if more than 5 ready entries → audience hand vote
 Notes:
 Use up to five 45-second demos, selected by the announced readiness check and random draw if needed. Draw order and a backup in advance. Each entrant shows how Rumoca addresses their chosen problem, one working interaction, their GitHub and contribution, a checked result, and the agent/tool used plus elapsed build time. Label estimated times. Have tabs ready and keep the same limit for everyone. Five demos leave 75 seconds for a show-of-hands vote and award. Each attendee votes for one entry; count visibly. If tied, run a quick vote between the tied entries; if still tied, draw among them. Award one stocking cap to the winning entry; a team chooses its recipient. Share all entry links in a gallery, including those not drawn. If there are no entries, invite a brief question about the fixed-wing example and continue to the closing slide. CHALLENGE.md carries the same rules. Keep the core exercise as the workshop's main focus.
 
-## 22 · Questions + your next problem
+## 24 · Bring your model. Join the work.
 Time: 12:55–13:00
 Layout: title
-Visual: assets/repo-qr.png
-Badge: Keep the model. Change the question.
+Visual: assets/community-qr.png
+Badge: Your Modelica expertise can move this research forward
 
-- Bring a modeling, identification or optimization problem
-- Share a reproducible model and a measurable result
-- Collaborate with Purdue and the open-source community
+- Bring a model or a question from your own domain
+- Add a validation case, model library or compiler fix
+- Start a conversation: problem + model + one check
 
-Checkpoint: github.com/CogniPilot/rumoca_workshop_amc2026
+Checkpoint: Scan to join the work · COMMUNITY.md · questions welcome
 Notes:
-Invite collaboration: “Bring a hard modeling, identification, optimization or cyber-physical testing problem. We are developing open-source tools and validating ideas on real systems at Purdue. Let us find a useful research question together.” Point to the repository, worksheet, math review and contribution links. Welcome ecosystem partners. Answer final questions and stop at 13:00. Appendix A3 covers research directions if asked.
+Use a concrete invitation: “You already bring Modelica knowledge we need. Bring a model from your domain, one scientific question, and one result we can check together. Help us make declared mathematics reusable across simulation, identification, optimization and verification.” The community QR opens COMMUNITY.md, with a research/model collaboration issue form and links to the compiler and model library. Modelers can contribute small models with units and expected behavior; researchers can propose a measurable identification, geometry or verification question; software contributors can share a minimal compiler/backend reproduction or improvement. No aerospace background or coding-agent subscription is needed. Invite attendees to speak with James Goppert or Micah Condie before leaving, then continue through the public collaboration form. Ask: “Which model from your work would you try next?” Allow answers and questions rather than reading the bullets. The first step is a small shared check, not an implied promise of a certified full-system workflow. Point to today's tested source/results and MATH_REVIEW.md as an example of evidence we can build together. Stop at 13:00. Appendix A3 covers research directions if asked.
 
 ## A1 · Exact-real proofs and numerical evidence
 Time: Appendix
@@ -317,10 +348,10 @@ Time: Appendix
 Layout: cards
 Badge: FUTURE WORK · beyond the tested app experiments
 
-- Vision + SLAM + estimation + physics in one declared system
-- Richer browser / FMI / WebAssembly workflows
-- Compiler differentiation and larger symbolic systems
-- Partition work across CPU, GPU and embedded hardware
+- Solver specialization across CPU, GPU and embedded hardware
+- Fast batched Monte Carlo and reinforcement learning
+- Native AD and JAX / CasADi / PyTorch integrations
+- Extensible targets for your own numerical tools
 
 Checkpoint: Bring a falsifiable question and a measurable benchmark.
 Notes:

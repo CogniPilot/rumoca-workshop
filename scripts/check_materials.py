@@ -54,19 +54,27 @@ def main():
     with zipfile.ZipFile(ROOT/"slides/workshop.pptx") as deck:
         slides = [n for n in deck.namelist() if re.fullmatch(r"ppt/slides/slide\d+\.xml", n)]
         notes = [n for n in deck.namelist() if re.fullmatch(r"ppt/notesSlides/notesSlide\d+\.xml", n)]
-        assert len(slides) == build["slides"] == len(notes) == 26
+        assert len(slides) == build["slides"] == len(notes) == 28
         presentation = ET.fromstring(deck.read("ppt/presentation.xml"))
-        assert len(presentation.find("p:sldIdLst", ns)) == 26
+        assert len(presentation.find("p:sldIdLst", ns)) == 28
     for name in ["rumoca_fixed_wing", "slam_web", "mocap_sysid"]:
         assert read(f"verification/app-{name}.json")["status"] == "PASS"
         assert (ROOT/f"slides/assets/app-{name}.png").is_file()
-    report = {"status":"PASS", "local_markdown_links":links, "slides":26, "schedule_minutes":180,
+    for name, script in [("torch_backend", "check_torch_backend"), ("torch_policy", "learn_hover_torch")]:
+        receipt = read(f"results/reference/{name}.json")
+        assert receipt["status"] == "PASS" and receipt["source_sha256"] == source
+        assert receipt["script_sha256"] == digest(f"scripts/{script}.py")
+        for target, expected in receipt["target_sha256"].items():
+            assert digest(f"templates/torch-ode/{target}") == expected
+    assert read("verification/user-guide.json")["status"] == "PASS"
+    report = {"status":"PASS", "local_markdown_links":links, "slides":28, "schedule_minutes":180,
               "break_minutes":20, "model_sha256":source,
               "checks":["local links", "shared model/result/CSV/formal/browser provenance", "deck input/artifact hashes",
-                        "PPTX slides, speaker notes and office-renderer provenance", "app rehearsal receipts"],
+                        "PPTX slides, speaker notes and office-renderer provenance", "app rehearsal receipts",
+                        "Torch target and policy source/template provenance", "embedded user-guide rehearsal receipt"],
               "scope":"Packaging consistency. Mathematical, numerical and UI checks have separate receipts."}
     (ROOT/"verification/materials.json").write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8", newline="\n")
-    print(f"MATERIALS PASS: {links} local links, 26 slides with notes, 180 minutes, matching provenance")
+    print(f"MATERIALS PASS: {links} local links, 28 slides with notes, 180 minutes, matching provenance")
 
 if __name__ == "__main__":
     main()

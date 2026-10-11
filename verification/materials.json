@@ -1,7 +1,7 @@
 {
   "status": "PASS",
-  "local_markdown_links": 92,
-  "slides": 26,
+  "local_markdown_links": 131,
+  "slides": 28,
   "schedule_minutes": 180,
   "break_minutes": 20,
   "model_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
@@ -10,7 +10,9 @@
     "shared model/result/CSV/formal/browser provenance",
     "deck input/artifact hashes",
     "PPTX slides, speaker notes and office-renderer provenance",
-    "app rehearsal receipts"
+    "app rehearsal receipts",
+    "Torch target and policy source/template provenance",
+    "embedded user-guide rehearsal receipt"
   ],
   "scope": "Packaging consistency. Mathematical, numerical and UI checks have separate receipts."
 }

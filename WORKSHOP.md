@@ -1,7 +1,8 @@
 # Hands-On with Rumoca — participant worksheet
 
-**Monday, October 12, 2026 · Georgia Tech · 10:00–13:00**  
-James Goppert · Purdue University, School of Aeronautics and Astronautics
+**Monday, October 12, 2026 · Georgia Tech · 10:00–13:00**
+James Goppert · Micah Condie
+Purdue University, School of Aeronautics and Astronautics
 
 Start with [README.md](README.md) to choose browser, cloud or local access.
 Keep this worksheet open. Work in pairs if only one laptop has Python running.
@@ -11,6 +12,12 @@ No aerospace background is required; the example lets us change a parameter,
 fit measurements and solve a constrained problem in one workflow.
 
 ## 10:00–10:20 · The result we are building
+
+Why Rumoca? Keep the physical equations consistent as computational questions
+change. Our broader work uses declared mathematics for Lie group theory,
+reachable sets of cyberphysical systems, formal software verification,
+system identification and digital twins. Today focuses on simulation,
+identification and optimization of one small model.
 
 One source file, [models/Quadrotor.mo](models/Quadrotor.mo), declares six planar
 states and two inputs. Rumoca compiles it into JAX functions for identification
@@ -59,7 +66,7 @@ Wait for container setup to complete and the smoke test to say **WORKSHOP PASS**
 Fresh Codespaces startup, prebuild readiness and capacity for 50 users need
 instructor preflight; container CI alone does not verify them.
 
-**Local:** [download the ZIP](https://github.com/CogniPilot/rumoca_workshop_amc2026/archive/refs/heads/main.zip),
+**Local:** follow [local VS Code setup](LOCAL_SETUP.md), or [download the ZIP](https://github.com/CogniPilot/rumoca_workshop_amc2026/archive/refs/heads/main.zip),
 extract it, open the extracted folder in VS Code. Install
 [uv](https://docs.astral.sh/uv/getting-started/installation/) and the
 [Rumoca extension](https://marketplace.visualstudio.com/items?itemName=JamesGoppert.rumoca-modelica).
@@ -80,12 +87,29 @@ policy allows it. The status bar should identify **Modelica**. In Extensions,
 check that **Rumoca Modelica** (`JamesGoppert.rumoca-modelica`) is installed and
 enabled. Hover over `m`; try Ctrl+Space while typing `si` in an expression, then
 undo. The released extension provides verified hover, completion and syntax
-diagnostics on Linux x64, Windows x64 and both Mac architectures. Remote
-Codespaces activation is a separate preflight check.
+diagnostics on Linux x64, Windows x64 and both Mac architectures. Actual Codespace remote hover, completion and diagnostics are separately
+qualified; see [verification](VERIFICATION.md).
 
 **Checkpoint 1:** a browser plot; on the full route, **WORKSHOP PASS** and a
 `.mo` editor with the extension active. If setup takes over 10 minutes, use
 the browser and pair/screenshare path; [troubleshooting](TROUBLESHOOTING.md).
+
+## 10:35–10:40 · Explore a live user-guide example
+
+The [user guide](https://cognipilot.github.io/rumoca/user-guide/) includes embedded
+editors and runnable examples. Open the
+[NACA 2412 airfoil flow example](https://cognipilot.github.io/rumoca/user-guide/language/arrays-pde.html#2-d-navierstokes-flow-over-a-naca-2412-airfoil).
+In its `AirfoilFlow` editor, change **`StopTime = 30` to `StopTime = 2`**.
+Keep the default grid, leave **Interactive** off, and click **Simulate** with
+**GPU** checked. Select the last frame; try **Field → Vorticity / Pressure**.
+
+This is a coarse artificial-compressibility and penalized-flow teaching
+visualization, not validated airfoil performance. It uses a separate deployed
+browser runtime. If WebGPU is unavailable, clear GPU to try CPU, or follow the
+instructor's [saved demonstration](slides/assets/user-guide-naca.png).
+The recorded NACA rehearsal covers WebGPU; browser CPU performance varies.
+The same guide page also offers turkey heating and a vibrating membrane.
+Revisit these examples during downtime if they connect better with your domain.
 
 ## 10:40–11:00 · Change a parameter and see the result
 
@@ -179,7 +203,7 @@ estimates. Keep the canonical source equations unchanged. Restore script edits
 before the instructor’s smoke test. The instructor audit already checks six
 starting guesses and twelve noise seeds.
 
-## 11:50–12:00 · Check your result or keep building
+## 11:50–11:55 · Check your result or keep building
 
 Open the before-and-after plot. Check the fitted values and whether the held-out
 prediction improved. Ask for help if a result is unexpected. If you are ready,
@@ -190,6 +214,16 @@ floating-point arithmetic. It does not remove integration error or model error.
 Native compiler AD is a separate capability and is not demonstrated today.
 The Lean proofs and profile-likelihood audit are instructor evidence in
 [MATH_REVIEW.md](MATH_REVIEW.md), not extra attendee installs.
+
+## 11:55–12:00 · Extend a backend; learn a small policy
+
+Watch the instructor generate **PyTorch** dynamics from the same vehicle with
+an external `target.toml`, then learn two feedback gains for vertical hover.
+The [optional backend guide](BACKENDS.md) explains the code, checks and commands.
+This is differentiable model-based policy optimization, a small bridge to RL.
+The saved [held-out result](results/reference/torch_policy.png) compares 128 new
+initial conditions. The demonstration is qualified on Linux x64 CPU, including
+Codespaces; the extra Torch package is optional and need not be installed in class.
 
 ## 12:00–12:10 · Break 2
 
@@ -241,6 +275,11 @@ MPC would repeat optimization with updated measured state; we do not run an MPC 
 
 ## 12:40–12:45 · Connect the model to experiments
 
+The next **PURT pylon racing competition will leverage Rumoca**. Follow the
+[competition site](https://pylon-racing.geddes.rcac.purdue.edu/) for announcements.
+Its published format connects digital-twin simulation with physical flight
+tests. Upcoming dates, rules and registration will be announced by the organizers.
+
 Purdue’s [UAS Research and Test Facility](https://engineering.purdue.edu/PURT)
 grounds model-based work in experiments. Public
 [CogniPilot workspace documentation](https://github.com/CogniPilot/cognipilot_workspace)
@@ -275,9 +314,9 @@ chooses the winner of a **free CogniPilot stocking cap**.
 
 ## 12:55–13:00 · Questions, collaboration and take-home
 
-Bring a concrete identification, optimization or cyber-physical testing problem;
-start with a reproducible model and expected result. Contribute via
-[Rumoca](https://github.com/CogniPilot/rumoca) or
-[workshop issues](https://github.com/CogniPilot/rumoca_workshop_amc2026/issues).
+Bring a model from your own domain, a scientific question and one result we can
+check together. [Join the work](COMMUNITY.md): share a validation case, improve
+a model library or compiler, or open a research/model collaboration conversation.
+Speak with James Goppert or Micah Condie before leaving, or follow the closing QR.
 Take-home challenge: try another initial fit guess, inspect holdout prediction,
 and explain one model limitation before suggesting an extension.

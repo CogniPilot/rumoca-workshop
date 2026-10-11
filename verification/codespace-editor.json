@@ -1,0 +1,37 @@
+{
+  "vscodeVersion": "1.119.0",
+  "platform": "linux",
+  "architecture": "x64",
+  "testedAt": "2026-10-11T22:31:38.069Z",
+  "extensionVersion": "0.10.2",
+  "active": true,
+  "initialDiagnostics": [],
+  "completionLabels": [
+    "sign",
+    "sin",
+    "sinh",
+    "size"
+  ],
+  "hover": [
+    [
+      "```modelica\nparameter Real m\n```"
+    ]
+  ],
+  "errorDiagnostics": [
+    {
+      "message": "unexpected `;` (expected one of: (, +, -, ., [, break, ... (+13 more))",
+      "severity": 0
+    },
+    {
+      "message": "unexpected end of input (expected one of: ., algorithm, annotation, block, class, connector, ... (+31 more))",
+      "severity": 0
+    }
+  ],
+  "restoredDiagnostics": [],
+  "status": "PASS",
+  "environment": "Native VS Code workspace extension host inside an actual GitHub Codespace",
+  "connection": "VS Code desktop \u2192 Remote SSH \u2192 Codespace",
+  "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+  "test_source": "verification/vscode-test.cjs",
+  "scope": "Native remote extension activation, hover, completion and syntax diagnostics. GitHub browser frontend, quotas and class capacity are separate checks."
+}

@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "url": "https://cognipilot.github.io/rumoca/user-guide/language/arrays-pde.html#2-d-navierstokes-flow-over-a-naca-2412-airfoil",
+  "tested_at": "2026-10-11T22:39:16.165Z",
+  "browser": "Chromium 150, software WebGPU (SwiftShader)",
+  "original_source_sha256": "262adf7cdc1171a0dd80e7bf4e777a31a9ff5b95d2867dcc70dc03cae22b5f8d",
+  "source_edit": "StopTime = 30 → StopTime = 2; default NX=30, NY=18 unchanged",
+  "steps": [
+    "Open embedded Monaco editor",
+    "Shorten StopTime",
+    "Simulate on WebGPU",
+    "Select final frame",
+    "Switch Pressure → Vorticity"
+  ],
+  "status_text": "solver wgsl-ode RK4 (f32) · 21 points · t = 0…2 s · 6578.3 ms",
+  "elapsed_seconds": 21.021,
+  "wasm": [
+    {
+      "url": "https://cognipilot.github.io/rumoca/pkg/release-full-web/rumoca_bind_wasm_bg.wasm",
+      "status": 200
+    },
+    {
+      "url": "https://cognipilot.github.io/rumoca/pkg/release-full-web/rumoca_bind_wasm_bg.wasm",
+      "status": 200
+    },
+    {
+      "url": "https://cognipilot.github.io/rumoca/pkg/release-full-web/rumoca_bind_wasm_diffsol_bg.wasm",
+      "status": 200
+    }
+  ],
+  "page_errors": [],
+  "scope": "Deployed guide UI and a short default-grid simulation. Artificial-compressibility, penalized coarse-grid teaching visualization; no aerodynamic-accuracy, stability, lift/drag or hardware-performance validation."
+}

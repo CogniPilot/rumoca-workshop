@@ -4,6 +4,10 @@
     {"label": "Workshop: simulate", "type": "process", "command": "uv", "args": ["run", "--frozen", "python", "scripts/simulate.py"], "problemMatcher": []},
     {"label": "Workshop: JAX fit", "type": "process", "command": "uv", "args": ["run", "--frozen", "python", "scripts/fit_drag_jax.py"], "problemMatcher": []},
     {"label": "Workshop: CasADi optimize", "type": "process", "command": "uv", "args": ["run", "--frozen", "python", "scripts/optimize_casadi.py"], "problemMatcher": []},
-    {"label": "Workshop: smoke test", "type": "process", "command": "uv", "args": ["run", "--frozen", "python", "scripts/smoke_test.py"], "problemMatcher": []}
+    {"label": "Workshop: smoke test", "type": "process", "command": "uv", "args": ["run", "--frozen", "python", "scripts/smoke_test.py"], "problemMatcher": []},
+    {"label": "Workshop: math audit", "type": "process", "command": "uv", "args": ["run", "--frozen", "python", "scripts/math_audit.py", "--output", "results/live"], "problemMatcher": []},
+    {"label": "Workshop: CI checks", "dependsOn": ["Workshop: smoke test", "Workshop: math audit"], "dependsOrder": "sequence", "problemMatcher": []},
+    {"label": "Workshop: optional Torch backend check", "type": "process", "command": "uv", "args": ["run", "--frozen", "--group", "torch", "python", "scripts/check_torch_backend.py"], "problemMatcher": []},
+    {"label": "Workshop: optional Torch policy learning", "type": "process", "command": "uv", "args": ["run", "--frozen", "--group", "torch", "python", "scripts/learn_hover_torch.py"], "problemMatcher": []}
   ]
 }

@@ -112,9 +112,46 @@ passed all four jobs. Receipts: [verification/editors](verification/editors),
 local [vscode-linux.json](verification/vscode-linux.json), actual
 `vscode-quadrotor.png`, and test source in `verification/`.
 
-**Not qualified:** browser-native Python and Codespaces remote extension
-activation. The editor test is independent of Python CI; exact release/platform
+The same released extension passed from a **native VS Code workspace extension
+host inside an actual two-core GitHub Codespace**. Desktop VS Code connected
+over Remote SSH; the remote test ran the same activation, hover, completion,
+broken-syntax and restoration checks. [Cloud editor receipt](verification/codespace-editor.json).
+Startup also installed the pinned, hash-checked VSIX in Codespaces' normal
+remote extension directory and confirmed the second invocation was idempotent.
+
+**Not qualified:** browser-native Python and GitHub's browser frontend.
+The editor test is independent of Python CI; exact release/platform
 qualification does not guarantee every older OS/editor build.
+
+## Optional target, policy and embedded guide
+
+The [custom Torch target](BACKENDS.md) passed 101-point batched RHS parity,
+state/input/parameter Jacobians against JAX/CasADi, forward/reverse AD,
+finite-difference gradcheck and unsupported-feature rejection. The small vertical
+policy's held-out cost improved **0.1156→0.0210** on 128 new initial conditions;
+complete rollout gradients and fixed-sampling fine integration passed.
+[Backend receipt](results/reference/torch_backend.json),
+[policy receipt](results/reference/torch_policy.json). Both commands also passed
+in the actual two-core Codespace: about **8 s** and **27 s** after package setup.
+This is a restricted differentiable policy-learning task with known parameters,
+not a full-flight or model-free RL qualification. The optional CPU package is
+qualified on Linux x64 only and is excluded from the base install.
+
+The deployed [user guide](https://cognipilot.github.io/rumoca/user-guide/) embeds
+editors and simulations. Its NACA flow example passed an edit from 30 to 2 s,
+default-grid WebGPU simulation, final-frame selection and Pressure/Vorticity
+switching in Chromium with a **software** adapter. About **21 s** total UI time;
+reported integration about **6.6 s**. [Receipt](verification/user-guide.json),
+[test](verification/user-guide-proof.mjs),
+[capture](slides/assets/user-guide-naca.png). This is an experimental coarse
+artificial-compressibility/penalization visualization, not a CFD accuracy or
+hardware-throughput test. The guide runs a separate deployed compiler/runtime.
+
+The pinned **NixOS 26.05** flake evaluated all four declared systems and ran the
+CPU core, audit and Torch commands successfully on Linux. CI also uses its
+container-build app with the tested Debian Dockerfile. Participants use uv or
+Codespaces; the flake is a maintainer tool. Mac qualification uses ordinary uv;
+Darwin flake evaluation alone does not establish runtime support.
 
 ## Optional agent-built app gallery
 
@@ -162,23 +199,30 @@ proof terms from a clean environment.
 
 ## Presentation and external limits
 
-The deck has 22 main slides, four appendices, a contiguous **180-minute** schedule
+The deck has 24 main slides, four appendices, a contiguous **180-minute** schedule
 and **two ten-minute breaks**. One editable Markdown source builds both PPTX
-with speaker notes and PDF. All 26 PDF pages were rendered and visually reviewed;
+with speaker notes and PDF. Presenter credits name **James Goppert and Micah
+Condie**. The design uses Purdue gold with deep navy, a light background for
+technical figures, and teal/blue/terracotta accents for the three core phases.
+The opening explains why Rumoca and the broader Lie-group, reachability,
+formal-verification, identification and digital-twin context. A dedicated PURT
+pylon-racing slide links the competition site and its next event's planned
+Rumoca use; it does not repeat old event dates. All 28 PDF pages were rendered and visually reviewed;
 commands, QR, screenshots and reference plots are real. Presenter text uses
 large type; small evidence plots/screenshots are backups for live zoomable demos.
 The PDF embeds fonts. Inspect the PPTX in the actual presentation application
 for font substitution/projector differences before class.
 
 The editable PPTX was also rendered by **LibreOffice Impress 25.8.5.2** on Linux.
-All 26 pages retained every authored text item, with extracted text inside page
+All 28 pages retained every authored text item, with extracted text inside page
 bounds. [Presentation receipt](verification/presentation.json) records the
 artifact hash and scope. This adds an office-renderer check to the PDF review;
 the actual presentation laptop and projector remain preflight items.
 
-Fresh cloud qualification is pending. Account quotas, prebuild readiness,
+An actual two-core Codespace built the devcontainer and passed the core, audit,
+optional Torch and native remote-LSP checks. Account quotas, prebuild readiness,
 region availability and simultaneous class capacity are not established by
-container CI. Venue Wi-Fi and the presentation laptop/projector are preflight
+that individual rehearsal. Venue Wi-Fi and the presentation laptop/projector are preflight
 items. Browser, qualified local uv and reference plots provide alternate paths;
 [PUBLICATION.md](PUBLICATION.md) covers cloud access.
 

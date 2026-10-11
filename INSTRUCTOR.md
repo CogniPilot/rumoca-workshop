@@ -1,6 +1,7 @@
 # Instructor guide
 
-**James Goppert · Purdue University, School of Aeronautics and Astronautics**  
+**James Goppert · Micah Condie**
+Purdue University, School of Aeronautics and Astronautics
 American Modelica Conference · Georgia Tech · October 12, 2026 · 10:00–13:00
 
 Use [slides/workshop.pptx](slides/workshop.pptx); its speaker notes and
@@ -27,21 +28,23 @@ reference figures on your laptop. Participant entry:
 | Clock | Slides | Activity / instructor cue |
 |---|---|---|
 | 10:00–10:10 | 1–2 | Welcome, core outcomes and **open app challenge**. Announce GitHub demos, audience hand vote and stocking-cap prize now. |
-| 10:10–10:20 | 3–4 | Motivation and compiler bridge. Connect declared physics to different questions. |
-| 10:20–10:40 | 5–7 | Browser plot, cloud/local setup and smoke. Experienced participants can begin their app when ready. |
-| 10:40–11:00 | 8–10 | Introduce the small model, change a parameter, run and inspect the plot. Assume no aerospace background. |
-| 11:00–11:10 | 11 | **Break 1**, ten full minutes. Leave recovery link visible. |
-| 11:10–11:50 | 12–14 | Synthetic data, prediction error, JAX fit and before/after outputs. App builders use independent work time. |
-| 11:50–12:00 | 15 | Checkpoint and independent work/questions. Offer detailed mathematics only when requested. |
-| 12:00–12:10 | 16 | **Break 2**, ten full minutes. Leave next command visible. |
-| 12:10–12:40 | 17–18 | Constraints, CasADi solve and plots. Optional target variant or continued app development. |
-| 12:40–12:45 | 19 | PURT/upstream work; connect models to experiments and the lead app example. |
-| 12:45–12:50 | 20 | Explore **rumoca_fixed_wing** or finish challenge demos. Show SLAM as another example in development. |
-| 12:50–12:55 | 21 | Short participant demos, then **audience show-of-hands vote** and stocking-cap award. |
-| 12:55–13:00 | 22 | Questions, research invitation and take-home links. |
+| 10:10–10:20 | 3–4 | Why Rumoca; Lie groups, reachable sets, formal verification, identification and digital twins. Then show today's Modelica → JAX / CasADi compiler bridge. |
+| 10:20–10:35 | 5–7 | Browser plot, cloud/local setup and smoke. Experienced participants can begin their app when ready. |
+| 10:35–10:40 | 8 | User-guide embedded editor and NACA flow visualization. Use a warm successful tab; keep the saved capture ready. |
+| 10:40–11:00 | 9–11 | Introduce the small model, change a parameter, run and inspect the plot. Assume no aerospace background. |
+| 11:00–11:10 | 12 | **Break 1**, ten full minutes. Leave recovery link visible. |
+| 11:10–11:50 | 13–15 | Synthetic data, prediction error, JAX fit and before/after outputs. App builders use independent work time. |
+| 11:50–11:55 | 16 | Checkpoint and independent work/questions. Offer detailed mathematics only when requested. |
+| 11:55–12:00 | 17 | External target.toml → Torch dynamics → small differentiable hover policy. Instructor demo; optional package preinstalled. |
+| 12:00–12:10 | 18 | **Break 2**, ten full minutes. Leave next command visible. |
+| 12:10–12:40 | 19–20 | Constraints, CasADi solve and plots. Optional target variant or continued app development. |
+| 12:40–12:45 | 21 | Advertise the next PURT pylon racing competition and its planned Rumoca use. Share the site/QR; announce challenge presenters by 12:45. |
+| 12:45–12:50 | 22 | Explore **rumoca_fixed_wing** or finish challenge demos. Show SLAM as another example in development. |
+| 12:50–12:55 | 23 | Short participant demos, then **audience show-of-hands vote** and stocking-cap award. |
+| 12:55–13:00 | 24 | Questions, research invitation and take-home links. |
 
 Total **180 minutes**, including **20 minutes of breaks**. Aim for roughly
-35–40 minutes of explanation; the remaining teaching time is guided work,
+40–45 minutes of explanation; the remaining teaching time is guided work,
 individual app development, questions and interpreting results. Avoid reading every slide. Appendix slides
 have no extra scheduled time; open only when an audience question requires them.
 
@@ -130,6 +133,24 @@ does not establish global optimality. This is open loop; MPC is discussed only.
 
 ## Research slides: evidence and wording
 
+Open with why Rumoca: separate implementations of the same physical equations
+can drift. We want one declared model to feed simulation, identification,
+optimization and mathematical analysis. Slide 3 introduces our broader work:
+Lie group theory for structured motion, reachable-set computation for
+cyberphysical systems under uncertainty, formal software verification, system
+identification and digital twins. The
+[model library](https://github.com/CogniPilot/modelica_models) supplies geometric
+models and verification-oriented functions; these are building blocks with
+explicit proof obligations. Today's planar exercise does not compute a reachable
+tube or certify generated machine code. [Math context](MATH_REVIEW.md) links
+primary sources for the broader ideas.
+
+Slide 21 promotes the next **PURT pylon racing competition**, which will leverage
+Rumoca. Share the [competition site](https://pylon-racing.geddes.rcac.purdue.edu/)
+and the slide's QR code. The public site explains the digital-twin-to-flight-test
+format; its currently listed dates are for April 2026. Refer attendees to future
+announcements for the next event's dates, rules, registration and exact integration.
+
 The [official PURT page](https://engineering.purdue.edu/PURT) supports discussion
 of motion-capture experiments, aircraft testing, fixed-wing racing and security
 applications. The [Purdue faculty profile](https://engineering.purdue.edu/AAE/people/ptProfile?resource_id=37293)
@@ -163,10 +184,12 @@ but it does not establish these larger future workflows or million-variable
 scalability. Native AD/airfoil sensitivity is not demonstrated or benchmarked
 in this workshop. No unrelated evolving project is on the critical path.
 
-Suggested close: “Bring a hard modeling, identification,
-optimization or cyber-physical testing problem. We’re building open-source
-tools and validating ideas on real systems at Purdue. Let’s find a useful
-research question together.”
+Suggested close: “You bring Modelica knowledge we need. Bring a model from
+your domain, one scientific question and one result we can check together.
+Help us make declared mathematics reusable across tools.” Use the closing QR
+to open [COMMUNITY.md](COMMUNITY.md) and its research/model collaboration form.
+Invite attendees to speak with James Goppert or Micah Condie before leaving.
+Ask which model from their work they would try next, and leave time to listen.
 
 ## Optional app challenge
 
@@ -206,3 +229,28 @@ Each attendee votes for one entry by a show of hands. Count visibly, resolve a
 tie with a quick vote among the tied entries and, if needed, a draw. Award one
 free CogniPilot stocking cap to the winning entry. A winning team chooses its
 recipient. If there are no entries, take a brief app question and continue.
+
+## Rehearse the guide and extensibility showcases
+
+Slide 8 uses the [user guide](https://cognipilot.github.io/rumoca/user-guide/),
+with embedded editors and examples. Use the exact NACA link and short two-second
+sequence in [WORKSHOP.md](WORKSHOP.md). Warm the successful WebGPU tab before
+class; use the labeled saved capture for graphics/network recovery. Describe
+artificial-compressibility and penalization as a coarse qualitative teaching
+model. Do not claim aerodynamic prediction, lift/drag accuracy or GPU speedup
+from the UI rehearsal. Other guide examples include turkey heating and a membrane.
+
+Slide 17 makes extensibility concrete. Preinstall the optional CPU Torch group
+in the instructor's Linux x64 Codespace. Open `templates/torch-ode/target.toml`,
+then the generated RHS, run its check, and show the hover-policy result. The
+[backend guide](BACKENDS.md) gives commands, assumptions and a small extension
+exercise. Sixty Adam updates take about 27 seconds on the rehearsed two-core
+Codespace; first package downloads are separate. This is differentiable
+model-based policy optimization restricted to vertical motion, a bridge to RL.
+Keep the group optional so all other participants stay with the core exercises.
+
+Connect both to the vision: declarative Modelica for cyberphysical systems,
+solver specialization for heterogeneous compute, fast batched Monte Carlo/RL,
+native AD and integrations, and small independently checked target extensions.
+Today's checked CPU workflow and experimental browser GPU demo support concrete
+starting points; broad hardware partitioning and scaling remain research work.

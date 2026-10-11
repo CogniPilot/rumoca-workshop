@@ -1,1384 +1,4213 @@
 {
-  "slides": 26,
-  "main_slides": 22,
+  "slides": 28,
+  "main_slides": 24,
   "schedule_minutes": 180,
   "break_minutes": 20,
   "source": "slides/workshop.md",
   "input_sha256": {
     "data/noisy_flight.csv": "05f347f1ac9fc48fa225381f8d7fa5c0a8acaaefbcd89e9528aadc2350a94576",
     "models/Quadrotor.mo": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
-    "pyproject.toml": "36475251b29f2fa955756d042e2208ddd041238e9a52c617b19527c8753a26a8",
+    "pyproject.toml": "8ce881da0813eeca34d26f627f8c88a99ef9fcbaf0bdb2fc05a9d0dbc9c9a29c",
     "results/reference/fit_drag.json": "0d67f55cceecbd8d42fde39713bc1d1595687cc7a5481187dfa39035ea162fcb",
     "results/reference/math_audit.png": "e5cd008036cb9f2e810e0526a80839c1887ff8d6dc326d22be8b3e8fbd55ba4c",
     "results/reference/optimization.png": "8d3faf3355dac7c3bf1f081e19161dc04360766e299388be53457c36327458c7",
+    "results/reference/torch_policy.png": "b67366d51acfc5a515419f060eb4efdb283c6501379897cd3d8ecc65352bd8dc",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
-    "scripts/build_slides.py": "54777ced7761bbb110b31ab25e4f8b70028baed32698a4c8acdc12cd9bc71adf",
-    "scripts/slide_assets.py": "5251751fa062e586348c5ba08cb617c04b3647a71ea61994a85f1630cc4123a9",
+    "scripts/build_slides.py": "cf09a5f6d5d40ebe3fe5b0c1eae2d375dc93a49727f111967a329c3527a0fcb8",
+    "scripts/slide_assets.py": "95ead0a4fd083d407c0f8024ef43a17e59c21d7b5393e7b6ae1d888e6ad6fb09",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
-    "slides/assets/architecture.png": "9e50941a894991436f5fa6569d0585df54f79ad1fc5f8378c0c212e4fefb2ba7",
+    "slides/assets/architecture.png": "264ab4f7e3ec35c65e3bcbb56328d42414409c4739dfb59fee95275293c02bde",
     "slides/assets/browser-drag-linear.png": "641732c3c7ceaab4eb393cd290446cbb977172d5a67ee7614b2282c3ce1cd747",
-    "slides/assets/control-hero.png": "f4fdb9f13976f49f3bad3117f95d9b52b1df5e2df3ae43893da15d01f4404a9c",
-    "slides/assets/control-problem.png": "42735296ff174fc1e6702e9e46fff1f4b94fcb6a0cdcdfc05c3613b08ea65277",
-    "slides/assets/data-hero.png": "b3d5cc272cc2ad1a61eab723d7dadf09bf621a693b2ea9e68e0d865ad71acba4",
-    "slides/assets/drag-law.png": "dcab690c7ecf2c4d3f1b39bae3717e9dd7489713e1b36429eb4f6cd962d655ae",
-    "slides/assets/fit-hero.png": "3268c402ca2b5c47d4ae58c71bf15d715ec4e68a27f6be252a933007ece6496d",
-    "slides/assets/fit-workflow.png": "e1b773ff8ebaf16855f8b547592ac40b1d8091c214d2ad28f24ca1b6f6cd1655",
-    "slides/assets/quadrotor.png": "7d947fa8ade5275ce0c991a2e2be25b95919bfdfc6405be9f2e6748e85a7d377",
+    "slides/assets/community-qr.png": "06a4295b2abf152f6a85984248d852745f63fd912008b3a882267ab2190c8941",
+    "slides/assets/control-hero.png": "4458f83fc5a4e26128c21b44346f43e2ffbdc68b8cb4f8f088021563aa15b0ba",
+    "slides/assets/control-problem.png": "13b9ff50e114c3c545efecb65b1e434f472d9ae8f64d5028066ee62688937f5e",
+    "slides/assets/data-hero.png": "ed6331a2d01bd404630954c92e46e1febefd0c42d5b85bc630d86b13edff0f83",
+    "slides/assets/drag-law.png": "2ca77ffe0099f329c952f3745a1d1711a3a79b5dd973ef7eae497ac5b4a8c2e8",
+    "slides/assets/fit-hero.png": "0ba401f4c7d8994c078b10e9bbff0cd2857825c92329834aa0f95364d0918198",
+    "slides/assets/fit-workflow.png": "c54a93202c66c00c1ff76d6a16e280140b2c9dbd70fe6657357ab002174f17a6",
+    "slides/assets/pylon-qr.png": "7328a84a4db146ed49df5e748f9dcfd136d4bd420145c6e7266eb2ba42a3345f",
+    "slides/assets/quadrotor.png": "38398d48885fa1ceda300563223912fbc9cc82be73132214fc36db5c525a29a0",
     "slides/assets/repo-qr.png": "454cf12d53b2ccd6305ec58dde300c9b124cd4a83d89b9562ffed49b5e271861",
-    "slides/assets/research-loop.png": "4c4a4c7d057a4fd572eebcb0a0a2b4f5ae28037e7aace6f800e40df5060c7a0b",
-    "slides/assets/simulation-hero.png": "2fc1abc7cf25f8c3dd763af9d2b081508b72176a98559c1793da2e8f21aecf80",
+    "slides/assets/simulation-hero.png": "30e4af0a1707e14ff7c1aafbdf71813f2421cfb64d06f281590a29c26a7f24c9",
+    "slides/assets/user-guide-naca.png": "cd554217d939e7fabf149829cb6deba75e87cc44c5b8f1c130b6d00ff2dd3d98",
     "slides/assets/vscode-quadrotor.png": "e6002a5b2109928f38ff2598ba587ec0800c3947858c54fcc54bbd7b782467ed",
-    "slides/workshop.md": "6922ade9f0412ad88ce124d1a89d8d5d7d1be98456e998e7e169379f869028fd",
-    "uv.lock": "49c9f799e98db6fc5ead54544c50cfa02e36f0fe664ce53fecf66320153214c1"
+    "slides/workshop.md": "b5c1921aa6fe7f29e4d3e58b3fdff3ae5bae45339a0352058a676c23b81b6736",
+    "uv.lock": "9ee98bf337e21af4a4fc616c25e4f3d63f8b16bc6500b375dad975be5a4d9799"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "2861601dd33cf04f592a9b3095e6f33af904b2c6c69c8adc0efea7e4b5fb81d0",
-    "slides/workshop.pdf": "db6c30476833e0f66a9930fb5705872d9a16a8ba474195b265c533687d09cbe7"
+    "slides/workshop.pptx": "c7689207ef47e76a8a19d67784d444c39a6a7ac2f40b8dee2d5ac473e0f86813",
+    "slides/workshop.pdf": "405c0581ef99ce8ab073cdf87f71c5e6e1e081af04328da9680e25661c6c775f"
   },
   "rendered_text": [
     {
       "slide": "01",
-      "text": "American Modelica Conference \u00b7 October 12, 2026",
-      "font_pt": 13,
-      "lines": 1
+      "text": "AMERICAN MODELICA CONFERENCE \u00b7 OCTOBER 12, 2026",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.65,
+      "y": 0.35,
+      "width": 11,
+      "height": 0.24944444444444444
     },
     {
       "slide": "01",
       "text": "10:00\u201310:05",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.35,
+      "y": 0.35,
+      "width": 1.35,
+      "height": 0.24944444444444444
     },
     {
       "slide": "01",
-      "text": "Hands-On with Rumoca",
-      "font_pt": 52,
-      "lines": 1
+      "text": "ONE MODEL. SIMULATE. FIT. OPTIMIZE.",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.1,
+      "width": 9,
+      "height": 0.24944444444444444
     },
     {
       "slide": "01",
-      "text": "James Goppert",
+      "text": "Hands-On",
+      "font_pt": 59,
+      "lines": 1,
+      "x": 0.65,
+      "y": 1.6,
+      "width": 9.3,
+      "height": 1.076111111111111
+    },
+    {
+      "slide": "01",
+      "text": "with Rumoca",
+      "font_pt": 64,
+      "lines": 1,
+      "x": 0.65,
+      "y": 2.52,
+      "width": 9.8,
+      "height": 1.1622222222222223
+    },
+    {
+      "slide": "01",
+      "text": "James Goppert \u00b7 Micah Condie",
       "font_pt": 25,
-      "lines": 1
+      "lines": 1,
+      "x": 0.7,
+      "y": 3.87,
+      "width": 9.6,
+      "height": 0.4905555555555556
     },
     {
       "slide": "01",
       "text": "Purdue University \u00b7 School of Aeronautics and Astronautics",
-      "font_pt": 25,
-      "lines": 2
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.4,
+      "width": 9.45,
+      "height": 0.37
     },
     {
       "slide": "01",
       "text": "Georgia Tech \u00b7 10:00\u201313:00",
-      "font_pt": 25,
-      "lines": 1
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.85,
+      "width": 9.4,
+      "height": 0.37
+    },
+    {
+      "slide": "01",
+      "text": "Any modeling domain welcome \u00b7 no aerospace background needed",
+      "font_pt": 12,
+      "lines": 1,
+      "x": 0.7,
+      "y": 5.21,
+      "width": 9.4,
+      "height": 0.26666666666666666
+    },
+    {
+      "slide": "01",
+      "text": "MODEL",
+      "font_pt": 15,
+      "lines": 1,
+      "x": 0.86,
+      "y": 5.63,
+      "width": 2.5,
+      "height": 0.31833333333333336
+    },
+    {
+      "slide": "01",
+      "text": "Declare the physics",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.86,
+      "y": 5.98,
+      "width": 2.55,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "01",
+      "text": "FIT",
+      "font_pt": 15,
+      "lines": 1,
+      "x": 3.9800000000000004,
+      "y": 5.63,
+      "width": 2.5,
+      "height": 0.31833333333333336
+    },
+    {
+      "slide": "01",
+      "text": "Learn from data",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 3.9800000000000004,
+      "y": 5.98,
+      "width": 2.55,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "01",
+      "text": "OPTIMIZE",
+      "font_pt": 15,
+      "lines": 1,
+      "x": 7.1000000000000005,
+      "y": 5.63,
+      "width": 2.5,
+      "height": 0.31833333333333336
+    },
+    {
+      "slide": "01",
+      "text": "Plan the motion",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 7.1000000000000005,
+      "y": 5.98,
+      "width": 2.55,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "01",
+      "text": "OPEN THE WORKSHOP",
+      "font_pt": 8.5,
+      "lines": 1,
+      "x": 10.38,
+      "y": 6.02,
+      "width": 2.1,
+      "height": 0.20638888888888887
     },
     {
       "slide": "01",
       "text": "github.com/CogniPilot/rumoca_workshop_amc2026",
-      "font_pt": 20,
-      "lines": 1
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "01",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "01",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "01",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "01",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "01",
       "text": "01",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "02",
-      "text": "OPEN APP CHALLENGE \u00b7 demos + audience vote at 12:50",
-      "font_pt": 13,
-      "lines": 1
+      "text": "OPEN APP CHALLENGE \u00b7 DEMOS + AUDIENCE VOTE AT 12:50",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "02",
       "text": "10:05\u201310:10",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "02",
       "text": "Run the core. Build something extra.",
-      "font_pt": 37,
-      "lines": 1
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
+    },
+    {
+      "slide": "02",
+      "text": "YOUR PROBLEM. YOUR APP.",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.8,
+      "width": 8.6,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "02",
+      "text": "Make something",
+      "font_pt": 44,
+      "lines": 1,
+      "x": 0.65,
+      "y": 2.27,
+      "width": 8.2,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "02",
+      "text": "you care about.",
+      "font_pt": 44,
+      "lines": 1,
+      "x": 0.65,
+      "y": 3.02,
+      "width": 8.2,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "02",
+      "text": "Build with your agent during downtime.",
+      "font_pt": 23,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.05,
+      "width": 8.2,
+      "height": 0.4561111111111111
     },
     {
       "slide": "02",
       "text": "Core: edit a model, fit data, optimize a trajectory",
-      "font_pt": 27,
-      "lines": 2
-    },
-    {
-      "slide": "02",
-      "text": "Apply Rumoca to a problem you care about",
-      "font_pt": 27,
-      "lines": 2
+      "font_pt": 20,
+      "lines": 1,
+      "x": 0.7,
+      "y": 5.05,
+      "width": 8.2,
+      "height": 0.40444444444444444
     },
     {
       "slide": "02",
       "text": "Optional idea: a Three.js Artemis-style launch",
-      "font_pt": 27,
-      "lines": 2
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.7,
+      "y": 5.73,
+      "width": 8.2,
+      "height": 0.37
     },
     {
       "slide": "02",
-      "text": "Audience favorite wins a CogniPilot stocking cap",
-      "font_pt": 27,
-      "lines": 2
+      "text": "THE PRIZE",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 9.43,
+      "y": 2.08,
+      "width": 3,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "02",
+      "text": "FREE",
+      "font_pt": 41,
+      "lines": 1,
+      "x": 9.43,
+      "y": 2.66,
+      "width": 3,
+      "height": 0.766111111111111
+    },
+    {
+      "slide": "02",
+      "text": "CogniPilot\nstocking cap",
+      "font_pt": 24,
+      "lines": 2,
+      "x": 9.43,
+      "y": 3.43,
+      "width": 2.95,
+      "height": 0.8866666666666667
+    },
+    {
+      "slide": "02",
+      "text": "Short demos\nAudience hand vote",
+      "font_pt": 19,
+      "lines": 2,
+      "x": 9.43,
+      "y": 4.94,
+      "width": 2.95,
+      "height": 0.7144444444444444
     },
     {
       "slide": "02",
       "text": "Enter by 12:40 \u00b7 up to 5 demos \u00b7 CHALLENGE.md \u00b7 APP_PROMPT.md",
-      "font_pt": 20,
-      "lines": 1
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "02",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "02",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "02",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "02",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "02",
       "text": "02",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "03",
-      "text": "Why we built Rumoca",
-      "font_pt": 13,
-      "lines": 1
+      "text": "PURDUE + COGNIPILOT \u00b7 HOW WE ARE USING DECLARED MATHEMATICS",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "03",
       "text": "10:10\u201310:15",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "03",
-      "text": "Make declared physics reusable",
-      "font_pt": 37,
-      "lines": 1
+      "text": "Why Rumoca? One model, many questions.",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "03",
-      "text": "A physical model should travel with the question.",
-      "font_pt": 30,
-      "lines": 1
+      "text": "A unified, declarative foundation for cyberphysical systems.",
+      "font_pt": 24,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.55,
+      "width": 11.9,
+      "height": 0.47333333333333333
     },
     {
       "slide": "03",
-      "text": "Simulation \u2192 identification \u2192 control \u2192 experiment",
-      "font_pt": 30,
-      "lines": 1
+      "text": "Lie group theory",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.92,
+      "y": 2.45,
+      "width": 5.22,
+      "height": 0.42166666666666663
     },
     {
       "slide": "03",
-      "text": "Open tools and explicit mathematics help us compare results.",
-      "font_pt": 30,
-      "lines": 2
+      "text": "Represent rotations and motion with their geometric structure.",
+      "font_pt": 18,
+      "lines": 2,
+      "x": 0.92,
+      "y": 3.05,
+      "width": 5.22,
+      "height": 0.6799999999999999
     },
     {
       "slide": "03",
-      "text": "Rumoca connects Modelica to modern computational tools.",
-      "font_pt": 20,
-      "lines": 1
+      "text": "Reachable sets",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 7.09,
+      "y": 2.45,
+      "width": 5.22,
+      "height": 0.42166666666666663
     },
     {
       "slide": "03",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "Bound possible behavior of cyberphysical systems under uncertainty.",
+      "font_pt": 18,
+      "lines": 2,
+      "x": 7.09,
+      "y": 3.05,
+      "width": 5.22,
+      "height": 0.6799999999999999
+    },
+    {
+      "slide": "03",
+      "text": "Formal software verification",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.92,
+      "y": 4.3500000000000005,
+      "width": 5.22,
+      "height": 0.42166666666666663
+    },
+    {
+      "slide": "03",
+      "text": "Connect model equations to explicit proof obligations.",
+      "font_pt": 18,
+      "lines": 2,
+      "x": 0.92,
+      "y": 4.95,
+      "width": 5.22,
+      "height": 0.6799999999999999
+    },
+    {
+      "slide": "03",
+      "text": "System identification + digital twins",
+      "font_pt": 17.814401614886215,
+      "lines": 1,
+      "x": 7.09,
+      "y": 4.3500000000000005,
+      "width": 5.22,
+      "height": 0.3668035833674848
+    },
+    {
+      "slide": "03",
+      "text": "Fit physical parameters; compare simulation with experiments.",
+      "font_pt": 18,
+      "lines": 2,
+      "x": 7.09,
+      "y": 4.95,
+      "width": 5.22,
+      "height": 0.6799999999999999
+    },
+    {
+      "slide": "03",
+      "text": "Research directions: fast Monte Carlo / RL \u00b7 native AD \u00b7 heterogeneous compute",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.7,
+      "y": 6.1,
+      "width": 11.9,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "03",
+      "text": "Today: one Modelica model \u2192 simulation \u2192 identification \u2192 optimization.",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "03",
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "03",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "03",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "03",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "03",
       "text": "03",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "04",
-      "text": "Verified workshop architecture",
-      "font_pt": 13,
-      "lines": 1
+      "text": "VERIFIED WORKSHOP ARCHITECTURE",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "04",
       "text": "10:15\u201310:20",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "04",
       "text": "Declare once. Ask different questions.",
-      "font_pt": 37,
-      "lines": 1
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "04",
-      "text": "Same Quadrotor.mo equations, two generated Python representations",
-      "font_pt": 23,
-      "lines": 1
+      "text": "Quadrotor.mo \u2192 JAX + CasADi \u00b7 the same declared equations",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.85,
+      "y": 1.71,
+      "width": 11.6,
+      "height": 0.42166666666666663
     },
     {
       "slide": "04",
       "text": "Modelica declares physics \u00b7 Rumoca compiles \u00b7 backends compute.",
-      "font_pt": 20,
-      "lines": 1
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "04",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "04",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "04",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "04",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "04",
       "text": "04",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "05",
-      "text": "LIVE DEMO \u00b7 zero-install modeling",
-      "font_pt": 13,
-      "lines": 1
+      "text": "LIVE DEMO \u00b7 ZERO-INSTALL MODELING",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "05",
       "text": "10:20\u201310:25",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "05",
       "text": "Everyone gets a browser plot",
-      "font_pt": 37,
-      "lines": 1
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
+    },
+    {
+      "slide": "05",
+      "text": "TRY THIS",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "05",
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 2.4050000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "05",
       "text": "Open the playground",
-      "font_pt": 27,
-      "lines": 1
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "05",
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.2238888888888892,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "05",
       "text": "Paste the complete browser bundle",
-      "font_pt": 27,
-      "lines": 2
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 3.168888888888889,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "05",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.421666666666667,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "05",
       "text": "Gear \u2192 BrowserFlight \u2192 Play",
-      "font_pt": 27,
-      "lines": 2
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 4.366666666666667,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
     },
     {
       "slide": "05",
       "text": "You should see BrowserFlight Results and a plot.",
-      "font_pt": 20,
-      "lines": 1
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "05",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "05",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "05",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "05",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "05",
       "text": "05",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "06",
-      "text": "Setup decision \u00b7 worksheet has every link",
-      "font_pt": 13,
-      "lines": 1
+      "text": "SETUP DECISION \u00b7 WORKSHEET HAS EVERY LINK",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "06",
       "text": "10:25\u201310:30",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "06",
       "text": "Choose a full-workshop route",
-      "font_pt": 37,
-      "lines": 1
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
+    },
+    {
+      "slide": "06",
+      "text": "01",
+      "font_pt": 28,
+      "lines": 1,
+      "x": 0.9,
+      "y": 1.98,
+      "width": 0.72,
+      "height": 0.5422222222222222
     },
     {
       "slide": "06",
       "text": "Browser: modeling and predictions; no account",
-      "font_pt": 27,
-      "lines": 2
+      "font_pt": 24,
+      "lines": 2,
+      "x": 1.7799999999999998,
+      "y": 2.05,
+      "width": 4.4,
+      "height": 0.8866666666666667
+    },
+    {
+      "slide": "06",
+      "text": "02",
+      "font_pt": 28,
+      "lines": 1,
+      "x": 7.07,
+      "y": 1.98,
+      "width": 0.72,
+      "height": 0.5422222222222222
     },
     {
       "slide": "06",
       "text": "Codespaces: Python + VS Code; login and allowance",
-      "font_pt": 27,
-      "lines": 2
+      "font_pt": 24,
+      "lines": 2,
+      "x": 7.95,
+      "y": 2.05,
+      "width": 4.4,
+      "height": 0.8866666666666667
+    },
+    {
+      "slide": "06",
+      "text": "03",
+      "font_pt": 28,
+      "lines": 1,
+      "x": 0.9,
+      "y": 4.13,
+      "width": 0.72,
+      "height": 0.5422222222222222
     },
     {
       "slide": "06",
       "text": "Local uv: Python + VS Code; pinned CPU packages",
-      "font_pt": 27,
-      "lines": 2
+      "font_pt": 24,
+      "lines": 3,
+      "x": 1.7799999999999998,
+      "y": 4.2,
+      "width": 4.4,
+      "height": 1.3
+    },
+    {
+      "slide": "06",
+      "text": "04",
+      "font_pt": 28,
+      "lines": 1,
+      "x": 7.07,
+      "y": 4.13,
+      "width": 0.72,
+      "height": 0.5422222222222222
     },
     {
       "slide": "06",
       "text": "Pair or screenshare: keep working if setup fails",
-      "font_pt": 27,
-      "lines": 2
+      "font_pt": 24,
+      "lines": 2,
+      "x": 7.95,
+      "y": 4.2,
+      "width": 4.4,
+      "height": 0.8866666666666667
     },
     {
       "slide": "06",
       "text": "Switch route after ten minutes of setup trouble.",
-      "font_pt": 20,
-      "lines": 1
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "06",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "06",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "06",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "06",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "06",
       "text": "06",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "07",
-      "text": "HANDS-ON \u00b7 released LSP verified on four platforms",
-      "font_pt": 13,
-      "lines": 1
+      "text": "HANDS-ON \u00b7 RELEASED LSP VERIFIED ON FOUR PLATFORMS",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "07",
-      "text": "10:30\u201310:40",
-      "font_pt": 12,
-      "lines": 1
+      "text": "10:30\u201310:35",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "07",
       "text": "Edit with feedback. Check the pipeline.",
-      "font_pt": 37,
-      "lines": 1
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "07",
-      "text": "Open models/Quadrotor.mo",
-      "font_pt": 27,
-      "lines": 2
+      "text": "TRY THIS",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "07",
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 2.4050000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "07",
+      "text": "Open Quadrotor.mo in models/",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "07",
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.602777777777778,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "07",
       "text": "Hover m; try sin completion",
-      "font_pt": 27,
-      "lines": 2
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 3.5477777777777777,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "07",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.800555555555555,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "07",
       "text": "Run the smoke test; open results/live",
-      "font_pt": 27,
-      "lines": 2
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 4.745555555555555,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
     },
     {
       "slide": "07",
-      "text": "uv run --frozen python scripts/smoke_test.py",
-      "font_pt": 20,
-      "lines": 1
+      "text": "$ uv run --frozen python scripts/smoke_test.py",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.18,
+      "width": 11.7,
+      "height": 0.37
     },
     {
       "slide": "07",
       "text": "WORKSHOP PASS \u00b7 model editor ready",
-      "font_pt": 20,
-      "lines": 1
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "07",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "07",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "07",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "07",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "07",
       "text": "07",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "08",
-      "text": "Six states \u00b7 two aggregate inputs",
-      "font_pt": 13,
-      "lines": 1
+      "text": "LIVE DEMO \u00b7 NACA 2412 \u00b7 EMBEDDED EDITOR + WEBGPU",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "08",
-      "text": "10:40\u201310:45",
-      "font_pt": 12,
-      "lines": 1
+      "text": "10:35\u201310:40",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "08",
-      "text": "A planar quadrotor we can inspect",
-      "font_pt": 37,
-      "lines": 1
+      "text": "The user guide is a live modeling lab",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "08",
-      "text": "World x right; z up",
-      "font_pt": 27,
-      "lines": 1
+      "text": "TRY THIS",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
     },
     {
       "slide": "08",
-      "text": "Positive pitch tilts thrust toward +x",
-      "font_pt": 27,
-      "lines": 2
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 2.4050000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "08",
-      "text": "Hover: T = mg = 11.772 N",
-      "font_pt": 27,
-      "lines": 2
+      "text": "Edit StopTime: 30 \u2192 2 s",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
     },
     {
       "slide": "08",
-      "text": "Find velocities, pitch rate, thrust and torque in the model.",
-      "font_pt": 20,
-      "lines": 1
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.602777777777778,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "08",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "Simulate; select the final frame",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 3.5477777777777777,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "08",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.800555555555555,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "08",
+      "text": "Switch vorticity / pressure",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 4.745555555555555,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "08",
+      "text": "User-guide link and recovery: WORKSHOP.md \u00b7 no install needed",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "08",
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "08",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "08",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "08",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "08",
       "text": "08",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "09",
-      "text": "HANDS-ON \u00b7 predict before running",
-      "font_pt": 13,
-      "lines": 1
+      "text": "SIX STATES \u00b7 TWO AGGREGATE INPUTS",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "09",
-      "text": "10:45\u201310:55",
-      "font_pt": 12,
-      "lines": 1
+      "text": "10:40\u201310:45",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "09",
-      "text": "Your first engineering change: drag",
-      "font_pt": 37,
-      "lines": 1
+      "text": "A planar quadrotor we can inspect",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "09",
-      "text": "Change k_quad = 0.0 to 0.08, save, then simulate.",
-      "font_pt": 23,
-      "lines": 1
+      "text": "READ THE MODEL",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
     },
     {
       "slide": "09",
-      "text": "uv run --frozen python scripts/simulate.py",
-      "font_pt": 20,
-      "lines": 1
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 2.4050000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "09",
-      "text": "What changes at high speed? What about negative velocity?",
-      "font_pt": 20,
-      "lines": 1
+      "text": "World x right; z up",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 0.4388888888888889
     },
     {
       "slide": "09",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.2238888888888892,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "09",
+      "text": "Positive pitch tilts thrust toward +x",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 3.168888888888889,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "09",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.421666666666667,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "09",
+      "text": "Hover: T = mg = 11.772 N",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 4.366666666666667,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "09",
+      "text": "Find velocities, pitch rate, thrust and torque in the model.",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "09",
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "09",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "09",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "09",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "09",
       "text": "09",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "10",
-      "text": "HANDS-ON \u00b7 same prescribed Python inputs",
-      "font_pt": 13,
-      "lines": 1
+      "text": "HANDS-ON \u00b7 PREDICT BEFORE RUNNING",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "10",
-      "text": "10:55\u201311:00",
-      "font_pt": 12,
-      "lines": 1
+      "text": "10:45\u201310:55",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "10",
-      "text": "More drag, less distance",
-      "font_pt": 37,
-      "lines": 1
+      "text": "Your first engineering change: drag",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "10",
-      "text": "Reference at 8 s: 41.60 m \u2192 17.97 m",
-      "font_pt": 23,
-      "lines": 1
+      "text": "Change k_quad = 0.0 to 0.08, save, then simulate.",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.85,
+      "y": 1.71,
+      "width": 11.6,
+      "height": 0.42166666666666663
     },
     {
       "slide": "10",
-      "text": "Compare your current default with the two reference cases.",
-      "font_pt": 20,
-      "lines": 1
+      "text": "$ uv run --frozen python scripts/simulate.py",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.18,
+      "width": 11.7,
+      "height": 0.37
     },
     {
       "slide": "10",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "What changes at high speed? What about negative velocity?",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "10",
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "10",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "10",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "10",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "10",
       "text": "10",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "11",
-      "text": "Ten full minutes",
-      "font_pt": 13,
-      "lines": 1
+      "text": "HANDS-ON \u00b7 SAME PRESCRIBED PYTHON INPUTS",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "11",
-      "text": "11:00\u201311:10",
-      "font_pt": 12,
-      "lines": 1
+      "text": "10:55\u201311:00",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "11",
-      "text": "Break \u00b7 back at 11:10",
-      "font_pt": 50,
-      "lines": 1
+      "text": "More drag, less distance",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "11",
-      "text": "Keep your editor and terminal open.",
-      "font_pt": 28,
-      "lines": 1
+      "text": "Reference at 8 s: 41.60 m \u2192 17.97 m",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.85,
+      "y": 1.71,
+      "width": 11.6,
+      "height": 0.42166666666666663
     },
     {
       "slide": "11",
-      "text": "Recovery: results/reference/simulation.png",
-      "font_pt": 28,
-      "lines": 1
+      "text": "Compare your current default with the two reference cases.",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "11",
-      "text": "Next: fit drag from noisy flight data.",
-      "font_pt": 28,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
     },
     {
       "slide": "11",
-      "text": "Worksheet and commands: WORKSHOP.md \u00b7 scan the opening QR.",
-      "font_pt": 20,
-      "lines": 1
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "11",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "11",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "11",
       "text": "11",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "12",
-      "text": "Synthetic data \u00b7 seed 20261012",
-      "font_pt": 13,
-      "lines": 1
+      "text": "PAUSE / RECHARGE",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.65,
+      "y": 0.4,
+      "width": 10,
+      "height": 0.24944444444444444
     },
     {
       "slide": "12",
-      "text": "11:10\u201311:20",
-      "font_pt": 12,
-      "lines": 1
+      "text": "Back at",
+      "font_pt": 35,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.35,
+      "width": 8,
+      "height": 0.6627777777777777
     },
     {
       "slide": "12",
-      "text": "Known experiment. Unknown coefficients.",
-      "font_pt": 36.195143903287175,
-      "lines": 1
+      "text": "11:10",
+      "font_pt": 102,
+      "lines": 1,
+      "x": 0.62,
+      "y": 2.02,
+      "width": 8.3,
+      "height": 1.8166666666666669
     },
     {
       "slide": "12",
-      "text": "Three training flights; one held-out flight. 20 Hz, 8 s each.",
-      "font_pt": 23,
-      "lines": 1
+      "text": "KEEP YOUR PLACE",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 9.65,
+      "y": 1.6,
+      "width": 2.8,
+      "height": 0.24944444444444444
     },
     {
       "slide": "12",
-      "text": "Speed variation helps separate linear and quadratic drag.",
+      "text": "Keep your editor and terminal open.",
+      "font_pt": 19,
+      "lines": 2,
+      "x": 9.65,
+      "y": 2.18,
+      "width": 2.75,
+      "height": 0.7144444444444444
+    },
+    {
+      "slide": "12",
+      "text": "Your simulation plot is the recovery point.",
+      "font_pt": 19,
+      "lines": 3,
+      "x": 9.65,
+      "y": 3.2444444444444445,
+      "width": 2.75,
+      "height": 1.0416666666666665
+    },
+    {
+      "slide": "12",
+      "text": "Next: learn drag from noisy data.",
+      "font_pt": 19,
+      "lines": 2,
+      "x": 9.65,
+      "y": 4.636111111111111,
+      "width": 2.75,
+      "height": 0.7144444444444444
+    },
+    {
+      "slide": "12",
+      "text": "10 MINUTES",
       "font_pt": 20,
-      "lines": 1
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.35,
+      "width": 8.2,
+      "height": 0.40444444444444444
     },
     {
       "slide": "12",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "Stretch. Ask a question. Keep your editor open.",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.98,
+      "width": 8,
+      "height": 0.42166666666666663
+    },
+    {
+      "slide": "12",
+      "text": "Worksheet and commands: WORKSHOP.md \u00b7 scan the opening QR.",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "12",
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "12",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "12",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "12",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "12",
       "text": "12",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "13",
-      "text": "JAX autodiff through generated physics + RK4",
-      "font_pt": 13,
-      "lines": 1
+      "text": "SYNTHETIC DATA \u00b7 SEED 20261012",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "13",
-      "text": "11:20\u201311:30",
-      "font_pt": 12,
-      "lines": 1
+      "text": "11:10\u201311:20",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "13",
-      "text": "Differentiate the prediction error",
-      "font_pt": 37,
-      "lines": 1
+      "text": "Known experiment. Unknown coefficients.",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "13",
-      "text": "Positive parameters; noise-scaled loss; bounded optimization",
-      "font_pt": 23,
-      "lines": 1
+      "text": "Three training flights; one held-out flight. 20 Hz, 8 s each.",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.85,
+      "y": 1.71,
+      "width": 11.6,
+      "height": 0.42166666666666663
     },
     {
       "slide": "13",
-      "text": "JAX provides gradients. SciPy updates the coefficients.",
-      "font_pt": 20,
-      "lines": 1
+      "text": "Speed variation helps separate linear and quadratic drag.",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "13",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "13",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "13",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "13",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "13",
       "text": "13",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "14",
-      "text": "HANDS-ON \u00b7 estimates \u2248 0.18042 and 0.07991",
-      "font_pt": 13,
-      "lines": 1
+      "text": "JAX AUTODIFF THROUGH GENERATED PHYSICS + RK4",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "14",
-      "text": "11:30\u201311:50",
-      "font_pt": 12,
-      "lines": 1
+      "text": "11:20\u201311:30",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "14",
-      "text": "Run the fit. Test the held-out flight.",
-      "font_pt": 37,
-      "lines": 1
+      "text": "Differentiate the prediction error",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "14",
-      "text": "Open fit_drag.png and fit_drag.json; compare before and after.",
-      "font_pt": 23,
-      "lines": 1
+      "text": "Positive parameters; noise-scaled loss; bounded optimization",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.85,
+      "y": 1.71,
+      "width": 11.6,
+      "height": 0.42166666666666663
     },
     {
       "slide": "14",
-      "text": "uv run --frozen python scripts/fit_drag_jax.py",
-      "font_pt": 20,
-      "lines": 1
+      "text": "JAX provides gradients. SciPy updates the coefficients.",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "14",
-      "text": "Two coefficients \u00b7 lower loss \u00b7 improved held-out prediction",
-      "font_pt": 20,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
     },
     {
       "slide": "14",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "14",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "14",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "14",
       "text": "14",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "15",
-      "text": "Checkpoint \u00b7 go deeper at your own pace",
-      "font_pt": 13,
-      "lines": 1
+      "text": "HANDS-ON \u00b7 ESTIMATES \u2248 0.18042 AND 0.07991",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "15",
-      "text": "11:50\u201312:00",
-      "font_pt": 12,
-      "lines": 1
+      "text": "11:30\u201311:50",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "15",
-      "text": "Check your result. Keep building.",
-      "font_pt": 37,
-      "lines": 1
+      "text": "Run the fit. Test the held-out flight.",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "15",
-      "text": "Open your before-and-after prediction plot",
-      "font_pt": 27,
-      "lines": 2
+      "text": "Open fit_drag.png and fit_drag.json; compare before and after.",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.85,
+      "y": 1.71,
+      "width": 11.6,
+      "height": 0.42166666666666663
     },
     {
       "slide": "15",
-      "text": "Compare the held-out flight and fitted values",
-      "font_pt": 27,
-      "lines": 2
+      "text": "$ uv run --frozen python scripts/fit_drag_jax.py",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.18,
+      "width": 11.7,
+      "height": 0.37
     },
     {
       "slide": "15",
-      "text": "Stretch: rerun from another starting guess",
-      "font_pt": 27,
-      "lines": 2
+      "text": "Two coefficients \u00b7 lower loss \u00b7 improved held-out prediction",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "15",
-      "text": "App builders: keep your prototype moving",
-      "font_pt": 27,
-      "lines": 2
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
     },
     {
       "slide": "15",
-      "text": "Fit complete? Continue your app or explore the optional checks.",
-      "font_pt": 20,
-      "lines": 1
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "15",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "15",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "15",
       "text": "15",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "16",
-      "text": "Ten full minutes",
-      "font_pt": 13,
-      "lines": 1
+      "text": "CHECKPOINT \u00b7 GO DEEPER AT YOUR OWN PACE",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "16",
-      "text": "12:00\u201312:10",
-      "font_pt": 12,
-      "lines": 1
+      "text": "11:50\u201311:55",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "16",
-      "text": "Break \u00b7 back at 12:10",
-      "font_pt": 50,
-      "lines": 1
+      "text": "Check your result. Keep building.",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "16",
-      "text": "Keep results/live/fit_drag.json.",
+      "text": "01",
       "font_pt": 28,
-      "lines": 1
+      "lines": 1,
+      "x": 0.9,
+      "y": 1.98,
+      "width": 0.72,
+      "height": 0.5422222222222222
     },
     {
       "slide": "16",
-      "text": "Next: use your coefficients to optimize a flight.",
+      "text": "Open your before-and-after prediction plot",
+      "font_pt": 24,
+      "lines": 3,
+      "x": 1.7799999999999998,
+      "y": 2.05,
+      "width": 4.4,
+      "height": 1.3
+    },
+    {
+      "slide": "16",
+      "text": "02",
       "font_pt": 28,
-      "lines": 1
+      "lines": 1,
+      "x": 7.07,
+      "y": 1.98,
+      "width": 0.72,
+      "height": 0.5422222222222222
     },
     {
       "slide": "16",
-      "text": "Recovery: results/reference/fit_drag.png",
+      "text": "Compare the held-out flight and fitted values",
+      "font_pt": 24,
+      "lines": 2,
+      "x": 7.95,
+      "y": 2.05,
+      "width": 4.4,
+      "height": 0.8866666666666667
+    },
+    {
+      "slide": "16",
+      "text": "03",
       "font_pt": 28,
-      "lines": 1
+      "lines": 1,
+      "x": 0.9,
+      "y": 4.13,
+      "width": 0.72,
+      "height": 0.5422222222222222
     },
     {
       "slide": "16",
-      "text": "Same Modelica source; now compile to CasADi.",
-      "font_pt": 20,
-      "lines": 1
+      "text": "Stretch: rerun from another starting guess",
+      "font_pt": 24,
+      "lines": 2,
+      "x": 1.7799999999999998,
+      "y": 4.2,
+      "width": 4.4,
+      "height": 0.8866666666666667
     },
     {
       "slide": "16",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "04",
+      "font_pt": 28,
+      "lines": 1,
+      "x": 7.07,
+      "y": 4.13,
+      "width": 0.72,
+      "height": 0.5422222222222222
+    },
+    {
+      "slide": "16",
+      "text": "App builders: keep your prototype moving",
+      "font_pt": 24,
+      "lines": 2,
+      "x": 7.95,
+      "y": 4.2,
+      "width": 4.4,
+      "height": 0.8866666666666667
+    },
+    {
+      "slide": "16",
+      "text": "Fit complete? Continue your app or explore the optional checks.",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "16",
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "16",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "16",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "16",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "16",
       "text": "16",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "17",
-      "text": "CasADi symbolic dynamics \u00b7 IPOPT local NLP",
-      "font_pt": 13,
-      "lines": 1
+      "text": "EXTENSIBILITY DEMO \u00b7 SAME VEHICLE \u00b7 LINUX CPU / CODESPACES",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "17",
-      "text": "12:10\u201312:20",
-      "font_pt": 12,
-      "lines": 1
+      "text": "11:55\u201312:00",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "17",
-      "text": "Move between hovers, respect limits",
-      "font_pt": 37,
-      "lines": 1
+      "text": "Make a target. Learn a policy.",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "17",
-      "text": "(0, 1) m \u2192 (4, 2) m in 6 s",
-      "font_pt": 27,
-      "lines": 2
+      "text": "target.toml \u2192 generated Torch \u2192 differentiable policy learning",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.85,
+      "y": 1.71,
+      "width": 11.6,
+      "height": 0.42166666666666663
     },
     {
       "slide": "17",
-      "text": "Track target; limit effort and control changes",
-      "font_pt": 27,
-      "lines": 3
+      "text": "$ uv run --frozen --group torch python scripts/learn_hover_torch.py",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.18,
+      "width": 11.7,
+      "height": 0.37
     },
     {
       "slide": "17",
-      "text": "Bound thrust, torque, pitch and altitude",
-      "font_pt": 27,
-      "lines": 2
+      "text": "Held-out cost \u2248 0.116 \u2192 0.021 \u00b7 optional instructions: BACKENDS.md",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "17",
-      "text": "Identified drag is an input to this optimization.",
-      "font_pt": 20,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
     },
     {
       "slide": "17",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "17",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "17",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "17",
       "text": "17",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "18",
-      "text": "HANDS-ON \u00b7 fitted physics, constrained trajectory",
-      "font_pt": 13,
-      "lines": 1
+      "text": "PAUSE / RECHARGE",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.65,
+      "y": 0.4,
+      "width": 10,
+      "height": 0.24944444444444444
     },
     {
       "slide": "18",
-      "text": "12:20\u201312:40",
-      "font_pt": 12,
-      "lines": 1
+      "text": "Back at",
+      "font_pt": 35,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.35,
+      "width": 8,
+      "height": 0.6627777777777777
     },
     {
       "slide": "18",
-      "text": "Solve. Inspect. Explain the braking.",
-      "font_pt": 37,
-      "lines": 1
+      "text": "12:10",
+      "font_pt": 102,
+      "lines": 1,
+      "x": 0.62,
+      "y": 2.02,
+      "width": 8.3,
+      "height": 1.8166666666666669
     },
     {
       "slide": "18",
-      "text": "Open optimization.png and optimization.json.",
-      "font_pt": 23,
-      "lines": 1
+      "text": "KEEP YOUR PLACE",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 9.65,
+      "y": 1.6,
+      "width": 2.8,
+      "height": 0.24944444444444444
     },
     {
       "slide": "18",
-      "text": "uv run --frozen python scripts/optimize_casadi.py",
+      "text": "Keep your fitted coefficients.",
+      "font_pt": 19,
+      "lines": 2,
+      "x": 9.65,
+      "y": 2.18,
+      "width": 2.75,
+      "height": 0.7144444444444444
+    },
+    {
+      "slide": "18",
+      "text": "Next: plan a flight using your fit.",
+      "font_pt": 19,
+      "lines": 2,
+      "x": 9.65,
+      "y": 3.2444444444444445,
+      "width": 2.75,
+      "height": 0.7144444444444444
+    },
+    {
+      "slide": "18",
+      "text": "Your fit plot is the recovery point.",
+      "font_pt": 19,
+      "lines": 2,
+      "x": 9.65,
+      "y": 4.308888888888889,
+      "width": 2.75,
+      "height": 0.7144444444444444
+    },
+    {
+      "slide": "18",
+      "text": "10 MINUTES",
       "font_pt": 20,
-      "lines": 1
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.35,
+      "width": 8.2,
+      "height": 0.40444444444444444
     },
     {
       "slide": "18",
-      "text": "Solve_Succeeded \u00b7 limits respected \u00b7 arrive near rest",
-      "font_pt": 20,
-      "lines": 1
+      "text": "Stretch. Ask a question. Keep your editor open.",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.98,
+      "width": 8,
+      "height": 0.42166666666666663
     },
     {
       "slide": "18",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "Same Modelica source; now compile to CasADi.",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "18",
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "18",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "18",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "18",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "18",
       "text": "18",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "19",
-      "text": "Public Purdue / CogniPilot work \u00b7 separate from today\u2019s demo",
-      "font_pt": 13,
-      "lines": 1
+      "text": "CASADI SYMBOLIC DYNAMICS \u00b7 IPOPT LOCAL NLP",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "19",
-      "text": "12:40\u201312:45",
-      "font_pt": 12,
-      "lines": 1
+      "text": "12:10\u201312:20",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "19",
-      "text": "Bring the model back to the experiment",
-      "font_pt": 37,
-      "lines": 1
+      "text": "Move between hovers, respect limits",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "19",
-      "text": "PURT: aircraft experiments, racing and security applications",
-      "font_pt": 23,
-      "lines": 1
+      "text": "THE IDEA",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
     },
     {
       "slide": "19",
-      "text": "Experimental validation is the next engineering step.",
-      "font_pt": 20,
-      "lines": 1
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 2.4050000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "19",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "(0, 1) m \u2192 (4, 2) m in 6 s",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "19",
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.602777777777778,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "19",
+      "text": "Track target; limit effort and control changes",
+      "font_pt": 22,
+      "lines": 3,
+      "x": 1.25,
+      "y": 3.5477777777777777,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
+    },
+    {
+      "slide": "19",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 5.179444444444444,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "19",
+      "text": "Bound thrust, torque, pitch and altitude",
+      "font_pt": 22,
+      "lines": 3,
+      "x": 1.25,
+      "y": 5.124444444444444,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
+    },
+    {
+      "slide": "19",
+      "text": "Identified drag is an input to this optimization.",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "19",
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "19",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "19",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "19",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "19",
       "text": "19",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "20",
-      "text": "AGENT-BUILT APPS \u00b7 try fixed-wing or finish your own demo",
-      "font_pt": 13,
-      "lines": 1
+      "text": "HANDS-ON \u00b7 FITTED PHYSICS, CONSTRAINED TRAJECTORY",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "20",
-      "text": "12:45\u201312:50",
-      "font_pt": 12,
-      "lines": 1
+      "text": "12:20\u201312:40",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "20",
-      "text": "Explore the fixed-wing workbench",
-      "font_pt": 37,
-      "lines": 1
+      "text": "Solve. Inspect. Explain the braking.",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "20",
-      "text": "Modelica flight simulation + autopilot",
-      "font_pt": 27,
-      "lines": 2
+      "text": "Open optimization.png and optimization.json.",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.85,
+      "y": 1.71,
+      "width": 11.6,
+      "height": 0.42166666666666663
     },
     {
       "slide": "20",
-      "text": "Try 50 Hz \u2192 20 Hz, restart, then observe",
-      "font_pt": 27,
-      "lines": 2
+      "text": "$ uv run --frozen python scripts/optimize_casadi.py",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.18,
+      "width": 11.7,
+      "height": 0.37
     },
     {
       "slide": "20",
-      "text": "Also: slam_web (in development), mocap_sysid",
-      "font_pt": 27,
-      "lines": 3
+      "text": "Solve_Succeeded \u00b7 limits respected \u00b7 arrive near rest",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "20",
-      "text": "Live links + short experiments: BROWSER_APPS.md",
-      "font_pt": 20,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
     },
     {
       "slide": "20",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "20",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "20",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "20",
       "text": "20",
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
+    },
+    {
+      "slide": "21",
+      "text": "PURDUE UAS RESEARCH AND TEST FACILITY \u00b7 UPCOMING COMPETITION",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "21",
+      "text": "12:40\u201312:45",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "21",
+      "text": "Next up: pylon racing at PURT",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
+    },
+    {
+      "slide": "21",
+      "text": "FROM DIGITAL TWIN TO THE RACE COURSE",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.76,
+      "width": 9,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "21",
+      "text": "Build. Fly. Race.",
+      "font_pt": 49,
+      "lines": 1,
+      "x": 0.65,
+      "y": 2.26,
+      "width": 9.35,
+      "height": 0.903888888888889
+    },
+    {
+      "slide": "21",
+      "text": "The next competition will leverage Rumoca",
+      "font_pt": 26,
+      "lines": 1,
+      "x": 0.7,
+      "y": 3.24,
+      "width": 9.05,
+      "height": 0.5077777777777779
+    },
+    {
+      "slide": "21",
+      "text": "Design, simulate, then flight-test your autonomy",
+      "font_pt": 23,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.15,
+      "width": 9.05,
+      "height": 0.4561111111111111
+    },
+    {
+      "slide": "21",
+      "text": "Digital twin \u2192 real aircraft at PURT",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.72,
+      "width": 9.05,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "21",
+      "text": "01",
       "font_pt": 12,
-      "lines": 1
+      "lines": 1,
+      "x": 1.4,
+      "y": 5.52,
+      "width": 0.5,
+      "height": 0.26666666666666666
     },
     {
       "slide": "21",
-      "text": "OPEN CHALLENGE \u00b7 short demos \u00b7 audience show of hands",
-      "font_pt": 13,
-      "lines": 1
-    },
-    {
-      "slide": "21",
-      "text": "12:50\u201312:55",
+      "text": "02",
       "font_pt": 12,
-      "lines": 1
+      "lines": 1,
+      "x": 4.6000000000000005,
+      "y": 5.52,
+      "width": 0.5,
+      "height": 0.26666666666666666
     },
     {
       "slide": "21",
-      "text": "Show your app. Vote for the cap.",
-      "font_pt": 37,
-      "lines": 1
+      "text": "03",
+      "font_pt": 12,
+      "lines": 1,
+      "x": 7.800000000000001,
+      "y": 5.52,
+      "width": 0.5,
+      "height": 0.26666666666666666
     },
     {
       "slide": "21",
-      "text": "Up to 5 demos \u00b7 45 seconds each \u00b7 your GitHub",
-      "font_pt": 30,
-      "lines": 1
+      "text": "ILLUSTRATIVE COURSE \u00b7 EVENT DETAILS ON THE SITE",
+      "font_pt": 10,
+      "lines": 1,
+      "x": 0.75,
+      "y": 6.06,
+      "width": 8.5,
+      "height": 0.23222222222222222
     },
     {
       "slide": "21",
-      "text": "One checked result \u00b7 agent used \u00b7 elapsed build time",
-      "font_pt": 30,
-      "lines": 1
+      "text": "FOLLOW THE\nNEXT COMPETITION",
+      "font_pt": 12,
+      "lines": 2,
+      "x": 10.36,
+      "y": 5.05,
+      "width": 2.05,
+      "height": 0.47333333333333333
     },
     {
       "slide": "21",
-      "text": "Audience favorite wins a free CogniPilot stocking cap",
-      "font_pt": 30,
-      "lines": 1
+      "text": "pylon-racing.geddes.rcac.purdue.edu",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "21",
-      "text": "Random draw if more than 5 ready entries \u2192 audience hand vote",
-      "font_pt": 20,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
     },
     {
       "slide": "21",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "21",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "21",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "21",
       "text": "21",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "22",
-      "text": "Keep the model. Change the question.",
-      "font_pt": 13,
-      "lines": 1
+      "text": "AGENT-BUILT APPS \u00b7 TRY FIXED-WING OR FINISH YOUR OWN DEMO",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "22",
-      "text": "12:55\u201313:00",
-      "font_pt": 12,
-      "lines": 1
+      "text": "12:45\u201312:50",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "22",
-      "text": "Questions + your next problem",
-      "font_pt": 52,
-      "lines": 2
+      "text": "Explore the fixed-wing workbench",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "22",
-      "text": "Bring a modeling, identification or optimization problem",
-      "font_pt": 25,
-      "lines": 2
+      "text": "TRY THIS",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
     },
     {
       "slide": "22",
-      "text": "Share a reproducible model and a measurable result",
-      "font_pt": 25,
-      "lines": 2
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 2.4050000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "22",
-      "text": "Collaborate with Purdue and the open-source community",
-      "font_pt": 25,
-      "lines": 2
+      "text": "Modelica flight simulation + autopilot",
+      "font_pt": 22,
+      "lines": 3,
+      "x": 1.25,
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
     },
     {
       "slide": "22",
-      "text": "github.com/CogniPilot/rumoca_workshop_amc2026",
-      "font_pt": 20,
-      "lines": 1
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.981666666666667,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "22",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "Try 50 Hz \u2192 20 Hz, restart, then observe",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 3.9266666666666667,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "22",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 5.179444444444444,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "22",
+      "text": "Also: slam_web (in development), mocap_sysid",
+      "font_pt": 22,
+      "lines": 3,
+      "x": 1.25,
+      "y": 5.124444444444444,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
+    },
+    {
+      "slide": "22",
+      "text": "Live links + short experiments: BROWSER_APPS.md",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "22",
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "22",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "22",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "22",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "22",
       "text": "22",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
+    },
+    {
+      "slide": "23",
+      "text": "OPEN CHALLENGE \u00b7 SHORT DEMOS \u00b7 AUDIENCE SHOW OF HANDS",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "23",
+      "text": "12:50\u201312:55",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "23",
+      "text": "Show your app. Vote for the cap.",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
+    },
+    {
+      "slide": "23",
+      "text": "5",
+      "font_pt": 60,
+      "lines": 1,
+      "x": 0.9,
+      "y": 1.94,
+      "width": 3.45,
+      "height": 1.0933333333333335
+    },
+    {
+      "slide": "23",
+      "text": "MAX. PRESENTERS",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 0.9,
+      "y": 3.43,
+      "width": 3.45,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "23",
+      "text": "45 s",
+      "font_pt": 60,
+      "lines": 1,
+      "x": 5.090000000000001,
+      "y": 1.94,
+      "width": 3.45,
+      "height": 1.0933333333333335
+    },
+    {
+      "slide": "23",
+      "text": "EACH DEMO",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 5.090000000000001,
+      "y": 3.43,
+      "width": 3.45,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "23",
+      "text": "1",
+      "font_pt": 60,
+      "lines": 1,
+      "x": 9.280000000000001,
+      "y": 1.94,
+      "width": 3.45,
+      "height": 1.0933333333333335
+    },
+    {
+      "slide": "23",
+      "text": "VOTE PER PERSON",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 9.280000000000001,
+      "y": 3.43,
+      "width": 3.45,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "23",
+      "text": "Show an interaction + one checked result",
+      "font_pt": 29,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.5,
+      "width": 11.9,
+      "height": 0.5594444444444444
+    },
+    {
+      "slide": "23",
+      "text": "Name your agent. Share elapsed build time + your GitHub.",
+      "font_pt": 23,
+      "lines": 1,
+      "x": 0.7,
+      "y": 5.14,
+      "width": 11.9,
+      "height": 0.4561111111111111
+    },
+    {
+      "slide": "23",
+      "text": "Audience favorite wins a free CogniPilot stocking cap",
+      "font_pt": 23,
+      "lines": 1,
+      "x": 0.7,
+      "y": 5.77,
+      "width": 11.9,
+      "height": 0.4561111111111111
+    },
+    {
+      "slide": "23",
+      "text": "Random draw if more than 5 ready entries \u2192 audience hand vote",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "23",
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "23",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "23",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "23",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "23",
+      "text": "23",
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
+    },
+    {
+      "slide": "24",
+      "text": "YOUR MODELICA EXPERTISE CAN MOVE THIS RESEARCH FORWARD",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.65,
+      "y": 0.35,
+      "width": 11,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "24",
+      "text": "12:55\u201313:00",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.35,
+      "y": 0.35,
+      "width": 1.35,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "24",
+      "text": "Bring your model.",
+      "font_pt": 48,
+      "lines": 1,
+      "x": 0.65,
+      "y": 1.6,
+      "width": 9.5,
+      "height": 0.8866666666666667
+    },
+    {
+      "slide": "24",
+      "text": "Join the work.",
+      "font_pt": 42,
+      "lines": 1,
+      "x": 0.65,
+      "y": 2.42,
+      "width": 9.5,
+      "height": 0.7833333333333332
+    },
+    {
+      "slide": "24",
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.605,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "24",
+      "text": "Bring a model or a question from your own domain",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 3.55,
+      "width": 8.549999999999999,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "24",
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.273888888888888,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "24",
+      "text": "Add a validation case, model library or compiler fix",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 4.2188888888888885,
+      "width": 8.549999999999999,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "24",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.942777777777777,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "24",
+      "text": "Start a conversation: problem + model + one check",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 4.887777777777777,
+      "width": 8.549999999999999,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "24",
+      "text": "James Goppert \u00b7 Micah Condie",
+      "font_pt": 17,
+      "lines": 1,
+      "x": 0.7,
+      "y": 6.29,
+      "width": 9.5,
+      "height": 0.35277777777777775
+    },
+    {
+      "slide": "24",
+      "text": "Scan to join the work \u00b7 COMMUNITY.md \u00b7 questions welcome",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "24",
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "24",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "24",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "24",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "24",
+      "text": "24",
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "A1",
-      "text": "Scope matters \u00b7 MATH_REVIEW.md",
-      "font_pt": 13,
-      "lines": 1
+      "text": "SCOPE MATTERS \u00b7 MATH_REVIEW.MD",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "A1",
       "text": "Appendix",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "A1",
       "text": "Exact-real proofs and numerical evidence",
-      "font_pt": 36.88167246805761,
-      "lines": 1
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
+    },
+    {
+      "slide": "A1",
+      "text": "THE IDEA",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "A1",
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 2.4050000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "A1",
       "text": "Lean: equation equality and invariants",
-      "font_pt": 27,
-      "lines": 3
+      "font_pt": 22,
+      "lines": 3,
+      "x": 1.25,
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
+    },
+    {
+      "slide": "A1",
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.981666666666667,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "A1",
       "text": "Audit: gradients, profiles, integration",
-      "font_pt": 27,
-      "lines": 2
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 3.9266666666666667,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "A1",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 5.179444444444444,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "A1",
       "text": "Papers: model and method choices",
-      "font_pt": 27,
-      "lines": 2
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 5.124444444444444,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
     },
     {
       "slide": "A1",
       "text": "None of these certify arbitrary edits or real flight.",
-      "font_pt": 20,
-      "lines": 1
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "A1",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "A1",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "A1",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "A1",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "A1",
       "text": "A1",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "A2",
-      "text": "Full citations and checked equations: MATH_REVIEW.md",
-      "font_pt": 13,
-      "lines": 1
+      "text": "FULL CITATIONS AND CHECKED EQUATIONS: MATH_REVIEW.MD",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "A2",
       "text": "Appendix",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "A2",
       "text": "Primary papers behind the approach",
-      "font_pt": 37,
-      "lines": 1
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
+    },
+    {
+      "slide": "A2",
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 2.1350000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "A2",
       "text": "Faessler et al., RA-L 2018: rotor-drag physics and excitation",
-      "font_pt": 30,
-      "lines": 2
+      "font_pt": 29,
+      "lines": 2,
+      "x": 1.25,
+      "y": 2.08,
+      "width": 11.299999999999999,
+      "height": 1.058888888888889
+    },
+    {
+      "slide": "A2",
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.7238888888888892,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "A2",
       "text": "Andersson et al., 2019: CasADi AD and multiple shooting",
-      "font_pt": 30,
-      "lines": 2
+      "font_pt": 29,
+      "lines": 2,
+      "x": 1.25,
+      "y": 3.668888888888889,
+      "width": 11.299999999999999,
+      "height": 1.058888888888889
+    },
+    {
+      "slide": "A2",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 5.312777777777778,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "A2",
       "text": "Raue 2009; Wieland 2021: practical identifiability and profiles",
-      "font_pt": 30,
-      "lines": 2
+      "font_pt": 29,
+      "lines": 2,
+      "x": 1.25,
+      "y": 5.257777777777778,
+      "width": 11.299999999999999,
+      "height": 1.058888888888889
     },
     {
       "slide": "A2",
       "text": "World-axis teaching drag differs from body-axis rotor aerodynamics.",
-      "font_pt": 20,
-      "lines": 1
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "A2",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "A2",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "A2",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "A2",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "A2",
       "text": "A2",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "A3",
-      "text": "FUTURE WORK \u00b7 beyond the tested app experiments",
-      "font_pt": 13,
-      "lines": 1
+      "text": "FUTURE WORK \u00b7 BEYOND THE TESTED APP EXPERIMENTS",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "A3",
       "text": "Appendix",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "A3",
       "text": "Research questions worth exploring",
-      "font_pt": 37,
-      "lines": 1
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "A3",
-      "text": "Vision + SLAM + estimation + physics in one declared system",
-      "font_pt": 27,
-      "lines": 3
+      "text": "01",
+      "font_pt": 28,
+      "lines": 1,
+      "x": 0.9,
+      "y": 1.98,
+      "width": 0.72,
+      "height": 0.5422222222222222
     },
     {
       "slide": "A3",
-      "text": "Richer browser / FMI / WebAssembly workflows",
-      "font_pt": 27,
-      "lines": 2
+      "text": "Solver specialization across CPU, GPU and embedded hardware",
+      "font_pt": 24,
+      "lines": 3,
+      "x": 1.7799999999999998,
+      "y": 2.05,
+      "width": 4.4,
+      "height": 1.3
     },
     {
       "slide": "A3",
-      "text": "Compiler differentiation and larger symbolic systems",
-      "font_pt": 27,
-      "lines": 2
+      "text": "02",
+      "font_pt": 28,
+      "lines": 1,
+      "x": 7.07,
+      "y": 1.98,
+      "width": 0.72,
+      "height": 0.5422222222222222
     },
     {
       "slide": "A3",
-      "text": "Partition work across CPU, GPU and embedded hardware",
-      "font_pt": 27,
-      "lines": 3
+      "text": "Fast batched Monte Carlo and reinforcement learning",
+      "font_pt": 24,
+      "lines": 3,
+      "x": 7.95,
+      "y": 2.05,
+      "width": 4.4,
+      "height": 1.3
+    },
+    {
+      "slide": "A3",
+      "text": "03",
+      "font_pt": 28,
+      "lines": 1,
+      "x": 0.9,
+      "y": 4.13,
+      "width": 0.72,
+      "height": 0.5422222222222222
+    },
+    {
+      "slide": "A3",
+      "text": "Native AD and JAX / CasADi / PyTorch integrations",
+      "font_pt": 24,
+      "lines": 3,
+      "x": 1.7799999999999998,
+      "y": 4.2,
+      "width": 4.4,
+      "height": 1.3
+    },
+    {
+      "slide": "A3",
+      "text": "04",
+      "font_pt": 28,
+      "lines": 1,
+      "x": 7.07,
+      "y": 4.13,
+      "width": 0.72,
+      "height": 0.5422222222222222
+    },
+    {
+      "slide": "A3",
+      "text": "Extensible targets for your own numerical tools",
+      "font_pt": 24,
+      "lines": 2,
+      "x": 7.95,
+      "y": 4.2,
+      "width": 4.4,
+      "height": 0.8866666666666667
     },
     {
       "slide": "A3",
       "text": "Bring a falsifiable question and a measurable benchmark.",
-      "font_pt": 20,
-      "lines": 1
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "A3",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "A3",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "A3",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "A3",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "A3",
       "text": "A3",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     },
     {
       "slide": "A4",
-      "text": "Node solution \u2260 exact continuous-time flight",
-      "font_pt": 13,
-      "lines": 1
+      "text": "NODE SOLUTION \u2260 EXACT CONTINUOUS-TIME FLIGHT",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
     },
     {
       "slide": "A4",
       "text": "Appendix",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
     },
     {
       "slide": "A4",
       "text": "Numerical constraints need validation",
-      "font_pt": 37,
-      "lines": 1
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "A4",
       "text": "Reintegrate the inputs independently; inspect errors by physical unit.",
-      "font_pt": 23,
-      "lines": 1
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.85,
+      "y": 1.71,
+      "width": 11.6,
+      "height": 0.42166666666666663
     },
     {
       "slide": "A4",
       "text": "Small defects, pitch margin and fine rollout are separate checks.",
-      "font_pt": 20,
-      "lines": 1
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
     },
     {
       "slide": "A4",
-      "text": "PURDUE \u00b7 AERONAUTICS & ASTRONAUTICS     /     GEORGIA TECH \u00b7 AMC 2026",
-      "font_pt": 9,
-      "lines": 1
+      "text": "PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026",
+      "font_pt": 8,
+      "lines": 1,
+      "x": 0.7,
+      "y": 7.17,
+      "width": 8.15,
+      "height": 0.19777777777777777
+    },
+    {
+      "slide": "A4",
+      "text": "MODEL",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 9.399999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "A4",
+      "text": "FIT",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 10.469999999999999,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
+    },
+    {
+      "slide": "A4",
+      "text": "OPTIMIZE",
+      "font_pt": 7.5,
+      "lines": 1,
+      "x": 11.54,
+      "y": 7.165,
+      "width": 0.84,
+      "height": 0.18916666666666668
     },
     {
       "slide": "A4",
       "text": "A4",
-      "font_pt": 12,
-      "lines": 1
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.43,
+      "y": 7.13,
+      "width": 0.3,
+      "height": 0.23222222222222222
     }
   ],
   "notes_in_pptx": true

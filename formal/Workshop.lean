@@ -103,6 +103,14 @@ theorem hover_equilibrium (t x z : ℝ) (p : Params) :
   rw [generated_matches_physics]
   simp [physicsRhs, drag]
 
+/-- The level, zero-torque vertical task has zero horizontal/pitch derivatives.
+This is a pointwise tangency result, not a floating-point or ODE-solution proof. -/
+theorem vertical_subspace_tangent (t x z vz T : ℝ) (p : Params) :
+    let r := generatedRhs t ⟨x,z,0,0,vz,0⟩ ⟨T,0⟩ p
+    r.x = 0 ∧ r.theta = 0 ∧ r.vx = 0 ∧ r.omega = 0 := by
+  rw [generated_matches_physics]
+  simp [physicsRhs, drag]
+
 def energyRate (s r : State) (p : Params) : ℝ :=
   p.m * (s.vx*r.vx + s.vz*r.vz) + p.m*p.g*r.z + p.Iyy*s.omega*r.omega
 
@@ -156,6 +164,7 @@ end
 end Workshop
 
 #print axioms Workshop.generated_matches_physics
+#print axioms Workshop.vertical_subspace_tangent
 #print axioms Workshop.drag_dissipative
 #print axioms Workshop.drag_differentiable
 #print axioms Workshop.smooth_magnitude_error_bound

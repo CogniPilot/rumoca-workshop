@@ -1,0 +1,26 @@
+version = 1
+ir = "solve"
+name = "workshop-torch-ode"
+description = "Teaching target: batched float64 PyTorch RHS from checked scalar Solve operations"
+
+[capabilities]
+continuous_states = true
+residual_equations = false
+exact_algebraic_assignments = false
+scalar_fallback = true
+external_functions = false
+external_tables = false
+random = false
+initialization = false
+events = false
+runtime_events = false
+clocks = false
+dynamic_ranges = false
+dynamic_control_flow = false
+host_callbacks = false
+forward_ad = true
+reverse_ad = true
+
+[[files]]
+path = "{{ model_name }}_torch.py"
+template = "rhs.py.jinja"

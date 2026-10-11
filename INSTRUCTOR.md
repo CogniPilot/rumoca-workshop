@@ -244,8 +244,8 @@ Slide 17 makes extensibility concrete. Preinstall the optional CPU Torch group
 in the instructor's Linux x64 Codespace. Open `templates/torch-ode/target.toml`,
 then the generated RHS, run its check, and show the hover-policy result. The
 [backend guide](BACKENDS.md) gives commands, assumptions and a small extension
-exercise. Sixty Adam updates take about 27 seconds on the rehearsed two-core
-Codespace; first package downloads are separate. This is differentiable
+exercise. Sixty Adam updates took 14–27 seconds across the two-core
+Codespace rehearsals; first package downloads are separate. This is differentiable
 model-based policy optimization restricted to vertical motion, a bridge to RL.
 Keep the group optional so all other participants stay with the core exercises.
 

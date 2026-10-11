@@ -63,8 +63,10 @@ The browser has no JAX/CasADi Python terminal.
 **Cloud:** [create a Codespace](https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1).
 Sign in with GitHub; check your account’s allowance/policy before creating it.
 Wait for container setup to complete and the smoke test to say **WORKSHOP PASS**.
-Fresh Codespaces startup, prebuild readiness and capacity for 50 users need
-instructor preflight; container CI alone does not verify them.
+An actual two-core Codespace passed startup and all core commands. Test your
+intended account before class: allowance, prebuild readiness, region availability
+and capacity for 50 users remain instructor preflight items; see
+[verification](VERIFICATION.md).
 
 **Local:** follow [local VS Code setup](LOCAL_SETUP.md), or [download the ZIP](https://github.com/CogniPilot/rumoca_workshop_amc2026/archive/refs/heads/main.zip),
 extract it, open the extracted folder in VS Code. Install

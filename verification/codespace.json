@@ -1,0 +1,505 @@
+{
+  "status": "PASS",
+  "source_commit": "1a8a96e267a07380d7c414e4bd48b2a64f75f2b5",
+  "environment": "Actual GitHub Codespace, Linux x64, 2 cores, 8 GB RAM, non-root vscode user",
+  "configuration_sha256": {
+    ".devcontainer/devcontainer.json": "fa385d9dd0cfc0f76a54a2bf15ddbebb624abae565f13d687953b6560b7af56a",
+    ".devcontainer/Dockerfile": "c1c19331b8fa22ab35721efef0751507004e06f66c0509bae08c13c6e2670054",
+    "scripts/ensure_codespace_extension.py": "f51934c4beb069dd0ad415b7d0a06dd47e3061c2a3c8f6d6d001eb315f5634da"
+  },
+  "startup": {
+    "fresh_rebuild": "PASS",
+    "post_create_command": "PASS",
+    "native_extension_install": "PASS",
+    "extension_version": "0.10.2",
+    "post_create_smoke_seconds": 17.34
+  },
+  "smoke": {
+    "status": "PASS",
+    "platform": "Linux-6.8.0-1064-azure-x86_64-with-glibc2.36",
+    "python": "3.12.11",
+    "processor": "",
+    "rumoca_version": "0.10.2",
+    "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+    "command_wall_seconds": {
+      "simulate": 1.5206406529996457,
+      "fit_drag_jax": 6.299464228999568,
+      "optimize_casadi": 1.7755883050003831
+    },
+    "checks": {
+      "max_rhs_parity_error": 0,
+      "jax_gradient": -10.379535595670434,
+      "finite_difference": -10.379535595905764
+    },
+    "total_seconds": 13.25506711899925
+  },
+  "math_audit": {
+    "status": "PASS",
+    "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+    "rumoca_version": "0.10.2",
+    "coast_analytic_max_error": {
+      "x_m": 3.9042191701810225e-10,
+      "vx_m_s": 5.856337637055731e-11
+    },
+    "backend_jacobian_max_error": 2.842170943040401e-14,
+    "full_loss_gradient_relative_errors": [
+      9.400402178939959e-11,
+      5.651660967925664e-09
+    ],
+    "multi_start_initial_parameters": [
+      [
+        0.006,
+        0.006
+      ],
+      [
+        0.06,
+        0.025
+      ],
+      [
+        0.8,
+        0.4
+      ],
+      [
+        0.02,
+        0.5
+      ],
+      [
+        1.0,
+        0.002
+      ],
+      [
+        0.18,
+        0.08
+      ]
+    ],
+    "multi_start_estimates": [
+      [
+        0.18041558575100988,
+        0.0799076134689364
+      ],
+      [
+        0.1804155863658492,
+        0.0799076132815123
+      ],
+      [
+        0.18041558638631083,
+        0.07990761327541714
+      ],
+      [
+        0.18041558662958385,
+        0.07990761323222557
+      ],
+      [
+        0.18041558650222056,
+        0.07990761325112168
+      ],
+      [
+        0.18041558638842609,
+        0.0799076132765257
+      ]
+    ],
+    "noise_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "noise_seed_estimates": [
+      [
+        0.18058701013771836,
+        0.07988423327631708
+      ],
+      [
+        0.1800912280880329,
+        0.07998299352768629
+      ],
+      [
+        0.18063798002868586,
+        0.07983849603024826
+      ],
+      [
+        0.17963371813861034,
+        0.08009304375760812
+      ],
+      [
+        0.17977701310258978,
+        0.08005311756541714
+      ],
+      [
+        0.18009607348377987,
+        0.0799725729866466
+      ],
+      [
+        0.17929790966617995,
+        0.08014291014089504
+      ],
+      [
+        0.17998643840653475,
+        0.08000792330431918
+      ],
+      [
+        0.17984683085078446,
+        0.08002929970116687
+      ],
+      [
+        0.17963407042802115,
+        0.08009451787866981
+      ],
+      [
+        0.17995520785831673,
+        0.08003286570353313
+      ],
+      [
+        0.1795368498925505,
+        0.08010127271571542
+      ]
+    ],
+    "noise_max_relative_coefficient_error": 0.0039005018545558157,
+    "profiles": [
+      {
+        "parameter": "k_linear",
+        "grid": [
+          0.17852775445852165,
+          0.17865299305618426,
+          0.17877831950968978,
+          0.17890373388066974,
+          0.17902923623079886,
+          0.1791548266217953,
+          0.1792805051154203,
+          0.17940627177347862,
+          0.1795321266578183,
+          0.1796580698303306,
+          0.1797841013529506,
+          0.17991022128765638,
+          0.18003642969646977,
+          0.18016272664145608,
+          0.18028911218472404,
+          0.18041558638842609,
+          0.1805421493147582,
+          0.18066880102595995,
+          0.18079554158431463,
+          0.1809223710521492,
+          0.18104928949183435,
+          0.18117629696578455,
+          0.18130339353645794,
+          0.18143057926635667,
+          0.18155785421802653,
+          0.1816852184540573,
+          0.1818126720370827,
+          0.18194021502978028,
+          0.18206784749487168,
+          0.18219556949512242,
+          0.18232338109334206
+        ],
+        "delta_chi_square": [
+          24.739595681396622,
+          21.56591545158875,
+          18.60802748231464,
+          15.866385194473196,
+          13.341442821293583,
+          11.03365541031252,
+          8.943478824681392,
+          7.071369744967484,
+          5.4177856707156025,
+          3.983184922038703,
+          2.7680266412937726,
+          1.772770794704428,
+          0.9978781739127385,
+          0.4438103977663843,
+          0.111029913802696,
+          0.0,
+          0.11118476638912966,
+          0.44504915665129374,
+          1.0020589498476795,
+          1.7826807620360796,
+          2.7873820479275935,
+          4.016631102627741,
+          5.470897063098761,
+          7.150649910114311,
+          9.05636046967743,
+          11.18850041485075,
+          13.547542267401695,
+          16.13395939942592,
+          18.948226035131057,
+          21.9908172524201,
+          25.262208984745484
+        ],
+        "scope": "Finite-grid conditional Gaussian profile diagnostic; asymptotic threshold, not certified confidence coverage."
+      },
+      {
+        "parameter": "k_quad",
+        "grid": [
+          0.0794120764358435,
+          0.0794450164090391,
+          0.07947797004567085,
+          0.07951093735140628,
+          0.07954391833191533,
+          0.07957691299287026,
+          0.07960992133994568,
+          0.0796429433788186,
+          0.07967597911516831,
+          0.07970902855467649,
+          0.07974209170302725,
+          0.07977516856590694,
+          0.07980825914900433,
+          0.07984136345801053,
+          0.07987448149861905,
+          0.0799076132765257,
+          0.07994075879742868,
+          0.07997391806702858,
+          0.08000709109102834,
+          0.08004027787513324,
+          0.08007347842505093,
+          0.08010669274649147,
+          0.08013992084516722,
+          0.080173162726793,
+          0.08020641839708595,
+          0.08023968786176555,
+          0.0802729711265537,
+          0.08030626819717465,
+          0.08033957907935504,
+          0.08037290377882389,
+          0.08040624230131255
+        ],
+        "delta_chi_square": [
+          24.86044749141641,
+          21.664209703458397,
+          18.686754052896077,
+          15.92832367362135,
+          13.389161968958376,
+          11.06951261204344,
+          8.969619546161312,
+          7.0897269852619615,
+          5.430079414397966,
+          3.9909215900361517,
+          2.7724985406258895,
+          1.7750555668906998,
+          0.9988382424153031,
+          0.4440924138626201,
+          0.11106420159535446,
+          0.0,
+          0.1111464779702942,
+          0.4447505792572315,
+          1.0010595229861963,
+          1.7803208040402296,
+          2.782782193517903,
+          4.008691739140886,
+          5.458297765702014,
+          7.131848875470723,
+          9.029593948673522,
+          11.15178214390923,
+          13.498662898590226,
+          16.07048592925281,
+          18.867501232306694,
+          21.889959084129202,
+          25.138110041654045
+        ],
+        "scope": "Finite-grid conditional Gaussian profile diagnostic; asymptotic threshold, not certified confidence coverage."
+      }
+    ],
+    "adaptive_trajectory_terminal_error_by_state": {
+      "x": 0.0003042938865638334,
+      "z": 0.002104209383194444,
+      "theta": 2.7044615881517003e-09,
+      "vx": 2.6325565776794622e-05,
+      "vz": 0.00024563066587904905,
+      "omega": -4.327136352358374e-09
+    },
+    "adaptive_pitch_abs_max": 0.5416209201998808,
+    "analytic_interval_pitch_abs_max": 0.5416355905802568,
+    "adaptive_altitude_range": [
+      1.0,
+      2.06119239448889
+    ],
+    "trajectory_check": "Generated CasADi RHS, DOP853 rtol=1e-11 atol=1e-12, 10 samples/interval; analytic pitch extrema. Numerical evidence, not interval arithmetic certification.",
+    "runtime_seconds": 10.3412006260005
+  },
+  "torch_backend": {
+    "status": "PASS",
+    "rumoca": "0.10.2",
+    "torch": "2.10.0+cpu",
+    "platform": "Linux x64 CPU",
+    "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+    "script_sha256": "c3dd2ef6b1804b8a32ae7b52e7cbcefd4ae4809a62aeaf6dc83ea732cc097182",
+    "target_sha256": {
+      "rhs.py.jinja": "b402968020674e89007aa3cb2463006e24b3d621c49757ac0216924ccc4d564e",
+      "target.toml": "029a3f2cacde5811f8370910bc8dbd6de8202106d414773e197672cd5267559e"
+    },
+    "generated_sha256": "226ff5b953182c4c34834d247a8a577c77a18b17cc24505c76eb8820dc480cc2",
+    "state_names": [
+      "x",
+      "z",
+      "theta",
+      "vx",
+      "vz",
+      "omega"
+    ],
+    "input_names": [
+      "T",
+      "tau"
+    ],
+    "points": 101,
+    "value_max_abs_difference": 3.552713678800501e-15,
+    "jacobian_max_abs_difference": 1.9984014443252818e-15,
+    "finite_difference_gradcheck": true,
+    "forward_reverse_ad": true,
+    "negative_tests": [
+      {
+        "case": "unsupported unary Exp",
+        "message": "Target rendering error: Render target template 'rhs.py.jinja': template render error: invalid operation: unsupported-feature:workshop-torch.Unary.Exp (in inline:52)"
+      },
+      {
+        "case": "events",
+        "message": "Target rendering error: unsupported-feature:events: Target 'workshop-torch-ode' does not support feature 'events': event or condition partitions present (its target.toml declares `[capabilities] events` unsupported)"
+      }
+    ],
+    "elapsed_seconds": 8.367448207000052,
+    "scope": "Small teaching target for explicit scalar ODEs with the listed primitives. Runtime/autograd checks for this model; no full Modelica, GPU or compiler-correctness claim."
+  },
+  "torch_policy": {
+    "status": "PASS",
+    "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+    "script_sha256": "b4690da3edc413f78d5e771dadb692cdd5471c999435abdc527d78d2bff7bb88",
+    "target_sha256": {
+      "rhs.py.jinja": "b402968020674e89007aa3cb2463006e24b3d621c49757ac0216924ccc4d564e",
+      "target.toml": "029a3f2cacde5811f8370910bc8dbd6de8202106d414773e197672cd5267559e"
+    },
+    "rumoca": "0.10.2",
+    "torch": "2.10.0+cpu",
+    "task": "Vertical hover at z=1 m, two positive feedback gains, zero torque",
+    "method": "Differentiable model-based policy optimization through RK4, Adam",
+    "training_seed": 20261012,
+    "holdout_seed": 20261013,
+    "training_episodes": 64,
+    "holdout_episodes": 128,
+    "iterations": 60,
+    "horizon_seconds": 2.0,
+    "dt_seconds": 0.05,
+    "parameter_names": [
+      "m",
+      "Iyy",
+      "g",
+      "k_linear",
+      "k_quad",
+      "damping",
+      "eps"
+    ],
+    "parameters": [
+      1.2,
+      0.025,
+      9.81,
+      0.18,
+      0.08,
+      0.04,
+      0.01
+    ],
+    "raw_gains": [
+      1.5530659168015153,
+      0.2931522117446942
+    ],
+    "positive_gains": [
+      1.7450062608209627,
+      0.8504273172804528
+    ],
+    "initial_positive_gains": [
+      0.05,
+      0.05
+    ],
+    "loss_history": [
+      0.1239926822163182,
+      0.11884187010957441,
+      0.11349516284411135,
+      0.10799194330768427,
+      0.10238021469971,
+      0.09671578121674093,
+      0.09106055708578399,
+      0.08547993558448766,
+      0.08003929979556809,
+      0.07479996277869191,
+      0.06981504458290158,
+      0.0651259570054149,
+      0.06076017951169578,
+      0.05673081076523938,
+      0.05303798412757066,
+      0.049671761724346584,
+      0.04661575889257078,
+      0.043850630192855275,
+      0.04135670813779511,
+      0.03911547733183433,
+      0.03710989435553401,
+      0.03532391827673066,
+      0.033741679819533965,
+      0.03234672431347389,
+      0.031121607231264014,
+      0.030047945243453333,
+      0.02910687924387646,
+      0.028279781833121565,
+      0.027549038898267326,
+      0.026898719294584983,
+      0.026315038071680515,
+      0.025786575158392555,
+      0.025304260492506843,
+      0.02486117450457894,
+      0.02445222784993843,
+      0.024073783435170103,
+      0.023723269816096224,
+      0.023398824068144662,
+      0.023098989664015086,
+      0.022822483488286627,
+      0.02256803465949275,
+      0.022334290593953067,
+      0.022119780398504617,
+      0.021922922223757243,
+      0.021742060317470203,
+      0.02157551798982797,
+      0.021421654970173048,
+      0.021278920477129964,
+      0.02114589616090546,
+      0.021021325774445175,
+      0.0209041307718855,
+      0.020793412771694726,
+      0.02068844491759167,
+      0.020588654771679857,
+      0.020493601584245257,
+      0.02040295067275212,
+      0.020316447318237698,
+      0.020233892143348475,
+      0.020155119436329787,
+      0.020079979377702194
+    ],
+    "holdout_cost_before": 0.11561971266914153,
+    "holdout_cost_after": 0.021000455487256008,
+    "holdout_final_altitude_rms_m": 0.004596486396636803,
+    "thrust_min_N": 6.828297408940104,
+    "thrust_max_N": 16.740548524550448,
+    "rollout_gradient_ad": [
+      -0.002652694463225043,
+      -0.0002999616414830572
+    ],
+    "rollout_gradient_fd": [
+      -0.002652694464089222,
+      -0.0002999616425039542
+    ],
+    "fine_rollout_max_abs_error": {
+      "x": 0.0,
+      "z": 2.349651559985233e-07,
+      "theta": 0.0,
+      "vx": 0.0,
+      "vz": 1.3245995097999064e-06,
+      "omega": 0.0
+    },
+    "elapsed_seconds": 13.815947994999988,
+    "scope": "Synthetic fixed-parameter, two-second vertical task. Feedback optimized on 64 initial states and checked on 128 new states. No full-vehicle RL, disturbance robustness, continuous-time safety or physical-flight claim."
+  },
+  "native_editor_receipt": "verification/codespace-editor.json",
+  "scope": "Individual Codespace rebuild, startup, same CI commands and native remote VS Code LSP. Browser frontend, quotas, billing, prebuilds, region availability, venue network and simultaneous class capacity require instructor preflight.",
+  "tested_date_utc": "2026-10-11"
+}

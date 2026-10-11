@@ -4,14 +4,14 @@
   "iterations": 11,
   "cost": 5.118301361227486,
   "drag": {
-    "k_linear": 0.18041558636585436,
-    "k_quad": 0.07990761328151084
+    "k_linear": 0.18041558636585495,
+    "k_quad": 0.07990761328151078
   },
   "horizon_seconds": 6.0,
   "shooting_intervals": 60,
   "terminal_max_error": 0.0,
-  "max_dynamics_defect": 1.6986412276764895e-14,
-  "fine_rollout_terminal_max_error": 0.0020965358918854093,
+  "max_dynamics_defect": 1.7041923427996153e-14,
+  "fine_rollout_terminal_max_error": 0.0020965358918862975,
   "thrust_range": [
     11.399928073798746,
     15.70492578542121
@@ -29,24 +29,24 @@
     1.0,
     2.060475941962825
   ],
-  "fine_pitch_abs_max": 0.5415362296697029,
+  "fine_pitch_abs_max": 0.5415362296697032,
   "pitch_node_limit": 0.54,
   "pitch_physical_limit": 0.55,
   "fine_rollout_terminal_error_by_state": {
-    "x": 0.0003031895923744088,
-    "z": 0.0020965358918854093,
-    "theta": 2.6949027977499504e-09,
-    "vx": 2.6229644604739604e-05,
-    "vz": 0.0002447365660937649,
-    "omega": -4.311845971634656e-09
+    "x": 0.00030318959242503496,
+    "z": 0.0020965358918862975,
+    "theta": 2.694903460409236e-09,
+    "vx": 2.622964462454099e-05,
+    "vz": 0.0002447365660939238,
+    "omega": -4.3118459712280805e-09
   },
   "fine_altitude_range": [
     1.0,
     2.0611842879145406
   ],
   "warm_start_used": true,
-  "runtime_seconds": 1.3403198870000068,
+  "runtime_seconds": 0.949834366999994,
   "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
-  "fit_sha256": "b7b381e92c4a1b300594e584d53d1ac1489002b37e39da9bb7e37f8376c81748",
+  "fit_sha256": "816fa9583adc1f3a15eef061acc5be5b55d711f4b83e690dfb0fb24af0c14e92",
   "rumoca_version": "0.10.2"
 }

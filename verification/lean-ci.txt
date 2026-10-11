@@ -1,4 +1,5 @@
 'Workshop.generated_matches_physics' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Workshop.vertical_subspace_tangent' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Workshop.drag_dissipative' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Workshop.drag_differentiable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Workshop.smooth_magnitude_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

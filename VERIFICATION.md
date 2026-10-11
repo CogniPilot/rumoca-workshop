@@ -6,9 +6,10 @@ smooth ODE and its stated parameters, not arbitrary Modelica or real flight.
 
 ## Reproducibility and measured CPU time
 
-[Clean CI run 38174706300](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38174706300)
-at commit `b7fe083` passed all **six** jobs: four Python OS runners,
-devcontainer build/startup commands, and generated-equation Lean proof checking.
+[Clean CI run 38181857086](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38181857086)
+at commit `1a8a96e` passed all **seven** jobs: four Python OS runners,
+devcontainer build/startup commands, pinned-flake CPU/Torch checks, and
+generated-equation Lean proof checking.
 The machine-readable [job receipt](verification/ci-jobs.json) and
 [platform reports](verification/platforms) record exact platforms and results.
 The receipt records the exact tested commit and job URLs. Subsequent receipt
@@ -22,11 +23,12 @@ dominate the first simulation.
 | Tested environment | Simulate | JAX fit | CasADi optimize | Full smoke |
 |---|---:|---:|---:|---:|
 | Local Linux x64, Ryzen 9 5950X, Python 3.12.13 | 1.4 s | 5.9 s | 1.7 s | 11.7 s |
-| Ubuntu hosted x64 | 2.7 s | 5.8 s | 1.4 s | 13.7 s |
-| Windows Server 2025 hosted x64 | 22.7 s | 7.2 s | 1.6 s | 37.4 s |
-| macOS 26.6.2 hosted Apple Silicon | 14.3 s | 3.9 s | 1.0 s | 23.2 s |
-| macOS 15.7.9 hosted Intel | 28.1 s | 10.8 s | 2.2 s | 49.9 s |
-| Debian devcontainer, non-root vscode user | 2.1 s | 5.9 s | 1.5 s | 13.1 s |
+| Ubuntu hosted x64 | 2.2 s | 5.8 s | 1.4 s | 13.2 s |
+| Windows Server 2025 hosted x64 | 5.2 s | 5.5 s | 1.1 s | 16.4 s |
+| macOS 26.6.2 hosted Apple Silicon | 20.2 s | 9.3 s | 1.8 s | 36.2 s |
+| macOS 15.7.9 hosted Intel | 31.2 s | 10.4 s | 2.5 s | 53.3 s |
+| Debian devcontainer, non-root vscode user | 1.7 s | 4.4 s | 1.1 s | 9.9 s |
+| Actual two-core Codespace, Python 3.12.11 | 1.5 s | 6.3 s | 1.8 s | 13.3 s |
 
 Each of the three examples finishes under the one-minute acceptance target on
 these runs. Local NixOS supplies system libraries through a machine-specific
@@ -84,9 +86,10 @@ log is [verification/lean-ci.txt](verification/lean-ci.txt). Exact theorem
 statements, trusted boundary, dimensional review and checked primary papers:
 [MATH_REVIEW.md](MATH_REVIEW.md).
 
-Proven: RHS/displayed-equation equality; drag signs/dissipation; smoothness and
+Seventeen exact-real theorems are checked. Proven: RHS/displayed-equation equality; drag signs/dissipation; smoothness and
 regularization bound; hover; power balance; ideal two-speed excitation algebra;
-rotor allocation; positive parameterization. Not proven: compiler/translator
+rotor allocation; positive parameterization; pointwise tangency of the vertical
+policy subspace. Not proven: compiler/translator
 correctness, floating-point behavior, integration error bounds, noisy-data
 identifiability, global optimum, all-time state constraints or safe flight.
 
@@ -107,7 +110,7 @@ extension hosts on **Linux x64, Windows x64, macOS ARM64 and macOS x64**.
 Verified activation, no errors on the canonical model, `sin` completion,
 parameter hover, errors on intentionally invalid syntax, and clean diagnostics
 after restoring valid source.
-[Editor CI run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38173325312)
+[Editor CI run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38181857118)
 passed all four jobs. Receipts: [verification/editors](verification/editors),
 local [vscode-linux.json](verification/vscode-linux.json), actual
 `vscode-quadrotor.png`, and test source in `verification/`.
@@ -132,7 +135,7 @@ policy's held-out cost improved **0.1156→0.0210** on 128 new initial condition
 complete rollout gradients and fixed-sampling fine integration passed.
 [Backend receipt](results/reference/torch_backend.json),
 [policy receipt](results/reference/torch_policy.json). Both commands also passed
-in the actual two-core Codespace: about **8 s** and **27 s** after package setup.
+in the actual two-core Codespace: about **8 s** and **14 s** after package setup.
 This is a restricted differentiable policy-learning task with known parameters,
 not a full-flight or model-free RL qualification. The optional CPU package is
 qualified on Linux x64 only and is excluded from the base install.
@@ -220,7 +223,8 @@ artifact hash and scope. This adds an office-renderer check to the PDF review;
 the actual presentation laptop and projector remain preflight items.
 
 An actual two-core Codespace built the devcontainer and passed the core, audit,
-optional Torch and native remote-LSP checks. Account quotas, prebuild readiness,
+optional Torch and native remote-LSP checks. The [cloud receipt](verification/codespace.json)
+records source/configuration hashes and results. Account quotas, prebuild readiness,
 region availability and simultaneous class capacity are not established by
 that individual rehearsal. Venue Wi-Fi and the presentation laptop/projector are preflight
 items. Browser, qualified local uv and reference plots provide alternate paths;

@@ -2,22 +2,22 @@
   "success": true,
   "solver_status": "Solve_Succeeded",
   "iterations": 11,
-  "cost": 5.118301361229398,
+  "cost": 5.118301361229399,
   "drag": {
-    "k_linear": 0.18041558638546262,
+    "k_linear": 0.1804155863854627,
     "k_quad": 0.07990761327595691
   },
   "horizon_seconds": 6.0,
   "shooting_intervals": 60,
   "terminal_max_error": 0.0,
-  "max_dynamics_defect": 1.6930901125533637e-14,
-  "fine_rollout_terminal_max_error": 0.0020965358918210164,
+  "max_dynamics_defect": 1.6986412276764895e-14,
+  "fine_rollout_terminal_max_error": 0.0020965358918219046,
   "thrust_range": [
     11.399928073804972,
     15.704925785432943
   ],
   "torque_range": [
-    -0.29856748263670246,
+    -0.2985674826367027,
     0.35000000890145744
   ],
   "rotor_pair_force_range": [
@@ -29,24 +29,24 @@
     1.0,
     2.060475941962434
   ],
-  "fine_pitch_abs_max": 0.5415362296697148,
+  "fine_pitch_abs_max": 0.5415362296697146,
   "pitch_node_limit": 0.54,
   "pitch_physical_limit": 0.55,
   "fine_rollout_terminal_error_by_state": {
-    "x": 0.0003031895924481276,
-    "z": 0.0020965358918210164,
-    "theta": 2.6949037189270796e-09,
-    "vx": 2.622964463211912e-05,
-    "vz": 0.00024473656607402637,
-    "omega": -4.311845970767295e-09
+    "x": 0.00030318959238417875,
+    "z": 0.0020965358918219046,
+    "theta": 2.694902869323811e-09,
+    "vx": 2.6229644606224558e-05,
+    "vz": 0.0002447365660739108,
+    "omega": -4.311845972366493e-09
   },
   "fine_altitude_range": [
     1.0,
-    2.0611842879141453
+    2.061184287914146
   ],
   "warm_start_used": true,
-  "runtime_seconds": 1.4099221999999827,
+  "runtime_seconds": 0.9554666999999881,
   "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
-  "fit_sha256": "0ac79d3b15b2669306d612736285dbd534c1b16db04ea9f92b0bfb37146ecb1a",
+  "fit_sha256": "5fea776312fa86fe2f6681449027869b553219e9c74eaa8fe63368f040db2dae",
   "rumoca_version": "0.10.2"
 }

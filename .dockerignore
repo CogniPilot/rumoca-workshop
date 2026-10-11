@@ -1,0 +1,6 @@
+.git
+.venv
+generated
+results/live
+__pycache__
+Rumoca_Workshop_Handoff.md

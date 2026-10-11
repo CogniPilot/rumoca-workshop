@@ -3,6 +3,20 @@ on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
 jobs:
+  container:
+    name: Devcontainer build and fresh startup commands
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -f .devcontainer/Dockerfile -t rumoca-workshop:ci .
+      - run: |
+          docker run --rm --user vscode -v "$PWD:/workspaces/rumoca-workshop" -w /workspaces/rumoca-workshop rumoca-workshop:ci bash -c 'uv sync --frozen && uv run --frozen python scripts/smoke_test.py'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: results-devcontainer
+          path: results/live/
   workshop:
     name: ${{ matrix.os }} / Python 3.12
     strategy:

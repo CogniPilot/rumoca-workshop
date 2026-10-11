@@ -1,0 +1,183 @@
+# Verification and remaining preflight
+
+Qualification performed October 11, 2026. Evidence is committed in
+`verification/` and `results/reference/`. Scope is this small
+smooth ODE and its stated parameters, not arbitrary Modelica or real flight.
+
+## Reproducibility and measured CPU time
+
+[Clean CI run 38170397393](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38170397393)
+at commit `86f7519` passed all **six** jobs: four Python OS runners,
+devcontainer build/startup commands, and generated-equation Lean proof checking.
+The machine-readable [job receipt](verification/ci-jobs.json) and
+[platform reports](verification/platforms) record exact platforms and results.
+Final material-only updates are qualified in the subsequent CI run recorded
+alongside that receipt when available.
+
+Times below are **command wall time after dependency setup**, including imports,
+JAX compilation and plotting. They are not network installation or fresh
+Codespaces startup measurements. First Matplotlib font-cache creation can
+dominate the first simulation on macOS.
+
+| Tested environment | Simulate | JAX fit | CasADi optimize | Full smoke |
+|---|---:|---:|---:|---:|
+| Local Linux x64, Ryzen 9 5950X, Python 3.12.13 | 1.4 s | 5.9 s | 1.7 s | 11.7 s |
+| Ubuntu hosted x64 | 4.0 s | 5.6 s | 1.4 s | 14.4 s |
+| Windows Server 2025 hosted x64 | 5.8 s | 7.4 s | 1.5 s | 19.6 s |
+| macOS 26.6.2 hosted Apple Silicon | 16.5 s | 4.6 s | 1.0 s | 25.8 s |
+| macOS 15.7.9 hosted Intel | 28.3 s | 9.1 s | 2.9 s | 49.3 s |
+| Debian devcontainer, non-root vscode user | 1.6 s | 4.3 s | 1.1 s | 9.7 s |
+
+Each of the three examples finishes under the one-minute acceptance target on
+these runs. Local NixOS supplies system libraries through a machine-specific
+environment; participant instructions use ordinary native `uv`, as exercised
+in clean CI. Frozen Python 3.12 dependencies: Rumoca 0.10.2, JAX 0.4.38,
+CasADi 3.7.2, NumPy 2.2.6, SciPy 1.15.3, Matplotlib 3.10.3; uv 0.11.21 in CI.
+No GPU/CUDA or attendee compiler installation is needed.
+
+Linux ARM64 wheel URLs are pinned but not executed in this matrix. macOS ≥14,
+glibc ≥2.28 Linux x64, and Windows x64 are supported wheel assumptions; CI
+qualifies the exact versions above, not every older OS build.
+
+## Model, fit and trajectory
+
+Canonical SHA256:
+`3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a`.
+All three scripts compile the same file and record that hash; optimization
+rejects a fit from a different source. CSV SHA256 is recorded in fit reports.
+No backend substitutes handwritten vehicle dynamics.
+
+- Both emitted RHS functions agree at 20 smoke-test states. Hover is an
+  equilibrium; JAX rollout gradient agrees with central differences.
+- Synthetic CSV: 644 samples / four flights; CasADi RHS + independent DOP853
+  generation, fixed seed 20261012, exact initial states, independent Gaussian
+  noise, separate held-out flight. No private/real flight logs.
+- Joint JAX estimate: `kl≈0.1804156`, `kq≈0.0799076`; truth 0.18/0.08.
+  Noise-scaled mean squared loss 26,931.78→1.073, about 25,100× reduction.
+  Local sensitivity condition 10.87. Per-state and standardized errors are
+  available; legacy mixed-unit RMS is not interpreted as metres.
+- Default IPOPT result: `Solve_Succeeded`, dimensionless cost about 5.118;
+  max dynamics defect about `1.7e−14`; exact terminal-node constraints.
+  Reintegrated altitude error about 2.1 mm. Physical bounds include rotor-pair
+  realizability, pitch-node margin and sampled/finer checks.
+- [Independent audit](results/reference/math_audit.json): analytic linear-drag
+  coasting, JAX/CasADi Jacobians including zero-speed regimes, full-objective
+  finite-difference checks, six starting guesses, twelve noise seeds and
+  re-optimized profiles. Maximum noise-seed relative coefficient error about
+  **0.39%**. Adaptive integration plus analytic interval pitch extrema gives
+  peak approximately **0.54164 rad**, below the 0.55 physical limit.
+
+One-coefficient recovery was executed successfully: quadratic ≈0.08001 with
+known linear 0.18; [receipt](verification/recovery-fit_drag.json). Target x=3
+variant also solved with no stored warm start; fine terminal error ≈1.6 mm,
+and it is independently audited in `verification/target3-math_audit.json`.
+These optional results apply to the rehearsed variants, not arbitrary targets.
+Both raw code-generation targets `jax-ode` and `casadi-ode` were executed.
+
+## Lean and primary literature
+
+Lean 4.29.1 + public Mathlib v4.29.1, exact commit
+`5e932f97dd25535344f80f9dd8da3aab83df0fe6`. Clean CI regenerated the actual
+Solve→Lean representation without a diff, built the proofs, rechecked terms
+with **leanchecker**, and rejected admissions/custom axioms. The assumption
+log is [verification/lean-ci.txt](verification/lean-ci.txt). Exact theorem
+statements, trusted boundary, dimensional review and checked primary papers:
+[MATH_REVIEW.md](MATH_REVIEW.md).
+
+Proven: RHS/displayed-equation equality; drag signs/dissipation; smoothness and
+regularization bound; hover; power balance; ideal two-speed excitation algebra;
+rotor allocation; positive parameterization. Not proven: compiler/translator
+correctness, floating-point behavior, integration error bounds, noisy-data
+identifiability, global optimum, all-time state constraints or safe flight.
+
+## Browser and editor
+
+The actual public [playground](https://rumoca.cognipilot.org/playground/) was
+tested in Chromium, with the complete browser bundle, visible gear/settings
+model selector, **BrowserFlight** selected, and Play at quadratic values 0 and
+0.08. Both compiled balanced and produced **501 points, 8 variables** and a
+plot. Browser-reported simulation times approximately 48 ms and 10 ms;
+automation waited longer for rendering. Runtime **0.8.13**, distinct from the
+Python release. Intentional syntax errors produced browser LSP markers.
+Evidence: [browser.json](verification/browser.json), actual screenshots in
+`slides/assets/`, reproducible [UI test](verification/browser-proof.mjs).
+
+The released **0.10.2** VSIX was installed in isolated real **VS Code 1.119.0**
+extension hosts on **Linux x64, Windows x64, macOS ARM64 and macOS x64**.
+Verified activation, no errors on the canonical model, `sin` completion,
+parameter hover and errors on intentionally invalid syntax.
+[Editor CI run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38171363332)
+passed all four jobs. Receipts: [verification/editors](verification/editors),
+local [vscode-linux.json](verification/vscode-linux.json), actual
+`vscode-quadrotor.png`, and test source in `verification/`.
+
+**Not qualified:** browser-native Python and Codespaces remote extension
+activation. The editor test is independent of Python CI; exact release/platform
+qualification does not guarantee every older OS/editor build.
+
+## Optional agent-built app gallery
+
+[BROWSER_APPS.md](BROWSER_APPS.md) provides a five-minute segment led by fixed-wing;
+SLAM is another example in development.
+The public Chromium UI rehearsal passed for all three linked applications:
+
+- `rumoca_fixed_wing`: compiled the default Modelica controller and plant,
+  observed waypoint/time progress at 50 Hz, selected 20 Hz, **restarted to
+  compile at the new rate**, observed progress again and paused; about 14 s
+  for the whole test. [Receipt](verification/app-rumoca_fixed_wing.json).
+- `slam_web`: ran and paused `InertialOnly`, selected `ResponsiveInertial`,
+  ran and paused again; simulated time advanced in both. Software WebGL warning
+  and lightweight preview were visible; about 25 s. [Receipt](verification/app-slam_web.json).
+- `mocap_sysid`: selected synthetic open-loop data, opened Time Histories,
+  Data Splits and Models, then selected LinearSS; about 6 s.
+  [Receipt](verification/app-mocap_sysid.json).
+
+WASM requests returned HTTP 200 for fixed-wing and SLAM Lab. The tested mocap
+viewer path displays stored results and does not invoke WASM. No page errors
+occurred on the successful rehearsals. Actual screenshots are in
+`slides/assets/app-*.png`; [test](verification/apps-proof.mjs).
+These are UI execution checks, not independent validation of benchmark metrics,
+visual-SLAM completion, real flight or the applications’ complete mathematics.
+The workshop’s planar-model Lean proofs do not cover these different models.
+Agents helped build the apps, as described by the instructor; engineering
+review and validation remain necessary.
+
+## Qualified package artifacts
+
+The workshop macOS wheels use the operating system's libiconv load reference.
+The maintainer packaging script updates that reference, signature and wheel
+RECORD without altering compiler code. Both artifacts passed qualification and
+are selected by frozen hashes; participants use the ordinary uv commands.
+[Qualification run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38169067520),
+[provenance](verification/wheels), [notice](NOTICE.md).
+
+The devcontainer qualification uses a writable workspace and runs startup as
+`vscode`. Formal CI pins the public Mathlib release and checks the generated
+proof terms from a clean environment.
+
+## Presentation and external limits
+
+The deck has 22 main slides, four appendices, a contiguous **180-minute** schedule
+and **two ten-minute breaks**. One editable Markdown source builds both PPTX
+with speaker notes and PDF. All 26 PDF pages were rendered and visually reviewed;
+commands, QR, screenshots and reference plots are real. Presenter text uses
+large type; small evidence plots/screenshots are backups for live zoomable demos.
+The PDF embeds fonts. Inspect the PPTX in the actual presentation application
+for font substitution/projector differences before class.
+
+The editable PPTX was also rendered by **LibreOffice Impress 25.8.5.2** on Linux.
+All 26 pages retained every authored text item, with extracted text inside page
+bounds. [Presentation receipt](verification/presentation.json) records the
+artifact hash and scope. This adds an office-renderer check to the PDF review;
+the actual presentation laptop and projector remain preflight items.
+
+Fresh cloud qualification is pending. Account quotas, prebuild readiness,
+region availability and simultaneous class capacity are not established by
+container CI. Venue Wi-Fi and the presentation laptop/projector are preflight
+items. Browser, qualified local uv and reference plots provide alternate paths;
+[PUBLICATION.md](PUBLICATION.md) covers cloud access.
+
+Public upstream research is cited separately from workshop executions; future
+work is labeled. The optional challenge is announced at the opening, uses an
+open theme and ends with short GitHub app demos and an audience hand vote.
+[INSTRUCTOR.md](INSTRUCTOR.md) contains presentation and facilitation checks.

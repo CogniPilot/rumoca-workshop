@@ -1,0 +1,9 @@
+* text=auto eol=lf
+
+# Preserve the committed dataset bytes used in provenance hashes.
+data/*.csv -text
+
+*.pdf binary
+*.pptx binary
+*.png binary
+*.npz binary

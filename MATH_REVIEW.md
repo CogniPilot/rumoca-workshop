@@ -117,8 +117,8 @@ lake env lean Workshop.lean
 ```
 
 Install [elan](https://github.com/leanprover/elan) to obtain the pinned toolchain.
-On this workstation, store `.lake` physically under `$HOME/scratch/rumoca-workshop/`
-and link it into `formal/`; reuse owned caches without altering other tasks.
+For substantial proof downloads, store `.lake` under
+`$HOME/scratch/rumoca-workshop/` and link it into `formal/`.
 CI follows this storage convention. Participants do not need Lean.
 
 **Trusted boundary:** the compiler, JSON template, Python-to-Lean translator,
@@ -131,7 +131,10 @@ independent numerical comparisons reduce risk without erasing this boundary.
 ## Identification and numerical checks
 
 The objective is `L(a)=mean[((prediction−measurement)/σ)²]` over position and
-velocity components on three training flights, where `kl=exp(a₁)`, `kq=exp(a₂)`.
+velocity components on three training flights. Dimensionless log parameters
+mean `kl/(1 N s/m)=exp(a₁)` and `kq/(1 N s²/m²)=exp(a₂)`; scripts store the
+numerical SI magnitudes of the physical coefficients. Lean operates on those
+real magnitudes, not a type system for physical dimensions.
 Parameters are bounded to `[0.001,2]` in their respective native units; zero
 drag is outside that fitting range. `σ` is the known synthetic measurement
 standard deviation of each observed component. Gaussian, independent noise,
@@ -231,3 +234,14 @@ Literature checks guide the approach; they are not a substitute for testing this
 implementation. The stored [numerical audit](results/reference/math_audit.json),
 [plot](results/reference/math_audit.png) and [verification report](VERIFICATION.md)
 are evidence for the specific workshop instance.
+
+## Scope of the optional browser app experiments
+
+The [app gallery](BROWSER_APPS.md) uses different fixed-wing and inertial models,
+release versions and datasets. Public UI rehearsal confirms the documented
+interactions execute. It does not transfer these planar-model Lean theorems,
+coefficient-recovery results or trajectory constraint checks to those apps.
+Motion-capture benchmark metrics are displayed as upstream stored results;
+we did not regenerate or independently validate them. Full visual-SLAM coupling
+remains development work. An agent’s role in building an app is development
+provenance, not mathematical evidence.

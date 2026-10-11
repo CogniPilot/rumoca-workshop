@@ -1,0 +1,29 @@
+{
+  "name": "rumoca_fixed_wing",
+  "url": "https://cognipilot.github.io/rumoca_fixed_wing/",
+  "tested_at": "2026-10-11T20:38:04.699Z",
+  "browser": "Chromium, software WebGL fallback",
+  "steps": [
+    "Autopilot tab",
+    "Start sim",
+    "compiled Modelica controller + plant",
+    "simulation advances",
+    "change controller rate 50 → 20 Hz",
+    "Start sim again to recompile at new rate",
+    "simulation advances at 20 Hz",
+    "Pause"
+  ],
+  "status_text": "CubControl autopilot running lockstep at 50 Hz.",
+  "waypoint_before": "Target WP 2/6 | 5.19 m | 50 Hz target | sim 1.0 s",
+  "waypoint_after": "Target WP 1/6 | 3.74 m | 20 Hz target | sim 0.7 s",
+  "scope": "Public default autopilot UI execution only; no validation of real aircraft or arbitrary edits.",
+  "status": "PASS",
+  "elapsed_seconds": 14.655,
+  "wasm": [
+    {
+      "url": "https://cognipilot.github.io/rumoca_fixed_wing/public/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+      "status": 200
+    }
+  ],
+  "page_errors": []
+}

@@ -24,3 +24,11 @@ libraries are separate third-party dependencies with their own notices.
 Browser and VS Code screenshots record real executions of public Rumoca tools.
 Workshop plots/diagrams are generated locally from the supplied teaching model;
 no third-party paper figures or institutional logos are reproduced.
+
+The optional gallery screenshots record the public CogniPilot
+[fixed-wing app](https://github.com/CogniPilot/rumoca_fixed_wing),
+[SLAM Lab](https://github.com/CogniPilot/slam_web) and
+[mocap benchmark viewer](https://github.com/CogniPilot/mocap_sysid).
+Their source projects use Apache-2.0; third-party models, textures and actors
+retain the upstream notices and [SLAM Lab asset credits](https://github.com/CogniPilot/slam_web/blob/main/public/models/licenses/ACTORS.md).
+The gallery does not redistribute their complete applications or datasets.

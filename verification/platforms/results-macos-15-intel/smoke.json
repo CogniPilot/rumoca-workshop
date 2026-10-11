@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "platform": "macOS-15.7.9-x86_64-i386-64bit",
+  "python": "3.12.10",
+  "processor": "i386",
+  "rumoca_version": "0.10.2",
+  "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+  "command_wall_seconds": {
+    "simulate": 28.319490347000055,
+    "fit_drag_jax": 9.056532414000003,
+    "optimize_casadi": 2.899006651000036
+  },
+  "checks": {
+    "max_rhs_parity_error": 0,
+    "jax_gradient": -10.379535595670434,
+    "finite_difference": -10.379535595905764
+  },
+  "total_seconds": 49.33222638500001
+}

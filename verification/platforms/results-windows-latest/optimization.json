@@ -1,0 +1,52 @@
+{
+  "success": true,
+  "solver_status": "Solve_Succeeded",
+  "iterations": 11,
+  "cost": 5.118301361229398,
+  "drag": {
+    "k_linear": 0.18041558638546262,
+    "k_quad": 0.07990761327595691
+  },
+  "horizon_seconds": 6.0,
+  "shooting_intervals": 60,
+  "terminal_max_error": 0.0,
+  "max_dynamics_defect": 1.6930901125533637e-14,
+  "fine_rollout_terminal_max_error": 0.0020965358918214605,
+  "thrust_range": [
+    11.399928073804972,
+    15.704925785432943
+  ],
+  "torque_range": [
+    -0.29856748263670263,
+    0.35000000890145744
+  ],
+  "rotor_pair_force_range": [
+    5.456103475739758,
+    8.53867226501135
+  ],
+  "pitch_abs_max": 0.5400000092795978,
+  "altitude_range": [
+    1.0,
+    2.060475941962434
+  ],
+  "fine_pitch_abs_max": 0.5415362296697147,
+  "pitch_node_limit": 0.54,
+  "pitch_physical_limit": 0.55,
+  "fine_rollout_terminal_error_by_state": {
+    "x": 0.00030318959243746946,
+    "z": 0.0020965358918214605,
+    "theta": 2.6949036059934473e-09,
+    "vx": 2.6229644628512945e-05,
+    "vz": 0.0002447365660741983,
+    "omega": -4.311845971444921e-09
+  },
+  "fine_altitude_range": [
+    1.0,
+    2.0611842879141453
+  ],
+  "warm_start_used": true,
+  "runtime_seconds": 1.3319606999999962,
+  "source_sha256": "87e3cf6c89e1524088d7c05e0be7d8781f062a705a013e3e3137742eaf80ac32",
+  "fit_sha256": "136e775d8e2fd58805c17d7539f80f7629da1818a9d8f7b8255456ee0502fc48",
+  "rumoca_version": "0.10.2"
+}

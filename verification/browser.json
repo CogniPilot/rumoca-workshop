@@ -1,5 +1,5 @@
 {
-  "tested_at": "2026-10-11T19:41:44.832Z",
+  "tested_at": "2026-10-11T20:08:23.590Z",
   "url": "https://rumoca.cognipilot.org/playground/",
   "frame_url": "https://rumoca.cognipilot.org/playground/app/index.html",
   "browser": "Chromium",
@@ -7,14 +7,14 @@
   "runs": [
     {
       "k_quad": 0,
-      "elapsed_seconds": 1.367,
-      "summary": "501 pts, 8 vars (47ms)",
+      "elapsed_seconds": 1.368,
+      "summary": "501 pts, 8 vars (48ms)",
       "runtime": "Rumoca v0.8.13 - Modelica Compiler"
     },
     {
       "k_quad": 0.08,
-      "elapsed_seconds": 1.309,
-      "summary": "501 pts, 8 vars (9ms)",
+      "elapsed_seconds": 1.297,
+      "summary": "501 pts, 8 vars (10ms)",
       "runtime": "Rumoca v0.8.13 - Modelica Compiler"
     }
   ],
@@ -28,5 +28,5 @@
       "startLineNumber": 3
     }
   ],
-  "scope": "Actual public playground UI; pasted model, selected BrowserFlight, clicked Play at both drag settings; screenshot and plot produced. Python backends execute separately."
+  "scope": "Actual public playground UI; pasted model, used visible gear/settings model selector, selected BrowserFlight, clicked Play at both drag settings; screenshot and plot produced. Python backends execute separately."
 }

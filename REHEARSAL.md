@@ -10,14 +10,16 @@ not a promise about network startup.
 |---|---|---|---|
 | Browser opening | Playground → click editor → select all/paste complete `browser/Quadrotor_browser.mo` → gear beside Play → Model `BrowserFlight` → close settings → Play | 3 min including explanation; actual browser reports 501 points, 8 variables and balanced compilation | `slides/assets/browser-drag-linear.png` + local VS Code |
 | Browser edit | Find `k_quad` parameter → 0.0 to 0.08 → Play → inspect `x`/`vx` curves | 2 min; drag opposes velocity; results panel still says BrowserFlight | `browser-drag-quadratic.png`; explain this is a recorded successful run |
-| Cloud startup | Open Codespaces link → choose authorized account → create → wait for postCreate → open terminal → check WORKSHOP PASS | **Unmeasured fresh cloud startup**; start tonight, not on stage | Local `uv`; paired/screenshared Python |
+| Cloud startup | Open Codespaces link → choose authorized account → create → wait for postCreate → open terminal → check WORKSHOP PASS | Fresh-cloud qualification is recorded in VERIFICATION.md; start before class | Local `uv`; paired/screenshared Python |
 | Local startup | VS Code → File/Open Folder → extracted repo → Terminal/New Terminal → `uv sync --frozen` → smoke command below | Network install time depends on first downloads; successful end-to-end smoke ~12 s locally after setup | Browser + figures if installation exceeds 10 min |
-| LSP | Open `models/Quadrotor.mo` → Extensions verify Rumoca enabled → hover `m` → Ctrl+Space after typing `si` → undo; optionally create `scratch.mo` with `model Broken` / `Real x = ;` / `end Broken;`, observe error then delete | 2 min; actual 0.10.2 Linux LSP tested hover, sin completion, syntax errors | Real `vscode-quadrotor.png`; no claims about navigation not tested |
+| LSP | Open `models/Quadrotor.mo` → Extensions verify Rumoca enabled → hover `m` → Ctrl+Space after typing `si` → undo; optionally create `scratch.mo` with `model Broken` / `Real x = ;` / `end Broken;`, observe error then delete | 2 min; actual 0.10.2 LSP tested on Linux/Windows x64 and both Mac architectures | Real `vscode-quadrotor.png`; no claims about navigation not tested |
 | Simulation | Terminal run simulate → Explorer `results/live/simulation.png` → change k_quad default to 0.08/save → run again | 1–2 s local computation per run; 5 min demo; curves separated | Reference simulation PNG |
 | JAX fit | Terminal run fit → open fit_drag PNG → open JSON → highlight drag, final_loss, per-state and scaled RMS | ~5–6 s local computation; 5 min demo; 0.18042 / 0.07991 | Restore defaults, refit; one-coefficient; then reference figure |
 | CasADi | Keep same source since fit → run optimize → open PNG → JSON solver_status, drag, terminal and fine error | ~1–2 s local computation; 5 min demo; Solve_Succeeded | Source-hash error: refit; canonical defaults + reference fit; then reference PNG |
 | Mathematical appendix | Open MATH_REVIEW then proof log and audit figure; point out exact-real theorem scope versus numerical evidence | 2 min if asked; no attendee Lean installation | Explain verbally; no live Mathlib download |
-| Close | Return to slides 19–22 → label public upstream/future work → point to issue and repo links | Exactly 12:45–13:00 | PDF; no live research-project startup |
+| App gallery | Slide 20 → BROWSER_APPS.md → choose one tested app experiment; lead with fixed-wing; let app builders finish demos | Exactly 12:45–12:50: 1 min introduce, 4 min explore or finish an app | Real app screenshots; prediction discussion if network/graphics fails |
+| Challenge | Slide 2 announces open competition; slide 21 → participant GitHub demos → audience show of hands → stocking-cap award | 12:50–12:55: 4 min short demos, 1 min vote; CHALLENGE.md | If no entries, take an app question and continue |
+| Close | Slide 22 → questions, research invitation and repository links | Exactly 12:55–13:00 | PDF + local links |
 
 Three core commands (copy individually):
 
@@ -56,5 +58,5 @@ Browser/cloud routes need a network. Do not turn an offline screenshot into a
 claim of a live browser run. Re-enable networking afterward.
 
 For each timed segment, announce the worksheet checkpoint and ask for a show of
-hands. At 10:40 stop setup support; at 11:05 and 12:00 display the break slide;
-at 12:45 move to the research close. Keep the two full ten-minute breaks.
+hands. At 10:40 stop setup support; at 11:00 and 12:00 display the break slide;
+at 12:40 connect to experiments, at 12:45 explore apps and at 12:50 start demos. Keep the two full ten-minute breaks.

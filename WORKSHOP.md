@@ -7,6 +7,8 @@ Start with [README.md](README.md) to choose browser, cloud or local access.
 Keep this worksheet open. Work in pairs if only one laptop has Python running.
 Every core exercise has a [reference figure](results/reference) for recovery.
 The math assumptions and proofs are in [MATH_REVIEW.md](MATH_REVIEW.md).
+No aerospace background is required; the example lets us change a parameter,
+fit measurements and solve a constrained problem in one workflow.
 
 ## 10:00–10:20 · The result we are building
 
@@ -14,10 +16,17 @@ One source file, [models/Quadrotor.mo](models/Quadrotor.mo), declares six planar
 states and two inputs. Rumoca compiles it into JAX functions for identification
 and CasADi functions for constrained trajectory optimization. Python supplies
 integrators, data handling and optimization problems; it does not re-declare the
-vehicle equations. We use CPU computation throughout.
+vehicle equations. The core Python exercises run on CPU.
 
 Today’s data are **synthetic**. Today’s control result is an **open-loop trajectory**.
 The example does not certify a real aircraft or implement MPC.
+
+**Optional challenge, announced now:** create an app with coding agents and put
+it on your GitHub. The theme is open. Build throughout the workshop, then show
+a short demo at **12:50**. An audience hand vote chooses the winner of a
+**free CogniPilot stocking cap**. Our lead example is `rumoca_fixed_wing`;
+`slam_web` is another example in development. See [CHALLENGE.md](CHALLENGE.md).
+You can begin when ready and return to your app during independent work.
 
 ## 10:20–10:40 · Get running
 
@@ -38,13 +47,13 @@ The browser has no JAX/CasADi Python terminal.
 
 ### Full Python route: cloud or local (about 10 minutes)
 
-**Cloud:** [create a Codespace](https://codespaces.new/CogniPilot/rumoca-workshop?quickstart=1).
+**Cloud:** [create a Codespace](https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1).
 Sign in with GitHub; check your account’s allowance/policy before creating it.
 Wait for container setup to complete and the smoke test to say **WORKSHOP PASS**.
 Fresh Codespaces startup, prebuild readiness and capacity for 50 users need
 instructor preflight; container CI alone does not verify them.
 
-**Local:** [download the ZIP](https://github.com/CogniPilot/rumoca-workshop/archive/refs/heads/main.zip),
+**Local:** [download the ZIP](https://github.com/CogniPilot/rumoca_workshop_amc2026/archive/refs/heads/main.zip),
 extract it, open the extracted folder in VS Code. Install
 [uv](https://docs.astral.sh/uv/getting-started/installation/) and the
 [Rumoca extension](https://marketplace.visualstudio.com/items?itemName=JamesGoppert.rumoca-modelica).
@@ -64,14 +73,15 @@ Open `models/Quadrotor.mo`. Accept Workspace Trust for this workshop if your
 policy allows it. The status bar should identify **Modelica**. In Extensions,
 check that **Rumoca Modelica** (`JamesGoppert.rumoca-modelica`) is installed and
 enabled. Hover over `m`; try Ctrl+Space while typing `si` in an expression, then
-undo. The verified Linux extension provides hover, completion and syntax diagnostics.
-Other editor platforms and remote Codespaces activation need preflight.
+undo. The released extension provides verified hover, completion and syntax
+diagnostics on Linux x64, Windows x64 and both Mac architectures. Remote
+Codespaces activation is a separate preflight check.
 
 **Checkpoint 1:** a browser plot; on the full route, **WORKSHOP PASS** and a
 `.mo` editor with the extension active. If setup takes over 10 minutes, use
 the browser and pair/screenshare path; [troubleshooting](TROUBLESHOOTING.md).
 
-## 10:40–11:05 · Read the physics and change drag
+## 10:40–11:00 · Change a parameter and see the result
 
 World `x` points right; `z` points up. Positive pitch `theta` tilts thrust toward
 positive `x`. States are `x, z, theta, vx, vz, omega`; inputs are thrust `T` in
@@ -111,12 +121,12 @@ experiment, final distance is about **41.60 m** with linear-only drag and
 so force still opposes motion. `models/Quadrotor_solution.mo` records the answer
 as an inheritance override; the underlying equations stay in one file.
 
-## 11:05–11:15 · Break 1
+## 11:00–11:10 · Break 1
 
 Keep your editor and terminal open. Recovery image:
 [simulation.png](results/reference/simulation.png). Next command: JAX fit.
 
-## 11:15–11:50 · Fit physical parameters with JAX
+## 11:10–11:50 · Fit physical parameters with JAX
 
 [data/noisy_flight.csv](data/noisy_flight.csv) contains four 8-second experiments
 sampled at 20 Hz. Three flights train the fit; a negative-initial-speed flight
@@ -163,11 +173,11 @@ estimates. Keep the canonical source equations unchanged. Restore script edits
 before the instructor’s smoke test. The instructor audit already checks six
 starting guesses and twelve noise seeds.
 
-## 11:50–12:00 · Explain your result
+## 11:50–12:00 · Check your result or keep building
 
-Discuss with a neighbour: why do low- and high-speed flights help distinguish
-linear and quadratic drag? Why hold out a flight? What additional uncertainties
-would arise in real logs (unknown initial states, wind, sensor bias, actuator lag)?
+Open the before-and-after plot. Check the fitted values and whether the held-out
+prediction improved. Ask for help if a result is unexpected. If you are ready,
+continue your [challenge app](CHALLENGE.md) or try another fit starting guess.
 
 JAX autodiff differentiates the implemented discretized computation, subject to
 floating-point arithmetic. It does not remove integration error or model error.
@@ -180,7 +190,7 @@ The Lean proofs and profile-likelihood audit are instructor evidence in
 Leave `fit_drag.json` in `results/live/`. Next: use those coefficients in CasADi.
 Recovery image: [fit_drag.png](results/reference/fit_drag.png).
 
-## 12:10–12:45 · Optimize a constrained flight with CasADi
+## 12:10–12:40 · Optimize a constrained flight with CasADi
 
 Move from hover at **(0, 1) m** to hover at **(4, 2) m** in 6 seconds. The same
 Modelica source is compiled again; fitted drag is loaded from your JAX output.
@@ -219,11 +229,11 @@ uv run --frozen python scripts/optimize_casadi.py --fit results/reference/fit_dr
 ```
 
 If the canonical source hash differs, run your own fit instead. Reference plots
-remain available without Python. An optional target variant `--target-x 3`
-is only offered after its successful rehearsal is recorded in [verification](VERIFICATION.md).
+remain available without Python. The optional target variant `--target-x 3`
+was also rehearsed successfully; see [verification](VERIFICATION.md).
 MPC would repeat optimization with updated measured state; we do not run an MPC loop today.
 
-## 12:45–13:00 · Connect, contribute, take home
+## 12:40–12:45 · Connect the model to experiments
 
 Purdue’s [UAS Research and Test Facility](https://engineering.purdue.edu/PURT)
 grounds model-based work in experiments. Public
@@ -233,9 +243,33 @@ upstream examples, not exercises executed here. Monte Carlo and reinforcement
 learning are application directions. Unified vision/SLAM/estimation models and
 automatic hardware partitioning are research goals.
 
+## 12:45–12:50 · Explore the fixed-wing app or finish your demo
+
+Open [BROWSER_APPS.md](BROWSER_APPS.md) and try the **rumoca_fixed_wing**
+autopilot experiment: change its controller rate, restart and observe.
+This is the lead example of an app we built with coding agents. `slam_web` is
+another example **in development**; `mocap_sysid` is a stored-results viewer.
+No agent account or API key is required to explore the examples manually.
+App builders can use this time to finish their demo and open their GitHub repo.
+
+**Checkpoint 5:** describe one observation and one test needed before trusting
+it. These apps use their own models and data. The workshop’s planar-model Lean
+proofs do not cover them. SLAM Lab’s inertial demo is distinct from its unfinished
+full visual-SLAM pipeline; the benchmark viewer displays previously generated
+results rather than retraining methods in your browser.
+
+## 12:50–12:55 · Participant demos and audience vote
+
+Show your app and GitHub repository, explain your contribution, and demonstrate
+one working interaction. The theme is open. An audience **show-of-hands vote**
+chooses the winner of a **free CogniPilot stocking cap**.
+[CHALLENGE.md](CHALLENGE.md) gives the short-demo format and voting rules.
+
+## 12:55–13:00 · Questions, collaboration and take-home
+
 Bring a concrete identification, optimization or cyber-physical testing problem;
 start with a reproducible model and expected result. Contribute via
 [Rumoca](https://github.com/CogniPilot/rumoca) or
-[workshop issues](https://github.com/CogniPilot/rumoca-workshop/issues).
+[workshop issues](https://github.com/CogniPilot/rumoca_workshop_amc2026/issues).
 Take-home challenge: try another initial fit guess, inspect holdout prediction,
 and explain one model limitation before suggesting an extension.

@@ -81,6 +81,8 @@ jobs:
       - run: uv run --frozen python scripts/smoke_test.py
       - if: matrix.os == 'ubuntu-latest'
         run: uv run --frozen python scripts/math_audit.py --output results/live
+      - name: Check workshop artifacts and provenance
+        run: uv run --frozen python scripts/check_materials.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:

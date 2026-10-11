@@ -1,71 +1,66 @@
-# Publication and cloud preflight
+# Cloud access and reproducibility
 
-The standalone public repository is
-<https://github.com/CogniPilot/rumoca-workshop>. It is independent of the main
-Rumoca repository, with explicit pinned release dependencies. Participants can
-download the ZIP without a GitHub account. The supplied internal handoff brief
-is ignored and has not been published.
+The public workshop repository is
+<https://github.com/CogniPilot/rumoca_workshop_amc2026>. It uses pinned release
+dependencies and is independent of the main Rumoca checkout. Participants can
+download the ZIP without a GitHub account.
 
-Links ready for sharing (no message has been sent on your behalf):
+## Workshop links
 
-- Participant entry: <https://github.com/CogniPilot/rumoca-workshop/blob/main/WORKSHOP.md>
-- Repository: <https://github.com/CogniPilot/rumoca-workshop>
-- ZIP: <https://github.com/CogniPilot/rumoca-workshop/archive/refs/heads/main.zip>
-- Codespace: <https://codespaces.new/CogniPilot/rumoca-workshop?quickstart=1>
-- Browser: <https://rumoca.cognipilot.org/playground/>
+- [Participant walkthrough](https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/WORKSHOP.md)
+- [Download ZIP](https://github.com/CogniPilot/rumoca_workshop_amc2026/archive/refs/heads/main.zip)
+- [Create a Codespace](https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1)
+- [Rumoca browser playground](https://rumoca.cognipilot.org/playground/)
 
-Suggested preflight text: “Before Monday, choose browser-only or full Python
-participation. Browser needs no account. For full work, download the workshop,
-install uv and run `uv sync --frozen` followed by the smoke-test command in the
-README, or use an account with Codespaces allowance. Bring a charged laptop.
-If setup fails, you can pair up and continue with browser/reference figures.”
+Browser participation needs no account. For the full Python workflow, use a
+Codespace with an available account allowance, or install uv locally and run
+`uv sync --frozen` followed by the smoke command in [README.md](README.md).
+Bring a charged laptop. Paired work and reference figures provide recovery if
+setup is incomplete.
 
-## Codespaces: required personal preflight
+## Codespaces preflight
 
-Container build and postCreate commands are exercised in CI. A **fresh cloud
-Codespace** was not created: the authenticated automation token returned HTTP
-403 because it lacks `codespace` scope. No billing/policy changes were made.
+The devcontainer builds in CI and its startup commands pass as the non-root
+`vscode` user. [VERIFICATION.md](VERIFICATION.md) records fresh-cloud and editor
+qualification separately from the container test.
 
-Before describing Codespaces as the preferred full route, the instructor must:
+Before class, open a fresh environment with the account you will use. Confirm
+setup completes with **WORKSHOP PASS**, the terminal runs the three examples,
+and the Python interpreter uses `.venv`. Open `models/Quadrotor.mo` and check
+Rumoca hover, completion and diagnostics. Account quotas, supported regions
+and venue connectivity should be checked for the intended participants.
 
-1. Create a new Codespace from `main` with the actual account and desired region.
-   Measure first start; check postCreate says WORKSHOP PASS.
-2. Open `.mo` and confirm the Rumoca extension runs remotely; test hover,
-   completion and an intentionally broken line followed by undo. Confirm the
-   Python interpreter points into `.venv` and the terminal runs all three tasks.
-3. Check account remaining usage, organization policies, authorized billing and
-   supported machine sizes. Fifty attendees do not share one guaranteed free
-   allowance. Public repository access does not supply cloud compute.
-4. If authorized and supported, configure repository **Settings → Codespaces →
-   Prebuilds**, region and branch; wait for “ready” and test creating from it.
-   Record which region and account were tested. No ready prebuild exists on the
-   basis of the container workflow alone.
-5. Check capacity/concurrent-account restrictions with the venue/organization;
-   plan local and pair fallbacks. Do not create fifty billed environments as a
-   synthetic capacity test without explicit budget authorization.
+Codespaces usage depends on account allowance, organization policy and billing;
+public repository access does not include cloud compute. See
+[GitHub billing](https://docs.github.com/en/billing/concepts/product-billing/github-codespaces)
+and [included usage](https://docs.github.com/en/billing/reference/product-usage-included).
+The local uv route supports the four operating-system/architecture targets
+listed in [VERIFICATION.md](VERIFICATION.md).
 
-[GitHub’s billing documentation](https://docs.github.com/en/billing/concepts/product-billing/github-codespaces)
-and [included usage](https://docs.github.com/en/billing/reference/product-usage-included)
-describe account-dependent allowances; organization-paid usage differs from
-personal included usage. Do not promise “free for everyone.”
-[Prebuild documentation](https://docs.github.com/en/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)
-explains plan/budget requirements and that `onCreateCommand`/`updateContentCommand`
-run during prebuilds, while `postCreateCommand` runs at individual creation.
-This configuration caches dependencies in the image and runs `uv sync`/smoke
-at postCreate; it does not falsely claim to prebuild all extension activation.
+## Prebuilds
 
-If fresh-cloud qualification is unavailable, use the **tested browser + local
-uv** route on stage and label Codespaces as an optional configured route.
+For accounts and organizations supporting prebuilds, repository
+**Settings → Codespaces → Prebuilds** selects a branch and region. Wait for
+“ready” and test creating a new Codespace from that prebuild.
+[GitHub's prebuild documentation](https://docs.github.com/en/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)
+explains availability, storage and billing. `onCreateCommand` and
+`updateContentCommand` run during prebuilds; `postCreateCommand` runs during
+individual creation.
+
+This workshop caches Python dependencies in the container image and runs
+`uv sync` plus the smoke test at `postCreate`. A container CI pass does not
+establish prebuild readiness or simultaneous availability for a class.
 
 ## Qualified macOS wheel release
 
 The workshop owns release
-[workshop-wheels-2026](https://github.com/CogniPilot/rumoca-workshop/releases/tag/workshop-wheels-2026).
+[workshop-wheels-2026](https://github.com/CogniPilot/rumoca_workshop_amc2026/releases/tag/workshop-wheels-2026).
 Upstream macOS 0.10.2 wheels contained a nonportable libiconv load reference.
 The maintainer repair script changes that reference to the operating system’s
 libiconv, signs the library and regenerates wheel RECORD. It does not alter
 compiler code. Frozen hashes select these two tested artifacts automatically.
 Linux/Windows retain upstream release wheels. See [NOTICE.md](NOTICE.md).
 
-No Nix, Rust compiler or manual binary repair is required for attendees. Python
-OS qualification does not imply macOS/Windows VS Code extension qualification.
+No Nix, Rust compiler or manual binary repair is required for attendees. The
+released VS Code extension was separately qualified on all four OS/architecture
+targets; Python and editor receipts are recorded in [VERIFICATION.md](VERIFICATION.md).

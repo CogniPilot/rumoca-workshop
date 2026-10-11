@@ -1,0 +1,20 @@
+{
+  "name": "mocap_sysid",
+  "url": "https://cognipilot.github.io/mocap_sysid/",
+  "tested_at": "2026-10-11T20:22:48.977Z",
+  "browser": "Chromium, software WebGL fallback",
+  "steps": [
+    "choose synthetic open-loop dataset",
+    "Time Histories",
+    "Data Splits",
+    "Models → LinearSS"
+  ],
+  "dataset": "aircraft_6dof_open_loop",
+  "run_metadata": "schema 0.1.0 | 410d7d0 | 6/25/2026, 9:05:31 PM",
+  "models_status": "The fitted parameters behind each browser-runnable prediction method",
+  "scope": "Explore stored benchmark traces/splits/model information. Training and benchmark metrics were not regenerated or independently audited here.",
+  "status": "PASS",
+  "elapsed_seconds": 6.267,
+  "wasm": [],
+  "page_errors": []
+}

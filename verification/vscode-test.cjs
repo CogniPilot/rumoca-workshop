@@ -24,10 +24,12 @@ exports.run=async()=>{
  for(let i=0;i<50 && v.languages.getDiagnostics(doc.uri).length===0;i++) await new Promise(r=>setTimeout(r,200));
  result.errorDiagnostics=v.languages.getDiagnostics(doc.uri).map(d=>({message:d.message,severity:d.severity}));
  const restore=new v.WorkspaceEdit();restore.replace(doc.uri,new v.Range(0,0,doc.lineCount,0),source);await v.workspace.applyEdit(restore);
- await new Promise(r=>setTimeout(r,1000));
+ for(let i=0;i<50 && v.languages.getDiagnostics(doc.uri).some(d=>d.severity===v.DiagnosticSeverity.Error);i++) await new Promise(r=>setTimeout(r,200));
+ result.restoredDiagnostics=v.languages.getDiagnostics(doc.uri).map(d=>({message:d.message,severity:d.severity}));
  await v.commands.executeCommand('workbench.action.closeSidebar');
+ await v.commands.executeCommand('workbench.action.closeAuxiliaryBar');
  await v.commands.executeCommand('notifications.clearAll');
  fs.writeFileSync(process.env.WORKSHOP_RESULT,JSON.stringify(result,null,2)+'\n');
- if(!result.active || !result.completionLabels.includes('sin') || !result.errorDiagnostics.length || !result.hover.length || result.initialDiagnostics.some(d=>d.severity===v.DiagnosticSeverity.Error)) throw Error('VS Code check failed');
+ if(!result.active || !result.completionLabels.includes('sin') || !result.errorDiagnostics.some(d=>d.severity===v.DiagnosticSeverity.Error) || !result.hover.length || result.initialDiagnostics.some(d=>d.severity===v.DiagnosticSeverity.Error) || result.restoredDiagnostics.some(d=>d.severity===v.DiagnosticSeverity.Error)) throw Error('VS Code check failed');
  await new Promise(r=>setTimeout(r,process.env.WORKSHOP_SCREENSHOT==='1'?12000:1000));
 };

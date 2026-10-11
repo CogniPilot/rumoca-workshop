@@ -1,0 +1,62 @@
+{
+  "drag": {
+    "k_quad": 0.08001408979286742,
+    "k_linear": 0.18
+  },
+  "initial_drag": {
+    "k_quad": 0.025
+  },
+  "initial_loss": 8511.901842148918,
+  "final_loss": 1.0735898325883755,
+  "loss_reduction": 7928.44863445392,
+  "rms": {
+    "train_before": 2.336257772799737,
+    "train_after": 0.03160609951310416,
+    "validation_before": 0.35573531279182324,
+    "validation_after": 0.028934488921705616
+  },
+  "rms_by_state": {
+    "train_before": {
+      "x": 4.549766805344212,
+      "z": 0.06085021714352712,
+      "vx": 1.061469741691728,
+      "vz": 0.040034727464468386
+    },
+    "train_after": {
+      "x": 0.026218634913792928,
+      "z": 0.02510162531841431,
+      "vx": 0.03650035960767512,
+      "vz": 0.03668783781950841
+    },
+    "validation_before": {
+      "x": 0.6480769320326947,
+      "z": 0.05504527244756664,
+      "vx": 0.2863868216381971,
+      "vz": 0.03375422356713156
+    },
+    "validation_after": {
+      "x": 0.022799991557738323,
+      "z": 0.025309022579726382,
+      "vx": 0.034387506704087904,
+      "vz": 0.03171642697946114
+    }
+  },
+  "noise_scaled_rms": {
+    "train_before": 92.25996879551238,
+    "train_after": 1.0361418013903192,
+    "validation_before": 13.644934735196275,
+    "validation_after": 0.9543444577788053
+  },
+  "rms_note": "Legacy rms combines metres and metres/second; inspect rms_by_state (each native unit) or dimensionless noise_scaled_rms for interpretation.",
+  "sensitivity_condition_number": 1.0,
+  "sensitivity_singular_values": [
+    3864.481283727791
+  ],
+  "optimizer": "L-BFGS-B, JAX autodiff through generated RHS + RK4 scan; log-positive parameters",
+  "iterations": 6,
+  "success": true,
+  "runtime_seconds": 5.143792754039168,
+  "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+  "data_sha256": "05f347f1ac9fc48fa225381f8d7fa5c0a8acaaefbcd89e9528aadc2350a94576",
+  "rumoca_version": "0.10.2"
+}

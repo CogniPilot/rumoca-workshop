@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "renderer": "LibreOffice Impress 25.8.5.2, Linux x64",
+  "slides": 26,
+  "checks": [
+    "All authored slide text survives actual PPTX rendering",
+    "All extracted text lies within page bounds"
+  ],
+  "pptx_sha256": "c9aa55ca0d6f4962b21afb9391aad3b0c7e506053faee30fdfd4a3398bc99140",
+  "scope": "Actual LibreOffice rendering. PowerPoint and the venue projector require presenter preflight."
+}

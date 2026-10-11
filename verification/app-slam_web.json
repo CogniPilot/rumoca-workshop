@@ -1,0 +1,50 @@
+{
+  "name": "slam_web",
+  "url": "https://cognipilot.github.io/slam_web/",
+  "tested_at": "2026-10-11T20:22:48.929Z",
+  "browser": "Chromium, software WebGL fallback",
+  "steps": [
+    "Run default InertialOnly",
+    "time advances; pause",
+    "select ResponsiveInertial",
+    "Run; time advances; pause"
+  ],
+  "default_time": "t = 0.43 s",
+  "variant_time": "t = 0.47 s",
+  "model": "SLAM.Examples.ResponsiveInertial",
+  "rendering_warning": "Software rendering detected: graphics are running on the CPU. Reduced preview: 160 × 90 RGB-D and 64 × 128 LiDAR, with graphics below Low. Enable browser hardware acceleration for full quality.",
+  "scope": "Inertial baseline + variant, camera/depth scene; full connected visual SLAM is pending. No mapping/loop-closure or deployment claim.",
+  "status": "PASS",
+  "elapsed_seconds": 25.077,
+  "wasm": [
+    {
+      "url": "https://cognipilot.github.io/slam_web/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+      "status": 200
+    },
+    {
+      "url": "https://cognipilot.github.io/slam_web/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+      "status": 200
+    },
+    {
+      "url": "https://cognipilot.github.io/slam_web/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+      "status": 200
+    },
+    {
+      "url": "https://cognipilot.github.io/slam_web/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+      "status": 200
+    },
+    {
+      "url": "https://cognipilot.github.io/slam_web/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+      "status": 200
+    },
+    {
+      "url": "https://cognipilot.github.io/slam_web/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+      "status": 200
+    },
+    {
+      "url": "https://cognipilot.github.io/slam_web/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+      "status": 200
+    }
+  ],
+  "page_errors": []
+}

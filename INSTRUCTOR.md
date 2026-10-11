@@ -6,55 +6,53 @@ American Modelica Conference · Georgia Tech · October 12, 2026 · 10:00–13:0
 Use [slides/workshop.pptx](slides/workshop.pptx); its speaker notes and
 [editable source](slides/workshop.md) carry the timed cues. Keep the PDF and
 reference figures on your laptop. Participant entry:
-<https://github.com/CogniPilot/rumoca-workshop/blob/main/WORKSHOP.md>.
+<https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/WORKSHOP.md>.
 
-## Tonight’s review — five personal checks
+## Presentation preflight
 
-1. Open the PPTX/PDF on your presentation laptop, inspect equations at projector
+1. Open the PPTX/PDF on the presentation laptop, inspect equations at projector
    scale and rehearse browser → editor → PNG switching. Keep local backups.
-2. Open a **fresh Codespace** with the actual presenting account; confirm
-   remote extension activation, interpreter, terminal, smoke PASS and startup
-   time. Check your/organization billing, quotas and region availability.
-   Without this, announce browser + qualified local `uv` as the default.
-3. Check venue network, projector resolution and accessible power. Ask who has
-   no GitHub account; assign pair/demo seats rather than delaying the class.
-4. Rehearse the three commands on the presenting laptop and make one drag edit.
-   Return to a clean source before using reference results. Run smoke once.
-5. Review final research/collaboration wording and confirm your preferred public
-   contact details. Public slides make no pricing, staffing or IP promises.
-
-The automated check could not access Codespaces because the available token
-lacks the `codespace` scope. No cloud quota, prebuild readiness, startup, remote
-LSP activation or 50-user concurrency is asserted. See [PUBLICATION.md](PUBLICATION.md).
+2. Check the chosen cloud or local environment, terminal, interpreter and smoke
+   test before class. [PUBLICATION.md](PUBLICATION.md) covers account-dependent
+   cloud availability; [VERIFICATION.md](VERIFICATION.md) records tested paths.
+3. Check venue network, projector resolution and accessible power. Make pair/demo
+   seats available for attendees whose setup is incomplete.
+4. Rehearse the three commands and one parameter edit. Restore the canonical
+   source before using reference fit results.
+5. Bring the CogniPilot stocking cap and rehearse the short-demo/audience-vote
+   format in [CHALLENGE.md](CHALLENGE.md).
 
 ## Facilitation and pacing
 
 | Clock | Slides | Activity / instructor cue |
 |---|---|---|
-| 10:00–10:10 | 1–2 | Welcome, four outcomes. Ask for Modelica/JAX/CasADi experience by show of hands. |
-| 10:10–10:20 | 3–4 | Motivation and compiler bridge. Explain what Rumoca adds; respect established tools. |
-| 10:20–10:40 | 5–7 | Everyone gets a browser plot, then cloud/local setup. Cap individual setup help at 10 minutes. |
-| 10:40–11:05 | 8–10 | Explain frames, predict drag, edit/run, compare. Circulate and ask what changed physically. |
-| 11:05–11:15 | 11 | **Break 1**, actual ten minutes. Leave recovery link visible. |
-| 11:15–11:50 | 12–14 | Synthetic data, noise-scaled loss, run JAX fit, inspect training and held-out predictions. |
-| 11:50–12:00 | 15 | Pair discussion on excitation, gradients and assumptions; show proof/audit scope if asked. |
-| 12:00–12:10 | 16 | **Break 2**, actual ten minutes. Leave next command visible. |
-| 12:10–12:45 | 17–18 | State/control constraints, run CasADi, interpret braking and numerical defects. |
-| 12:45–13:00 | 19–22 | PURT/upstream work, research frontier, collaboration, questions/take-home. |
+| 10:00–10:10 | 1–2 | Welcome, core outcomes and **open app challenge**. Announce GitHub demos, audience hand vote and stocking-cap prize now. |
+| 10:10–10:20 | 3–4 | Motivation and compiler bridge. Connect declared physics to different questions. |
+| 10:20–10:40 | 5–7 | Browser plot, cloud/local setup and smoke. Experienced participants can begin their app when ready. |
+| 10:40–11:00 | 8–10 | Introduce the small model, change a parameter, run and inspect the plot. Assume no aerospace background. |
+| 11:00–11:10 | 11 | **Break 1**, ten full minutes. Leave recovery link visible. |
+| 11:10–11:50 | 12–14 | Synthetic data, prediction error, JAX fit and before/after outputs. App builders use independent work time. |
+| 11:50–12:00 | 15 | Checkpoint and independent work/questions. Offer detailed mathematics only when requested. |
+| 12:00–12:10 | 16 | **Break 2**, ten full minutes. Leave next command visible. |
+| 12:10–12:40 | 17–18 | Constraints, CasADi solve and plots. Optional target variant or continued app development. |
+| 12:40–12:45 | 19 | PURT/upstream work; connect models to experiments and the lead app example. |
+| 12:45–12:50 | 20 | Explore **rumoca_fixed_wing** or finish challenge demos. Show SLAM as another example in development. |
+| 12:50–12:55 | 21 | Short participant demos, then **audience show-of-hands vote** and stocking-cap award. |
+| 12:55–13:00 | 22 | Questions, research invitation and take-home links. |
 
 Total **180 minutes**, including **20 minutes of breaks**. Aim for roughly
 35–40 minutes of explanation; the remaining teaching time is guided work,
-discussion and interpreting results. Avoid reading every slide. Appendix slides
+individual app development, questions and interpreting results. Avoid reading every slide. Appendix slides
 have no extra scheduled time; open only when an audience question requires them.
 
 ## Explain the single-model choice
 
-The existing [CogniPilot Modelica models](https://github.com/CogniPilot/modelica_models)
-include a full multirotor/Lie-group formulation. That dependency-rich model was
-inspected, but not qualified end to end for this workshop. We selected the
-deliberately compact planar ODE to make both exports fast and the drag edit
-visible. Do not say the full model is broken or supported by both backends based
-on this rehearsal. No changes to the main Rumoca repository were needed.
+The compact planar ODE keeps the source inspectable, exports fast and the
+parameter edit visible. It has six states and two inputs, with explicitly
+stated units and frame conventions. The
+[CogniPilot Modelica models](https://github.com/CogniPilot/modelica_models)
+also include richer multirotor formulations; those are outside this example's
+qualification scope.
 
 Rumoca 0.10.2’s tested API is `rm.Session().load(path, model="Quadrotor")`,
 followed by `.to_jax()` or `.to_casadi()`. Each script recompiles the current
@@ -105,9 +103,8 @@ for papers, theorem mapping, profile diagnostics and all assumptions.
 **Control:** default target (4,2) m in 6 s, all terminal rates/velocities zero
 at nodes. 60 intervals, dimensional normalization before weighted cost,
 thrust/torque/altitude/pitch bounds and illustrative rotor allocation. Cost
-about 5.118, not a measure of electrical energy. Node pitch margin 0.01 rad was
-added after detecting intersample overshoot; independent adaptive rollout now
-peaks near 0.542 rad, below 0.55. Terminal altitude is about 2.1 mm from the
+about 5.118, not a measure of electrical energy. Node pitch margin is 0.01 rad; independent adaptive rollout
+peaks near 0.542 rad, below the 0.55 physical limit. Terminal altitude is about 2.1 mm from the
 node target under independent integration. State constraints at nodes and
 sampled checks do not provide an all-time formal certificate. IPOPT success
 does not establish global optimality. This is open loop; MPC is discussed only.
@@ -126,9 +123,10 @@ does not establish global optimality. This is open loop; MPC is discussed only.
   Restore canonical defaults and use the committed reference fit/warm start.
   If still failing, show the reference trajectory and state that the live solve
   failed. Do not claim reference figures were generated by that failed run.
-- **Running late:** stop setup rabbit holes; omit stretch questions and appendix.
-  Keep both breaks, finish the core fit→optimization and reserve the closing
-  invitation. No native AD, SLAM, MPC, Colab or full 6-DoF rescue demo is required.
+- **Running late:** move to paired/demo recovery; omit stretch questions and appendix.
+  Keep both breaks, finish the core fit→optimization and reserve the app
+  exploration and closing invitation. Use gallery screenshots if apps cannot
+  load promptly. No native AD, full visual SLAM, MPC or Colab rescue demo is required.
 
 ## Research slides: evidence and wording
 
@@ -147,16 +145,41 @@ not executed during this workshop.** Avoid performance claims without a cited
 benchmark. Monte Carlo and reinforcement learning are application directions;
 no result from those workflows is shown here.
 
-Future slide: unified vision/SLAM/estimation and physics; compiler-scale
+App exploration at 12:45: use [BROWSER_APPS.md](BROWSER_APPS.md). Explain that
+coding agents helped create these applications, while engineering review and
+validation remain essential. Lead with the more complete **rumoca_fixed_wing** workbench and its
+controller-rate experiment. No API key or agent account is needed to use it.
+Participants may explore for four minutes or finish their own app. Present
+**slam_web as another example in development**.
+Full visual SLAM is pending; the tested inertial baseline is the appropriate
+short SLAM Lab exercise. Stored mocap benchmark metrics were not regenerated
+or independently validated by this workshop. Gallery models are outside the
+planar quadrotor’s proof scope.
+
+Future roadmap in Appendix A3: unified vision/SLAM/estimation and physics; compiler-scale
 differentiation; richer browser/FMI/WASM workflows; CPU/GPU/embedded partitioning.
 Label these **research directions**. The current browser demonstration is real,
 but it does not establish these larger future workflows or million-variable
 scalability. Native AD/airfoil sensitivity is not demonstrated or benchmarked
 in this workshop. No unrelated evolving project is on the critical path.
 
-Suggested close, in your own voice: “Bring a hard modeling, identification,
+Suggested close: “Bring a hard modeling, identification,
 optimization or cyber-physical testing problem. We’re building open-source
 tools and validating ideas on real systems at Purdue. Let’s find a useful
-research question together.” Sponsored research terms belong in approved
-Purdue discussions. Public materials contain no unapproved funding ranges,
-student allocations, licensing promises or sponsor IP guarantees.
+research question together.”
+
+## Optional app challenge
+
+Announce [CHALLENGE.md](CHALLENGE.md) on slide 2. The theme is open: participants
+can build a new app or extend an existing one with coding agents, publish it on
+their own GitHub and explain their contribution. The main exercise remains
+accessible without agent tools or a GitHub account. Keep advanced participants
+working during the independent portions; use the practical checkpoints rather
+than requiring a specialist aerodynamics discussion.
+
+At 12:50, allow four minutes for short demos and one minute for an audience vote.
+Up to four entries get one minute each; more entries share the time equally.
+Each attendee votes for one entry by a show of hands. Count visibly, resolve a
+tie with a quick vote among the tied entries and, if needed, a draw. Award one
+free CogniPilot stocking cap to the winning entry. A winning team chooses its
+recipient. If there are no entries, take a brief app question and continue.

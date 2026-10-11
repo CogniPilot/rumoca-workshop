@@ -31,7 +31,8 @@ def main():
     opti.subject_to(X[:, 0] == initial)
     opti.subject_to(X[:, -1] == target)
     opti.subject_to(opti.bounded(0.25, X[1, :], 4.0))
-    opti.subject_to(opti.bounded(-0.55, X[2, :], 0.55))
+    # A 0.01-rad margin leaves room for between-node integration error.
+    opti.subject_to(opti.bounded(-0.54, X[2, :], 0.54))
     opti.subject_to(opti.bounded(0., U[0, :], 20.0))
     opti.subject_to(opti.bounded(-0.35, U[1, :], 0.35))
     cost = 0
@@ -107,6 +108,8 @@ def main():
               "pitch_abs_max": float(np.max(np.abs(xs[2]))),
               "altitude_range": [float(xs[1].min()), float(xs[1].max())],
               "fine_pitch_abs_max": float(np.max(np.abs(fine[:, 2]))),
+              "pitch_node_limit": 0.54, "pitch_physical_limit": 0.55,
+              "fine_rollout_terminal_error_by_state": dict(zip(STATE_NAMES, (fine[-1]-target).tolist())),
               "fine_altitude_range": [float(fine[:, 1].min()), float(fine[:, 1].max())],
               "warm_start_used": warm_used, "runtime_seconds": time.perf_counter()-start,
               "source_sha256": source_hash(), "fit_sha256": hashlib.sha256(fit_file.read_bytes()).hexdigest(),

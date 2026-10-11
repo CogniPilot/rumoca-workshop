@@ -1,8 +1,8 @@
 {
   "success": true,
   "solver_status": "Solve_Succeeded",
-  "iterations": 10,
-  "cost": 5.105066909428967,
+  "iterations": 11,
+  "cost": 5.118301362527856,
   "drag": {
     "k_linear": 0.1804156026649133,
     "k_quad": 0.07990760779541266
@@ -10,29 +10,39 @@
   "horizon_seconds": 6.0,
   "shooting_intervals": 60,
   "terminal_max_error": 0.0,
-  "max_dynamics_defect": 2.59799959323459e-11,
-  "fine_rollout_terminal_max_error": 0.0020758463577719155,
+  "max_dynamics_defect": 1.4210854715202004e-14,
+  "fine_rollout_terminal_max_error": 0.002096535844417158,
   "thrust_range": [
-    11.422520155725932,
-    15.720428290957072
+    11.39992807086602,
+    15.704925809952227
   ],
   "torque_range": [
-    -0.2923269296949589,
-    0.35000000696282196
+    -0.298567483784903,
+    0.3500000089014572
   ],
-  "pitch_abs_max": 0.550000007958734,
+  "pitch_abs_max": 0.5400000092795986,
   "altitude_range": [
     1.0,
-    2.058007088869789
+    2.0604759434047657
   ],
-  "fine_pitch_abs_max": 0.550795622200657,
+  "fine_pitch_abs_max": 0.5415362297092006,
+  "pitch_node_limit": 0.54,
+  "pitch_physical_limit": 0.55,
+  "fine_rollout_terminal_error_by_state": {
+    "x": 0.00030318959491992814,
+    "z": 0.002096535844417158,
+    "theta": 2.69490361532648e-09,
+    "vx": 2.622964387617622e-05,
+    "vz": 0.0002447365506541308,
+    "omega": -4.311845976920142e-09
+  },
   "fine_altitude_range": [
     1.0,
-    2.0587062950553308
+    2.0611842893543324
   ],
   "warm_start_used": true,
-  "runtime_seconds": 1.329662072006613,
+  "runtime_seconds": 1.3566927339415997,
   "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
-  "fit_sha256": "94e2612b018b34bb582cea6e14765b1e54088b9e5aaac1182748057f6d321a2b",
+  "fit_sha256": "936157b9724e8a5e7c776f22cd67bc9a6873ba85a04d3637d57ca9692342e6bc",
   "rumoca_version": "0.10.2"
 }

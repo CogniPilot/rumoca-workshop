@@ -75,7 +75,7 @@ def main():
     require(opt["fine_rollout_terminal_max_error"] < 0.02, "4x finer rollout reaches target within 0.02 in state units")
     require(opt["thrust_range"][0] >= -1e-6 and opt["thrust_range"][1] <= 20.000001, "thrust bounds hold")
     require(max(abs(v) for v in opt["torque_range"]) <= 0.350001, "torque bounds hold")
-    require(opt["pitch_abs_max"] <= 0.550001 and opt["fine_pitch_abs_max"] <= 0.551, "pitch bounds hold at nodes and finer rollout")
+    require(opt["pitch_abs_max"] <= 0.540001 and opt["fine_pitch_abs_max"] <= 0.550001, "pitch bounds hold at nodes and finer rollout")
     require(opt["fine_altitude_range"][0] >= 0.249 and opt["fine_altitude_range"][1] <= 4.001, "altitude bounds hold in finer rollout")
     require(opt["drag"] == fit["drag"], "CasADi consumes the JAX-identified coefficients")
     require(len({r["source_sha256"] for r in [sim, fit, opt]}) == 1, "all examples compile the identical Modelica source")

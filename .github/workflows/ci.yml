@@ -11,6 +11,8 @@ jobs:
       - uses: actions/checkout@v4
       - run: docker build -f .devcontainer/Dockerfile -t rumoca-workshop:ci .
       - run: |
+          # Match Codespaces' writable workspace ownership on the hosted runner.
+          docker run --rm -v "$PWD:/workspaces/rumoca-workshop" rumoca-workshop:ci chown -R vscode:vscode /workspaces/rumoca-workshop
           docker run --rm --user vscode -v "$PWD:/workspaces/rumoca-workshop" -w /workspaces/rumoca-workshop rumoca-workshop:ci bash -c 'uv sync --frozen && uv run --frozen python scripts/smoke_test.py'
       - uses: actions/upload-artifact@v4
         if: always()

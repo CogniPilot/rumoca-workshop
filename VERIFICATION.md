@@ -6,27 +6,27 @@ smooth ODE and its stated parameters, not arbitrary Modelica or real flight.
 
 ## Reproducibility and measured CPU time
 
-[Clean CI run 38170397393](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38170397393)
-at commit `86f7519` passed all **six** jobs: four Python OS runners,
+[Clean CI run 38174706300](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38174706300)
+at commit `b7fe083` passed all **six** jobs: four Python OS runners,
 devcontainer build/startup commands, and generated-equation Lean proof checking.
 The machine-readable [job receipt](verification/ci-jobs.json) and
 [platform reports](verification/platforms) record exact platforms and results.
-Final material-only updates are qualified in the subsequent CI run recorded
-alongside that receipt when available.
+The receipt records the exact tested commit and job URLs. Subsequent receipt
+and documentation updates do not change the qualified model or numerical code.
 
 Times below are **command wall time after dependency setup**, including imports,
 JAX compilation and plotting. They are not network installation or fresh
 Codespaces startup measurements. First Matplotlib font-cache creation can
-dominate the first simulation on macOS.
+dominate the first simulation.
 
 | Tested environment | Simulate | JAX fit | CasADi optimize | Full smoke |
 |---|---:|---:|---:|---:|
 | Local Linux x64, Ryzen 9 5950X, Python 3.12.13 | 1.4 s | 5.9 s | 1.7 s | 11.7 s |
-| Ubuntu hosted x64 | 4.0 s | 5.6 s | 1.4 s | 14.4 s |
-| Windows Server 2025 hosted x64 | 5.8 s | 7.4 s | 1.5 s | 19.6 s |
-| macOS 26.6.2 hosted Apple Silicon | 16.5 s | 4.6 s | 1.0 s | 25.8 s |
-| macOS 15.7.9 hosted Intel | 28.3 s | 9.1 s | 2.9 s | 49.3 s |
-| Debian devcontainer, non-root vscode user | 1.6 s | 4.3 s | 1.1 s | 9.7 s |
+| Ubuntu hosted x64 | 2.7 s | 5.8 s | 1.4 s | 13.7 s |
+| Windows Server 2025 hosted x64 | 22.7 s | 7.2 s | 1.6 s | 37.4 s |
+| macOS 26.6.2 hosted Apple Silicon | 14.3 s | 3.9 s | 1.0 s | 23.2 s |
+| macOS 15.7.9 hosted Intel | 28.1 s | 10.8 s | 2.2 s | 49.9 s |
+| Debian devcontainer, non-root vscode user | 2.1 s | 5.9 s | 1.5 s | 13.1 s |
 
 Each of the three examples finishes under the one-minute acceptance target on
 these runs. Local NixOS supplies system libraries through a machine-specific
@@ -105,8 +105,9 @@ Evidence: [browser.json](verification/browser.json), actual screenshots in
 The released **0.10.2** VSIX was installed in isolated real **VS Code 1.119.0**
 extension hosts on **Linux x64, Windows x64, macOS ARM64 and macOS x64**.
 Verified activation, no errors on the canonical model, `sin` completion,
-parameter hover and errors on intentionally invalid syntax.
-[Editor CI run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38171363332)
+parameter hover, errors on intentionally invalid syntax, and clean diagnostics
+after restoring valid source.
+[Editor CI run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38173325312)
 passed all four jobs. Receipts: [verification/editors](verification/editors),
 local [vscode-linux.json](verification/vscode-linux.json), actual
 `vscode-quadrotor.png`, and test source in `verification/`.
@@ -125,6 +126,10 @@ The public Chromium UI rehearsal passed for all three linked applications:
   observed waypoint/time progress at 50 Hz, selected 20 Hz, **restarted to
   compile at the new rate**, observed progress again and paused; about 14 s
   for the whole test. [Receipt](verification/app-rumoca_fixed_wing.json).
+  A [fresh-checkout rehearsal](verification/app-starter.json) also reproduced
+  the source at `3b972ccb1d5f795771ca9132f9a7e3d00d802145`, installed its pinned
+  npm dependencies, passed the upstream static check, and ran the same 50/20 Hz
+  interaction locally in about 13 s. This does not qualify new comparison features.
 - `slam_web`: ran and paused `InertialOnly`, selected `ResponsiveInertial`,
   ran and paused again; simulated time advanced in both. Software WebGL warning
   and lightweight preview were visible; about 25 s. [Receipt](verification/app-slam_web.json).
@@ -179,5 +184,9 @@ items. Browser, qualified local uv and reference plots provide alternate paths;
 
 Public upstream research is cited separately from workshop executions; future
 work is labeled. The optional challenge is announced at the opening, uses an
-open theme and ends with short GitHub app demos and an audience hand vote.
+open theme: apply Rumoca to a problem the participant cares about during
+downtime. Entries document the agent used and elapsed build time. Up to five
+45-second GitHub app demos are selected by a readiness check and, if needed,
+random draw, followed by an audience hand vote. The Artemis/Three.js idea is
+only an [example prompt](APP_PROMPT.md); no rocket app/model was added.
 [INSTRUCTOR.md](INSTRUCTOR.md) contains presentation and facilitation checks.

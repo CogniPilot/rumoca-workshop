@@ -18,7 +18,7 @@ not a promise about network startup.
 | CasADi | Keep same source since fit → run optimize → open PNG → JSON solver_status, drag, terminal and fine error | ~1–2 s local computation; 5 min demo; Solve_Succeeded | Source-hash error: refit; canonical defaults + reference fit; then reference PNG |
 | Mathematical appendix | Open MATH_REVIEW then proof log and audit figure; point out exact-real theorem scope versus numerical evidence | 2 min if asked; no attendee Lean installation | Explain verbally; no live Mathlib download |
 | App gallery | Slide 20 → BROWSER_APPS.md → choose one tested app experiment; lead with fixed-wing; let app builders finish demos | Exactly 12:45–12:50: 1 min introduce, 4 min explore or finish an app | Real app screenshots; prediction discussion if network/graphics fails |
-| Challenge | Slide 2 announces open competition; slide 21 → participant GitHub demos → audience show of hands → stocking-cap award | 12:50–12:55: 4 min short demos, 1 min vote; CHALLENGE.md | If no entries, take an app question and continue |
+| Challenge | Slide 2 announces open Rumoca competition → collect gallery entries by 12:40 → draw up to five ready presenters if needed, plus order and backup → announce by 12:45 → slide 21 demos → hand vote → stocking-cap award | 12:50–12:55: up to five 45-second demos, 75 s vote/award; name agent and elapsed build time, label estimates; CHALLENGE.md | If a presenter is unavailable, use backup; if no entries, take an app question and continue |
 | Close | Slide 22 → questions, research invitation and repository links | Exactly 12:55–13:00 | PDF + local links |
 
 Three core commands (copy individually):

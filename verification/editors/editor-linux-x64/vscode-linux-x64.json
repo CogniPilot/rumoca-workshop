@@ -2,7 +2,7 @@
   "vscodeVersion": "1.119.0",
   "platform": "linux",
   "architecture": "x64",
-  "testedAt": "2026-10-11T20:14:50.987Z",
+  "testedAt": "2026-10-11T20:42:47.589Z",
   "extensionVersion": "0.10.2",
   "active": true,
   "initialDiagnostics": [],
@@ -26,5 +26,6 @@
       "message": "unexpected end of input (expected one of: ., algorithm, annotation, block, class, connector, ... (+31 more))",
       "severity": 0
     }
-  ]
+  ],
+  "restoredDiagnostics": []
 }

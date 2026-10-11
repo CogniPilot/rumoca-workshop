@@ -10,8 +10,8 @@
   "horizon_seconds": 6.0,
   "shooting_intervals": 60,
   "terminal_max_error": 0.0,
-  "max_dynamics_defect": 1.6986412276764895e-14,
-  "fine_rollout_terminal_max_error": 0.002096535891873863,
+  "max_dynamics_defect": 1.7041923427996153e-14,
+  "fine_rollout_terminal_max_error": 0.0020965358918711985,
   "thrust_range": [
     11.399928073800304,
     15.704925785424146
@@ -29,24 +29,24 @@
     1.0,
     2.060475941962727
   ],
-  "fine_pitch_abs_max": 0.541536229669706,
+  "fine_pitch_abs_max": 0.5415362296697058,
   "pitch_node_limit": 0.54,
   "pitch_physical_limit": 0.55,
   "fine_rollout_terminal_error_by_state": {
-    "x": 0.00030318959244102217,
-    "z": 0.002096535891873863,
-    "theta": 2.694903517843999e-09,
-    "vx": 2.6229644628592993e-05,
-    "vz": 0.00024473656608948004,
-    "omega": -4.311845971959917e-09
+    "x": 0.00030318959240904775,
+    "z": 0.0020965358918711985,
+    "theta": 2.6949033288972065e-09,
+    "vx": 2.6229644619473044e-05,
+    "vz": 0.0002447365660890003,
+    "omega": -4.311845970604664e-09
   },
   "fine_altitude_range": [
     1.0,
-    2.0611842879144415
+    2.061184287914442
   ],
   "warm_start_used": true,
-  "runtime_seconds": 2.571452405999935,
+  "runtime_seconds": 1.923227144000066,
   "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
-  "fit_sha256": "41041b099d6719d75244f64cc7d8989e3082440ded469071878c30fb1b9659f3",
+  "fit_sha256": "8da9285aa34c1a20a2ae17dd6024b555ccb03cfe00b4ed18f206f8cbb855be43",
   "rumoca_version": "0.10.2"
 }

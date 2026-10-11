@@ -169,7 +169,9 @@ confidence intervals.
 
 `rms_by_state` reports each physical unit separately; `noise_scaled_rms` is
 dimensionless. Legacy `rms` combines metres and metres/second and is retained
-only as a smoke-test summary, not a physically homogeneous error norm.
+as a backward-compatible report field, not a physically homogeneous error norm.
+The console and holdout acceptance check use the dimensionless noise-scaled
+RMS; fine-rollout terminal checks identify each state's physical unit.
 
 ## Optimal-control transcription
 

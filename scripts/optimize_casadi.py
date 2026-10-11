@@ -71,7 +71,7 @@ def main():
     solution = opti.solve()
     xs, us = solution.value(X), solution.value(U)
     defects = [np.max(np.abs(xs[:, k+1]-np.array(rk4(export.rhs, k*dt, xs[:, k], us[:, k], p, dt)).ravel())) for k in range(n)]
-    # Independent integration at 4x finer dt checks physical feasibility beyond NLP nodes.
+    # A 4x finer RK4 rollout checks beyond NLP nodes. math_audit.py also uses DOP853.
     fine = [initial]
     for k in range(n):
         for j in range(4):
@@ -99,10 +99,13 @@ def main():
     axs[1, 0].set(xlabel="Time [s]", ylabel="Thrust [N]", title="Input constraint")
     axs[1, 0].legend(fontsize=10)
     axs[1, 1].plot(t, xs[2], label="pitch [rad]")
-    axs[1, 1].step(t[:-1], us[1], where="post", label="torque [N m]")
+    torque_ax = axs[1, 1].twinx()
+    torque_ax.step(t[:-1], us[1], where="post", color="#d65a31", label="torque")
+    torque_ax.set_ylabel("Torque [N m]", color="#d65a31")
+    torque_ax.set_ylim(-0.45, 0.45)
     axs[1, 1].axhline(0.55, color="#555555", ls="--", label="pitch bounds ±0.55")
     axs[1, 1].axhline(-0.55, color="#555555", ls="--")
-    axs[1, 1].set(xlabel="Time [s]", title="Tilt to accelerate, then brake")
+    axs[1, 1].set(xlabel="Time [s]", ylabel="Pitch [rad]", title="Tilt to accelerate, then brake")
     axs[1, 1].legend(fontsize=9)
     for ax in axs.flat:
         ax.grid(alpha=0.2)

@@ -6,14 +6,14 @@
   "rumoca_version": "0.10.2",
   "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
   "command_wall_seconds": {
-    "simulate": 1.3670149601530284,
-    "fit_drag_jax": 5.775240745162591,
-    "optimize_casadi": 1.6671914679463953
+    "simulate": 1.4173390541691333,
+    "fit_drag_jax": 5.877698668045923,
+    "optimize_casadi": 1.6672147731296718
   },
   "checks": {
     "max_rhs_parity_error": 0,
     "jax_gradient": -10.379535595670434,
     "finite_difference": -10.379535595905764
   },
-  "total_seconds": 11.541488555027172
+  "total_seconds": 11.68959615402855
 }

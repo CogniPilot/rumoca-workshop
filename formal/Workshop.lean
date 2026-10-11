@@ -52,6 +52,16 @@ theorem smooth_magnitude_positive (eps v : ℝ) (he : 0 < eps) :
   apply Real.sqrt_pos.2
   nlinarith [sq_nonneg v, sq_pos_of_pos he]
 
+/-- Smoothing changes the speed magnitude by at most epsilon. -/
+theorem smooth_magnitude_error_bound (eps v : ℝ) (he : 0 ≤ eps) :
+    0 ≤ Real.sqrt (v*v+eps*eps) - |v| ∧
+    Real.sqrt (v*v+eps*eps) - |v| ≤ eps := by
+  have hs := Real.sq_sqrt (show 0 ≤ v*v+eps*eps by nlinarith [sq_nonneg v, sq_nonneg eps])
+  have hn := Real.sqrt_nonneg (v*v+eps*eps)
+  have hv := abs_nonneg v
+  have ha := sq_abs v
+  constructor <;> nlinarith [sq_nonneg eps, mul_nonneg hv he]
+
 /-- The regularized drag has a derivative at every real speed. -/
 theorem drag_differentiable (kl kq eps : ℝ) (he : 0 < eps) :
     Differentiable ℝ (drag kl kq eps) := by
@@ -148,6 +158,7 @@ end Workshop
 #print axioms Workshop.generated_matches_physics
 #print axioms Workshop.drag_dissipative
 #print axioms Workshop.drag_differentiable
+#print axioms Workshop.smooth_magnitude_error_bound
 #print axioms Workshop.normalized_drag
 #print axioms Workshop.rotor_allocation
 #print axioms Workshop.mechanical_energy_balance

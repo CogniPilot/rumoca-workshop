@@ -5,7 +5,7 @@ defaultTargets = ["Workshop"]
 [[require]]
 name = "mathlib"
 git = "https://github.com/leanprover-community/mathlib4.git"
-rev = "4e62e8283accf1787e22ec8709df84924e81cabc"
+rev = "5e932f97dd25535344f80f9dd8da3aab83df0fe6"
 
 [[lean_lib]]
 name = "Generated"

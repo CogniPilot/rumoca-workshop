@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "solver_status": "Solve_Succeeded",
+  "iterations": 10,
+  "cost": 5.105066909428967,
+  "drag": {
+    "k_linear": 0.1804156026649133,
+    "k_quad": 0.07990760779541266
+  },
+  "horizon_seconds": 6.0,
+  "shooting_intervals": 60,
+  "terminal_max_error": 0.0,
+  "max_dynamics_defect": 2.59799959323459e-11,
+  "fine_rollout_terminal_max_error": 0.0020758463577719155,
+  "thrust_range": [
+    11.422520155725932,
+    15.720428290957072
+  ],
+  "torque_range": [
+    -0.2923269296949589,
+    0.35000000696282196
+  ],
+  "pitch_abs_max": 0.550000007958734,
+  "altitude_range": [
+    1.0,
+    2.058007088869789
+  ],
+  "fine_pitch_abs_max": 0.550795622200657,
+  "fine_altitude_range": [
+    1.0,
+    2.0587062950553308
+  ],
+  "warm_start_used": true,
+  "runtime_seconds": 1.329662072006613,
+  "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+  "fit_sha256": "94e2612b018b34bb582cea6e14765b1e54088b9e5aaac1182748057f6d321a2b",
+  "rumoca_version": "0.10.2"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Rumoca workshop (CPU JAX + CasADi)",
+  "build": {"dockerfile": "Dockerfile", "context": ".."},
+  "remoteUser": "vscode",
+  "containerEnv": {"JAX_PLATFORMS": "cpu", "OMP_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "MKL_NUM_THREADS": "1"},
+  "customizations": {
+    "vscode": {
+      "extensions": ["JamesGoppert.rumoca-modelica", "ms-python.python"],
+      "settings": {"python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"}
+    }
+  },
+  "postCreateCommand": "uv sync --frozen && uv run --frozen python scripts/smoke_test.py",
+  "hostRequirements": {"cpus": 2, "memory": "4gb", "storage": "8gb"},
+  "waitFor": "postCreateCommand",
+  "shutdownAction": "stopContainer"
+}

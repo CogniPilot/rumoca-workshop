@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.pytest_cache/
+generated/
+results/live/
+*.egg-info/
+.DS_Store
+node_modules/
+/Rumoca_Workshop_Handoff.md

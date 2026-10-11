@@ -1,0 +1,31 @@
+{
+  "drag": {
+    "k_linear": 0.1804156026649133,
+    "k_quad": 0.07990760779541266
+  },
+  "initial_drag": {
+    "k_linear": 0.06,
+    "k_quad": 0.025
+  },
+  "initial_loss": 26931.77978647692,
+  "final_loss": 1.0729655639755038,
+  "loss_reduction": 25100.320728552088,
+  "rms": {
+    "train_before": 4.160587613066692,
+    "train_after": 0.03160050833741332,
+    "validation_before": 0.6761155316934104,
+    "validation_after": 0.0289685222285203
+  },
+  "sensitivity_condition_number": 10.870657987227869,
+  "sensitivity_singular_values": [
+    4466.432892567705,
+    410.8705193204861
+  ],
+  "optimizer": "L-BFGS-B, JAX autodiff through generated RHS + RK4 scan; log-positive parameters",
+  "iterations": 12,
+  "success": true,
+  "runtime_seconds": 5.596436134073883,
+  "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+  "data_sha256": "4e802756abb14d99a6e530dbd9d6f790f59ff4b3494be120e91d53ef5e2091eb",
+  "rumoca_version": "0.10.2"
+}

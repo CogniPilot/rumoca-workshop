@@ -1,0 +1,9 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {"label": "Workshop: simulate", "type": "process", "command": "uv", "args": ["run", "--frozen", "python", "scripts/simulate.py"], "problemMatcher": []},
+    {"label": "Workshop: JAX fit", "type": "process", "command": "uv", "args": ["run", "--frozen", "python", "scripts/fit_drag_jax.py"], "problemMatcher": []},
+    {"label": "Workshop: CasADi optimize", "type": "process", "command": "uv", "args": ["run", "--frozen", "python", "scripts/optimize_casadi.py"], "problemMatcher": []},
+    {"label": "Workshop: smoke test", "type": "process", "command": "uv", "args": ["run", "--frozen", "python", "scripts/smoke_test.py"], "problemMatcher": []}
+  ]
+}

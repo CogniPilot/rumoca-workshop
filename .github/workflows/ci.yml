@@ -16,14 +16,20 @@ jobs:
           version: '0.11.21'
       - run: uv run --frozen python scripts/export_lean.py
       - run: git diff --exit-code -- formal/Generated.lean formal/solve_program.json formal/provenance.json
-      - uses: leanprover/lean-action@v1
-        with:
-          lake-package-directory: formal
-          auto-config: 'false'
-          build: 'true'
-          use-mathlib-cache: 'true'
-          leanchecker: 'true'
-          leanchecker-args: 'Generated Workshop'
+      - name: Install pinned Lean toolchain manager
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/v4.2.0/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          sh "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Build and recheck proof terms
+        run: |
+          mkdir -p "$HOME/scratch/rumoca-workshop/formal-lake"
+          ln -s "$HOME/scratch/rumoca-workshop/formal-lake" formal/.lake
+          cd formal
+          lake update
+          lake exe cache get Generated.lean Workshop.lean
+          lake build
+          lake env leanchecker Generated Workshop
       - name: Audit theorem assumptions and reject admissions
         run: |
           set -o pipefail

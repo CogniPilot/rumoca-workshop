@@ -1,93 +1,96 @@
-# Open app challenge
+# Open interactive experiment challenge
 
-**Announced at the opening · build throughout the workshop · demos and vote at 12:50**
+**Announced at the opening · experiment during downtime · demos and vote at 12:50**
 
-Apply **Rumoca to a problem you care about**. Build an app with coding agents,
-publish it on **your GitHub**, and show a working interaction.
-The audience favorite wins a **free CogniPilot stocking cap**.
-[App gallery and entry comments](https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/1).
+Apply **Rumoca to a problem you care about**. Change an existing model,
+controller or interactive simulator, show the effect, and explain one result
+you checked. The audience favorite wins a **free CogniPilot stocking cap**.
 
-**Any subject, your own idea.** Choose the interface and supporting tools that
-fit your problem. The fixed-wing example prompt is optional inspiration.
+**Any subject, your own idea.** A new web app, WASM build, public GitHub repo
+and deployment are optional stretch goals. A model in the Rumoca playground,
+a plot from your Codespace/local workflow, or a change in an existing browser
+workbench is enough. Coding agents are optional; document your tool and time.
 
-This is optional. The core Modelica → Rumoca → JAX → CasADi exercises need no
-agent account, GitHub account or competition entry. Experienced participants
-can start as soon as their environment is ready and use downtime and independent
-work time to develop their app. Keep the core walkthrough available when needed.
+The core Modelica → Rumoca → JAX → CasADi exercises remain the main workshop.
+Use downtime and independent work for the challenge, and keep the walkthrough
+available when needed. No extra account is required to enter or present.
 
-## Inspiration and a small starting point
+## Start with a working example
 
-Copy an [example agent prompt](APP_PROMPT.md): invent an Artemis-inspired
-launch experience with Three.js visuals, or extend the working fixed-wing app
-into a “Tune the autopilot” flight lab. Both are optional starting ideas.
-AD-based MPC is the **ambitious optional extension**.
+Choose one question, one change and one comparison. For example:
 
-Our lead example is
-[rumoca_fixed_wing](https://cognipilot.github.io/rumoca_fixed_wing/): an
-agent-built browser workbench with flight simulation, Modelica editing and an
-autopilot. [Source](https://github.com/CogniPilot/rumoca_fixed_wing).
+- Change a controller or scenario in the existing fixed-wing workbench and
+  compare its response with the original.
+- Modify a workshop model or optimization constraint, rerun it, and explain
+  the resulting tradeoff.
+- Bring a model from your own domain into the playground and expose one
+  behavior someone can explore interactively.
 
-[slam_web](https://cognipilot.github.io/slam_web/) is another example **in
-development**; its inertial demonstrations run, while full visual SLAM remains
-work in progress. [mocap_sysid](https://cognipilot.github.io/mocap_sysid/) shows
-another useful app pattern: exploring stored data and benchmark results.
-[BROWSER_APPS.md](BROWSER_APPS.md) has short, rehearsed interactions for each.
+Our lead workbench is
+[rumoca_fixed_wing](https://cognipilot.github.io/rumoca_fixed_wing/), with Modelica
+editing, flight simulation and an autopilot.
+[Source](https://github.com/CogniPilot/rumoca_fixed_wing).
+[Short tested interactions](BROWSER_APPS.md) provide a starting point.
 
-You may build a new app or extend an existing one. Explain your contribution
-and credit the starting project. A small interactive result is enough: for
-example, expose one parameter, compare two runs, or add a useful view. You can
-also choose a completely different subject.
+A Falcon 9-style interactive landing experience is creative inspiration, not
+a supplied or qualified rocket model. Keep any such model's simplifying
+assumptions visible. A comparable small experiment in your own domain is welcome.
 
-## What to show at the end
+[APP_PROMPT.md](APP_PROMPT.md) starts with a short experiment prompt. Its public
+Three.js launch app and AD-based fixed-wing MPC prompts are optional stretches;
+MPC is ambitious. No Artemis or Falcon 9 app is supplied by this workshop.
 
-- Your GitHub repository and what you contributed.
-- One working interaction: change something and show the result.
+## What to show
+
+- Your question and what you changed beyond following the worksheet.
+- One working interaction or before/after comparison using Rumoca.
 - One result you checked and how you checked it.
-- The coding agent/tool used, model/version when available, and elapsed build
-  time. List multiple tools if used; label an estimated time as an estimate.
+- Agent/tool used, model/version when available, and elapsed work time.
+  Say “manual” if no agent was used; label estimated times as estimates.
 
-Enter by **12:40**: give the instructor your GitHub link, a one-sentence problem
-description, agent/tool and elapsed build time, and a ready working interaction.
-Post these in the [app gallery](https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/1)
-and tell the instructor you are ready.
-Record wall time from starting the app to the demo-ready version, including
-debugging and deployment; record active work separately if useful. Show where Rumoca is used and
-explain what you contributed during the workshop. Individual and team entries
-are welcome. Each participant may enter once, individually or as a member of
-one team; a team has one entry. Choose one app for that entry. You may share
-additional projects in the gallery without adding extra chances in the draw.
-Keep all submitted links in a shared
-gallery so everyone can explore the work, including apps not drawn to present.
-Use your own available agent tools; keep credentials out of the published repo.
+Enter by **12:40**: tell the presenters your name/team, one-sentence question,
+starting model/app, tool and elapsed time, and how you will show the result.
+A live tab, local file or screen share is acceptable. A repository/live link
+is useful when available, but is not required. Share your starting project
+and credit its authors.
+
+Use the [gallery](https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/1)
+if you want to share links publicly. Otherwise give the entry to the presenters;
+a GitHub login or public upload is unnecessary. Record wall time from starting
+work to the demo-ready result, including debugging; active work may be recorded
+separately. Individual and team entries are welcome.
+
+Each participant may enter once, individually or as a member of one team;
+a team has one entry. Additional projects can go in the gallery without adding
+extra chances in the draw.
 
 ## Selecting presenters
 
-The readiness check asks only whether the app uses Rumoca, has a GitHub link
-and has a working interaction to show. It does not score visual polish,
-technical complexity, aerospace relevance or the participant's experience.
+The readiness check asks only whether the experiment uses Rumoca, includes your
+own change, and has a working interaction or comparison to show. It does not
+rank visual polish, complexity, aerospace relevance, tool choice or experience.
 
-If five or fewer entries are ready, all present. Otherwise, draw **five entries
-at random**, plus one backup, from the ready entries. Draw the presentation
-order too. Announce the selection by **12:45**. Give each entry the same chance;
-selection is not a judgment of its quality. An unavailable presenter is replaced
-by the backup. These rules are announced at the opening.
+If five or fewer entries are ready, all present. Otherwise draw **five entries
+at random**, plus one backup. Draw the presentation order too. Announce selection
+by **12:45**. Each entry has the same chance; selection is a time limit, not a
+quality judgment. An unavailable presenter is replaced by the backup.
+Announce these rules at the opening.
 
 ## Demos and audience vote
 
-The showcase runs **12:50–12:55**. Each presenter gets **45 seconds**: the problem,
-one working interaction, one checked result, and “built with [agent] in [time].”
-Five demos take 3 minutes
-45 seconds, leaving 75 seconds for the vote and stocking-cap award. Open tabs
-in advance and stop each demo at the same time limit.
+The showcase runs **12:50–12:55**. Each presenter gets **45 seconds**: question,
+change, result, one check, and “worked with [tool] for [time].” Five demos take
+3 minutes 45 seconds, leaving 75 seconds for the vote and award. Open tabs or
+files in advance; use the same time limit for everyone.
 
-After the demos, the instructor names each entry and counts a **show of hands**.
-Each attendee votes for one entry. The entry with the most votes wins one
-stocking cap. A tie gets a quick vote among the tied entries; if the tie remains,
-we draw among them. A winning team chooses who receives the cap.
+Each attendee votes for one entry by a **show of hands**. Count visibly.
+The audience favorite wins one free CogniPilot stocking cap. A tie gets a quick
+vote among the tied entries; if it remains, draw among them. A winning team
+chooses who receives the cap. Share voluntary links from all entries, including
+those not drawn to present.
 
-## Prefer to stay with the core exercise?
+## Prefer to stay with the core?
 
-Use [WORKSHOP.md](WORKSHOP.md). Optional extensions include trying another fit
-starting guess, inspecting the generated backend source, or running the
-rehearsed `--target-x 3` trajectory variant. Detailed mathematics and proof
-scope are available in [MATH_REVIEW.md](MATH_REVIEW.md).
+Use [WORKSHOP.md](WORKSHOP.md). Detailed mathematics and proof scope are in
+[MATH_REVIEW.md](MATH_REVIEW.md). A new experiment needs its own checks; the
+workshop's Lean proofs do not automatically apply to your edits.

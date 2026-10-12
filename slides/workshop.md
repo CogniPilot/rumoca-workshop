@@ -20,19 +20,19 @@ Checkpoint: github.com/CogniPilot/rumoca_workshop_amc2026
 Notes:
 Welcome to Hands-On with Rumoca. Lead with the reason to care: “We want your declared physics to travel into simulation, identification, optimization and verification without silently becoming different models. Today you will take one small Modelica model through simulation, fitting and a constrained flight plan.” Introduce presenters James Goppert and Micah Condie, Purdue University, School of Aeronautics and Astronautics, and the Georgia Tech venue. Point to the QR and ask attendees to keep the participant worksheet open. No aerospace background is required. Welcome models and expertise from other disciplines; the closing slide has concrete ways to join the work. Allow five minutes for arrivals and orientation; announce the optional app challenge on the next slide.
 
-## 02 · Run the core. Build something extra.
+## 02 · Run the core. Explore your own question.
 Time: 10:05–10:10
 Layout: cards
-Badge: OPEN APP CHALLENGE · demos + audience vote at 12:50
+Badge: OPEN EXPERIMENT CHALLENGE · demos + audience vote at 12:50
 
 - Core: edit a model, fit data, optimize a trajectory
 - Apply Rumoca to a problem you care about
-- Optional idea: a Three.js Artemis-style launch
+- One change in an existing model or simulator is enough
 - Audience favorite wins a CogniPilot stocking cap
 
-Checkpoint: Enter by 12:40 · up to 5 demos · CHALLENGE.md · APP_PROMPT.md
+Checkpoint: Enter by 12:40 · up to 5 demos · CHALLENGE.md · hosting optional
 Notes:
-Announce the challenge now: “Power users: apply Rumoca to a problem you care about. Use your coding agent during downtime and independent work, put the app on your GitHub, and show one working interaction. The prize is a free CogniPilot stocking cap, chosen by an audience hand vote.” The core Modelica → JAX → CasADi exercises remain the main activity and need no agent or GitHub account. Point to APP_PROMPT.md for creative inspiration: an Artemis-inspired launch experience with Three.js visuals, or a flight lab extending rumoca_fixed_wing. These are optional prompts, not assigned projects; no Artemis app is supplied. Encourage participants to choose their own question and design. Full AD-based fixed-wing MPC is ambitious and optional. Entries close at 12:40: collect GitHub link, problem, agent/tool used and elapsed build time with estimates labeled. Up to five ready apps present at 12:50 for 45 seconds each; if more are ready, use a random draw plus a backup, with order drawn too. Selection is not a quality judgment; share all entry links in a gallery. Announce the selection by 12:45. Each demo names the agent and build time, contribution, working interaction and checked result. Ask for a show of hands for Modelica/JAX/CasADi experience. Today's data are synthetic and the trajectory is open loop.
+Announce the challenge now: “Explore a question you care about with Rumoca. Change an existing model, controller or interactive simulator during downtime. Show the effect and explain one result you checked. The audience favorite wins a free CogniPilot stocking cap.” A new app, WASM build, public GitHub repository, deployment and coding-agent subscription are optional. Power users can work with agents; manual experiments are welcome too. Point to the short experiment prompt in APP_PROMPT.md. An interactive Falcon 9-style landing experience is creative inspiration, not a supplied or qualified rocket starter. Welcome equally small experiments from other domains. Full Three.js apps and AD-based fixed-wing MPC are optional stretches; MPC is ambitious. The core Modelica → JAX → CasADi exercises remain the main activity. Entries close at 12:40: collect name/team, question, starting model/app, original change, tool, elapsed work time and a ready interaction or before/after comparison. A local tab, file or screenshare is enough; public links are voluntary. One entry per participant or team. Up to five ready experiments present at 12:50 for 45 seconds; if more are ready, draw five plus a backup and presentation order. Announce by 12:45. Selection is not a quality judgment. Each demo includes question, change, result, one check, tool used and elapsed time, with estimates labeled. Audience members each vote once by show of hands. Ask for a show of hands for Modelica/JAX/CasADi experience. Today's data are synthetic and the trajectory is open loop.
 
 ## 03 · Why Rumoca? One model, many questions.
 Time: 10:10–10:15
@@ -150,7 +150,7 @@ Badge: HANDS-ON · same prescribed Python inputs
 - Reference at 8 s: 41.60 m → 17.97 m
 Checkpoint: Compare your current default with the two reference cases.
 Notes:
-Open the actual live plot and ask participants to explain the sign. The slide plot uses emitted JAX equations and reference parameters; not real flight data. Browser wrapper coasts at level hover, so its numbers differ. Optional kl=.30 then restore .18. Instructor solution is an inheritance override, not a second dynamics implementation. Take two questions. End on time for break.
+Open the actual live plot and ask participants to explain the sign. The slide plot uses emitted JAX equations and reference parameters; not real flight data. Browser wrapper coasts at level hover, so its numbers differ. Optional kl=.30 then restore .18. Presenter solution is an inheritance override, not a second dynamics implementation. Take two questions. End on time for break.
 
 ## 12 · Break · back at 11:10
 Time: 11:00–11:10
@@ -234,7 +234,7 @@ Badge: Ten full minutes
 - Your fit plot is the recovery point.
 Checkpoint: Same Modelica source; now compile to CasADi.
 Notes:
-Ten-minute break. Confirm most pairs have fit outputs. Do not edit the model again after fitting; a source hash will require refitting if it changes. Instructor has successful reference fit and primal trajectory warm start. No Mathlib or extra packages are needed for next exercise.
+Ten-minute break. Confirm most pairs have fit outputs. Do not edit the model again after fitting; a source hash will require refitting if it changes. Presenters have successful reference fit and primal trajectory warm start. No Mathlib or extra packages are needed for next exercise.
 
 ## 19 · Move between hovers, respect limits
 Time: 12:10–12:20
@@ -289,18 +289,18 @@ Checkpoint: Live links + short experiments: BROWSER_APPS.md
 Notes:
 Lead with rumoca_fixed_wing, the more complete app example. Coding agents helped build the interface and experiments; engineers review models and validate output. Briefly show Autopilot → Start sim, waypoint progress, then 50 to 20 Hz → Start sim again → pause. Invite participants to try that interaction or finish their challenge app. SLAM Lab is an additional example in development; only its inertial baseline and filter variant were rehearsed, not the complete visual-SLAM pipeline. Mocap is a viewer for stored benchmark results, not browser retraining. Fixed-wing and SLAM use WASM; the tested mocap viewer interaction does not. No login, agent account or API key is needed to explore these examples manually. They use different models from the core exercise and are outside its Lean proof scope. Keep the recorded screenshots available for network/graphics recovery. At 12:50 move to participant demos.
 
-## 23 · Show your app. Vote for the cap.
+## 23 · Show your experiment. Vote for the cap.
 Time: 12:50–12:55
 Layout: statement
 Badge: OPEN CHALLENGE · short demos · audience show of hands
 
-- Up to 5 demos · 45 seconds each · your GitHub
-- One checked result · agent used · elapsed build time
+- Up to 5 demos · 45 seconds each · local or browser
+- One checked result · tool used · elapsed work time
 - Audience favorite wins a free CogniPilot stocking cap
 
 Checkpoint: Random draw if more than 5 ready entries → audience hand vote
 Notes:
-Use up to five 45-second demos, selected by the announced readiness check and random draw if needed. Draw order and a backup in advance. Each entrant shows how Rumoca addresses their chosen problem, one working interaction, their GitHub and contribution, a checked result, and the agent/tool used plus elapsed build time. Label estimated times. Have tabs ready and keep the same limit for everyone. Five demos leave 75 seconds for a show-of-hands vote and award. Each attendee votes for one entry; count visibly. If tied, run a quick vote between the tied entries; if still tied, draw among them. Award one stocking cap to the winning entry; a team chooses its recipient. Share all entry links in a gallery, including those not drawn. If there are no entries, invite a brief question about the fixed-wing example and continue to the closing slide. CHALLENGE.md carries the same rules. Keep the core exercise as the workshop's main focus.
+Use up to five 45-second demos, selected by the announced readiness check and random draw if needed. Draw order and a backup in advance. Each entrant shows a question Rumoca helps explore, their original change, a working interaction or before/after comparison, one checked result, tool used and elapsed work time. Local files, browser tabs and screenshares are acceptable; public source links are optional. Manual experiments are welcome; name the agent if used and label estimated times. Have tabs/files ready and use the same limit for everyone. Five demos leave 75 seconds for a hand vote and award. Each attendee votes for one entry; count visibly. If tied, run a quick vote between the tied entries; if still tied, draw among them. Award one stocking cap; a team chooses its recipient. Share voluntary links from all entries, including those not drawn. If no entries are ready, take a brief question and continue. CHALLENGE.md carries the same rules. Keep the core exercise as the workshop's main focus.
 
 ## 24 · Bring your model. Join the work.
 Time: 12:55–13:00

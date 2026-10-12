@@ -16,7 +16,7 @@ does not require Docker, CUDA, an AI account, Nix or a Google account.
 | Local Rumoca extension fails | Release 0.10.2 is tested in actual VS Code 1.119.0 extension hosts on Linux/Windows x64 and both Mac architectures. Check the installed extension version and enable it in this workspace. Browser LSP provides an independent fallback; Codespaces remote activation is checked separately. |
 | `.mo` has no highlighting/completion | Check status-bar language **Modelica**, Workspace Trust per local policy, extension enabled, then Developer/Reload Window. View → Output → Rumoca for errors. |
 | Python interpreter warning | Ctrl/Cmd+Shift+P → Python: Select Interpreter → choose `.venv` Python (`.venv/Scripts/python.exe` on Windows, `.venv/bin/python` elsewhere). Terminal commands with `uv run` do not require manual activation. |
-| Codespaces denied / quota exhausted | Use local `uv`, a partner or instructor demonstration. Do not enable paid billing without your account owner’s authorization. Organization allowance/prebuilds are not presumed. |
+| Codespaces denied / quota exhausted | Use local `uv`, a partner or presenter demonstration. Do not enable paid billing without your account owner’s authorization. Organization allowance/prebuilds are not presumed. |
 | Codespace opens before packages ready | Wait for postCreate completion; Terminal → New Terminal → `uv sync --frozen`, then smoke. If still blocked, switch route. |
 | Browser shows stationary Quadrotor | Paste the **entire** bundle, choose **BrowserFlight** in gear/settings, then Play. Base model has stationary initial conditions; wrapper sets initial speed and hover inputs. |
 | Browser still shows Ball / read-only example | Click inside the editable model; use a new editable file if the lock icon is closed. Paste all source, confirm outline contains Quadrotor and BrowserFlight. |
@@ -38,5 +38,5 @@ uv run --frozen python scripts/smoke_test.py
 ```
 
 ZIP users can undo edits in VS Code or re-extract a clean download. Do not delete
-the lockfile or “fix” dependency versions during class. Instructor source and
+the lockfile or “fix” dependency versions during class. Presenter source and
 math audit details: [MATH_REVIEW.md](MATH_REVIEW.md), [VERIFICATION.md](VERIFICATION.md).

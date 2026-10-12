@@ -137,7 +137,7 @@ Lean axioms `propext`, `Classical.choice`, `Quot.sound`. CI regenerates the actu
 export, checks it against the committed files, builds the proofs, rechecks proof
 terms with `leanchecker`, and rejects admissions.
 
-To reproduce (instructor only; Mathlib downloads are substantial):
+To reproduce (presenters only; Mathlib downloads are substantial):
 
 ```sh
 uv run --frozen python scripts/export_lean.py
@@ -178,7 +178,7 @@ JAX differentiates the **discretized RK4 rollout** (`dt=0.05 s`), not an exact
 continuous-time solution. Dataset generation uses CasADi RHS + SciPy DOP853
 at `rtol=1e−11`, `atol=1e−12` with commands held constant per interval. The
 held-out flight is not used by the optimizer or sensitivity calculation. The
-instructor truth file is used for reporting, not computing the fit objective.
+presenter truth file is used for reporting, not computing the fit objective.
 
 [scripts/math_audit.py](scripts/math_audit.py) independently checks:
 

@@ -235,10 +235,10 @@ def main():
         elif num in {2, 23}:
             heading()
             if num == 2:
-                label("YOUR PROBLEM. YOUR APP.", .7, 1.8, 8.6, GOLD)
+                label("YOUR QUESTION. YOUR EXPERIMENT.", .7, 1.8, 8.6, GOLD)
                 text("Make something", .65, 2.27, 8.2, 44, WHITE, bold=True, max_lines=1)
                 text("you care about.", .65, 3.02, 8.2, 44, GOLD, bold=True, max_lines=1)
-                text("Build with your agent during downtime.", .7, 4.05, 8.2, 23, WHITE, max_lines=2)
+                text("Experiment in a model or simulator.", .7, 4.05, 8.2, 23, WHITE, max_lines=2)
                 text(spec["bullets"][0], .7, 5.05, 8.2, 20, "D1D7DF", max_lines=2)
                 text(spec["bullets"][2], .7, 5.73, 8.2, 18, "D1D7DF", max_lines=1)
                 rect(9.15, 1.78, 3.55, 4.57, "203044", rounded=True)
@@ -253,8 +253,8 @@ def main():
                     rect(x, 1.75, 3.97, 2.32, color, rounded=True)
                     text(big, x+.25, 1.94, 3.45, 60, WHITE, bold=True, max_lines=1)
                     text(small, x+.25, 3.43, 3.45, 13, WHITE, bold=True, max_lines=1)
-                text("Show an interaction + one checked result", .7, 4.5, 11.9, 29, WHITE, bold=True, max_lines=1)
-                text("Name your agent. Share elapsed build time + your GitHub.", .7, 5.14, 11.9, 23, WHITE, max_lines=1)
+                text("Show your change + one checked result", .7, 4.5, 11.9, 29, WHITE, bold=True, max_lines=1)
+                text("Name your tool. Share elapsed work time.", .7, 5.14, 11.9, 23, WHITE, max_lines=1)
                 text(spec["bullets"][2], .7, 5.77, 11.9, 23, GOLD, bold=True, max_lines=1)
         else:
             heading()

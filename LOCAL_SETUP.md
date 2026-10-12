@@ -9,7 +9,7 @@ If local installation is taking more than ten minutes, use the
 [Codespace route](PUBLICATION.md#codespaces-preflight) or pair with someone whose
 environment works. Cloud compute keeps package downloads off your laptop; a
 usable internet connection and GitHub allowance/billing are still required.
-For outages, use the provided reference figures and instructor screenshare.
+For outages, use the provided reference figures and presenter screenshare.
 
 ## 1. Install VS Code and uv
 

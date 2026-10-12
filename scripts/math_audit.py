@@ -1,6 +1,6 @@
 """Independent numerical oracles, robustness and profile-likelihood diagnostics.
 
-Instructor/CI audit, not an attendee dependency. Dynamics are emitted by Rumoca.
+Presenter/CI audit, not an attendee dependency. Dynamics are emitted by Rumoca.
 Analytic formulae below are independent test oracles, not replacement backends.
 """
 from __future__ import annotations

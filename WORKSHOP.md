@@ -28,16 +28,17 @@ vehicle equations. The core Python exercises run on CPU.
 Today’s data are **synthetic**. Today’s control result is an **open-loop trajectory**.
 The example does not certify a real aircraft or implement MPC.
 
-**Optional challenge, announced now:** create an app with coding agents and put
-it on your GitHub. Apply Rumoca to a problem you care about during downtime
-and independent work. Enter by **12:40**; up to five presenters give short demos
+**Optional challenge, announced now:** change a Rumoca model, controller or
+existing interactive simulator and show one checked result. Apply it to a problem
+you care about during downtime and independent work. Agents, a new app and
+public hosting are optional. Enter by **12:40**; up to five presenters give short demos
 at **12:50**. An audience hand vote chooses the winner of a
 **free CogniPilot stocking cap**. Our lead example is `rumoca_fixed_wing`;
 `slam_web` is another example in development. See [CHALLENGE.md](CHALLENGE.md).
 You can begin when ready and return to your app during independent work.
-Copy [APP_PROMPT.md](APP_PROMPT.md) for inspiration: an Artemis-style launch
-experience with Three.js, or a flight lab extending the working fixed-wing app.
-These are prompts, not assigned projects. AD-based fixed-wing MPC is an ambitious
+Copy the short experiment prompt in [APP_PROMPT.md](APP_PROMPT.md). Its public
+Three.js launch app and fixed-wing app prompts are optional stretches, not
+assigned projects. AD-based fixed-wing MPC is an ambitious
 optional extension. Any subject is welcome. More than five ready entries are shortlisted
 by random draw; selection is not a quality judgment.
 
@@ -65,7 +66,7 @@ Sign in with GitHub; check your account’s allowance/policy before creating it.
 Wait for container setup to complete and the smoke test to say **WORKSHOP PASS**.
 An actual two-core Codespace passed startup and all core commands. Test your
 intended account before class: allowance, prebuild readiness, region availability
-and capacity for 50 users remain instructor preflight items; see
+and capacity for 50 users remain presenter preflight items; see
 [verification](VERIFICATION.md).
 
 **Local:** follow [local VS Code setup](LOCAL_SETUP.md), or [download the ZIP](https://github.com/CogniPilot/rumoca_workshop_amc2026/archive/refs/heads/main.zip),
@@ -108,7 +109,7 @@ Keep the default grid, leave **Interactive** off, and click **Simulate** with
 This is a coarse artificial-compressibility and penalized-flow teaching
 visualization, not validated airfoil performance. It uses a separate deployed
 browser runtime. If WebGPU is unavailable or the short run fails, follow the
-instructor's [saved demonstration](slides/assets/user-guide-naca.png) and continue.
+presenters’ [saved demonstration](slides/assets/user-guide-naca.png) and continue.
 The recorded NACA rehearsal covers WebGPU; the CPU NACA route is unqualified
 and is not the recovery path for this five-minute segment.
 The same guide page also offers turkey heating and a vibrating membrane.
@@ -203,7 +204,7 @@ uv run --frozen python scripts/fit_drag_jax.py --one-coefficient
 
 **Stretch:** change the initial guesses in the fitting script, rerun, compare
 estimates. Keep the canonical source equations unchanged. Restore script edits
-before the instructor’s smoke test. The instructor audit already checks six
+before the presenters’ smoke test. The presenter audit already checks six
 starting guesses and twelve noise seeds.
 
 ## 11:50–11:55 · Check your result or keep building
@@ -215,12 +216,12 @@ continue your [challenge app](CHALLENGE.md) or try another fit starting guess.
 JAX autodiff differentiates the implemented discretized computation, subject to
 floating-point arithmetic. It does not remove integration error or model error.
 Native compiler AD is a separate capability and is not demonstrated today.
-The Lean proofs and profile-likelihood audit are instructor evidence in
+The Lean proofs and profile-likelihood audit are presenter evidence in
 [MATH_REVIEW.md](MATH_REVIEW.md), not extra attendee installs.
 
 ## 11:55–12:00 · Extend a backend; learn a small policy
 
-Watch the instructor generate **PyTorch** dynamics from the same vehicle with
+Watch the presenters generate **PyTorch** dynamics from the same vehicle with
 an external `target.toml`, then learn two feedback gains for vertical hover.
 The [optional backend guide](BACKENDS.md) explains the code, checks and commands.
 This is differentiable model-based policy optimization, a small bridge to RL.
@@ -323,3 +324,16 @@ a model library or compiler, or open a research/model collaboration conversation
 Speak with James Goppert or Micah Condie before leaving, or follow the closing QR.
 Take-home challenge: try another initial fit guess, inspect holdout prediction,
 and explain one model limitation before suggesting an extension.
+
+## Slides and proofs in VS Code
+
+The Codespace installs [PDF Viewer](https://marketplace.visualstudio.com/items?itemName=mathematic.vscode-pdf)
+and [Lean 4](https://marketplace.visualstudio.com/items?itemName=leanprover.lean4)
+alongside Rumoca. Open `slides/workshop.pdf` in Explorer to view the slides
+inside VS Code; if necessary choose **Open With → PDF View**. Existing Codespaces
+need **Codespaces: Rebuild Container** to apply the updated configuration.
+
+Lean is optional for participants. Its extension provides editor support;
+checking `formal/Generated.lean` also needs the pinned toolchain and Mathlib
+setup described in [MATH_REVIEW.md](MATH_REVIEW.md). The core exercises do not
+require those downloads.

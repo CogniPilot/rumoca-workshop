@@ -1,0 +1,64 @@
+{
+  "drag": {
+    "k_linear": 0.18041558636585436,
+    "k_quad": 0.07990761328151084
+  },
+  "initial_drag": {
+    "k_linear": 0.06,
+    "k_quad": 0.025
+  },
+  "initial_loss": 26931.78029873801,
+  "final_loss": 1.0729654337962093,
+  "loss_reduction": 25100.324251315276,
+  "rms": {
+    "train_before": 4.160587653450359,
+    "train_after": 0.03160050636822365,
+    "validation_before": 0.6761164004762825,
+    "validation_after": 0.028968579157841536
+  },
+  "rms_by_state": {
+    "train_before": {
+      "x": 8.074467450475044,
+      "z": 0.3744737296252547,
+      "vx": 1.972731443701302,
+      "vz": 0.11416635338865234
+    },
+    "train_after": {
+      "x": 0.02618059314637106,
+      "z": 0.025107188867037188,
+      "vx": 0.03650642799783459,
+      "vz": 0.036685887415334614
+    },
+    "validation_before": {
+      "x": 1.1885175478687182,
+      "z": 0.3560331520056459,
+      "vx": 0.52745625162662,
+      "vz": 0.10483264602722314
+    },
+    "validation_after": {
+      "x": 0.022817632189440298,
+      "z": 0.025387306170765667,
+      "vx": 0.034419942268070686,
+      "vz": 0.031730462250311245
+    }
+  },
+  "noise_scaled_rms": {
+    "train_before": 164.10905002082612,
+    "train_after": 1.0358404480402421,
+    "validation_before": 25.976024158137133,
+    "validation_after": 0.955677725213964
+  },
+  "rms_note": "Legacy rms combines metres and metres/second; inspect rms_by_state (each native unit) or dimensionless noise_scaled_rms for interpretation.",
+  "sensitivity_condition_number": 10.8706586541301,
+  "sensitivity_singular_values": [
+    4466.4328966048115,
+    410.87049448543536
+  ],
+  "optimizer": "L-BFGS-B, JAX autodiff through generated RHS + RK4 scan; log-positive parameters",
+  "iterations": 12,
+  "success": true,
+  "runtime_seconds": 5.834563133000003,
+  "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+  "data_sha256": "05f347f1ac9fc48fa225381f8d7fa5c0a8acaaefbcd89e9528aadc2350a94576",
+  "rumoca_version": "0.10.2"
+}

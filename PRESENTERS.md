@@ -1,4 +1,4 @@
-# Instructor guide
+# Presenters guide
 
 **James Goppert · Micah Condie**
 Purdue University, School of Aeronautics and Astronautics
@@ -25,9 +25,9 @@ reference figures on your laptop. Participant entry:
 
 ## Facilitation and pacing
 
-| Clock | Slides | Activity / instructor cue |
+| Clock | Slides | Activity / presenter cue |
 |---|---|---|
-| 10:00–10:10 | 1–2 | Welcome, core outcomes and **open app challenge**. Announce GitHub demos, audience hand vote and stocking-cap prize now. |
+| 10:00–10:10 | 1–2 | Welcome, core outcomes and **open app challenge**. Announce small interactive experiments, optional agents/hosting, hand vote and prize now. |
 | 10:10–10:20 | 3–4 | Why Rumoca; Lie groups, reachable sets, formal verification, identification and digital twins. Then show today's Modelica → JAX / CasADi compiler bridge. |
 | 10:20–10:35 | 5–7 | Browser plot, cloud/local setup and smoke. Experienced participants can begin their app when ready. |
 | 10:35–10:40 | 8 | User-guide embedded editor and NACA flow visualization. Use a warm successful tab; keep the saved capture ready. |
@@ -35,7 +35,7 @@ reference figures on your laptop. Participant entry:
 | 11:00–11:10 | 12 | **Break 1**, ten full minutes. Leave recovery link visible. |
 | 11:10–11:50 | 13–15 | Synthetic data, prediction error, JAX fit and before/after outputs. App builders use independent work time. |
 | 11:50–11:55 | 16 | Checkpoint and independent work/questions. Offer detailed mathematics only when requested. |
-| 11:55–12:00 | 17 | External target.toml → Torch dynamics → small differentiable hover policy. Instructor demo; optional package preinstalled. |
+| 11:55–12:00 | 17 | External target.toml → Torch dynamics → small differentiable hover policy. Presenter demo; optional package preinstalled. |
 | 12:00–12:10 | 18 | **Break 2**, ten full minutes. Leave next command visible. |
 | 12:10–12:40 | 19–20 | Constraints, CasADi solve and plots. Optional target variant or continued app development. |
 | 12:40–12:45 | 21 | Advertise the next PURT pylon racing competition and its planned Rumoca use. Share the site/QR; announce challenge presenters by 12:45. |
@@ -116,7 +116,7 @@ does not establish global optimality. This is open loop; MPC is discussed only.
 
 - **First browser load fails:** keep the real screenshot visible, explain the
   edit, retry once. Move into local VS Code or pair work immediately.
-- **Cloud not ready by 10:35:** use instructor local path and participant pairs;
+- **Cloud not ready by 10:35:** use presenter local path and participant pairs;
   do not ask 50 people to download Docker. Browser-only attendees predict and
   interpret rather than waiting through an installation.
 - **Fit fails or model edits diverge:** return to defaults and run joint fit.
@@ -191,44 +191,35 @@ to open [COMMUNITY.md](COMMUNITY.md) and its research/model collaboration form.
 Invite attendees to speak with James Goppert or Micah Condie before leaving.
 Ask which model from their work they would try next, and leave time to listen.
 
-## Optional app challenge
+## Optional interactive experiment challenge
 
-Announce [CHALLENGE.md](CHALLENGE.md) on slide 2: apply Rumoca to a problem you
-care about. Participants can build a new app or extend an existing one with
-coding agents, publish it on their own GitHub and explain their contribution.
-Any subject is welcome. The main exercise remains
-accessible without agent tools or a GitHub account. Keep advanced participants
-building during downtime and independent portions; use the practical checkpoints rather
-than requiring a specialist aerodynamics discussion.
+Announce [CHALLENGE.md](CHALLENGE.md) on slide 2: apply Rumoca to a question you
+care about. One change to an existing model, controller or simulator and one
+checked comparison is enough. Public GitHub hosting, a new WASM app and coding
+agents are optional. Keep power users experimenting during downtime while the
+core walkthrough remains available to everyone.
 
-Point to [APP_PROMPT.md](APP_PROMPT.md) immediately. Its creative example is an
-Artemis-inspired launch experience with Three.js visuals and a small Modelica
-model; it is only a prompt, not software supplied by the workshop. Participants
-choose the narrative and design. Another prompt extends the working fixed-wing
-app into a “Tune the autopilot” flight lab. Both ask for an early deployment
-and one working interaction. The full
-AD-based fixed-wing MPC version is labeled **ambitious** and optional. The
-example is a project specification; its new features have their own acceptance
-checks and are not advertised as completed workshop software.
+Point to the short experiment prompt in [APP_PROMPT.md](APP_PROMPT.md). The
+full Three.js launch-app, fixed-wing app and ambitious AD-based MPC prompts are
+optional stretches. Falcon 9-style interactivity is inspiration; no qualified
+rocket model is supplied. Welcome equally small experiments in other domains.
 
-Collect entries by 12:40: GitHub link, one-sentence problem, coding agent/tool,
-model/version when available, elapsed build wall time (estimates labeled), and a working
-interaction using Rumoca. Use the [entry gallery](https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/1)
-for every link. The readiness
-check does not rank polish, complexity or experience. If more than five entries
-are ready, draw five at random plus one backup; otherwise all present. Draw
-their order and announce it by 12:45. Explain these rules at the opening so
-selection is understood as a time limit, not a quality judgment.
+Collect entries by 12:40: name/team, question, starting model/app, original change,
+tool used, elapsed work time and a ready interaction or before/after comparison.
+Local files, tabs and screenshares are acceptable; public links are optional.
+Say “manual” if no agent was used. One entry per participant or team prevents
+multiple projects from adding extra draw chances. The readiness check does not
+rank polish, complexity or experience.
 
-At 12:50, give each of up to five presenters 45 seconds. Five demos leave
-75 seconds for voting and the award. Have tabs ready, keep the same time limit
-for everyone and use the backup if a selected presenter is unavailable. Each
-demo includes the agent used and elapsed build time; complexity and speed are
-not scored in the readiness check.
-Each attendee votes for one entry by a show of hands. Count visibly, resolve a
-tie with a quick vote among the tied entries and, if needed, a draw. Award one
-free CogniPilot stocking cap to the winning entry. A winning team chooses its
-recipient. If there are no entries, take a brief app question and continue.
+If more than five entries are ready, draw five at random plus one backup;
+otherwise all present. Draw their order and announce it by 12:45. Explain the
+rules at the opening. Give each presenter 45 seconds; five demos leave
+75 seconds for the hand vote and award. Have tabs/files ready. Each demo names
+the question, change, result, one check, tool and elapsed time. Each attendee votes
+once. Count visibly; resolve a tie with a quick revote, then a draw if needed.
+Award one CogniPilot stocking cap; a winning team chooses its recipient.
+Use the gallery for voluntary links. If no entries are ready, take a brief
+question and continue to the close.
 
 ## Rehearse the guide and extensibility showcases
 
@@ -241,7 +232,7 @@ model. Do not claim aerodynamic prediction, lift/drag accuracy or GPU speedup
 from the UI rehearsal. Other guide examples include turkey heating and a membrane.
 
 Slide 17 makes extensibility concrete. Preinstall the optional CPU Torch group
-in the instructor's Linux x64 Codespace. Open `templates/torch-ode/target.toml`,
+in the presenters’ Linux x64 Codespace. Open `templates/torch-ode/target.toml`,
 then the generated RHS, run its check, and show the hover-policy result. The
 [backend guide](BACKENDS.md) gives commands, assumptions and a small extension
 exercise. Sixty Adam updates took 14–27 seconds across the two-core

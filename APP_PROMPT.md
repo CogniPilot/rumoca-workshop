@@ -1,11 +1,33 @@
 # Example agent prompts: make something you care about
 
-**Copy this at the opening. Aim for a useful app in three hours.**
+**Start with one useful experiment. Build a new app only if you want the stretch.**
 
 The competition invites you to **apply Rumoca to any problem you care about**.
 These are inspiration, not assigned projects. Power users can build with their
 agents during downtime and independent work. Choose your own subject and make
-the app yours. The full AD-based MPC idea below is **ambitious** and optional.
+the experiment yours. The full AD-based MPC idea below is **ambitious** and optional.
+
+## Small starting prompt: one change, one checked result
+
+```text
+Help me explore a problem I care about with Rumoca. Start from a working
+Modelica example or an existing interactive simulator; preserve its working
+baseline. Use the workshop's tested playground or Codespace/local Python route.
+
+Ask what behavior I want to explore. Propose one small model, controller or
+scenario change I can finish during workshop downtime. Compare before and after,
+make the effect visible in the existing interface or a plot, and check one result
+against an analytic case, physical sign, numerical baseline or stated constraint.
+
+Do not require a new web app, WASM toolchain, public repository or deployment.
+Keep assumptions and units visible. Explain my contribution and credit the
+starting example. Prepare a 45-second demo: question, change, result and check.
+Record the agent/tool used and elapsed work time; label estimates.
+```
+
+An interactive rocket landing can inspire the presentation, like a Falcon 9-style
+simulator; no qualified rocket starter is supplied. Choose another domain if it
+fits your interests better. The following full-app prompts are optional stretches.
 
 ## Creative example: an Artemis-inspired launch lab
 

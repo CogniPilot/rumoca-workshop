@@ -1,14 +1,14 @@
 # Verification and remaining preflight
 
-Qualification performed October 11, 2026. Evidence is committed in
+Qualification performed October 11–12, 2026 (UTC). Evidence is committed in
 `verification/` and `results/reference/`. Scope is this small
 smooth ODE and its stated parameters, not arbitrary Modelica or real flight.
 
 ## Reproducibility and measured CPU time
 
-[Clean CI run 38181857086](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38181857086)
-at commit `1a8a96e` passed all **seven** jobs: four Python OS runners,
-devcontainer build/startup commands, pinned-flake CPU/Torch checks, and
+[Clean CI run 38188583674](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38188583674)
+at commit `cf973d0` passed all **seven** jobs: four Python OS runners,
+full devcontainer configuration, features and startup commands, pinned-flake CPU/Torch checks, and
 generated-equation Lean proof checking.
 The machine-readable [job receipt](verification/ci-jobs.json) and
 [platform reports](verification/platforms) record exact platforms and results.
@@ -23,12 +23,12 @@ dominate the first simulation.
 | Tested environment | Simulate | JAX fit | CasADi optimize | Full smoke |
 |---|---:|---:|---:|---:|
 | Local Linux x64, Ryzen 9 5950X, Python 3.12.13 | 1.4 s | 5.9 s | 1.7 s | 11.7 s |
-| Ubuntu hosted x64 | 2.2 s | 5.8 s | 1.4 s | 13.2 s |
-| Windows Server 2025 hosted x64 | 5.2 s | 5.5 s | 1.1 s | 16.4 s |
-| macOS 26.6.2 hosted Apple Silicon | 20.2 s | 9.3 s | 1.8 s | 36.2 s |
-| macOS 15.7.9 hosted Intel | 31.2 s | 10.4 s | 2.5 s | 53.3 s |
-| Debian devcontainer, non-root vscode user | 1.7 s | 4.4 s | 1.1 s | 9.9 s |
-| Actual two-core Codespace, Python 3.12.11 | 1.5 s | 6.3 s | 1.8 s | 13.3 s |
+| Ubuntu hosted x64 | 2.2 s | 5.6 s | 1.4 s | 12.7 s |
+| Windows Server 2025 hosted x64 | 4.8 s | 6.7 s | 1.5 s | 17.7 s |
+| macOS 26.6.2 hosted Apple Silicon | 24.3 s | 5.1 s | 1.0 s | 36.0 s |
+| macOS 15.7.9 hosted Intel | 37.8 s | 16.1 s | 2.5 s | 67.5 s |
+| Debian devcontainer, non-root vscode user | 1.6 s | 4.3 s | 1.1 s | 9.6 s |
+| Actual two-core Codespace, Python 3.12.11 | 1.5 s | 6.3 s | 1.7 s | 12.8 s |
 
 Each of the three examples finishes under the one-minute acceptance target on
 these runs. Local NixOS supplies system libraries through a machine-specific
@@ -111,7 +111,7 @@ Verified activation, no errors on the canonical model, `sin` completion,
 parameter hover, errors on intentionally invalid syntax, and clean diagnostics
 after restoring valid source. CI checks the exact version and
 [release VSIX hashes](verification/vsix-sha256.json) before qualification.
-[Editor CI run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38181857118)
+[Editor CI run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38188583675)
 passed all four jobs. Receipts: [verification/editors](verification/editors),
 local [vscode-linux.json](verification/vscode-linux.json), actual
 `vscode-quadrotor.png`, and test source in `verification/`.
@@ -136,7 +136,7 @@ policy's held-out cost improved **0.1156→0.0210** on 128 new initial condition
 complete rollout gradients and fixed-sampling fine integration passed.
 [Backend receipt](results/reference/torch_backend.json),
 [policy receipt](results/reference/torch_policy.json). Both commands also passed
-in the actual two-core Codespace: about **8 s** and **14 s** after package setup.
+in the actual two-core Codespace: about **6 s** and **13 s** after package setup.
 This is a restricted differentiable policy-learning task with known parameters,
 not a full-flight or model-free RL qualification. The optional CPU package is
 qualified on Linux x64 only and is excluded from the base install.
@@ -185,7 +185,7 @@ occurred on the successful rehearsals. Actual screenshots are in
 These are UI execution checks, not independent validation of benchmark metrics,
 visual-SLAM completion, real flight or the applications’ complete mathematics.
 The workshop’s planar-model Lean proofs do not cover these different models.
-Agents helped build the apps, as described by the instructor; engineering
+Agents helped build the apps, as described by the presenters; engineering
 review and validation remain necessary.
 
 ## Qualified package artifacts
@@ -238,8 +238,8 @@ items. Browser, qualified local uv and reference plots provide alternate paths;
 Public upstream research is cited separately from workshop executions; future
 work is labeled. The optional challenge is announced at the opening, uses an
 open theme: apply Rumoca to a problem the participant cares about during
-downtime. Entries document the agent used and elapsed build time. Up to five
-45-second GitHub app demos are selected by a readiness check and, if needed,
+downtime. Entries document the tool used and elapsed work time. Public hosting and
+coding agents are optional. Up to five 45-second experiment demos are selected by a readiness check and, if needed,
 random draw, followed by an audience hand vote. The Artemis/Three.js idea is
 only an [example prompt](APP_PROMPT.md); no rocket app/model was added.
-[INSTRUCTOR.md](INSTRUCTOR.md) contains presentation and facilitation checks.
+[PRESENTERS.md](PRESENTERS.md) contains presentation and facilitation checks.

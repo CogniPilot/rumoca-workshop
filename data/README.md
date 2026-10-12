@@ -19,7 +19,7 @@ using independent SciPy DOP853 integration. No experimental/private data.
 Each row's command is held constant until the next row. The terminal command
 is repeated for a rectangular CSV schema and has no outgoing interval. All
 initial states are exactly known; subsequent state measurements have independent
-Gaussian noise specified in `truth.json`. `truth.json` is an instructor answer
+Gaussian noise specified in `truth.json`. `truth.json` is an presenter answer
 and provenance reference; it is public but not used in computing the fit loss.
 
 Regenerate deterministically:
@@ -28,6 +28,6 @@ Regenerate deterministically:
 uv run --frozen python scripts/make_dataset.py
 ```
 
-Regeneration requires a working Python environment; it is an instructor step.
+Regeneration requires a working Python environment; it is an presenter step.
 After a source-equation change, regenerate and requalify identification/control
 instead of assuming this stored dataset still represents the new physics.

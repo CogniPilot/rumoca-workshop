@@ -20,7 +20,7 @@ not a promise about network startup.
 | Torch target + policy | Slide 17 → open target.toml + template + generated RHS → check backend → run learning → policy plot | Exactly 11:55–12:00; optional group preinstalled; 14–27 s policy computation in two-core Codespace | `results/reference/torch_policy.png` + BACKENDS.md; no extra attendee install |
 | Mathematical appendix | Open MATH_REVIEW then proof log and audit figure; point out exact-real theorem scope versus numerical evidence | 2 min if asked; no attendee Lean installation | Explain verbally; no live Mathlib download |
 | App gallery | Slide 22 → BROWSER_APPS.md → choose one tested app experiment; lead with fixed-wing; let app builders finish demos | Exactly 12:45–12:50: 1 min introduce, 4 min explore or finish an app | Real app screenshots; prediction discussion if network/graphics fails |
-| Challenge | Slide 2 announces open Rumoca competition → collect gallery entries by 12:40 → draw up to five ready presenters if needed, plus order and backup → announce by 12:45 → slide 23 demos → hand vote → stocking-cap award | 12:50–12:55: up to five 45-second demos, 75 s vote/award; name agent and elapsed build time, label estimates; CHALLENGE.md | If a presenter is unavailable, use backup; if no entries, take an app question and continue |
+| Challenge | Slide 2 announces open Rumoca experiment competition → collect experiment entries by 12:40 → draw up to five ready presenters if needed, plus order and backup → announce by 12:45 → slide 23 demos → hand vote → stocking-cap award | 12:50–12:55: up to five 45-second demos, 75 s vote/award; name tool and elapsed work time, label estimates; CHALLENGE.md | If a presenter is unavailable, use backup; if no entries, take an app question and continue |
 | PURT racing | Slide 21 → next pylon racing competition will leverage Rumoca → site and QR | 12:40–12:45; upcoming dates/rules announced on the competition site | Link and QR; do not repeat April 2026 dates as upcoming |
 | Close | Slide 24 → ask which model attendees would try next → community QR and research/model collaboration form | Exactly 12:55–13:00; invite conversation with James Goppert or Micah Condie | COMMUNITY.md + compiler/model-library links |
 
@@ -49,7 +49,7 @@ Inspect the same model through its actual exports, if asked:
 uv run --frozen python scripts/export_model.py
 ```
 
-Independent instructor numerical audit, after a successful smoke run:
+Independent presenter numerical audit, after a successful smoke run:
 
 ```sh
 uv run --frozen python scripts/math_audit.py --output results/live

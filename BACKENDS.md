@@ -1,7 +1,7 @@
 # Make a small target; learn with the same vehicle
 
 Rumoca separates declared physics from numerical execution. This optional
-instructor demonstration uses the **same `models/Quadrotor.mo`** as the core,
+presenter demonstration uses the **same `models/Quadrotor.mo`** as the core,
 then renders its checked scalar Solve program into batched PyTorch operations.
 No Python vehicle equations are added.
 

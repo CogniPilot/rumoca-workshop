@@ -1,10 +1,10 @@
 {
   "status": "PASS",
-  "source_commit": "1a8a96e267a07380d7c414e4bd48b2a64f75f2b5",
+  "source_commit": "cf973d01e809944c66ee7bc54b73fd8a3c5fa7b4",
   "environment": "Actual GitHub Codespace, Linux x64, 2 cores, 8 GB RAM, non-root vscode user",
   "configuration_sha256": {
     ".devcontainer/devcontainer.json": "fa385d9dd0cfc0f76a54a2bf15ddbebb624abae565f13d687953b6560b7af56a",
-    ".devcontainer/Dockerfile": "c1c19331b8fa22ab35721efef0751507004e06f66c0509bae08c13c6e2670054",
+    ".devcontainer/Dockerfile": "a0089da7822a42fa5acdf5e2d5c0a18cc0ae308d7b7d96d0352303dff77238c8",
     "scripts/ensure_codespace_extension.py": "f51934c4beb069dd0ad415b7d0a06dd47e3061c2a3c8f6d6d001eb315f5634da"
   },
   "startup": {
@@ -12,7 +12,7 @@
     "post_create_command": "PASS",
     "native_extension_install": "PASS",
     "extension_version": "0.10.2",
-    "post_create_smoke_seconds": 17.34
+    "post_create_smoke_seconds": 15.85
   },
   "smoke": {
     "status": "PASS",
@@ -22,16 +22,16 @@
     "rumoca_version": "0.10.2",
     "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
     "command_wall_seconds": {
-      "simulate": 1.5206406529996457,
-      "fit_drag_jax": 6.299464228999568,
-      "optimize_casadi": 1.7755883050003831
+      "simulate": 1.4709166810000625,
+      "fit_drag_jax": 6.287089167999966,
+      "optimize_casadi": 1.7186435510000138
     },
     "checks": {
       "max_rhs_parity_error": 0,
       "jax_gradient": -10.379535595670434,
       "finite_difference": -10.379535595905764
     },
-    "total_seconds": 13.25506711899925
+    "total_seconds": 12.767795161999857
   },
   "math_audit": {
     "status": "PASS",
@@ -320,7 +320,7 @@
       2.06119239448889
     ],
     "trajectory_check": "Generated CasADi RHS, DOP853 rtol=1e-11 atol=1e-12, 10 samples/interval; analytic pitch extrema. Numerical evidence, not interval arithmetic certification.",
-    "runtime_seconds": 10.3412006260005
+    "runtime_seconds": 9.982732754999915
   },
   "torch_backend": {
     "status": "PASS",
@@ -328,12 +328,12 @@
     "torch": "2.10.0+cpu",
     "platform": "Linux x64 CPU",
     "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
-    "script_sha256": "c3dd2ef6b1804b8a32ae7b52e7cbcefd4ae4809a62aeaf6dc83ea732cc097182",
+    "script_sha256": "23f60a42a1ba53e93e147f3e04a9851853c0c114bbc4731bdffaad42194b62f5",
     "target_sha256": {
-      "rhs.py.jinja": "b402968020674e89007aa3cb2463006e24b3d621c49757ac0216924ccc4d564e",
+      "rhs.py.jinja": "890561c59b1897adeab3f41ee7ff623c8a0cf310dc175d2a410a6faaed85d36d",
       "target.toml": "029a3f2cacde5811f8370910bc8dbd6de8202106d414773e197672cd5267559e"
     },
-    "generated_sha256": "226ff5b953182c4c34834d247a8a577c77a18b17cc24505c76eb8820dc480cc2",
+    "generated_sha256": "0353388a15f1cf73ae58de9f154222dba4d51772b8def31097e5e7896b381a01",
     "state_names": [
       "x",
       "z",
@@ -354,14 +354,23 @@
     "negative_tests": [
       {
         "case": "unsupported unary Exp",
-        "message": "Target rendering error: Render target template 'rhs.py.jinja': template render error: invalid operation: unsupported-feature:workshop-torch.Unary.Exp (in inline:52)"
+        "message": "Target rendering error: Render target template 'rhs.py.jinja': template render error: invalid operation: unsupported-feature:workshop-torch.Unary.Exp (in inline:55)"
       },
       {
         "case": "events",
         "message": "Target rendering error: unsupported-feature:events: Target 'workshop-torch-ode' does not support feature 'events': event or condition partitions present (its target.toml declares `[capabilities] events` unsupported)"
       }
     ],
-    "elapsed_seconds": 8.367448207000052,
+    "time_broadcast": {
+      "model": "ClockedSlope",
+      "source": "model ClockedSlope\n      Real x(start=0, fixed=true);\n      Real y(start=0, fixed=true);\n    equation\n      der(x) = time;\n      der(y) = 1;\n    end ClockedSlope;",
+      "batched_time_and_constant_derivative": true,
+      "mixed_time_state_broadcast": true,
+      "time_forward_reverse_ad": true,
+      "time_gradcheck": true,
+      "incompatible_batch_rejected": true
+    },
+    "elapsed_seconds": 5.725502002999974,
     "scope": "Small teaching target for explicit scalar ODEs with the listed primitives. Runtime/autograd checks for this model; no full Modelica, GPU or compiler-correctness claim."
   },
   "torch_policy": {
@@ -369,7 +378,7 @@
     "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
     "script_sha256": "b4690da3edc413f78d5e771dadb692cdd5471c999435abdc527d78d2bff7bb88",
     "target_sha256": {
-      "rhs.py.jinja": "b402968020674e89007aa3cb2463006e24b3d621c49757ac0216924ccc4d564e",
+      "rhs.py.jinja": "890561c59b1897adeab3f41ee7ff623c8a0cf310dc175d2a410a6faaed85d36d",
       "target.toml": "029a3f2cacde5811f8370910bc8dbd6de8202106d414773e197672cd5267559e"
     },
     "rumoca": "0.10.2",
@@ -496,10 +505,10 @@
       "vz": 1.3245995097999064e-06,
       "omega": 0.0
     },
-    "elapsed_seconds": 13.815947994999988,
+    "elapsed_seconds": 13.415076248999867,
     "scope": "Synthetic fixed-parameter, two-second vertical task. Feedback optimized on 64 initial states and checked on 128 new states. No full-vehicle RL, disturbance robustness, continuous-time safety or physical-flight claim."
   },
   "native_editor_receipt": "verification/codespace-editor.json",
-  "scope": "Individual Codespace rebuild, startup, same CI commands and native remote VS Code LSP. Browser frontend, quotas, billing, prebuilds, region availability, venue network and simultaneous class capacity require instructor preflight.",
-  "tested_date_utc": "2026-10-11"
+  "scope": "Individual Codespace rebuild, startup, same CI commands and native remote VS Code LSP. Browser frontend, quotas, billing, prebuilds, region availability, venue network and simultaneous class capacity require presenter preflight.",
+  "tested_date_utc": "2026-10-12"
 }

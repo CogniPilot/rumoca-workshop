@@ -1,4 +1,4 @@
-"""Install the qualified native LSP in Codespaces' remote extension directory.
+"""Install workshop editor extensions and the qualified native LSP in Codespaces' remote extension directory.
 
 Normal VS Code/devcontainer customization installs remain enabled. This pinned
 VSIX fallback also works before the first browser/editor attaches.
@@ -22,18 +22,26 @@ def main():
     assert platform.system() == "Linux" and platform.machine() == "x86_64"
     home = Path.home()
     extension_root = home/".vscode-remote/extensions"
-    for metadata in extension_root.glob("jamesgoppert.rumoca-modelica-*/package.json"):
-        package = json.loads(metadata.read_text())
-        server = metadata.parent/"bin/rumoca-lsp"
-        if package.get("version") == "0.10.2" and server.is_file() and os.access(server, os.X_OK):
-            print("Rumoca Modelica 0.10.2 native LSP already installed for Codespaces.")
-            return
     # GitHub stages its native VS Code Server before postCreate runs.
     candidates = sorted(Path("/vscode/bin/linux-x64").glob("*/bin/code-server"))
     candidates += sorted((home/".vscode-server/bin").glob("*/bin/code-server"))
     servers = [path for path in candidates if path.is_file() and os.access(path, os.X_OK)]
     if not servers:
         raise RuntimeError("VS Code Server unavailable; rebuild the Codespace to finish extension setup.")
+    for identifier in ("mathematic.vscode-pdf", "leanprover.lean4"):
+        subprocess.run([str(servers[0]), "--install-extension", identifier,
+                        "--extensions-dir", str(extension_root)], check=True)
+        installed = [json.loads(path.read_text())
+                     for path in extension_root.glob(identifier.lower()+"-*/package.json")]
+        if not installed:
+            raise RuntimeError(f"Workshop extension was not installed: {identifier}")
+        print(f"Workshop extension installed: {identifier} {installed[-1]['version']}")
+    for metadata in extension_root.glob("jamesgoppert.rumoca-modelica-*/package.json"):
+        package = json.loads(metadata.read_text())
+        server = metadata.parent/"bin/rumoca-lsp"
+        if package.get("version") == "0.10.2" and server.is_file() and os.access(server, os.X_OK):
+            print("Rumoca Modelica 0.10.2 native LSP already installed for Codespaces.")
+            return
     scratch = home/"scratch/rumoca-workshop/downloads"
     scratch.mkdir(parents=True, exist_ok=True)
     url = "https://github.com/CogniPilot/rumoca/releases/download/v0.10.2/rumoca-modelica-linux-x64-0.10.2.vsix"

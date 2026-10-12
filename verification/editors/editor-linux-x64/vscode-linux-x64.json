@@ -2,10 +2,11 @@
   "vscodeVersion": "1.119.0",
   "platform": "linux",
   "architecture": "x64",
-  "testedAt": "2026-10-11T22:48:32.100Z",
+  "testedAt": "2026-10-12T00:35:42.423Z",
   "extensionVersion": "0.10.2",
   "active": true,
   "initialDiagnostics": [],
+  "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
   "completionLabels": [
     "sign",
     "sin",
@@ -27,5 +28,6 @@
       "severity": 0
     }
   ],
-  "restoredDiagnostics": []
+  "restoredDiagnostics": [],
+  "status": "PASS"
 }

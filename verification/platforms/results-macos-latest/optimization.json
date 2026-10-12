@@ -45,8 +45,8 @@
     2.0611842879143416
   ],
   "warm_start_used": true,
-  "runtime_seconds": 1.3387522079999883,
+  "runtime_seconds": 0.8550751669999954,
   "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
-  "fit_sha256": "a09b4a16f06919478ddb4a11616e2cb71359759bc23c1314ee1dd436c74584d4",
+  "fit_sha256": "43bcc470b274305e8e3150eb803e5af53986840726331c4bb59ed947c2ed9466",
   "rumoca_version": "0.10.2"
 }

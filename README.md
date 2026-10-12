@@ -26,17 +26,17 @@ The next **PURT pylon racing competition will leverage Rumoca**.
 Follow the [competition site](https://pylon-racing.geddes.rcac.purdue.edu/)
 for announcements and event details.
 
-Want an extra challenge? Build an app with coding agents on your GitHub during
-the workshop. Short demos and an audience hand vote at **12:50** decide who wins
+Want an extra challenge? Change a Rumoca model or existing interactive simulator
+and show one checked result. Agents, a new app and public hosting are optional. Short demos and an audience hand vote at **12:50** decide who wins
 a **free CogniPilot stocking cap**. Apply Rumoca to a problem you care about;
 [challenge details](CHALLENGE.md).
 
 ## Choose your route in 60 seconds
 
-- **Want to start immediately / no account?** Open the [Rumoca playground](https://rumoca.cognipilot.org/playground/). Browser modeling is zero-install. JAX and CasADi use Python on the routes below; follow the instructor's plots if Python is unavailable.
+- **Want to start immediately / no account?** Open the [Rumoca playground](https://rumoca.cognipilot.org/playground/). Browser modeling is zero-install. JAX and CasADi use Python on the routes below; follow the presenters’ plots if Python is unavailable.
 - **GitHub login and Codespaces available?** [Open a Codespace](https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1). The devcontainer prepares Python and installs the pinned native Rumoca LSP. Your account needs allowance or authorized billing. The core and optional Torch workflows have passed in an actual two-core Codespace; class capacity still needs preflight. See [verification](VERIFICATION.md).
 - **Prefer local VS Code?** Follow the [local VS Code setup](LOCAL_SETUP.md) for uv, native LSP installation and the editor checkpoint, then run the commands below. Windows x64, macOS 14+ (Intel/Apple Silicon), Linux x64 with glibc 2.28+; CI evidence is recorded in [verification](VERIFICATION.md).
-- **Cloud or installation failed?** Continue the browser exercise and use [committed reference figures](results/reference). Pair with someone whose Python setup works, or follow the instructor. No account is needed to read these files.
+- **Cloud or installation failed?** Continue the browser exercise and use [committed reference figures](results/reference). Pair with someone whose Python setup works, or follow the presenters. No account is needed to read these files.
 
 ## Local / Codespaces terminal
 
@@ -68,7 +68,7 @@ estimate/use drag parameters explicitly.
 | [LOCAL_SETUP.md](LOCAL_SETUP.md) | Linux, Windows and Mac VS Code setup; optional maintainer flake |
 | [BACKENDS.md](BACKENDS.md) | External target.toml, batched Torch and differentiable hover learning |
 | [WORKSHOP.md](WORKSHOP.md) | Timed participant worksheet and checkpoints |
-| [INSTRUCTOR.md](INSTRUCTOR.md) | Facilitation, answers, research context |
+| [PRESENTERS.md](PRESENTERS.md) | Facilitation, answers, research context |
 | [REHEARSAL.md](REHEARSAL.md) | Exact click/type sequence and recovery |
 | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Setup and exercise recovery |
 | [slides/workshop.pptx](slides/workshop.pptx) / [PDF](slides/workshop.pdf) | Presentation and offline backup |

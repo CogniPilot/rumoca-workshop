@@ -13,7 +13,7 @@
     "results/reference/optimization.png": "8d3faf3355dac7c3bf1f081e19161dc04360766e299388be53457c36327458c7",
     "results/reference/torch_policy.png": "b67366d51acfc5a515419f060eb4efdb283c6501379897cd3d8ecc65352bd8dc",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
-    "scripts/build_slides.py": "42046a083d5ee6830a2a2b4993b6ee6505fb08ef29b3ebe29f1a4fd620fc4183",
+    "scripts/build_slides.py": "07e9fdb62d0b5fba7e850b61cbd4d45b2acf0e7aa235f82906bc7e7c5cebc58f",
     "scripts/slide_assets.py": "95ead0a4fd083d407c0f8024ef43a17e59c21d7b5393e7b6ae1d888e6ad6fb09",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
     "slides/assets/architecture.png": "264ab4f7e3ec35c65e3bcbb56328d42414409c4739dfb59fee95275293c02bde",
@@ -31,12 +31,12 @@
     "slides/assets/simulation-hero.png": "30e4af0a1707e14ff7c1aafbdf71813f2421cfb64d06f281590a29c26a7f24c9",
     "slides/assets/user-guide-naca.png": "cd554217d939e7fabf149829cb6deba75e87cc44c5b8f1c130b6d00ff2dd3d98",
     "slides/assets/vscode-quadrotor.png": "e6002a5b2109928f38ff2598ba587ec0800c3947858c54fcc54bbd7b782467ed",
-    "slides/workshop.md": "534eefd0bbe8ee3244b9597b5e265dfd285ad570781dfeb565a30cc03705bf9b",
+    "slides/workshop.md": "b60912b0632898203246cb9b5b967b62f9232a6b0939c5db0209210301a73baf",
     "uv.lock": "9ee98bf337e21af4a4fc616c25e4f3d63f8b16bc6500b375dad975be5a4d9799"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "c735706e8ea6b4897c4f047563905249d41a21c3378a11a48d339e5a1f3f2787",
-    "slides/workshop.pdf": "405c0581ef99ce8ab073cdf87f71c5e6e1e081af04328da9680e25661c6c775f"
+    "slides/workshop.pptx": "3c855607786807b1df1e7abdf252fc440ed760a3c17c9710fa2ab535536ab60d",
+    "slides/workshop.pdf": "a2316e8448f84cbaf49248020f4ada0f7e902090fcf96b3faa5b095c682059ee"
   },
   "rendered_text": [
     {
@@ -261,7 +261,7 @@
     },
     {
       "slide": "02",
-      "text": "OPEN APP CHALLENGE \u00b7 DEMOS + AUDIENCE VOTE AT 12:50",
+      "text": "OPEN EXPERIMENT CHALLENGE \u00b7 DEMOS + AUDIENCE VOTE AT 12:50",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -281,7 +281,7 @@
     },
     {
       "slide": "02",
-      "text": "Run the core. Build something extra.",
+      "text": "Run the core. Explore your own question.",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -291,7 +291,7 @@
     },
     {
       "slide": "02",
-      "text": "YOUR PROBLEM. YOUR APP.",
+      "text": "YOUR QUESTION. YOUR EXPERIMENT.",
       "font_pt": 11,
       "lines": 1,
       "x": 0.7,
@@ -321,7 +321,7 @@
     },
     {
       "slide": "02",
-      "text": "Build with your agent during downtime.",
+      "text": "Experiment in a model or simulator.",
       "font_pt": 23,
       "lines": 1,
       "x": 0.7,
@@ -341,7 +341,7 @@
     },
     {
       "slide": "02",
-      "text": "Optional idea: a Three.js Artemis-style launch",
+      "text": "One change in an existing model or simulator is enough",
       "font_pt": 18,
       "lines": 1,
       "x": 0.7,
@@ -391,7 +391,7 @@
     },
     {
       "slide": "02",
-      "text": "Enter by 12:40 \u00b7 up to 5 demos \u00b7 CHALLENGE.md \u00b7 APP_PROMPT.md",
+      "text": "Enter by 12:40 \u00b7 up to 5 demos \u00b7 CHALLENGE.md \u00b7 hosting optional",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -3301,7 +3301,7 @@
     },
     {
       "slide": "23",
-      "text": "Show your app. Vote for the cap.",
+      "text": "Show your experiment. Vote for the cap.",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -3371,7 +3371,7 @@
     },
     {
       "slide": "23",
-      "text": "Show an interaction + one checked result",
+      "text": "Show your change + one checked result",
       "font_pt": 29,
       "lines": 1,
       "x": 0.7,
@@ -3381,7 +3381,7 @@
     },
     {
       "slide": "23",
-      "text": "Name your agent. Share elapsed build time + your GitHub.",
+      "text": "Name your tool. Share elapsed work time.",
       "font_pt": 23,
       "lines": 1,
       "x": 0.7,

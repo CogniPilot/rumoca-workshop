@@ -30,7 +30,9 @@ local container CI cannot establish it. [VERIFICATION.md](VERIFICATION.md)
 records cloud and editor qualification separately from the container test.
 
 The Codespace installs Python packages and the native **Rumoca Modelica 0.10.2**
-extension. Startup includes a hash-checked release-VSIX fallback before the first
+extension, plus PDF Viewer and Lean 4. Open `slides/workshop.pdf` to read
+the slides inside VS Code. Lean proof checking also requires the toolchain
+and Mathlib setup in [MATH_REVIEW.md](MATH_REVIEW.md). Startup includes a hash-checked release-VSIX fallback before the first
 editor attaches; normal recommended extension installation remains enabled.
 Open `models/Quadrotor.mo` to activate the native LSP. The tested cloud route uses
 Linux x64, two cores and CPU packages. Nix is unnecessary in the container.
@@ -54,7 +56,7 @@ not turn each participant's Codespace into an always-running CI runner.
 
 For limited bandwidth, cloud execution avoids downloading Python packages and
 native tools to the laptop. It still requires a usable connection. Prestart
-instructor Codespaces before class; use pair/screenshare or saved results for
+presenter Codespaces before class; use pair/screenshare or saved results for
 outages. Local users can download/install ahead of time and work offline after
 dependencies are cached. [LOCAL_SETUP.md](LOCAL_SETUP.md) covers both recovery paths.
 

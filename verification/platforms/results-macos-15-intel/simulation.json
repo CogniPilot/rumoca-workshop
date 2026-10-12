@@ -1,0 +1,11 @@
+{
+  "rumoca_version": "0.10.2",
+  "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+  "model_drag": {
+    "k_linear": 0.18,
+    "k_quad": 0.0
+  },
+  "final_x_linear": 41.60487552894311,
+  "final_x_quadratic": 17.974017312020557,
+  "runtime_seconds": 37.15783783399996
+}

@@ -301,6 +301,15 @@ def main():
                         text(line.lstrip(), .9+indentation*.12, 2.43+i*.28,
                              6.05-indentation*.12, 16, WHITE, mono=True, max_lines=1)
                 steps(spec["bullets"], 7.5, 2.04, 5.1, size=20, gap=.32)
+            elif layout == "fit":
+                rect(.65, 1.7, 12.03, 2.92, WHITE, rounded=True)
+                picture(spec["visual"], .8, 1.78, 11.73, 2.76)
+                label("PHYSICAL COEFFICIENTS", .8, 4.83, 5.7)
+                text("kₗ: linear drag [N s/m]\nk_q: quadratic drag [N s²/m²]\nk_ref: one corresponding SI unit", .8, 5.12, 5.75, 18, INK, max_lines=3)
+                label("WHAT THE OPTIMIZER CHANGES", 7.0, 4.83, 5.5)
+                text("a, b: dimensionless log parameters\ne ≈ 2.718; eᵃ and eᵇ keep drag positive", 7.0, 5.12, 5.5, 18, INK, max_lines=3)
+                text("ŷ: prediction · y: measurement · σ: noise standard deviation · L: mean squared scaled error",
+                     .8, 6.18, 11.75, 16, MUTED, max_lines=1)
             elif layout == "wide":
                 if spec["bullets"]:
                     rect(.65, 1.65, .045, .54, accent)

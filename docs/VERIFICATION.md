@@ -277,3 +277,11 @@ and stop. Slides 7–10 use that example for TOML and Three.js configuration;
 the planar Session API exercise remains separate. The new frame-conversion
 explanation was checked by exact matrix multiplication. The [settings
 walkthrough](SIMULATION_SETUP.md) links the primary files.
+
+The [prebuilt-image Codespace check](../verification/codespace-prebuilt.json)
+confirms Rumoca **0.10.2**, the full core numerical workflow, all three terminal
+agents, the requested editor extensions and the native LSP executable in an
+actual two-core cloud environment. Its core test took **19.59 seconds** after
+setup. Initial VM allocation and the approximately 2 GB image pull take
+additional time; there is no shared Codespaces snapshot prebuild. This receipt
+distinguishes installed extensions from separately qualified editor behavior.

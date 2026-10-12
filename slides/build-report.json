@@ -11,7 +11,7 @@
     "results/reference/fit_drag.json": "0d67f55cceecbd8d42fde39713bc1d1595687cc7a5481187dfa39035ea162fcb",
     "results/reference/torch_policy.png": "b67366d51acfc5a515419f060eb4efdb283c6501379897cd3d8ecc65352bd8dc",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
-    "scripts/build_slides.py": "07a23c0e7013e158d54e7ed75452d4e836609d8c51eba67ed6e2051fdbce5878",
+    "scripts/build_slides.py": "12a756331943d2c1d2e53cf8836dd622298ce65bf7e8f2784b91412ea1d9431d",
     "scripts/slide_assets.py": "92d9cdba091574331dbf3a4c61257a2757a47367e022ff358aa27ea5966d7149",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
     "slides/assets/architecture.png": "264ab4f7e3ec35c65e3bcbb56328d42414409c4739dfb59fee95275293c02bde",
@@ -39,12 +39,12 @@
     "slides/assets/user-guide-quadrotor.png": "6a66a7c8198da6ed1dd82f1ad9f936a805851fa30243c3ea5cfee6d4cd8b3191",
     "slides/media/fastdyn-monte-carlo.mp4": "2a688f567c51d837c23555806250dd5ebd31a34cf16cb14c4d15fe85200f4ab1",
     "slides/media/purt-fpv-chase.mp4": "0cb09e6a72a4f8543ba2e7ad786b1a4e7da1d8580ebf9daccde99c463c37bcef",
-    "slides/workshop.md": "f5f0794a905630be383b54bdf6f7e46b33e0cd527f70de66d1b57290ee33020c",
+    "slides/workshop.md": "d669c3f65178f93f8d115a3aadb5e1fcfc93a93e5ba8b1c18364884f12994d67",
     "uv.lock": "9ee98bf337e21af4a4fc616c25e4f3d63f8b16bc6500b375dad975be5a4d9799"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "5f99b5cabf3fb8f5a76520bd0ebb8fc30f02800a3bf7151bfa3ed2d5703dc45c",
-    "slides/workshop.pdf": "1ee600c5087c65632fbb2535a4bd3279a72da3b849c9eafceb92e30193f6b93d"
+    "slides/workshop.pptx": "63730f33f573cfa612d93561d87b52a42a1a58df9f656ad81b780e79f1821e1b",
+    "slides/workshop.pdf": "3e9193213f940d74471c5414ae9ed21c294c272e6fb98811376f28db6c1d05c6"
   },
   "rendered_text": [
     {
@@ -2599,13 +2599,53 @@
     },
     {
       "slide": "17",
-      "text": "Positive parameters; noise-scaled loss; bounded optimization",
-      "font_pt": 21,
+      "text": "PHYSICAL COEFFICIENTS",
+      "font_pt": 11,
       "lines": 1,
-      "x": 0.85,
-      "y": 1.71,
-      "width": 11.6,
-      "height": 0.42166666666666663
+      "x": 0.8,
+      "y": 4.83,
+      "width": 5.7,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "17",
+      "text": "k\u2097: linear drag [N s/m]\nk_q: quadratic drag [N s\u00b2/m\u00b2]\nk_ref: one corresponding SI unit",
+      "font_pt": 18,
+      "lines": 3,
+      "x": 0.8,
+      "y": 5.12,
+      "width": 5.75,
+      "height": 0.99
+    },
+    {
+      "slide": "17",
+      "text": "WHAT THE OPTIMIZER CHANGES",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 7.0,
+      "y": 4.83,
+      "width": 5.5,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "17",
+      "text": "a, b: dimensionless log parameters\ne \u2248 2.718; e\u1d43 and e\u1d47 keep drag positive",
+      "font_pt": 18,
+      "lines": 2,
+      "x": 7.0,
+      "y": 5.12,
+      "width": 5.5,
+      "height": 0.6799999999999999
+    },
+    {
+      "slide": "17",
+      "text": "\u0177: prediction \u00b7 y: measurement \u00b7 \u03c3: noise standard deviation \u00b7 L: mean squared scaled error",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.8,
+      "y": 6.18,
+      "width": 11.75,
+      "height": 0.33555555555555555
     },
     {
       "slide": "17",

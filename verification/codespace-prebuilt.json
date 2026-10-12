@@ -1,0 +1,122 @@
+{
+  "status": "PASS",
+  "tested_at_utc": "2026-10-12T03:11:33.960353+00:00",
+  "source_commit": "01b763be5567e3d956d269976fb89a1592061213",
+  "environment": "Actual GitHub Codespace, 2 cores, 8 GB RAM, 32 GB storage, non-root vscode user",
+  "configuration_sha256": {
+    ".devcontainer/devcontainer.json": "016333c159b6199583df33ca89eabbd3c38b823a1963da3faddd671f5d5e53e3",
+    "scripts/ensure_codespace_extension.py": "cb23acd5470e187ec6c770bc2f4fecc34c9c18c561047ae48d10fb0234954ebd",
+    "scripts/agent_tools.json": "4709bde158b66b468c167e0ce63be08cb53693f92a1ba2dc596624d48ff638f1"
+  },
+  "smoke": {
+    "status": "PASS",
+    "platform": "Linux-6.8.0-1064-azure-x86_64-with-glibc2.36",
+    "python": "3.12.11",
+    "processor": "",
+    "rumoca_version": "0.10.2",
+    "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+    "command_wall_seconds": {
+      "simulate": 2.8787372159999904,
+      "fit_drag_jax": 8.656204094000032,
+      "optimize_casadi": 1.7697012220000943
+    },
+    "checks": {
+      "max_rhs_parity_error": 0,
+      "jax_gradient": -10.379535595670434,
+      "finite_difference": -10.379535595905764
+    },
+    "total_seconds": 19.58710909199999
+  },
+  "agent_tools": {
+    "status": "PASS",
+    "platform": "x86_64",
+    "versions": {
+      "codex": "codex-cli 0.162.1",
+      "claude": "2.1.296 (Claude Code)",
+      "copilot": "GitHub Copilot CLI 1.0.95.\nRun 'copilot update' to check for updates.",
+      "node": "v22.23.3",
+      "npm": "10.9.9",
+      "gh": "gh version 2.102.0 (2026-09-30)\nhttps://github.com/cli/cli/releases/tag/v2.102.0",
+      "tmux": "tmux 3.3a"
+    },
+    "detached_tmux_session": "PASS",
+    "manifest_sha256": "4709bde158b66b468c167e0ce63be08cb53693f92a1ba2dc596624d48ff638f1",
+    "scope": "CLI version/help, Node/npm and detached tmux execution. No account login or billed model request."
+  },
+  "extensions": {
+    "samuelcolvin.jinjahtml": [
+      {
+        "version": "0.20.0",
+        "vscode_engine": "^1.22.0"
+      }
+    ],
+    "mathematic.vscode-pdf": [
+      {
+        "version": "0.1.11",
+        "vscode_engine": "^1.80.0"
+      }
+    ],
+    "openai.chatgpt": [
+      {
+        "version": "26.1007.21434",
+        "vscode_engine": "^1.96.2"
+      }
+    ],
+    "jamesgoppert.rumoca-modelica": [
+      {
+        "version": "0.10.2",
+        "vscode_engine": "^1.75.0"
+      }
+    ],
+    "leanprover.lean4": [
+      {
+        "version": "0.0.240",
+        "vscode_engine": "^1.75.0"
+      }
+    ],
+    "bierner.markdown-preview-github-styles": [
+      {
+        "version": "2.2.0",
+        "vscode_engine": "^1.41.0"
+      }
+    ],
+    "anthropic.claude-code": [
+      {
+        "version": "2.1.296",
+        "vscode_engine": "^1.94.0"
+      }
+    ],
+    "github.copilot-chat": [
+      {
+        "version": "0.69.0",
+        "vscode_engine": "^1.141.0"
+      },
+      {
+        "version": "0.69.2026100602",
+        "vscode_engine": "^1.141.0"
+      },
+      {
+        "version": "0.69.2026100601",
+        "vscode_engine": "^1.141.0"
+      },
+      {
+        "version": "0.70.2026100604",
+        "vscode_engine": "^1.142.0"
+      },
+      {
+        "version": "0.70.2026100904",
+        "vscode_engine": "^1.142.0"
+      },
+      {
+        "version": "0.69.2026100501",
+        "vscode_engine": "^1.141.0"
+      },
+      {
+        "version": "0.64.0",
+        "vscode_engine": "^1.136.0"
+      }
+    ]
+  },
+  "native_lsp_executable": "PASS",
+  "scope": "New Codespace pulled the public image; after correcting the startup extension lookup, rebuild completed with all required extensions and the complete core test. Extension installation and native executable checked here; desktop LSP/editor interaction is qualified separately. No AI account authentication or billed inference tested."
+}

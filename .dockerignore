@@ -4,3 +4,7 @@ generated
 results/live
 __pycache__
 Rumoca_Workshop_Handoff.md
+
+slides/media
+slides/*.pptx
+slides/*.pdf

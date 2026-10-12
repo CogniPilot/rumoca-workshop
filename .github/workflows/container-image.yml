@@ -1,0 +1,63 @@
+name: Publish workshop devcontainer
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  packages: write
+jobs:
+  image:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            arch: amd64
+          - os: ubuntu-24.04-arm
+            arch: arm64
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    env:
+      WORKSHOP_IMAGE: ghcr.io/cognipilot/rumoca_workshop_amc2026:amc2026-${{ github.sha }}-${{ matrix.arch }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build the complete container, including Node, GitHub CLI and SSH
+        run: |
+          nix develop .#ci --command devcontainer build --workspace-folder . --config scripts/container-build/devcontainer.json --image-name "$WORKSHOP_IMAGE" --platform linux/${{ matrix.arch }} --label org.opencontainers.image.source=https://github.com/CogniPilot/rumoca_workshop_amc2026 --label org.opencontainers.image.revision=${{ github.sha }}
+      - name: Test the exact image before publishing
+        run: |
+          docker run --rm --entrypoint bash -v "$PWD:/workspace" -w /workspace "$WORKSHOP_IMAGE" -c 'uv sync --frozen && uv run --frozen python scripts/install_agent_tools.py --check && uv run --frozen python scripts/smoke_test.py'
+      - name: Publish qualified architecture
+        run: |
+          docker push "$WORKSHOP_IMAGE"
+          docker image inspect "$WORKSHOP_IMAGE" --format '{{json .RepoDigests}}' > results/live/image-digests.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: image-${{ matrix.arch }}
+          path: results/live/
+  manifest:
+    needs: image
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish one tag for Linux x64 and ARM64
+        env:
+          WORKSHOP_BASE: ghcr.io/cognipilot/rumoca_workshop_amc2026:amc2026-${{ github.sha }}
+        run: |
+          docker buildx imagetools create --tag "$WORKSHOP_BASE" "$WORKSHOP_BASE-amd64" "$WORKSHOP_BASE-arm64"
+          docker buildx imagetools inspect "$WORKSHOP_BASE" > image-manifest.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: image-manifest
+          path: image-manifest.txt

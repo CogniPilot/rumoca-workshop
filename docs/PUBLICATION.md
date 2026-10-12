@@ -101,9 +101,13 @@ No Nix, Rust compiler or manual binary repair is required for attendees. The
 released VS Code extension was separately qualified on all four OS/architecture
 targets; Python and editor receipts are recorded in [VERIFICATION.md](VERIFICATION.md).
 
-## Codespaces prebuild for the workshop
+## Optional Codespaces snapshot prebuild
 
-Repository administrators can prepare the **main** branch's core configuration
+The current CogniPilot Codespaces spending cap prevents enabling these snapshots.
+Do not raise the cap for this workshop. A prebuilt public Docker image is the
+alternative; each Codespace still needs cloud allocation and its own allowance.
+
+When the organization budget permits, repository administrators can prepare the **main** branch's core configuration
 from [Settings → Codespaces](https://github.com/CogniPilot/rumoca_workshop_amc2026/settings/codespaces).
 Choose **Set up prebuild**, branch **main**, configuration
 `.devcontainer/devcontainer.json`, trigger **Every push**, region **US East**,

@@ -1,0 +1,15 @@
+{
+  "name": "Workshop image build",
+  "build": {
+    "dockerfile": "../../.devcontainer/Dockerfile",
+    "context": "../.."
+  },
+  "remoteUser": "vscode",
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "22"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  }
+}

@@ -1,6 +1,6 @@
 {
-  "slides": 31,
-  "main_slides": 31,
+  "slides": 32,
+  "main_slides": 32,
   "schedule_minutes": 180,
   "break_minutes": 20,
   "source": "slides/workshop.md",
@@ -11,10 +11,12 @@
     "results/reference/fit_drag.json": "0d67f55cceecbd8d42fde39713bc1d1595687cc7a5481187dfa39035ea162fcb",
     "results/reference/torch_policy.png": "b67366d51acfc5a515419f060eb4efdb283c6501379897cd3d8ecc65352bd8dc",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
-    "scripts/build_slides.py": "4d98b39cf4b3a77a6b685e520f9bb2d8b30332ec71104092da5a76b72c1da4e9",
+    "scripts/build_slides.py": "3951b358df48642481c81d77c8a773a7e178bd8375e3d4a53ea85c15c1c5da19",
     "scripts/slide_assets.py": "92d9cdba091574331dbf3a4c61257a2757a47367e022ff358aa27ea5966d7149",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
     "slides/assets/browser-drag-linear.png": "641732c3c7ceaab4eb393cd290446cbb977172d5a67ee7614b2282c3ce1cd747",
+    "slides/assets/community-forgelab.png": "56eaed08e9584df0a08c079ee5c5f33e48813311d3ee4ea34602e12552d6eafd",
+    "slides/assets/community-joulios.jpg": "3bb017165bb9affa2a9be373bc7c9002358c00d1ae3bb70b333975adf928152e",
     "slides/assets/community-luncosim.png": "f60fb0b670d393c4dd97d2a490463a729aa17529e22c70ec6ffcd522ba4e1841",
     "slides/assets/community-taskyon.png": "5370ebc35a90a1edb2e79ada79c26e03032f738d4d1e984ed8d5c7dd56e20b22",
     "slides/assets/control-hero.png": "4458f83fc5a4e26128c21b44346f43e2ffbdc68b8cb4f8f088021563aa15b0ba",
@@ -39,14 +41,14 @@
     "slides/assets/user-guide-quadrotor.png": "6a66a7c8198da6ed1dd82f1ad9f936a805851fa30243c3ea5cfee6d4cd8b3191",
     "slides/media/fastdyn-monte-carlo.mp4": "2a688f567c51d837c23555806250dd5ebd31a34cf16cb14c4d15fe85200f4ab1",
     "slides/media/purt-fpv-chase.mp4": "0cb09e6a72a4f8543ba2e7ad786b1a4e7da1d8580ebf9daccde99c463c37bcef",
-    "slides/workshop.md": "6c3743878285e3bb4373ea01d6ae4096bc45be7055084ebb3bc400771928f757",
+    "slides/workshop.md": "15751eb1070e5eef99a1e1e8eab894c093f6241f2a65f8a31e9d7bd12cbbe3c7",
     "templates/lean-proof/rhs.lean.jinja": "89ed252b731b68f2b766b3f9ffe0179b61bdd068667f5d257ccf0d80a7e51e24",
     "templates/lean-proof/target.toml": "b6278e81cbda221c41f144174c359e52239ca24b4bc2c14914d065a119073fb8",
     "uv.lock": "9ee98bf337e21af4a4fc616c25e4f3d63f8b16bc6500b375dad975be5a4d9799"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "89407172b24e6d33485bda44a75e8b658ab3d5c21deb0028067b9857f95c9555",
-    "slides/workshop.pdf": "df3c59edd1a7ae94aff86ed00a7abbf52b26262eb598bf80f1608595b0825153"
+    "slides/workshop.pptx": "8900ba657ebe14bf113922fc1f35c8ea44eda0e5c1695f7113f6fde270356ae1",
+    "slides/workshop.pdf": "8a6972334768e9e1654b0c963b045d9c90331bed95bdd9fdcc7ccf4b45523a5d"
   },
   "rendered_text": [
     {
@@ -1121,7 +1123,7 @@
     },
     {
       "slide": "06",
-      "text": "Local container: Docker + Reopen in Container",
+      "text": "Codespaces: cloud VS Code; login and allowance",
       "font_pt": 24,
       "lines": 2,
       "x": 1.7799999999999998,
@@ -1141,13 +1143,13 @@
     },
     {
       "slide": "06",
-      "text": "Codespaces: same container; login and allowance",
+      "text": "Local uv: optional native installation",
       "font_pt": 24,
-      "lines": 3,
+      "lines": 2,
       "x": 7.95,
       "y": 2.05,
       "width": 4.4,
-      "height": 1.3
+      "height": 0.8866666666666667
     },
     {
       "slide": "06",
@@ -1161,30 +1163,10 @@
     },
     {
       "slide": "06",
-      "text": "Local uv: optional native installation",
-      "font_pt": 24,
-      "lines": 2,
-      "x": 1.7799999999999998,
-      "y": 4.2,
-      "width": 4.4,
-      "height": 0.8866666666666667
-    },
-    {
-      "slide": "06",
-      "text": "04",
-      "font_pt": 28,
-      "lines": 1,
-      "x": 7.07,
-      "y": 4.13,
-      "width": 0.72,
-      "height": 0.5422222222222222
-    },
-    {
-      "slide": "06",
       "text": "Browser or pair: keep working during setup",
       "font_pt": 24,
       "lines": 2,
-      "x": 7.95,
+      "x": 1.7799999999999998,
       "y": 4.2,
       "width": 4.4,
       "height": 0.8866666666666667
@@ -4531,7 +4513,7 @@
     },
     {
       "slide": "30",
-      "text": "OPEN CHALLENGE \u00b7 SHORT DEMOS \u00b7 AUDIENCE SHOW OF HANDS",
+      "text": "COMMUNITY USERS \u00b7 MODELICA TOOLS IN THE BROWSER",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -4541,7 +4523,7 @@
     },
     {
       "slide": "30",
-      "text": "12:50\u201312:55",
+      "text": "12:45\u201312:50",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -4551,7 +4533,7 @@
     },
     {
       "slide": "30",
-      "text": "Show your experiment. Vote for the cap.",
+      "text": "More Modelica tools from the community",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -4561,97 +4543,87 @@
     },
     {
       "slide": "30",
-      "text": "5",
-      "font_pt": 60,
+      "text": "ForgeLab",
+      "font_pt": 30,
       "lines": 1,
-      "x": 0.9,
-      "y": 1.94,
-      "width": 3.45,
-      "height": 1.0933333333333335
+      "x": 0.86,
+      "y": 1.98,
+      "width": 5.44,
+      "height": 0.5766666666666667
     },
     {
       "slide": "30",
-      "text": "MAX. PRESENTERS",
-      "font_pt": 13,
+      "text": "Browser block-diagram modeling",
+      "font_pt": 20,
       "lines": 1,
-      "x": 0.9,
-      "y": 3.43,
-      "width": 3.45,
-      "height": 0.2838888888888889
+      "x": 0.86,
+      "y": 2.57,
+      "width": 5.44,
+      "height": 0.40444444444444444
     },
     {
       "slide": "30",
-      "text": "45 s",
-      "font_pt": 60,
+      "text": "Compiles models with Rumoca",
+      "font_pt": 18,
       "lines": 1,
-      "x": 5.090000000000001,
-      "y": 1.94,
-      "width": 3.45,
-      "height": 1.0933333333333335
+      "x": 0.86,
+      "y": 5.67,
+      "width": 5.44,
+      "height": 0.37
     },
     {
       "slide": "30",
-      "text": "EACH DEMO",
-      "font_pt": 13,
+      "text": "Public app welcome screen",
+      "font_pt": 10,
       "lines": 1,
-      "x": 5.090000000000001,
-      "y": 3.43,
-      "width": 3.45,
-      "height": 0.2838888888888889
+      "x": 0.86,
+      "y": 6.1,
+      "width": 5.44,
+      "height": 0.23222222222222222
     },
     {
       "slide": "30",
-      "text": "1",
-      "font_pt": 60,
+      "text": "Modelica Joulios",
+      "font_pt": 30,
       "lines": 1,
-      "x": 9.280000000000001,
-      "y": 1.94,
-      "width": 3.45,
-      "height": 1.0933333333333335
+      "x": 7.03,
+      "y": 1.98,
+      "width": 5.44,
+      "height": 0.5766666666666667
     },
     {
       "slide": "30",
-      "text": "VOTE PER PERSON",
-      "font_pt": 13,
+      "text": "Power-system analysis on the web",
+      "font_pt": 20,
       "lines": 1,
-      "x": 9.280000000000001,
-      "y": 3.43,
-      "width": 3.45,
-      "height": 0.2838888888888889
+      "x": 7.03,
+      "y": 2.57,
+      "width": 5.44,
+      "height": 0.40444444444444444
     },
     {
       "slide": "30",
-      "text": "Show your change + one checked result",
-      "font_pt": 29,
+      "text": "PowerSystems power-plant demo",
+      "font_pt": 18,
       "lines": 1,
-      "x": 0.7,
-      "y": 4.5,
-      "width": 11.9,
-      "height": 0.5594444444444444
+      "x": 7.03,
+      "y": 5.67,
+      "width": 5.44,
+      "height": 0.37
     },
     {
       "slide": "30",
-      "text": "Name your tool. Share elapsed work time.",
-      "font_pt": 23,
+      "text": "Frame from the public demo video",
+      "font_pt": 10,
       "lines": 1,
-      "x": 0.7,
-      "y": 5.14,
-      "width": 11.9,
-      "height": 0.4561111111111111
+      "x": 7.03,
+      "y": 6.1,
+      "width": 5.44,
+      "height": 0.23222222222222222
     },
     {
       "slide": "30",
-      "text": "Audience favorite wins a free CogniPilot stocking cap",
-      "font_pt": 23,
-      "lines": 1,
-      "x": 0.7,
-      "y": 5.77,
-      "width": 11.9,
-      "height": 0.4561111111111111
-    },
-    {
-      "slide": "30",
-      "text": "Random draw if more than 5 ready entries \u2192 audience hand vote",
+      "text": "Open app.forgelab.space \u00b7 try the Quadcopter template",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -4661,22 +4633,42 @@
     },
     {
       "slide": "30",
-      "text": "Challenge rules \u2197",
+      "text": "ForgeLab app \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 5.5600000000000005,
+      "width": 2.6000000000000005,
       "height": 0.2838888888888889
     },
     {
       "slide": "30",
-      "text": "Optional gallery \u2197",
+      "text": "ForgeLab demo video \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 3.7300000000000004,
+      "y": 7.075,
+      "width": 2.6000000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "30",
+      "text": "Joulios power demo \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 6.690000000000001,
       "y": 7.075,
-      "width": 5.5600000000000005,
+      "width": 2.6000000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "30",
+      "text": "Joulios BESS demo \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 9.65,
+      "y": 7.075,
+      "width": 2.6000000000000005,
       "height": 0.2838888888888889
     },
     {
@@ -4691,127 +4683,127 @@
     },
     {
       "slide": "31",
-      "text": "YOUR MODELICA EXPERTISE CAN MOVE THIS RESEARCH FORWARD",
+      "text": "OPEN CHALLENGE \u00b7 SHORT DEMOS \u00b7 AUDIENCE SHOW OF HANDS",
       "font_pt": 11,
       "lines": 1,
-      "x": 0.65,
-      "y": 0.35,
-      "width": 11,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
       "height": 0.24944444444444444
     },
     {
       "slide": "31",
-      "text": "12:55\u201313:00",
+      "text": "12:50\u201312:55",
       "font_pt": 11,
       "lines": 1,
-      "x": 11.35,
-      "y": 0.35,
-      "width": 1.35,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
       "height": 0.24944444444444444
     },
     {
       "slide": "31",
-      "text": "Bring your model.",
-      "font_pt": 48,
+      "text": "Show your experiment. Vote for the cap.",
+      "font_pt": 34,
       "lines": 1,
-      "x": 0.65,
-      "y": 1.6,
-      "width": 9.5,
-      "height": 0.8866666666666667
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "31",
-      "text": "Join the Rumoca research community.",
-      "font_pt": 31,
+      "text": "5",
+      "font_pt": 60,
       "lines": 1,
-      "x": 0.65,
-      "y": 2.42,
-      "width": 12.0,
-      "height": 0.5938888888888889
+      "x": 0.9,
+      "y": 1.94,
+      "width": 3.45,
+      "height": 1.0933333333333335
+    },
+    {
+      "slide": "31",
+      "text": "MAX. PRESENTERS",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 0.9,
+      "y": 3.43,
+      "width": 3.45,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "31",
+      "text": "45 s",
+      "font_pt": 60,
+      "lines": 1,
+      "x": 5.090000000000001,
+      "y": 1.94,
+      "width": 3.45,
+      "height": 1.0933333333333335
+    },
+    {
+      "slide": "31",
+      "text": "EACH DEMO",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 5.090000000000001,
+      "y": 3.43,
+      "width": 3.45,
+      "height": 0.2838888888888889
     },
     {
       "slide": "31",
       "text": "1",
-      "font_pt": 14,
+      "font_pt": 60,
       "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 3.4050000000000002,
-      "width": 0.2,
-      "height": 0.3011111111111111
+      "x": 9.280000000000001,
+      "y": 1.94,
+      "width": 3.45,
+      "height": 1.0933333333333335
     },
     {
       "slide": "31",
-      "text": "Bring a model or a question from your own domain",
-      "font_pt": 22,
+      "text": "VOTE PER PERSON",
+      "font_pt": 13,
       "lines": 1,
-      "x": 1.25,
-      "y": 3.35,
-      "width": 11.35,
-      "height": 0.4388888888888889
+      "x": 9.280000000000001,
+      "y": 3.43,
+      "width": 3.45,
+      "height": 0.2838888888888889
     },
     {
       "slide": "31",
-      "text": "2",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 4.073888888888889,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "31",
-      "text": "Contribute a validation case, model library or compiler improvement",
-      "font_pt": 22,
-      "lines": 1,
-      "x": 1.25,
-      "y": 4.018888888888889,
-      "width": 11.35,
-      "height": 0.4388888888888889
-    },
-    {
-      "slide": "31",
-      "text": "3",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 4.7427777777777775,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "31",
-      "text": "Interested in research collaboration? Talk with James or Micah",
-      "font_pt": 22,
-      "lines": 1,
-      "x": 1.25,
-      "y": 4.687777777777778,
-      "width": 11.35,
-      "height": 0.4388888888888889
-    },
-    {
-      "slide": "31",
-      "text": "jgoppert@purdue.edu",
-      "font_pt": 32,
+      "text": "Show your change + one checked result",
+      "font_pt": 29,
       "lines": 1,
       "x": 0.7,
-      "y": 5.73,
+      "y": 4.5,
       "width": 11.9,
-      "height": 0.6111111111111112
+      "height": 0.5594444444444444
     },
     {
       "slide": "31",
-      "text": "James Goppert \u00b7 Micah Condie",
-      "font_pt": 17,
+      "text": "Name your tool. Share elapsed work time.",
+      "font_pt": 23,
       "lines": 1,
       "x": 0.7,
-      "y": 6.29,
-      "width": 9.5,
-      "height": 0.35277777777777775
+      "y": 5.14,
+      "width": 11.9,
+      "height": 0.4561111111111111
     },
     {
       "slide": "31",
-      "text": "Email James with your problem, model and one result to check together.",
+      "text": "Audience favorite wins a free CogniPilot stocking cap",
+      "font_pt": 23,
+      "lines": 1,
+      "x": 0.7,
+      "y": 5.77,
+      "width": 11.9,
+      "height": 0.4561111111111111
+    },
+    {
+      "slide": "31",
+      "text": "Random draw if more than 5 ready entries \u2192 audience hand vote",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -4821,6 +4813,166 @@
     },
     {
       "slide": "31",
+      "text": "Challenge rules \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 0.77,
+      "y": 7.075,
+      "width": 5.5600000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "31",
+      "text": "Optional gallery \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 6.690000000000001,
+      "y": 7.075,
+      "width": 5.5600000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "31",
+      "text": "31",
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.5,
+      "y": 7.12,
+      "width": 0.35,
+      "height": 0.23222222222222222
+    },
+    {
+      "slide": "32",
+      "text": "YOUR MODELICA EXPERTISE CAN MOVE THIS RESEARCH FORWARD",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.65,
+      "y": 0.35,
+      "width": 11,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "32",
+      "text": "12:55\u201313:00",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.35,
+      "y": 0.35,
+      "width": 1.35,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "32",
+      "text": "Bring your model.",
+      "font_pt": 48,
+      "lines": 1,
+      "x": 0.65,
+      "y": 1.6,
+      "width": 9.5,
+      "height": 0.8866666666666667
+    },
+    {
+      "slide": "32",
+      "text": "Join the Rumoca research community.",
+      "font_pt": 31,
+      "lines": 1,
+      "x": 0.65,
+      "y": 2.42,
+      "width": 12.0,
+      "height": 0.5938888888888889
+    },
+    {
+      "slide": "32",
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.4050000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "32",
+      "text": "Bring a model or a question from your own domain",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 3.35,
+      "width": 11.35,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "32",
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.073888888888889,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "32",
+      "text": "Contribute a validation case, model library or compiler improvement",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 4.018888888888889,
+      "width": 11.35,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "32",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.7427777777777775,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "32",
+      "text": "Interested in research collaboration? Talk with James or Micah",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 4.687777777777778,
+      "width": 11.35,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "32",
+      "text": "jgoppert@purdue.edu",
+      "font_pt": 32,
+      "lines": 1,
+      "x": 0.7,
+      "y": 5.73,
+      "width": 11.9,
+      "height": 0.6111111111111112
+    },
+    {
+      "slide": "32",
+      "text": "James Goppert \u00b7 Micah Condie",
+      "font_pt": 17,
+      "lines": 1,
+      "x": 0.7,
+      "y": 6.29,
+      "width": 9.5,
+      "height": 0.35277777777777775
+    },
+    {
+      "slide": "32",
+      "text": "Email James with your problem, model and one result to check together.",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "32",
       "text": "Email James \u2197",
       "font_pt": 13,
       "lines": 1,
@@ -4830,7 +4982,7 @@
       "height": 0.2838888888888889
     },
     {
-      "slide": "31",
+      "slide": "32",
       "text": "Rumoca compiler \u2197",
       "font_pt": 13,
       "lines": 1,
@@ -4840,7 +4992,7 @@
       "height": 0.2838888888888889
     },
     {
-      "slide": "31",
+      "slide": "32",
       "text": "Model library \u2197",
       "font_pt": 13,
       "lines": 1,
@@ -4850,8 +5002,8 @@
       "height": 0.2838888888888889
     },
     {
-      "slide": "31",
-      "text": "31",
+      "slide": "32",
+      "text": "32",
       "font_pt": 10,
       "lines": 1,
       "x": 12.5,
@@ -4972,7 +5124,7 @@
     {
       "slide": "05",
       "label": "Open playground",
-      "url": "https://rumoca.cognipilot.org/playground/",
+      "url": "https://cognipilot.github.io/rumoca/",
       "x": 0.65,
       "y": 7.035,
       "width": 5.800000000000001,
@@ -5134,7 +5286,7 @@
     {
       "slide": "13",
       "label": "Open playground",
-      "url": "https://rumoca.cognipilot.org/playground/",
+      "url": "https://cognipilot.github.io/rumoca/",
       "x": 6.570000000000001,
       "y": 7.035,
       "width": 5.800000000000001,
@@ -5457,6 +5609,42 @@
     },
     {
       "slide": "30",
+      "label": "ForgeLab app",
+      "url": "https://app.forgelab.space/#/forgelab",
+      "x": 0.65,
+      "y": 7.035,
+      "width": 2.8400000000000003,
+      "height": 0.4
+    },
+    {
+      "slide": "30",
+      "label": "ForgeLab demo video",
+      "url": "https://drive.google.com/file/d/1SZtXUm0E-ZaeyDW25z-vM8Mgn_Gv0iMc/view",
+      "x": 3.6100000000000003,
+      "y": 7.035,
+      "width": 2.8400000000000003,
+      "height": 0.4
+    },
+    {
+      "slide": "30",
+      "label": "Joulios power demo",
+      "url": "https://www.youtube.com/watch?v=VsuDOLvGzg8",
+      "x": 6.570000000000001,
+      "y": 7.035,
+      "width": 2.8400000000000003,
+      "height": 0.4
+    },
+    {
+      "slide": "30",
+      "label": "Joulios BESS demo",
+      "url": "https://www.youtube.com/watch?v=n3sboXcDEwk",
+      "x": 9.530000000000001,
+      "y": 7.035,
+      "width": 2.8400000000000003,
+      "height": 0.4
+    },
+    {
+      "slide": "31",
       "label": "Challenge rules",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/CHALLENGE.md",
       "x": 0.65,
@@ -5465,7 +5653,7 @@
       "height": 0.4
     },
     {
-      "slide": "30",
+      "slide": "31",
       "label": "Optional gallery",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/1",
       "x": 6.570000000000001,
@@ -5474,7 +5662,7 @@
       "height": 0.4
     },
     {
-      "slide": "31",
+      "slide": "32",
       "label": "jgoppert@purdue.edu",
       "url": "mailto:jgoppert@purdue.edu",
       "x": 0.7,
@@ -5483,7 +5671,7 @@
       "height": 0.6
     },
     {
-      "slide": "31",
+      "slide": "32",
       "label": "Email James",
       "url": "mailto:jgoppert@purdue.edu",
       "x": 0.65,
@@ -5492,7 +5680,7 @@
       "height": 0.4
     },
     {
-      "slide": "31",
+      "slide": "32",
       "label": "Rumoca compiler",
       "url": "https://github.com/CogniPilot/rumoca",
       "x": 4.596666666666667,
@@ -5501,7 +5689,7 @@
       "height": 0.4
     },
     {
-      "slide": "31",
+      "slide": "32",
       "label": "Model library",
       "url": "https://github.com/CogniPilot/modelica_models",
       "x": 8.543333333333333,

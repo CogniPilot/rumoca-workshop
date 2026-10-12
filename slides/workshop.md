@@ -73,7 +73,7 @@ Notes:
 Spend three minutes on the pipeline and two on the shared Session API. IR means intermediate representation: each stage preserves the information later consumers need. Parse builds AST (abstract syntax tree), retaining source syntax and locations. Resolve, typecheck and instantiate establish names, types, modifications and the requested model instance; flatten expands hierarchy and connection equations into Flat with fully qualified variables. Flat is not yet an execution order. DAE (differential-algebraic equations) is the canonical equation system, with event/clock metadata. Structural preparation matches equations to unknowns, orders blocks, handles algebraic loops/index reduction as needed and selects states; Solve holds solver-facing scalar/register and tensor computation plans. This small ODE does not exercise every general DAE feature. The separate DAE → GaLEC branch is checked eFMI Algorithm Code (Guarded Algorithmic Language for Embedded Control); the released projection accepts fixed-sample discrete models with no continuous states or der(). GaLEC can be rendered/packaged for eFMI and embedded C. Today's continuous quadrotor uses the Solve route; the GaLEC branch describes the fixed-sample controller deployment route. References are pinned to the actual 0.10.2 release. Today uses small Solve-based Lean/Torch targets; custom targets can choose earlier IRs when appropriate. Explain that VS Code provides native authoring/LSP and the playground provides browser modeling/simulation. Python 0.10.2 and deployed browser 0.8.13 are separate. Open examples/simulate.py: rum.Session().load(...) then model.to_jax(); open examples/optimize_casadi.py: model.to_casadi(). Python integrates or constructs objectives without maintaining a second plant. Fast Monte Carlo/RL, native AD and heterogeneous solver specialization are research directions. This diagram explains architecture; numerical and proof qualification remain scoped to the workshop model. Return to this diagram when opening target.toml on slide 19.
 
 ## 05 · Everyone gets a browser plot
-Links: Open playground | https://rumoca.cognipilot.org/playground/ ; Browser model | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/browser/Quadrotor_browser.mo
+Links: Open playground | https://cognipilot.github.io/rumoca/ ; Browser model | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/browser/Quadrotor_browser.mo
 Time: 10:20–10:25
 Layout: image
 Visual: assets/browser-drag-linear.png
@@ -85,7 +85,7 @@ Badge: LIVE DEMO · zero-install modeling
 
 Checkpoint: You should see BrowserFlight Results and a plot.
 Notes:
-Exact URL https://rumoca.cognipilot.org/playground/. Raw source https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/browser/Quadrotor_browser.mo. Select all inside editor, paste; gear next to Play opens simulation settings; select BrowserFlight and close settings. Screenshot records a real run. Browser is not Python/JAX/CasADi. If offline, label the screenshot as backup and continue local/demo path. Five-minute guided demo.
+Exact URL https://cognipilot.github.io/rumoca/. Raw source https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/browser/Quadrotor_browser.mo. Select all inside editor, paste; gear next to Play opens simulation settings; select BrowserFlight and close settings. Screenshot records a real run. Browser is not Python/JAX/CasADi. If offline, label the screenshot as backup and continue local/demo path. Five-minute guided demo.
 
 ## 06 · Choose a full-workshop route
 Links: Local VS Code setup | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/LOCAL_SETUP.md ; Create Codespace | https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1 ; Recovery help | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/TROUBLESHOOTING.md
@@ -93,14 +93,13 @@ Time: 10:25–10:30
 Layout: cards
 Badge: Setup decision · worksheet has every link
 
-- Local container: Docker + Reopen in Container
-- Codespaces: same container; login and allowance
+- Codespaces: cloud VS Code; login and allowance
 - Local uv: optional native installation
 - Browser or pair: keep working during setup
 
 Checkpoint: Switch route after ten minutes of setup trouble.
 Notes:
-Codespaces URL https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1. Codespaces requires an account with allowance or billing enabled. Cloud qualification is recorded in VERIFICATION.md; account availability varies. Local: download/extract ZIP, install uv/extension, uv sync --frozen. Python and released editor are qualified on Linux/Windows x64 and macOS Intel/Apple Silicon. The local Dev Container route uses the same configuration as Codespaces: install Docker and the VS Code Dev Containers extension, open the workshop folder, run Dev Containers: Reopen in Container, and select the core workshop. Wait for WORKSHOP PASS. No host uv or Nix is required. Docker Desktop uses Linux containers / WSL 2 on Windows; Docker Engine works on Linux. Native uv remains an optional route.
+Codespaces URL https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1. Codespaces requires an account with allowance or billing enabled. Cloud qualification is recorded in VERIFICATION.md; account availability varies. Local: download/extract ZIP, install uv/extension, uv sync --frozen. Python and released editor are qualified on Linux/Windows x64 and macOS Intel/Apple Silicon. In Codespaces, select the core workshop and wait for WORKSHOP PASS. Native uv remains an optional route.
 
 ## 07 · Fly the user guide’s quadrotor
 Links: Open Quadrotor SIL | https://cognipilot.github.io/rumoca/user-guide/simulation/interactive.html#quadrotor-sil ; Walkthrough | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/SIMULATION_SETUP.md
@@ -202,7 +201,7 @@ Notes:
 States x,z,theta,vx,vz,omega; inputs T and tau. m=1.2 kg,Iyy=.025 kg m²,g=9.81. Diagram is generated from our convention, not a borrowed paper figure. Simplified world-axis drag; no roll/yaw/motors/wind/contact. The compact planar example keeps the equations inspectable and the computations short. Introduce pitch as the angle that directs the thrust; specialist aerodynamics is optional.
 
 ## 13 · Your first engineering change: drag
-Links: Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md ; Open playground | https://rumoca.cognipilot.org/playground/
+Links: Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md ; Open playground | https://cognipilot.github.io/rumoca/
 Time: 10:50–10:55
 Layout: wide
 Visual: assets/drag-law.png
@@ -449,7 +448,28 @@ Checkpoint: Where could declarative models fit in your tools?
 Notes:
 Spend about 30 seconds recognizing community users beyond the Purdue workshop applications. LunCoSim is an open-source multiphysics mission simulator connecting Modelica, rigid-body physics, terrain and mission operations; its native workspace consumes Rumoca's compiler, Solve and simulation crates. The project website links to downloadable simulator releases; use https://github.com/LunCoSim/lunco-sim/releases/latest for the actual installer. Do not describe this website preview as a live browser mission simulation. Taskyon is an open-source system for AI-assisted research/design workflows; its Modelica worker imports rumoca-full-web and calls the WASM compiler, template renderer and simulate_model API. The Taskyon app and both project source repositories are directly clickable. The images are actual public website/app-entry captures, not workshop simulations. Source integration and public-page loading were checked; we did not install/run a LunCoSim mission or execute a Taskyon agent workflow, and the planar workshop proofs do not cover these projects. Optional Taskyon agent features may require provider access; no login or model calls were made during the preview check. Credit each independent project's contributors; this is a community acknowledgement, not a claim of endorsement. Primary integration sources pinned at review: https://github.com/LunCoSim/lunco-sim/blob/851b45191130baf537d51e9a68e37fd0e881e241/Cargo.toml and https://github.com/Xyntopia/taskyon/blob/b409d3052238ab08f098b6cc6b18e7f0805a12b6/packages/modelica/modelicaWorker.worker.ts. Share the existing 12:45–12:50 showcase slot with the three preceding app slides, leaving participants time to finish an experiment. Begin demos at 12:50.
 
-## 30 · Show your experiment. Vote for the cap.
+## 30 · More Modelica tools from the community
+Links: ForgeLab app | https://app.forgelab.space/#/forgelab ; ForgeLab demo video | https://drive.google.com/file/d/1SZtXUm0E-ZaeyDW25z-vM8Mgn_Gv0iMc/view ; Joulios power demo | https://www.youtube.com/watch?v=VsuDOLvGzg8 ; Joulios BESS demo | https://www.youtube.com/watch?v=n3sboXcDEwk
+Time: 12:45–12:50
+Time group: App showcase
+Layout: community-users
+Visual: assets/community-forgelab.png
+Photo: assets/community-joulios.jpg
+Project 1: ForgeLab
+Use 1: Browser block-diagram modeling
+Integration 1: Compiles models with Rumoca
+Caption 1: Public app welcome screen
+Project 2: Modelica Joulios
+Use 2: Power-system analysis on the web
+Integration 2: PowerSystems power-plant demo
+Caption 2: Frame from the public demo video
+Badge: COMMUNITY USERS · Modelica tools in the browser
+
+Checkpoint: Open app.forgelab.space · try the Quadcopter template
+Notes:
+Spend about 30 seconds on two more community tools. ForgeLab is a browser workspace at https://app.forgelab.space/#/forgelab: build models from blocks, compile them with Rumoca and script them in Python, Julia, C/C++ or Rust. Templates include a 6-DOF Quadcopter, DC motor + PID, a thermal network and a battery pack. Its demo workspace stores models temporarily and clears them after inactivity; signing in keeps work across devices. The ForgeLab demo video button opens a recorded walkthrough on Google Drive. The ForgeLab image is its public welcome screen captured on October 12, 2026; we did not run a ForgeLab template during the preview check. Modelica Joulios is shown in the public “Modelica Joulios Power Analysis Demo” video (https://www.youtube.com/watch?v=VsuDOLvGzg8): a web Modelica editor with a library tree, diagram view and run settings, here opening the PowerSystems.Examples.PowerWorld.PowerPlant model. A second public video, “Joulios BESS Parcel screening & Feasibility Demo” (no sound, https://www.youtube.com/watch?v=n3sboXcDEwk), shows battery energy storage system (BESS) site screening and feasibility; narrate it yourself if you play it. The Joulios image is the power-analysis video's public YouTube thumbnail; we did not run Joulios ourselves. Play either video if time allows, otherwise leave the links for participants. The planar workshop proofs do not cover these projects. Credit each independent project's contributors; this is a community acknowledgement, not a claim of endorsement. Share the 12:45–12:50 showcase slot with the neighboring app slides.
+
+## 31 · Show your experiment. Vote for the cap.
 Links: Challenge rules | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/CHALLENGE.md ; Optional gallery | https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/1
 Time: 12:50–12:55
 Layout: statement
@@ -463,7 +483,7 @@ Checkpoint: Random draw if more than 5 ready entries → audience hand vote
 Notes:
 Use up to five 45-second demos, selected by the announced readiness check and random draw if needed. Draw order and a backup in advance. Each entrant shows a question Rumoca helps explore, their original change, a working interaction or before/after comparison, one checked result, tool used and elapsed work time. Local files, browser tabs and screenshares are acceptable; public source links are optional. Manual experiments are welcome; name the agent if used and label estimated times. Have tabs/files ready and use the same limit for everyone. Five demos leave 75 seconds for a hand vote and award. Each attendee votes for one entry; count visibly. If tied, run a quick vote between the tied entries; if still tied, draw among them. Award one stocking cap; a team chooses its recipient. Share voluntary links from all entries, including those not drawn. If no entries are ready, take a brief question and continue. CHALLENGE.md carries the same rules. Keep the core exercise as the workshop's main focus.
 
-## 31 · Join the Rumoca research community
+## 32 · Join the Rumoca research community
 Links: Email James | mailto:jgoppert@purdue.edu ; Rumoca compiler | https://github.com/CogniPilot/rumoca ; Model library | https://github.com/CogniPilot/modelica_models
 Time: 12:55–13:00
 Layout: title

@@ -104,7 +104,7 @@ def main():
     with zipfile.ZipFile(ROOT/"slides/workshop.pptx") as deck:
         slides = [n for n in deck.namelist() if re.fullmatch(r"ppt/slides/slide\d+\.xml", n)]
         notes = [n for n in deck.namelist() if re.fullmatch(r"ppt/notesSlides/notesSlide\d+\.xml", n)]
-        assert len(slides) == build["slides"] == len(notes) == 31
+        assert len(slides) == build["slides"] == len(notes) == 32
         presentation = ET.fromstring(deck.read("ppt/presentation.xml"))
         assert len(presentation.find("p:sldIdLst", ns)) == len(slides)
         for index in range(1, len(slides)+1):

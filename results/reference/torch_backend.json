@@ -4,7 +4,7 @@
   "torch": "2.10.0+cpu",
   "platform": "Linux x64 CPU",
   "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
-  "script_sha256": "23f60a42a1ba53e93e147f3e04a9851853c0c114bbc4731bdffaad42194b62f5",
+  "script_sha256": "a9311b850794550aad7c67e20c441885b1704d877fd69713d26da0d963b8544b",
   "target_sha256": {
     "rhs.py.jinja": "890561c59b1897adeab3f41ee7ff623c8a0cf310dc175d2a410a6faaed85d36d",
     "target.toml": "029a3f2cacde5811f8370910bc8dbd6de8202106d414773e197672cd5267559e"
@@ -46,6 +46,6 @@
     "time_gradcheck": true,
     "incompatible_batch_rejected": true
   },
-  "elapsed_seconds": 3.9329513339325786,
+  "elapsed_seconds": 2.8983530988916755,
   "scope": "Small teaching target for explicit scalar ODEs with the listed primitives. Runtime/autograd checks for this model; no full Modelica, GPU or compiler-correctness claim."
 }

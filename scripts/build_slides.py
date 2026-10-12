@@ -230,8 +230,8 @@ def main():
                 name_size = min(21, 5.22*72/pdfmetrics.stringWidth(name, "WorkshopBold", 21)*20.5)
                 text(name, x+.27, y+.2, 5.22, name_size, color, bold=True, max_lines=1)
                 text(explanation, x+.27, y+.8, 5.22, 18, INK, max_lines=2)
-            text("Research directions: fast Monte Carlo / RL · native AD · heterogeneous compute",
-                 .7, 6.1, 11.9, 16, TEAL, max_lines=1)
+            text("Cerebri RDD2: Modelica → eFMI C → Zephyr RTOS → real drone",
+                 .7, 6.1, 11.9, 19, TEAL, bold=True, max_lines=1)
         elif num in {2, 23}:
             heading()
             if num == 2:

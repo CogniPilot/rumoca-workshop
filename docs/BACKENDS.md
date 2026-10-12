@@ -92,8 +92,8 @@ The shared helper in `scripts/common.py` already uses Rumoca's Python Session
 API for the core JAX and CasADi examples. A minimal custom-target call is:
 
 ```python
-import rumoca as rm
-model = rm.Session().load("models/Quadrotor.mo", model="Quadrotor")
+import rumoca as rum
+model = rum.Session().load("models/Quadrotor.mo", model="Quadrotor")
 model.codegen("templates/lean-proof").save_all("formal")
 ```
 

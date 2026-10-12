@@ -14,7 +14,7 @@ os.environ.setdefault("MKL_NUM_THREADS", "1")
 os.environ.setdefault("MPLBACKEND", "Agg")
 
 import numpy as np
-import rumoca as rm
+import rumoca as rum
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL = ROOT / "models" / "Quadrotor.mo"
@@ -24,7 +24,7 @@ DT = 0.05
 
 
 def compile_model(backend="jax"):
-    model = rm.Session().load(str(MODEL), model="Quadrotor")
+    model = rum.Session().load(str(MODEL), model="Quadrotor")
     export = model.to_jax() if backend == "jax" else model.to_casadi()
     validate_layout(export)
     return model, export

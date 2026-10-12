@@ -28,7 +28,7 @@ reference figures on your laptop. Participant entry:
 | Clock | Slides | Activity / presenter cue |
 |---|---|---|
 | 10:00–10:10 | 1–2 | Welcome, core outcomes and **open experiment challenge**. Announce small interactive experiments, optional agents/hosting, hand vote and prize now. |
-| 10:10–10:20 | 3–4 | Why Rumoca; Lie groups, reachable sets, formal verification, identification and digital twins. Then show today's Modelica → JAX / CasADi compiler bridge. |
+| 10:10–10:20 | 3–4 | Why Rumoca; Lie groups, reachable sets, formal verification, identification and digital twins. Show Cerebri RDD2: Modelica → eFMI C → Zephyr → real drone, with property-specific verification goals. Then show today's Modelica → JAX / CasADi compiler bridge. |
 | 10:20–10:35 | 5–7 | Browser plot, cloud/local setup and smoke. Experienced participants can begin their app when ready. |
 | 10:35–10:40 | 8 | User-guide embedded editor and NACA flow visualization. Use a warm successful tab; keep the saved capture ready. |
 | 10:40–11:00 | 9–11 | Introduce the small model, change a parameter, run and inspect the plot. Assume no aerospace background. |
@@ -57,7 +57,7 @@ stated units and frame conventions. The
 also include richer multirotor formulations; those are outside this example's
 qualification scope.
 
-Rumoca 0.10.2’s tested API is `rm.Session().load(path, model="Quadrotor")`,
+Rumoca 0.10.2’s tested API is `rum.Session().load(path, model="Quadrotor")`,
 followed by `.to_jax()` or `.to_casadi()`. Each script recompiles the current
 Modelica file. `scripts/common.py` asserts the actual state/input ordering and
 uses named parameter indices; it contains numerical integration, not plant
@@ -245,3 +245,13 @@ solver specialization for heterogeneous compute, fast batched Monte Carlo/RL,
 native AD and integrations, and small independently checked target extensions.
 Today's checked CPU workflow and experimental browser GPU demo support concrete
 starting points; broad hardware partitioning and scaling remain research work.
+
+## Optional firmware demonstration
+
+Appendix A3 gives the FastDyn container choice, terminal command and plot path.
+Prepare a separate **FastDyn + Rumoca: optional firmware Monte Carlo** Codespace
+before the session. Run `uv run --frozen python scripts/fastdyn_demo.py` and open
+`results/live/fastdyn/trajectories.png`. The three flights completed in the actual
+two-core rehearsal; keep [the saved plot](assets/fastdyn-trajectories.png) ready.
+[Setup and limits](../docs/FASTDYN.md). Keep the guided Session/JAX/CasADi activity
+on schedule; this demonstration is optional during independent work or questions.

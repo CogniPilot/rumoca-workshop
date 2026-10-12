@@ -9,7 +9,7 @@ from common import (ROOT, MODEL, STATE_NAMES, parameters, rk4, output_dir, plot_
 import numpy as np
 import json
 import hashlib
-import rumoca as rm
+import rumoca as rum
 
 
 def main():
@@ -27,7 +27,7 @@ def main():
     fit = json.loads(fit_file.read_text())
     if fit["source_sha256"] != source_hash():
         raise SystemExit("Model changed since fit. Re-run the JAX fit before optimizing.")
-    model = rm.Session().load(str(MODEL), model="Quadrotor")
+    model = rum.Session().load(str(MODEL), model="Quadrotor")
     export = model.to_casadi()
     validate_layout(export)
     p = parameters(export, **fit["drag"])
@@ -137,7 +137,7 @@ def main():
               "fine_altitude_range": [float(fine[:, 1].min()), float(fine[:, 1].max())],
               "warm_start_used": warm_used, "runtime_seconds": time.perf_counter()-start,
               "source_sha256": source_hash(), "fit_sha256": hashlib.sha256(fit_file.read_bytes()).hexdigest(),
-              "rumoca_version": rm.version()}
+              "rumoca_version": rum.version()}
     write_json(dest / "optimization.json", report)
     print(f"IPOPT: {report['solver_status']}; cost={report['cost']:.3f}; {report['runtime_seconds']:.2f}s")
     print(f"Terminal error {report['terminal_max_error']:.2e}; fine rollout {fine_error:.2e}; max defect {max(defects):.2e}")

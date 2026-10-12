@@ -1,6 +1,6 @@
 # Hands-On with Rumoca
 
-AMC 2026 · Georgia Tech · October 12 · 10:00–13:00  
+AMC 2026 · Georgia Tech · October 12 · 10:00–13:00
 **James Goppert · Micah Condie** · Purdue Aerospace
 
 **[Open the core Codespace](https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1)** ·
@@ -14,8 +14,8 @@ One Modelica model. Simulate it, fit its drag with JAX, then plan a trajectory
 with CasADi. No aerospace background or AI assistant needed.
 
 ```python
-import rumoca as rm
-model = rm.Session().load("models/Quadrotor.mo", model="Quadrotor")
+import rumoca as rum
+model = rum.Session().load("models/Quadrotor.mo", model="Quadrotor")
 jax_model = model.to_jax()
 casadi_model = model.to_casadi()
 ```

@@ -62,7 +62,7 @@ Python below supplies a different prescribed input experiment.
 Open [simulate.py](../examples/simulate.py). Find these lines:
 
 ```python
-model = rm.Session().load(str(MODEL), model="Quadrotor")
+model = rum.Session().load(str(MODEL), model="Quadrotor")
 export = model.to_jax()
 ```
 
@@ -94,7 +94,7 @@ are synthetic. [Math evidence](MATH_REVIEW.md) explains assumptions and limits.
 Open [optimize_casadi.py](../examples/optimize_casadi.py). Find:
 
 ```python
-model = rm.Session().load(str(MODEL), model="Quadrotor")
+model = rum.Session().load(str(MODEL), model="Quadrotor")
 export = model.to_casadi()
 ```
 

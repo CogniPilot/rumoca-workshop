@@ -19,7 +19,7 @@ def check_time_broadcast():
       der(x) = time;
       der(y) = 1;
     end ClockedSlope;"""
-    generated = rm.Session().loads(source, model="ClockedSlope").codegen(str(ROOT / "templates/torch-ode"))
+    generated = rum.Session().loads(source, model="ClockedSlope").codegen(str(ROOT / "templates/torch-ode"))
     backend = types.ModuleType("time_broadcast_probe")
     exec(compile(generated.files[0].content, "<Rumoca ClockedSlope>", "exec"), backend.__dict__)
     t = torch.tensor([0., .5, 2.], requires_grad=True)
@@ -92,13 +92,13 @@ def main():
         ("unsupported unary Exp", "model Unsupported Real x(start=1, fixed=true); equation der(x)=exp(x); end Unsupported;"),
         ("events", "model Unsupported Real x(start=0, fixed=true); equation der(x)=1; when x>1 then reinit(x,0); end when; end Unsupported;")]:
         try:
-            rm.Session().loads(source, model="Unsupported").codegen(str(ROOT / "templates/torch-ode"))
+            rum.Session().loads(source, model="Unsupported").codegen(str(ROOT / "templates/torch-ode"))
         except Exception as exc:
             rejected.append({"case": name, "message": str(exc)[:500]})
         else:
             raise AssertionError(f"Teaching target silently accepted {name}")
     digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
-    report = {"status": "PASS", "rumoca": rm.version(), "torch": torch.__version__,
+    report = {"status": "PASS", "rumoca": rum.version(), "torch": torch.__version__,
               "platform": "Linux x64 CPU", "source_sha256": source_hash(),
               "script_sha256": digest(Path(__file__)),
               "target_sha256": {p.name: digest(p) for p in (ROOT / "templates/torch-ode").iterdir()},

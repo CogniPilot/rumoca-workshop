@@ -2,14 +2,14 @@
 from __future__ import annotations
 
 import types
-from common import ROOT, MODEL, rm
+from common import ROOT, MODEL, rum
 
 
 def load_torch_backend():
     import torch
     torch.set_default_dtype(torch.float64)
     torch.set_num_threads(1)
-    model = rm.Session().load(str(MODEL), model="Quadrotor")
+    model = rum.Session().load(str(MODEL), model="Quadrotor")
     target = ROOT / "templates" / "torch-ode"
     generated = model.codegen(str(target))
     generated.save_all(str(ROOT / "generated" / "torch-ode"))

@@ -249,6 +249,8 @@ only an [example prompt](APP_PROMPT.md); no rocket app/model was added.
 [PRESENTERS.md](../slides/PRESENTERS.md) contains presentation and facilitation checks.
 
 The separate FastDyn/QEMU environment is optional and does not alter the core
-container's numerical dependencies. The three-flight workshop campaign is under
-qualification; upstream recorded firmware missions are linked as a fallback.
+container's numerical dependencies. The three-flight workshop campaign passed in an actual two-core Codespace;
+all three flights reached the final mission item and confirmed landing.
+[Execution receipt](../verification/fastdyn-codespace.json) and
+[trajectory plot](../slides/assets/fastdyn-trajectories.png) retain the results.
 Do not infer Codespace readiness from upstream CI alone. See [FASTDYN.md](FASTDYN.md).

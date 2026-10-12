@@ -89,7 +89,7 @@ def main():
               "script_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
               "target_sha256": {path.name: hashlib.sha256(path.read_bytes()).hexdigest()
                                 for path in (ROOT/"templates/torch-ode").iterdir()},
-              "rumoca":rm.version(), "torch":torch.__version__,
+              "rumoca":rum.version(), "torch":torch.__version__,
               "task":"Vertical hover at z=1 m, two positive feedback gains, zero torque",
               "method":"Differentiable model-based policy optimization through RK4, Adam",
               "training_seed":20261012, "holdout_seed":20261013,

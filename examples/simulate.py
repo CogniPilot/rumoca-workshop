@@ -9,7 +9,7 @@ from common import (MODEL, DT, jax_rollout, maneuver, parameters, output_dir, pl
 import numpy as np
 import json
 import hashlib
-import rumoca as rm
+import rumoca as rum
 
 
 def main():
@@ -17,7 +17,7 @@ def main():
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     started = time.perf_counter()
-    model = rm.Session().load(str(MODEL), model="Quadrotor")
+    model = rum.Session().load(str(MODEL), model="Quadrotor")
     export = model.to_jax()
     validate_layout(export)
     rollout = jax_rollout(export)
@@ -43,7 +43,7 @@ def main():
         ax.legend(fontsize=9)
     fig.savefig(dest / "simulation.png")
     plt.close(fig)
-    report = {"rumoca_version": rm.version(), "source_sha256": source_hash(),
+    report = {"rumoca_version": rum.version(), "source_sha256": source_hash(),
               "model_drag": dict(zip(["k_linear", "k_quad"],
                                   [float(parameters(export)[export.parameter_names.index(n)]) for n in ["k_linear", "k_quad"]])),
               "final_x_linear": float(linear[-1, 0]), "final_x_quadratic": float(quadratic[-1, 0]),

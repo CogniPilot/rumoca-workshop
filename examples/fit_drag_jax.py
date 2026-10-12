@@ -10,7 +10,7 @@ from common import (ROOT, MODEL, STATE_NAMES, DT, jax_rollout, parameters, outpu
 import numpy as np
 import json
 import hashlib
-import rumoca as rm
+import rumoca as rum
 
 
 def load_flights(path):
@@ -39,7 +39,7 @@ def main():
     import jax.numpy as jnp
     from scipy.optimize import minimize
 
-    model = rm.Session().load(str(MODEL), model="Quadrotor")
+    model = rum.Session().load(str(MODEL), model="Quadrotor")
     export = model.to_jax()
     validate_layout(export)
     rollout = jax_rollout(export)
@@ -146,7 +146,7 @@ def main():
               "iterations": int(result.nit), "success": bool(result.success),
               "runtime_seconds": time.perf_counter()-started,
               "source_sha256": source_hash(), "data_sha256": hashlib.sha256(args.data.read_bytes()).hexdigest(),
-              "rumoca_version": rm.version()}
+              "rumoca_version": rum.version()}
     write_json(dest / "fit_drag.json", report)
     print(f"Drag estimates: linear={fitted['k_linear']:.5f}, quadratic={fitted['k_quad']:.5f}")
     print(f"Loss {initial_loss:.2f} -> {result.fun:.3f}; dimensionless noise-scaled holdout RMS "

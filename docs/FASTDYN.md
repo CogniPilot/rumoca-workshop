@@ -38,8 +38,11 @@ workflow and do not establish a reliability probability or safety certificate.
 
 The [upstream recorded study](https://jgoppert.github.io/FastDyn/rumoca/monte-carlo.html)
 is the immediate fallback. Its 18-run results are upstream evidence, not a claim
-that this workshop's three-run configuration has passed. Workshop qualification
-is recorded in [verification](VERIFICATION.md).
+that this workshop's three-run configuration has passed. The workshop campaign has now passed in an actual two-core Codespace:
+[receipt](../verification/fastdyn-codespace.json),
+[all three trajectories](../slides/assets/fastdyn-trajectories.png).
+Run times were approximately **74, 68 and 61 seconds**, excluding initial setup.
+[Verification](VERIFICATION.md) records scope and limits.
 
 Credit **Arslan Khan’s group at Penn State** and the Penn State/Purdue
 collaboration. Muhammad Hammad Bashir, Michael Rooney, Colin Smith, Dongyan Xu

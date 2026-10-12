@@ -86,7 +86,7 @@ def main():
         require((dest / name).stat().st_size > 100, f"{name} generated")
     write_json(dest / "smoke.json", {"status": "PASS", "platform": platform.platform(),
                "python": platform.python_version(), "processor": platform.processor(),
-               "rumoca_version": rm.version(), "source_sha256": source_hash(),
+               "rumoca_version": rum.version(), "source_sha256": source_hash(),
                "command_wall_seconds": command_times, "checks": checks,
                "total_seconds": time.perf_counter()-started})
     print(f"WORKSHOP PASS: {time.perf_counter()-started:.2f}s total")

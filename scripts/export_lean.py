@@ -7,7 +7,7 @@ from common import *
 
 
 def main():
-    model = rm.Session().load(str(MODEL), model="Quadrotor")
+    model = rum.Session().load(str(MODEL), model="Quadrotor")
     model.codegen(str(ROOT / "templates/lean-proof")).save_all(str(ROOT / "formal"))
     export = model.to_jax()  # Layout metadata only; no alternate Lean equations.
     program = json.loads((ROOT / "formal/solve_program.json").read_text())
@@ -15,13 +15,13 @@ def main():
         raise RuntimeError("Unexpected workshop proof-export dimensions")
     output = ROOT / "formal/Generated.lean"
     # A provenance envelope, independent of the target's mathematical rendering.
-    prefix = ("-- Generated from models/Quadrotor.mo by Rumoca " + rm.version() + "\n"
+    prefix = ("-- Generated from models/Quadrotor.mo by Rumoca " + rum.version() + "\n"
               "-- Model SHA256: " + source_hash() + "\n")
     source = prefix + output.read_text(encoding="utf-8")
     output.write_text(source, encoding="utf-8", newline="\n")
     digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
     write_json(ROOT / "formal/provenance.json", {
-        "model_sha256": source_hash(), "rumoca_version": rm.version(),
+        "model_sha256": source_hash(), "rumoca_version": rum.version(),
         "state_names": export.state_names, "parameter_names": export.parameter_names,
         "input_names": export.input_names,
         "solve_program_sha256": digest(ROOT / "formal/solve_program.json"),

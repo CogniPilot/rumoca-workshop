@@ -1,0 +1,37 @@
+name: Optional FastDyn firmware campaign
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.devcontainer/fastdyn/**'
+      - 'extras/fastdyn/**'
+      - 'scripts/fastdyn_demo.py'
+      - '.github/workflows/fastdyn.yml'
+  pull_request:
+    paths:
+      - '.devcontainer/fastdyn/**'
+      - 'extras/fastdyn/**'
+      - 'scripts/fastdyn_demo.py'
+      - '.github/workflows/fastdyn.yml'
+permissions:
+  contents: read
+jobs:
+  firmware:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.11.21'
+      - name: Run the same three-trial campaign as the optional Codespace
+        run: uv run --frozen python scripts/fastdyn_demo.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fastdyn-campaign
+          path: |
+            results/live/fastdyn/
+            ~/scratch/rumoca-workshop/fastdyn/runs/campaign/runs.toml
+            ~/scratch/rumoca-workshop/fastdyn/runs/campaign/*/result.json
+            ~/scratch/rumoca-workshop/fastdyn/runs/campaign/*/console.log

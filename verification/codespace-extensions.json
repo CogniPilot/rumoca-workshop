@@ -1,35 +1,43 @@
 {
   "status": "PASS",
-  "tested_at_utc": "2026-10-12T00:55:09.784276+00:00",
-  "source_commit": "5c59bd3527c6d2cf3ec3a65b7db02c62de61a16b",
-  "environment": "Actual GitHub Codespace, normal remote extension directory",
+  "tested_at_utc": "2026-10-12T01:37:05.791701+00:00",
+  "source_commit": "36da9b311ed46e55b2e0a8e9e97e48f0c784f0d2",
   "extensions": {
-    "JamesGoppert.rumoca-modelica": [
+    "jamesgoppert.rumoca-modelica": [
       {
-        "id": "JamesGoppert.rumoca-modelica",
         "version": "0.10.2",
         "vscode_engine": "^1.75.0"
       }
     ],
     "mathematic.vscode-pdf": [
       {
-        "id": "mathematic.vscode-pdf",
-        "version": "0.2.6",
-        "vscode_engine": "^1.134.0"
+        "version": "0.1.11",
+        "vscode_engine": "^1.80.0"
       }
     ],
     "leanprover.lean4": [
       {
-        "id": "leanprover.lean4",
         "version": "0.0.240",
         "vscode_engine": "^1.75.0"
       }
+    ],
+    "samuelcolvin.jinjahtml": [
+      {
+        "version": "0.20.0",
+        "vscode_engine": "^1.22.0"
+      }
+    ],
+    "bierner.markdown-preview-github-styles": [
+      {
+        "version": "2.2.0",
+        "vscode_engine": "^1.41.0"
+      }
     ]
   },
+  "scope": "Fresh actual Codespace rebuilt this source and installed Modelica, PDF, Lean, Jinja and Markdown-preview extensions before editor attachment. This verifies installation; it does not claim native PDF rendering or install the Lean proof toolchain.",
   "configuration_sha256": {
-    ".devcontainer/devcontainer.json": "ec7def2893623be8ef63074f630770664c83639cee2837f310672eff727fc7a9",
-    "scripts/ensure_codespace_extension.py": "69da27c0c6ade2d5d6229cccdf28791a4293e585fda62050fa1bda87dfaf25b8"
-  },
-  "scope": "Fresh Codespace postCreate installed these extensions before editor attachment. Lean extension installation does not install or qualify the proof toolchain/Mathlib; proof qualification is separate CI evidence. PDF rendering is checked separately in native remote VS Code.",
-  "vscode_server_version": "1.141.0"
+    ".devcontainer/devcontainer.json": "10b6083e83108bca5c54e28303bcdc14c1889fafd94033f29c48fa53be623f4a",
+    ".devcontainer/Dockerfile": "a0089da7822a42fa5acdf5e2d5c0a18cc0ae308d7b7d96d0352303dff77238c8",
+    "scripts/ensure_codespace_extension.py": "b514f5295ec543fac78e494b3986f4aa68be7fde4f05da31c3b073c39d2d09d0"
+  }
 }

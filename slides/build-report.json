@@ -13,7 +13,7 @@
     "results/reference/optimization.png": "8d3faf3355dac7c3bf1f081e19161dc04360766e299388be53457c36327458c7",
     "results/reference/torch_policy.png": "b67366d51acfc5a515419f060eb4efdb283c6501379897cd3d8ecc65352bd8dc",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
-    "scripts/build_slides.py": "a129c1ae0f0ea29430410adfa7b994a46f748bb2b54f1c6feb7aad26f021b5ae",
+    "scripts/build_slides.py": "e2ea71e6c8ef01c857c3b1104c0f711ec0aa4304c62f2eccdb3af86fc70d3439",
     "scripts/slide_assets.py": "92515b5c9cca20298f9ec58deb6ba7b98efcc9f3efd6eb54acfac1b2900ff700",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
     "slides/assets/architecture.png": "264ab4f7e3ec35c65e3bcbb56328d42414409c4739dfb59fee95275293c02bde",
@@ -30,12 +30,12 @@
     "slides/assets/repo-qr.png": "ef44b4901360f440e8ed6c2c3a114f969c9f795b494ea69fd3a0f8098395b1e5",
     "slides/assets/simulation-hero.png": "30e4af0a1707e14ff7c1aafbdf71813f2421cfb64d06f281590a29c26a7f24c9",
     "slides/assets/user-guide-naca.png": "cd554217d939e7fabf149829cb6deba75e87cc44c5b8f1c130b6d00ff2dd3d98",
-    "slides/workshop.md": "b81ba484b1c40df1d3a45b7635de1291c8f82a662517083a08bc41b89054e446",
+    "slides/workshop.md": "647d5f2572100701c5b38ca5dfcb64b845d24d94c00f3f874015a964ea1b29e8",
     "uv.lock": "9ee98bf337e21af4a4fc616c25e4f3d63f8b16bc6500b375dad975be5a4d9799"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "5442adc3a16b749b5ae4cd0769d4882993d109d7bef22aa0d256d96ef09ae92b",
-    "slides/workshop.pdf": "97f42053ab58b06d058376105ce7edba24fb398e58f7320d947280a9d9c9c101"
+    "slides/workshop.pptx": "33df7de3a7fd522481905d3f3e52631e05976c36cba9b60a09c654805291e86f",
+    "slides/workshop.pdf": "6fd160c03d5030acb0235e1906aa224d14512ecbc07c5150ae070e8bcf4aff8e"
   },
   "rendered_text": [
     {
@@ -540,23 +540,23 @@
     },
     {
       "slide": "03",
-      "text": "Research directions: fast Monte Carlo / RL \u00b7 native AD \u00b7 heterogeneous compute",
-      "font_pt": 16,
+      "text": "Cerebri RDD2: Modelica \u2192 eFMI C \u2192 Zephyr RTOS \u2192 real drone",
+      "font_pt": 19,
       "lines": 1,
       "x": 0.7,
       "y": 6.1,
       "width": 11.9,
-      "height": 0.33555555555555555
+      "height": 0.3872222222222222
     },
     {
       "slide": "03",
-      "text": "Today: one Modelica model \u2192 simulation \u2192 identification \u2192 optimization.",
-      "font_pt": 18,
+      "text": "Goal: mathematical guarantees for specified properties under explicit assumptions.",
+      "font_pt": 17.960591408920553,
       "lines": 1,
       "x": 0.85,
       "y": 6.67,
       "width": 11.83,
-      "height": 0.37
+      "height": 0.3693212964869651
     },
     {
       "slide": "03",
@@ -565,7 +565,7 @@
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 5.5600000000000005,
+      "width": 3.586666666666667,
       "height": 0.2838888888888889
     },
     {
@@ -573,9 +573,19 @@
       "text": "Model library \u2197",
       "font_pt": 13,
       "lines": 1,
-      "x": 6.690000000000001,
+      "x": 4.716666666666667,
       "y": 7.075,
-      "width": 5.5600000000000005,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "03",
+      "text": "Cerebri RDD2 \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 8.663333333333332,
+      "y": 7.075,
+      "width": 3.586666666666667,
       "height": 0.2838888888888889
     },
     {
@@ -3470,7 +3480,7 @@
     },
     {
       "slide": "A3",
-      "text": "Optional: three load trials, isolated logs and trajectory comparisons.",
+      "text": "New with options \u2192 select FastDyn + Rumoca. Run three load trials.",
       "font_pt": 24,
       "lines": 3,
       "x": 7.95,
@@ -3480,7 +3490,17 @@
     },
     {
       "slide": "A3",
-      "text": "Separate FastDyn Codespace \u00b7 keep the core setup lightweight.",
+      "text": "$ uv run --frozen python scripts/fastdyn_demo.py",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.18,
+      "width": 11.7,
+      "height": 0.37
+    },
+    {
+      "slide": "A3",
+      "text": "Choose the FastDyn container \u00b7 open results/live/fastdyn/trajectories.png",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -3651,16 +3671,25 @@
       "url": "https://github.com/CogniPilot/rumoca",
       "x": 0.65,
       "y": 7.035,
-      "width": 5.800000000000001,
+      "width": 3.8266666666666667,
       "height": 0.4
     },
     {
       "slide": "03",
       "label": "Model library",
       "url": "https://github.com/CogniPilot/modelica_models",
-      "x": 6.570000000000001,
+      "x": 4.596666666666667,
       "y": 7.035,
-      "width": 5.800000000000001,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "03",
+      "label": "Cerebri RDD2",
+      "url": "https://github.com/CogniPilot/cerebri_rdd2",
+      "x": 8.543333333333333,
+      "y": 7.035,
+      "width": 3.8266666666666667,
       "height": 0.4
     },
     {

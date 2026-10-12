@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "tested_at_utc": "2026-10-12T01:42:08.219264+00:00",
+  "workshop_execution_commit": "36da9b311ed46e55b2e0a8e9e97e48f0c784f0d2",
+  "environment": "Actual separate GitHub Codespace, Linux x64, 2 cores, 8 GB RAM, 32 GB disk",
+  "fastdyn_revision": "1b6fc8e0eb19b978aee4075ad45f981cc2a19b35",
+  "image_digest": "sha256:e150b2dd164e06a4b47f990032548edd6ac7263fcc1a728fe4ffe7a62a1235b0",
+  "image_compressed_bytes": 744162078,
+  "image_unpacked_gib": 2.92,
+  "source_checkout_mib": 798,
+  "workspace_disk_used_gib_before_campaign": 7.9,
+  "workspace_disk_free_gib_before_campaign": 22,
+  "seed": 462,
+  "trials": [
+    {
+      "id": "reference",
+      "payload_mass_kg": 0.0,
+      "status": "reference",
+      "reason": "Final mission item and landing confirmed",
+      "fmu_sha256": "078fb569f61484dab123686ce3eb325054cfc8eadcba5db06eeff9054fda2f54",
+      "wall_time_s": 74.37411860500015,
+      "metrics": {
+        "armed": true,
+        "ever_armed": true,
+        "airborne": true,
+        "attitude_samples": 243,
+        "max_tilt_deg": 17.06341385565894,
+        "max_altitude_m": 15.075,
+        "max_armed_tilt_deg": 17.06341385565894
+      }
+    },
+    {
+      "id": "payload-limit",
+      "payload_mass_kg": 0.1,
+      "status": "passed",
+      "reason": "Final mission item and landing confirmed",
+      "fmu_sha256": "d5328ec930a9b42a36f62526907f0670e099c8bb84b3845dad6c38145bf5cbdc",
+      "wall_time_s": 68.07903841500001,
+      "metrics": {
+        "armed": false,
+        "ever_armed": true,
+        "airborne": true,
+        "attitude_samples": 245,
+        "max_tilt_deg": 14.888197589558434,
+        "max_altitude_m": 15.067,
+        "max_armed_tilt_deg": 14.888197589558434
+      }
+    },
+    {
+      "id": "run-000",
+      "payload_mass_kg": 0.08773666195704485,
+      "status": "passed",
+      "reason": "Final mission item and landing confirmed",
+      "fmu_sha256": "d924953987c5056bbdaa6b96d80fe9fe13f679a261379d8ecbfe31c68ea103a5",
+      "wall_time_s": 60.80670798600022,
+      "metrics": {
+        "armed": true,
+        "ever_armed": true,
+        "airborne": true,
+        "attitude_samples": 245,
+        "max_tilt_deg": 14.937693083017816,
+        "max_altitude_m": 15.069,
+        "max_armed_tilt_deg": 14.937693083017816
+      }
+    }
+  ],
+  "scope": "Actual ArduCopter firmware under patched QEMU, with Rumoca FMI 3 physics. Sequential reference, endpoint and one random load. Per-trial wall times include upstream trial work; no throughput or safety claim. The load changes prescribed weight, not inertial mass. The identical runner was moved from examples/fastdyn to extras/fastdyn after this execution."
+}

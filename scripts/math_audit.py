@@ -178,7 +178,7 @@ def main():
     fig.savefig(dest/"math_audit.png")
     plt.close(fig)
     write_json(dest/"math_audit.json", {
-        "status": "PASS", "source_sha256": source_hash(), "rumoca_version": rm.version(),
+        "status": "PASS", "source_sha256": source_hash(), "rumoca_version": rum.version(),
         "coast_analytic_max_error": coast_error, "backend_jacobian_max_error": parity,
         "full_loss_gradient_relative_errors": gradient_errors,
         "multi_start_initial_parameters": starts, "multi_start_estimates": estimates.tolist(),

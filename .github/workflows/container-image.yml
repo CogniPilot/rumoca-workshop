@@ -31,9 +31,9 @@ jobs:
           nix develop .#ci --command devcontainer build --workspace-folder . --config scripts/container-build/devcontainer.json --image-name "$WORKSHOP_IMAGE" --platform linux/${{ matrix.arch }} --label org.opencontainers.image.source=https://github.com/CogniPilot/rumoca_workshop_amc2026 --label org.opencontainers.image.revision=${{ github.sha }}
       - name: Test the exact image before publishing
         run: |
-          mkdir -p results/live
-          chmod 0777 results/live
-          docker run --rm --user vscode -e HOME=/home/vscode -e UV_PROJECT_ENVIRONMENT=/home/vscode/scratch/rumoca-workshop/venv --entrypoint bash -v "$PWD:/workspace" -w /workspace "$WORKSHOP_IMAGE" -c 'uv sync --frozen --group torch && uv run --frozen python scripts/install_agent_tools.py --check && uv run --frozen python scripts/smoke_test.py && if [ "$(uname -m)" = x86_64 ]; then uv run --frozen --group torch python scripts/check_torch_backend.py; fi'
+          mkdir -p results/live generated
+          chmod 0777 results/live generated
+          docker run --rm --user vscode -e HOME=/home/vscode -e UV_PROJECT_ENVIRONMENT=/home/vscode/scratch/rumoca-workshop/venv -e JAX_PLATFORMS=cpu -e OMP_NUM_THREADS=1 -e OPENBLAS_NUM_THREADS=1 -e MKL_NUM_THREADS=1 --entrypoint bash -v "$PWD:/workspace" -w /workspace "$WORKSHOP_IMAGE" -c 'uv sync --frozen --group torch && uv run --frozen python scripts/install_agent_tools.py --check && uv run --frozen python scripts/check_agent_terminals.py && uv run --frozen python scripts/smoke_test.py && if [ "$(uname -m)" = x86_64 ]; then uv run --frozen --group torch python scripts/check_torch_backend.py; fi'
       - name: Publish qualified architecture
         run: |
           docker push "$WORKSHOP_IMAGE"

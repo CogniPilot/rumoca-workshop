@@ -75,6 +75,8 @@ jobs:
       - name: Check configured user, SSH feature and numerical audit
         run: |
           nix develop .#ci --command devcontainer exec --workspace-folder . bash -c 'test "$(id -un)" = vscode && command -v sshd && uv run --frozen python scripts/math_audit.py --output results/live'
+      - name: Rehearse agent terminal startup without accounts
+        run: nix develop .#ci --command devcontainer exec --workspace-folder . uv run --frozen python scripts/check_agent_terminals.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:

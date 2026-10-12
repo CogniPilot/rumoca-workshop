@@ -3,6 +3,7 @@ from pathlib import Path
 import argparse
 import hashlib
 import json
+import os
 import platform
 import re
 import shutil
@@ -93,7 +94,7 @@ def main():
         )
         for name, flag in [("node", "--version"), ("npm", "--version"), ("gh", "--version"), ("tmux", "-V")]:
             versions[name] = subprocess.check_output([name, flag], text=True).strip()
-        socket = "rumoca-workshop-verification"
+        socket = f"rumoca-workshop-verification-{os.getpid()}"
         subprocess.run(["tmux", "-L", socket, "new-session", "-d", "-s", "check", "sleep 30"], check=True)
         try:
             subprocess.run(["tmux", "-L", socket, "has-session", "-t", "check"], check=True)

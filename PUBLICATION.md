@@ -21,9 +21,13 @@ setup is incomplete.
 
 ## Codespaces preflight
 
-The devcontainer builds in CI and its startup commands pass as the non-root
-`vscode` user. [VERIFICATION.md](VERIFICATION.md) records fresh-cloud and editor
-qualification separately from the container test.
+CI exercises the complete `devcontainer.json` through the
+[reference Dev Container CLI](https://code.visualstudio.com/docs/devcontainers/devcontainer-cli):
+Dockerfile build, SSH feature installation, configured non-root `vscode` user,
+and the actual startup command. It then runs the independent numerical audit.
+GitHub-specific editor provisioning is checked in the separate cloud rehearsal;
+local container CI cannot establish it. [VERIFICATION.md](VERIFICATION.md)
+records cloud and editor qualification separately from the container test.
 
 The Codespace installs Python packages and the native **Rumoca Modelica 0.10.2**
 extension. Startup includes a hash-checked release-VSIX fallback before the first

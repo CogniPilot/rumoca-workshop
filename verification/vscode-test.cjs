@@ -1,4 +1,5 @@
 const fs=require('node:fs');
+const {createHash}=require('node:crypto');
 exports.run=async()=>{
  const v=require('vscode');
  const model=process.env.WORKSHOP_MODEL;
@@ -13,6 +14,7 @@ exports.run=async()=>{
  await new Promise(r=>setTimeout(r,4000));
  result.initialDiagnostics=v.languages.getDiagnostics(doc.uri).map(d=>({message:d.message,severity:d.severity}));
  const source=doc.getText();
+ result.source_sha256=createHash('sha256').update(fs.readFileSync(model)).digest('hex');
  const line=source.split('\n').findIndex(s=>s.includes('T*sin(theta)'));
  const column=source.split('\n')[line].indexOf('sin')+2;
  const completion=await v.commands.executeCommand('vscode.executeCompletionItemProvider',doc.uri,new v.Position(line,column));
@@ -29,7 +31,9 @@ exports.run=async()=>{
  await v.commands.executeCommand('workbench.action.closeSidebar');
  await v.commands.executeCommand('workbench.action.closeAuxiliaryBar');
  await v.commands.executeCommand('notifications.clearAll');
+ const passed=result.extensionVersion==='0.10.2' && result.active && result.completionLabels.includes('sin') && result.errorDiagnostics.some(d=>d.severity===v.DiagnosticSeverity.Error) && result.hover.length && !result.initialDiagnostics.some(d=>d.severity===v.DiagnosticSeverity.Error) && !result.restoredDiagnostics.some(d=>d.severity===v.DiagnosticSeverity.Error);
+ result.status=passed?'PASS':'FAIL';
  fs.writeFileSync(process.env.WORKSHOP_RESULT,JSON.stringify(result,null,2)+'\n');
- if(!result.active || !result.completionLabels.includes('sin') || !result.errorDiagnostics.some(d=>d.severity===v.DiagnosticSeverity.Error) || !result.hover.length || result.initialDiagnostics.some(d=>d.severity===v.DiagnosticSeverity.Error) || result.restoredDiagnostics.some(d=>d.severity===v.DiagnosticSeverity.Error)) throw Error('VS Code check failed');
+ if(!passed) throw Error('VS Code check failed');
  await new Promise(r=>setTimeout(r,process.env.WORKSHOP_SCREENSHOT==='1'?12000:1000));
 };

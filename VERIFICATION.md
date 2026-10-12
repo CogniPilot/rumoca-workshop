@@ -109,7 +109,8 @@ The released **0.10.2** VSIX was installed in isolated real **VS Code 1.119.0**
 extension hosts on **Linux x64, Windows x64, macOS ARM64 and macOS x64**.
 Verified activation, no errors on the canonical model, `sin` completion,
 parameter hover, errors on intentionally invalid syntax, and clean diagnostics
-after restoring valid source.
+after restoring valid source. CI checks the exact version and
+[release VSIX hashes](verification/vsix-sha256.json) before qualification.
 [Editor CI run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38181857118)
 passed all four jobs. Receipts: [verification/editors](verification/editors),
 local [vscode-linux.json](verification/vscode-linux.json), actual
@@ -196,9 +197,13 @@ are selected by frozen hashes; participants use the ordinary uv commands.
 [Qualification run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38169067520),
 [provenance](verification/wheels), [notice](NOTICE.md).
 
-The devcontainer qualification uses a writable workspace and runs startup as
-`vscode`. Formal CI pins the public Mathlib release and checks the generated
-proof terms from a clean environment.
+The container CI now uses Dev Container CLI 0.87.0 from the pinned flake to
+exercise `devcontainer.json`, SSH feature installation, workspace ownership and
+the actual lifecycle command as `vscode`, followed by the numerical audit.
+This covers the configured local container; the Codespaces extension installer
+needs GitHub's staged VS Code Server and is qualified by the separate actual
+cloud rehearsal. Formal CI pins the public Mathlib release and checks the
+generated proof terms from a clean environment.
 
 ## Presentation and external limits
 
@@ -216,7 +221,7 @@ large type; small evidence plots/screenshots are backups for live zoomable demos
 The PDF embeds fonts. Inspect the PPTX in the actual presentation application
 for font substitution/projector differences before class.
 
-The editable PPTX was also rendered by **LibreOffice Impress 25.8.5.2** on Linux.
+The editable PPTX was also rendered by **LibreOffice Impress 26.2.1.2** on Linux.
 All 28 pages retained every authored text item, with extracted text inside page
 bounds. [Presentation receipt](verification/presentation.json) records the
 artifact hash and scope. This adds an office-renderer check to the PDF review;

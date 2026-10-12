@@ -44,6 +44,8 @@ def main():
     assert len(rows) == 644 and len({r["flight"] for r in rows}) == 4
     assert {r["split"] for r in rows} == {"train", "validation"}
     build = read("slides/build-report.json")
+    from build_slides import parse
+    parse()  # Validate actual slide times and breaks, rather than only the report.
     assert build["schedule_minutes"] == 180 and build["break_minutes"] == 20
     for name, expected in {**build["input_sha256"], **build["artifact_sha256"]}.items():
         assert digest(name) == expected, f"Deck needs rebuilding: {name}"

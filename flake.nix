@@ -10,7 +10,8 @@
       forSystem = system:
         let
           pkgs = import nixpkgs { inherit system; };
-          tools = with pkgs; [ uv python312 nodejs git gh ];
+          tools = (with pkgs; [ uv python312 nodejs git gh ])
+            ++ nixpkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [ pkgs.devcontainer ];
           runtime = nixpkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc.lib pkgs.zlib ];
         in {
           devShell = pkgs.mkShell {

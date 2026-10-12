@@ -4,12 +4,12 @@
   "torch": "2.10.0+cpu",
   "platform": "Linux x64 CPU",
   "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
-  "script_sha256": "c3dd2ef6b1804b8a32ae7b52e7cbcefd4ae4809a62aeaf6dc83ea732cc097182",
+  "script_sha256": "23f60a42a1ba53e93e147f3e04a9851853c0c114bbc4731bdffaad42194b62f5",
   "target_sha256": {
-    "rhs.py.jinja": "b402968020674e89007aa3cb2463006e24b3d621c49757ac0216924ccc4d564e",
+    "rhs.py.jinja": "890561c59b1897adeab3f41ee7ff623c8a0cf310dc175d2a410a6faaed85d36d",
     "target.toml": "029a3f2cacde5811f8370910bc8dbd6de8202106d414773e197672cd5267559e"
   },
-  "generated_sha256": "226ff5b953182c4c34834d247a8a577c77a18b17cc24505c76eb8820dc480cc2",
+  "generated_sha256": "0353388a15f1cf73ae58de9f154222dba4d51772b8def31097e5e7896b381a01",
   "state_names": [
     "x",
     "z",
@@ -30,13 +30,22 @@
   "negative_tests": [
     {
       "case": "unsupported unary Exp",
-      "message": "Target rendering error: Render target template 'rhs.py.jinja': template render error: invalid operation: unsupported-feature:workshop-torch.Unary.Exp (in inline:52)"
+      "message": "Target rendering error: Render target template 'rhs.py.jinja': template render error: invalid operation: unsupported-feature:workshop-torch.Unary.Exp (in inline:55)"
     },
     {
       "case": "events",
       "message": "Target rendering error: unsupported-feature:events: Target 'workshop-torch-ode' does not support feature 'events': event or condition partitions present (its target.toml declares `[capabilities] events` unsupported)"
     }
   ],
-  "elapsed_seconds": 2.218528107041493,
+  "time_broadcast": {
+    "model": "ClockedSlope",
+    "source": "model ClockedSlope\n      Real x(start=0, fixed=true);\n      Real y(start=0, fixed=true);\n    equation\n      der(x) = time;\n      der(y) = 1;\n    end ClockedSlope;",
+    "batched_time_and_constant_derivative": true,
+    "mixed_time_state_broadcast": true,
+    "time_forward_reverse_ad": true,
+    "time_gradcheck": true,
+    "incompatible_batch_rejected": true
+  },
+  "elapsed_seconds": 3.9329513339325786,
   "scope": "Small teaching target for explicit scalar ODEs with the listed primitives. Runtime/autograd checks for this model; no full Modelica, GPU or compiler-correctness claim."
 }

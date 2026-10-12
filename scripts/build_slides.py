@@ -28,13 +28,19 @@ def parse():
         slides.append({"number": number, "title": title, "bullets": bullets,
                        "notes": notes.strip(), **meta})
     previous = 600
-    for slide in [s for s in slides if s["number"].isdigit()]:
+    main_slides = [s for s in slides if s["number"].isdigit()]
+    breaks = []
+    for slide in main_slides:
         a, b = slide["time"].split("–")
         minutes = lambda x: int(x.split(":")[0])*60+int(x.split(":")[1])
         assert minutes(a) == previous, slide
         assert minutes(a) % 5 == 0 and minutes(b) % 5 == 0, slide
+        assert minutes(b) > minutes(a), slide
+        if slide["layout"] == "break":
+            breaks.append(minutes(b) - minutes(a))
         previous = minutes(b)
-    assert previous == 780 and len(slides) == 28
+    assert previous == 780 and len(main_slides) == 24 and len(slides) == 28
+    assert breaks == [10, 10], "Keep two full ten-minute breaks"
     return slides
 
 

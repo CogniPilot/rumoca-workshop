@@ -6,6 +6,7 @@ on:
     paths:
       - 'models/**'
       - 'verification/vscode-*'
+      - 'verification/vsix-sha256.json'
       - '.github/workflows/editor.yml'
       - '.devcontainer/**'
       - '.vscode/**'

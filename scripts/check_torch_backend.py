@@ -6,11 +6,49 @@ import torch
 import jax
 import jax.numpy as jnp
 import casadi as ca
+import types
+
+
+def check_time_broadcast():
+    # This model exposes errors hidden by the autonomous vehicle example:
+    # batched time must also expand derivatives that are independent of time.
+    source = """model ClockedSlope
+      Real x(start=0, fixed=true);
+      Real y(start=0, fixed=true);
+    equation
+      der(x) = time;
+      der(y) = 1;
+    end ClockedSlope;"""
+    generated = rm.Session().loads(source, model="ClockedSlope").codegen(str(ROOT / "templates/torch-ode"))
+    backend = types.ModuleType("time_broadcast_probe")
+    exec(compile(generated.files[0].content, "<Rumoca ClockedSlope>", "exec"), backend.__dict__)
+    t = torch.tensor([0., .5, 2.], requires_grad=True)
+    x, u, p = torch.zeros(2), torch.empty(0), torch.empty(0)
+    fun = lambda time: backend.rhs(time, x, u, p)
+    expected = torch.stack((t.detach(), torch.ones_like(t)), dim=-1)
+    torch.testing.assert_close(fun(t), expected, rtol=0, atol=0)
+    jac = torch.stack((torch.eye(3), torch.zeros((3, 3))), dim=1)
+    torch.testing.assert_close(torch.func.jacrev(fun)(t), jac, rtol=0, atol=0)
+    torch.testing.assert_close(torch.func.jacfwd(fun)(t), jac, rtol=0, atol=0)
+    assert torch.autograd.gradcheck(fun, (t,), eps=1e-6, atol=1e-7, rtol=1e-5)
+    mixed = backend.rhs(t, torch.zeros((2, 1, 2)), u, p)
+    torch.testing.assert_close(mixed, expected.expand(2, 3, 2), rtol=0, atol=0)
+    try:
+        backend.rhs(t, torch.zeros((4, 2)), u, p)
+    except RuntimeError:
+        pass
+    else:
+        raise AssertionError("Incompatible time/state batches were silently accepted")
+    return {"model": "ClockedSlope", "source": source,
+            "batched_time_and_constant_derivative": True,
+            "mixed_time_state_broadcast": True, "time_forward_reverse_ad": True,
+            "time_gradcheck": True, "incompatible_batch_rejected": True}
 
 
 def main():
     started = time.perf_counter()
     model, backend = load_torch_backend()
+    time_broadcast = check_time_broadcast()
     j = model.to_jax()
     c = model.to_casadi()
     assert backend.STATE_NAMES == j.state_names == c.state_names == STATE_NAMES
@@ -69,6 +107,7 @@ def main():
               "points": 101, "value_max_abs_difference": float(np.max(np.abs(actual-jax_values))),
               "jacobian_max_abs_difference": jac_error, "finite_difference_gradcheck": True,
               "forward_reverse_ad": True, "negative_tests": rejected,
+              "time_broadcast": time_broadcast,
               "elapsed_seconds": time.perf_counter()-started,
               "scope": "Small teaching target for explicit scalar ODEs with the listed primitives. Runtime/autograd checks for this model; no full Modelica, GPU or compiler-correctness claim."}
     write_json(output_dir() / "torch_backend.json", report)

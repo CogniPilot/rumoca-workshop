@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
 const root=path.resolve(fileURLToPath(new URL('..',import.meta.url)));
 const scratch=path.join(os.homedir(),'scratch','rumoca-workshop');
 const require=createRequire(path.join(process.env.WORKSHOP_UI_TOOLS || path.join(scratch,'ui-tools'),'package.json'));
@@ -22,6 +23,9 @@ if(!fs.existsSync(vsix)){
  if(!response.ok)throw Error(`VSIX download failed: ${response.status}`);
  fs.writeFileSync(vsix,Buffer.from(await response.arrayBuffer()));
 }
+const manifest=JSON.parse(fs.readFileSync(path.join(root,'verification/vsix-sha256.json'),'utf8'));
+const vsixHash=createHash('sha256').update(fs.readFileSync(vsix)).digest('hex');
+if(vsixHash!==manifest.assets[name])throw Error(`Unqualified VSIX contents: ${name}`);
 const options={version:'1.119.0',cachePath:path.join(scratch,'vscode-downloads'),reuseMachineInstall:true};
 const executable=process.env.VSCODE_PATH || await downloadAndUnzipVSCode(options);
 await runVSCodeCommand(['--user-data-dir',path.join(dir,'user'),'--extensions-dir',path.join(dir,'extensions'),'--install-extension',vsix,'--force','--no-sandbox'],options);

@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "renderer": "LibreOffice Impress 25.8.5.2, Linux x64",
+  "renderer": "LibreOffice Impress 26.2.1.2, Linux x64",
   "slides": 28,
   "checks": [
     "All authored slide text survives actual PPTX rendering within its intended text panel",
@@ -12,6 +12,6 @@
     "Micah Condie"
   ],
   "design": "Purdue gold and deep navy; teal, blue and terracotta phase accents; editable native layout shapes",
-  "pptx_sha256": "c7689207ef47e76a8a19d67784d444c39a6a7ac2f40b8dee2d5ac473e0f86813",
+  "pptx_sha256": "c735706e8ea6b4897c4f047563905249d41a21c3378a11a48d339e5a1f3f2787",
   "scope": "Actual LibreOffice rendering. PowerPoint and the venue projector require presenter preflight."
 }

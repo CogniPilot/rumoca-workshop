@@ -29,7 +29,8 @@ the demonstration, use the Codespace or inspect the saved
 The first command creates `generated/torch-ode/Quadrotor_torch.py`. Inspect its
 state/input/parameter maps and the `torch.stack` output. It checks 101 batched
 RHS evaluations against JAX and CasADi, state/input/parameter Jacobians,
-forward/reverse AD, central-difference `gradcheck`, and explicit rejection of
+forward/reverse AD, central-difference `gradcheck`, batched time in a separate
+time-dependent Modelica test, and explicit rejection of
 unsupported operations/events. Reports go to `results/live`.
 
 ## A small bridge to reinforcement learning

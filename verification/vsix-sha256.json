@@ -1,0 +1,10 @@
+{
+  "version": "0.10.2",
+  "release": "https://github.com/CogniPilot/rumoca/releases/tag/v0.10.2",
+  "assets": {
+    "rumoca-modelica-linux-x64-0.10.2.vsix": "d90956a83df22165f9ba6aea44d8e89f93d993b010bdef0902bd56e190c8d451",
+    "rumoca-modelica-win32-x64-0.10.2.vsix": "47780e602e546c7dfa3e6ee4854330351d583f28940577e55d6f88a59183f613",
+    "rumoca-modelica-darwin-arm64-0.10.2.vsix": "1d710894942608bda5e059407be4772a07a34c40fd5d142e6210e4bf659b2c0c",
+    "rumoca-modelica-darwin-x64-0.10.2.vsix": "f449c54c94f217a54409feb197dfc35aa675c6623a6349f905a8a73ae52ed847"
+  }
+}

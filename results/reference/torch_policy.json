@@ -3,7 +3,7 @@
   "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
   "script_sha256": "b4690da3edc413f78d5e771dadb692cdd5471c999435abdc527d78d2bff7bb88",
   "target_sha256": {
-    "rhs.py.jinja": "b402968020674e89007aa3cb2463006e24b3d621c49757ac0216924ccc4d564e",
+    "rhs.py.jinja": "890561c59b1897adeab3f41ee7ff623c8a0cf310dc175d2a410a6faaed85d36d",
     "target.toml": "029a3f2cacde5811f8370910bc8dbd6de8202106d414773e197672cd5267559e"
   },
   "rumoca": "0.10.2",
@@ -130,6 +130,6 @@
     "vz": 1.3245995097999064e-06,
     "omega": 0.0
   },
-  "elapsed_seconds": 12.480961357010528,
+  "elapsed_seconds": 22.02959052287042,
   "scope": "Synthetic fixed-parameter, two-second vertical task. Feedback optimized on 64 initial states and checked on 128 new states. No full-vehicle RL, disturbance robustness, continuous-time safety or physical-flight claim."
 }

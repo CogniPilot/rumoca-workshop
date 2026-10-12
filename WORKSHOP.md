@@ -107,9 +107,10 @@ Keep the default grid, leave **Interactive** off, and click **Simulate** with
 
 This is a coarse artificial-compressibility and penalized-flow teaching
 visualization, not validated airfoil performance. It uses a separate deployed
-browser runtime. If WebGPU is unavailable, clear GPU to try CPU, or follow the
-instructor's [saved demonstration](slides/assets/user-guide-naca.png).
-The recorded NACA rehearsal covers WebGPU; browser CPU performance varies.
+browser runtime. If WebGPU is unavailable or the short run fails, follow the
+instructor's [saved demonstration](slides/assets/user-guide-naca.png) and continue.
+The recorded NACA rehearsal covers WebGPU; the CPU NACA route is unqualified
+and is not the recovery path for this five-minute segment.
 The same guide page also offers turkey heating and a vibrating membrane.
 Revisit these examples during downtime if they connect better with your domain.
 

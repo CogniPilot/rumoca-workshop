@@ -59,17 +59,18 @@ jobs:
           name: lean-verification
           path: verification/lean-ci.txt
   container:
-    name: Devcontainer build and fresh startup commands
+    name: Devcontainer configuration, features and startup
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v31
       - run: nix run .#container-build -- --tag rumoca-workshop:ci
-      - run: |
-          # Match Codespaces' writable workspace ownership on the hosted runner.
-          docker run --rm -v "$PWD:/workspaces/rumoca-workshop" rumoca-workshop:ci chown -R vscode:vscode /workspaces/rumoca-workshop
-          docker run --rm --user vscode -v "$PWD:/workspaces/rumoca-workshop" -w /workspaces/rumoca-workshop rumoca-workshop:ci bash -c 'uv sync --frozen && uv run --frozen python scripts/smoke_test.py'
+      - name: Start the configured devcontainer and run its lifecycle commands
+        run: nix develop .#ci --command devcontainer up --workspace-folder .
+      - name: Check configured user, SSH feature and numerical audit
+        run: |
+          nix develop .#ci --command devcontainer exec --workspace-folder . bash -c 'test "$(id -un)" = vscode && command -v sshd && uv run --frozen python scripts/math_audit.py --output results/live'
       - uses: actions/upload-artifact@v4
         if: always()
         with:

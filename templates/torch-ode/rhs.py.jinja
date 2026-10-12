@@ -20,9 +20,12 @@ def rhs(t, x, u, p):
     u = torch.as_tensor(u, dtype=x.dtype, device=x.device)
     p = torch.as_tensor(p, dtype=x.dtype, device=x.device)
     t = torch.as_tensor(t, dtype=x.dtype, device=x.device)
+    if x.ndim == 0 or u.ndim == 0 or p.ndim == 0:
+        raise ValueError("x, u and p need a final state/input/parameter dimension")
     if x.shape[-1] != N_Y or u.shape[-1] != N_U or p.shape[-1] != N_P:
         raise ValueError("Expected final dimensions (N_Y, N_U, N_P)")
-    batch = torch.broadcast_shapes(x.shape[:-1], u.shape[:-1], p.shape[:-1])
+    batch = torch.broadcast_shapes(t.shape, x.shape[:-1], u.shape[:-1], p.shape[:-1])
+    t = t.expand(batch)
     x = x.expand(batch + (N_Y,))
     u = u.expand(batch + (N_U,))
     p = p.expand(batch + (N_P,))

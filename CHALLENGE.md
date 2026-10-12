@@ -53,7 +53,10 @@ and tell the instructor you are ready.
 Record wall time from starting the app to the demo-ready version, including
 debugging and deployment; record active work separately if useful. Show where Rumoca is used and
 explain what you contributed during the workshop. Individual and team entries
-are welcome; each app gets one entry. Keep all submitted links in a shared
+are welcome. Each participant may enter once, individually or as a member of
+one team; a team has one entry. Choose one app for that entry. You may share
+additional projects in the gallery without adding extra chances in the draw.
+Keep all submitted links in a shared
 gallery so everyone can explore the work, including apps not drawn to present.
 Use your own available agent tools; keep credentials out of the published repo.
 

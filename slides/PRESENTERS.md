@@ -4,8 +4,8 @@
 Purdue University, School of Aeronautics and Astronautics
 American Modelica Conference · Georgia Tech · October 12, 2026 · 10:00–13:00
 
-Use [slides/workshop.pptx](../slides/workshop.pptx); its speaker notes and
-[editable source](../slides/workshop.md) carry the timed cues. Keep the PDF and
+Use [slides/workshop.pptx](workshop.pptx); its speaker notes and
+[editable source](workshop.md) carry the timed cues. Keep the PDF and
 reference figures on your laptop. Participant entry:
 <https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md>.
 
@@ -14,14 +14,14 @@ reference figures on your laptop. Participant entry:
 1. Open the PPTX/PDF on the presentation laptop, inspect equations at projector
    scale and rehearse browser → editor → PNG switching. Keep local backups.
 2. Check the chosen cloud or local environment, terminal, interpreter and smoke
-   test before class. [PUBLICATION.md](PUBLICATION.md) covers account-dependent
-   cloud availability; [VERIFICATION.md](VERIFICATION.md) records tested paths.
+   test before class. [PUBLICATION.md](../docs/PUBLICATION.md) covers account-dependent
+   cloud availability; [VERIFICATION.md](../docs/VERIFICATION.md) records tested paths.
 3. Check venue network, projector resolution and accessible power. Make pair/demo
    seats available for attendees whose setup is incomplete.
 4. Rehearse the three commands and one parameter edit. Restore the canonical
    source before using reference fit results.
 5. Bring the CogniPilot stocking cap and rehearse the short-demo/audience-vote
-   format in [CHALLENGE.md](CHALLENGE.md).
+   format in [CHALLENGE.md](../docs/CHALLENGE.md).
 
 ## Facilitation and pacing
 
@@ -100,7 +100,7 @@ path; `--one-coefficient` is recovery with linear drag assumed known.
 rollout. It computes derivatives of that numerical computation. It is neither
 finite differences nor a demonstration of compiler-native reverse-mode AD.
 Finite differences are an independent validation check. Lean proves scoped
-exact-real invariants, not statistical recovery. See [MATH_REVIEW.md](MATH_REVIEW.md)
+exact-real invariants, not statistical recovery. See [MATH_REVIEW.md](../docs/MATH_REVIEW.md)
 for papers, theorem mapping, profile diagnostics and all assumptions.
 
 **Control:** default target (4,2) m in 6 s, all terminal rates/velocities zero
@@ -142,7 +142,7 @@ identification and digital twins. The
 [model library](https://github.com/CogniPilot/modelica_models) supplies geometric
 models and verification-oriented functions; these are building blocks with
 explicit proof obligations. Today's planar exercise does not compute a reachable
-tube or certify generated machine code. [Math context](MATH_REVIEW.md) links
+tube or certify generated machine code. [Math context](../docs/MATH_REVIEW.md) links
 primary sources for the broader ideas.
 
 Slide 21 promotes the next **PURT pylon racing competition**, which will leverage
@@ -166,7 +166,7 @@ not executed during this workshop.** Avoid performance claims without a cited
 benchmark. Monte Carlo and reinforcement learning are application directions;
 no result from those workflows is shown here.
 
-App exploration at 12:45: use [BROWSER_APPS.md](BROWSER_APPS.md). Explain that
+App exploration at 12:45: use [BROWSER_APPS.md](../docs/BROWSER_APPS.md). Explain that
 coding agents helped create these applications, while engineering review and
 validation remain essential. Lead with the more complete **rumoca_fixed_wing** workbench and its
 controller-rate experiment. No API key or agent account is needed to use it.
@@ -187,19 +187,19 @@ in this workshop. No unrelated evolving project is on the critical path.
 Suggested close: “You bring Modelica knowledge we need. Bring a model from
 your domain, one scientific question and one result we can check together.
 Help us make declared mathematics reusable across tools.” Use the closing QR
-to open [COMMUNITY.md](COMMUNITY.md) and its research/model collaboration form.
+to open [COMMUNITY.md](../docs/COMMUNITY.md) and its research/model collaboration form.
 Invite attendees to speak with James Goppert or Micah Condie before leaving.
 Ask which model from their work they would try next, and leave time to listen.
 
 ## Optional interactive experiment challenge
 
-Announce [CHALLENGE.md](CHALLENGE.md) on slide 2: apply Rumoca to a question you
+Announce [CHALLENGE.md](../docs/CHALLENGE.md) on slide 2: apply Rumoca to a question you
 care about. One change to an existing model, controller or simulator and one
 checked comparison is enough. Public GitHub hosting, a new WASM app and coding
 agents are optional. Keep power users experimenting during downtime while the
 core walkthrough remains available to everyone.
 
-Point to the short experiment prompt in [APP_PROMPT.md](APP_PROMPT.md). The
+Point to the short experiment prompt in [APP_PROMPT.md](../docs/APP_PROMPT.md). The
 full Three.js launch-app, fixed-wing app and ambitious AD-based MPC prompts are
 optional stretches. Falcon 9-style interactivity is inspiration; no qualified
 rocket model is supplied. Welcome equally small experiments in other domains.
@@ -225,7 +225,7 @@ question and continue to the close.
 
 Slide 8 uses the [user guide](https://cognipilot.github.io/rumoca/user-guide/),
 with embedded editors and examples. Use the exact NACA link and short two-second
-sequence in [WORKSHOP.md](WORKSHOP.md). Warm the successful WebGPU tab before
+sequence in [WORKSHOP.md](../docs/WORKSHOP.md). Warm the successful WebGPU tab before
 class; use the labeled saved capture for graphics/network recovery. Describe
 artificial-compressibility and penalization as a coarse qualitative teaching
 model. Do not claim aerodynamic prediction, lift/drag accuracy or GPU speedup
@@ -234,7 +234,7 @@ from the UI rehearsal. Other guide examples include turkey heating and a membran
 Slide 17 makes extensibility concrete. Preinstall the optional CPU Torch group
 in the presenters’ Linux x64 Codespace. Open `templates/torch-ode/target.toml`,
 then the generated RHS, run its check, and show the hover-policy result. The
-[backend guide](BACKENDS.md) gives commands, assumptions and a small extension
+[backend guide](../docs/BACKENDS.md) gives commands, assumptions and a small extension
 exercise. Sixty Adam updates took 14–27 seconds across the two-core
 Codespace rehearsals; first package downloads are separate. This is differentiable
 model-based policy optimization restricted to vertical motion, a bridge to RL.

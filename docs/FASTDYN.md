@@ -9,7 +9,9 @@ Create a second Codespace using the repository's **New with options** page and
 select **FastDyn + Rumoca: optional firmware Monte Carlo**. Its configuration is
 [devcontainer.json](../.devcontainer/fastdyn/devcontainer.json). Prepare it before
 the session: source and image downloads happen during creation. The pinned image
-downloads **744 MB / 710 MiB compressed**; installed size is printed by setup.
+downloads **744 MB / 710 MiB compressed**; the installed image is **2.92 GiB**. The source checkout adds about **798 MiB**.
+The actual optional Codespace used **7.9 GiB of its 32 GiB disk** after setup,
+leaving about **22 GiB** free before the campaign.
 This environment requests 32 GB disk and 8 GB RAM. It does not add FastDyn to
 the default workshop container. Each additional Codespace uses account storage;
 running machines consume compute allowance.

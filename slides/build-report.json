@@ -13,7 +13,7 @@
     "results/reference/optimization.png": "8d3faf3355dac7c3bf1f081e19161dc04360766e299388be53457c36327458c7",
     "results/reference/torch_policy.png": "b67366d51acfc5a515419f060eb4efdb283c6501379897cd3d8ecc65352bd8dc",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
-    "scripts/build_slides.py": "11d404d61afe3991f748c834619a69678a4511b2995666099521c48421053220",
+    "scripts/build_slides.py": "a129c1ae0f0ea29430410adfa7b994a46f748bb2b54f1c6feb7aad26f021b5ae",
     "scripts/slide_assets.py": "92515b5c9cca20298f9ec58deb6ba7b98efcc9f3efd6eb54acfac1b2900ff700",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
     "slides/assets/architecture.png": "264ab4f7e3ec35c65e3bcbb56328d42414409c4739dfb59fee95275293c02bde",
@@ -30,13 +30,12 @@
     "slides/assets/repo-qr.png": "ef44b4901360f440e8ed6c2c3a114f969c9f795b494ea69fd3a0f8098395b1e5",
     "slides/assets/simulation-hero.png": "30e4af0a1707e14ff7c1aafbdf71813f2421cfb64d06f281590a29c26a7f24c9",
     "slides/assets/user-guide-naca.png": "cd554217d939e7fabf149829cb6deba75e87cc44c5b8f1c130b6d00ff2dd3d98",
-    "slides/assets/vscode-quadrotor.png": "e6002a5b2109928f38ff2598ba587ec0800c3947858c54fcc54bbd7b782467ed",
-    "slides/workshop.md": "24524e63730b7b56310073911d15cf77f0d74e9299d31bdea96376254bf73180",
+    "slides/workshop.md": "b81ba484b1c40df1d3a45b7635de1291c8f82a662517083a08bc41b89054e446",
     "uv.lock": "9ee98bf337e21af4a4fc616c25e4f3d63f8b16bc6500b375dad975be5a4d9799"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "d66b569da2fdc3f38a529227d7380503a39bbfc055afb1bfada69736e34b10bc",
-    "slides/workshop.pdf": "390d58940398a91b03fd2981ff1b1e1c44f3cc20c3ca1e8d0bdb050ea12d9ac9"
+    "slides/workshop.pptx": "5442adc3a16b749b5ae4cd0769d4882993d109d7bef22aa0d256d96ef09ae92b",
+    "slides/workshop.pdf": "97f42053ab58b06d058376105ce7edba24fb398e58f7320d947280a9d9c9c101"
   },
   "rendered_text": [
     {
@@ -191,7 +190,7 @@
     },
     {
       "slide": "01",
-      "text": "OPEN THE WORKSHOP",
+      "text": "CREATE CORE CODESPACE",
       "font_pt": 8.5,
       "lines": 1,
       "x": 10.38,
@@ -211,7 +210,7 @@
     },
     {
       "slide": "01",
-      "text": "Open the slides \u2197",
+      "text": "Repository \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
@@ -961,7 +960,7 @@
     },
     {
       "slide": "07",
-      "text": "HANDS-ON \u00b7 RELEASED LSP VERIFIED ON FOUR PLATFORMS",
+      "text": "VS CODE \u00b7 LIGHTNING BOLT CREATES THE TOML",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -981,7 +980,7 @@
     },
     {
       "slide": "07",
-      "text": "Edit with feedback. Check the pipeline.",
+      "text": "Configure the experiment, then run it",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -991,33 +990,23 @@
     },
     {
       "slide": "07",
-      "text": "TRY THIS",
-      "font_pt": 11,
-      "lines": 1,
-      "x": 0.7,
-      "y": 1.86,
-      "width": 4,
-      "height": 0.24944444444444444
-    },
-    {
-      "slide": "07",
       "text": "1",
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 2.4050000000000002,
+      "y": 2.1350000000000002,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "07",
-      "text": "Open Quadrotor.mo in models/",
-      "font_pt": 22,
-      "lines": 2,
+      "text": "Open BrowserFlight.mo \u2192 click the lightning bolt",
+      "font_pt": 29,
+      "lines": 1,
       "x": 1.25,
-      "y": 2.35,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
+      "y": 2.08,
+      "width": 11.299999999999999,
+      "height": 0.5594444444444444
     },
     {
       "slide": "07",
@@ -1025,19 +1014,19 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 3.602777777777778,
+      "y": 3.2244444444444444,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "07",
-      "text": "Hover m; try sin completion",
-      "font_pt": 22,
+      "text": "Save scenario TOML \u2192 model, source roots, solver, end time",
+      "font_pt": 29,
       "lines": 2,
       "x": 1.25,
-      "y": 3.5477777777777777,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
+      "y": 3.1694444444444443,
+      "width": 11.299999999999999,
+      "height": 1.058888888888889
     },
     {
       "slide": "07",
@@ -1045,33 +1034,23 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 4.800555555555555,
+      "y": 4.813333333333333,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "07",
-      "text": "Run the smoke test; open results/live",
-      "font_pt": 22,
-      "lines": 2,
-      "x": 1.25,
-      "y": 4.745555555555555,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
-    },
-    {
-      "slide": "07",
-      "text": "$ uv run --frozen python scripts/smoke_test.py",
-      "font_pt": 18,
+      "text": "Run the scenario \u2192 inspect vx and x",
+      "font_pt": 29,
       "lines": 1,
-      "x": 0.85,
-      "y": 6.18,
-      "width": 11.7,
-      "height": 0.37
+      "x": 1.25,
+      "y": 4.758333333333333,
+      "width": 11.299999999999999,
+      "height": 0.5594444444444444
     },
     {
       "slide": "07",
-      "text": "WORKSHOP PASS \u00b7 model editor ready",
+      "text": "Modelica owns physics \u00b7 TOML owns the run configuration.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -1081,7 +1060,7 @@
     },
     {
       "slide": "07",
-      "text": "Open vehicle model \u2197",
+      "text": "Simulation walkthrough \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
@@ -1091,7 +1070,7 @@
     },
     {
       "slide": "07",
-      "text": "Setup guide \u2197",
+      "text": "Scenario model \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 6.690000000000001,
@@ -1431,7 +1410,7 @@
     },
     {
       "slide": "10",
-      "text": "$ uv run --frozen python scripts/simulate.py",
+      "text": "$ uv run --frozen python examples/simulate.py",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -1851,7 +1830,7 @@
     },
     {
       "slide": "15",
-      "text": "$ uv run --frozen python scripts/fit_drag_jax.py",
+      "text": "$ uv run --frozen python examples/fit_drag_jax.py",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -2421,7 +2400,7 @@
     },
     {
       "slide": "20",
-      "text": "$ uv run --frozen python scripts/optimize_casadi.py",
+      "text": "$ uv run --frozen python examples/optimize_casadi.py",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -2741,42 +2720,62 @@
     },
     {
       "slide": "22",
-      "text": "Fixed-wing app \u2197",
-      "font_pt": 13,
+      "text": "Fixed-wing demo \u2197",
+      "font_pt": 10.724233872785467,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 2.6000000000000005,
+      "width": 1.6133333333333335,
+      "height": 0.24469513892019415
+    },
+    {
+      "slide": "22",
+      "text": "Fixed-wing code \u2197",
+      "font_pt": 11.188246249353337,
+      "lines": 1,
+      "x": 2.7433333333333336,
+      "y": 7.075,
+      "width": 1.6133333333333335,
+      "height": 0.25268646318330745
+    },
+    {
+      "slide": "22",
+      "text": "Mocap demo \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 4.716666666666668,
+      "y": 7.075,
+      "width": 1.6133333333333335,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "22",
+      "text": "Mocap code \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 6.690000000000001,
+      "y": 7.075,
+      "width": 1.6133333333333335,
       "height": 0.2838888888888889
     },
     {
       "slide": "22",
       "text": "SLAM (in dev) \u2197",
-      "font_pt": 13,
+      "font_pt": 12.873142857142856,
       "lines": 1,
-      "x": 3.7300000000000004,
+      "x": 8.663333333333334,
       "y": 7.075,
-      "width": 2.6000000000000005,
-      "height": 0.2838888888888889
+      "width": 1.6133333333333335,
+      "height": 0.28170412698412695
     },
     {
       "slide": "22",
-      "text": "Mocap viewer \u2197",
+      "text": "SLAM code \u2197",
       "font_pt": 13,
       "lines": 1,
-      "x": 6.690000000000001,
+      "x": 10.636666666666667,
       "y": 7.075,
-      "width": 2.6000000000000005,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "22",
-      "text": "App guide \u2197",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 9.65,
-      "y": 7.075,
-      "width": 2.6000000000000005,
+      "width": 1.6133333333333335,
       "height": 0.2838888888888889
     },
     {
@@ -3603,8 +3602,8 @@
   "hyperlinks": [
     {
       "slide": "01",
-      "label": "Open the slides",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/slides/workshop.pdf",
+      "label": "Repository",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026",
       "x": 0.65,
       "y": 7.035,
       "width": 3.8266666666666667,
@@ -3720,8 +3719,8 @@
     },
     {
       "slide": "07",
-      "label": "Open vehicle model",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/models/Quadrotor.mo",
+      "label": "Simulation walkthrough",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md",
       "x": 0.65,
       "y": 7.035,
       "width": 5.800000000000001,
@@ -3729,8 +3728,8 @@
     },
     {
       "slide": "07",
-      "label": "Setup guide",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/LOCAL_SETUP.md",
+      "label": "Scenario model",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/models/BrowserFlight.mo",
       "x": 6.570000000000001,
       "y": 7.035,
       "width": 5.800000000000001,
@@ -3918,38 +3917,56 @@
     },
     {
       "slide": "22",
-      "label": "Fixed-wing app",
+      "label": "Fixed-wing demo",
       "url": "https://cognipilot.github.io/rumoca_fixed_wing/",
       "x": 0.65,
       "y": 7.035,
-      "width": 2.8400000000000003,
+      "width": 1.8533333333333335,
+      "height": 0.4
+    },
+    {
+      "slide": "22",
+      "label": "Fixed-wing code",
+      "url": "https://github.com/CogniPilot/rumoca_fixed_wing",
+      "x": 2.6233333333333335,
+      "y": 7.035,
+      "width": 1.8533333333333335,
+      "height": 0.4
+    },
+    {
+      "slide": "22",
+      "label": "Mocap demo",
+      "url": "https://cognipilot.github.io/mocap_sysid/",
+      "x": 4.596666666666668,
+      "y": 7.035,
+      "width": 1.8533333333333335,
+      "height": 0.4
+    },
+    {
+      "slide": "22",
+      "label": "Mocap code",
+      "url": "https://github.com/CogniPilot/mocap_sysid",
+      "x": 6.570000000000001,
+      "y": 7.035,
+      "width": 1.8533333333333335,
       "height": 0.4
     },
     {
       "slide": "22",
       "label": "SLAM (in dev)",
       "url": "https://cognipilot.github.io/slam_web/",
-      "x": 3.6100000000000003,
+      "x": 8.543333333333335,
       "y": 7.035,
-      "width": 2.8400000000000003,
+      "width": 1.8533333333333335,
       "height": 0.4
     },
     {
       "slide": "22",
-      "label": "Mocap viewer",
-      "url": "https://cognipilot.github.io/mocap_sysid/",
-      "x": 6.570000000000001,
+      "label": "SLAM code",
+      "url": "https://github.com/CogniPilot/slam_web",
+      "x": 10.516666666666667,
       "y": 7.035,
-      "width": 2.8400000000000003,
-      "height": 0.4
-    },
-    {
-      "slide": "22",
-      "label": "App guide",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BROWSER_APPS.md",
-      "x": 9.530000000000001,
-      "y": 7.035,
-      "width": 2.8400000000000003,
+      "width": 1.8533333333333335,
       "height": 0.4
     },
     {

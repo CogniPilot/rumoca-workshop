@@ -246,7 +246,7 @@ downtime. Entries document the tool used and elapsed work time. Public hosting a
 coding agents are optional. Up to five 45-second experiment demos are selected by a readiness check and, if needed,
 random draw, followed by an audience hand vote. The Artemis/Three.js idea is
 only an [example prompt](APP_PROMPT.md); no rocket app/model was added.
-[PRESENTERS.md](PRESENTERS.md) contains presentation and facilitation checks.
+[PRESENTERS.md](../slides/PRESENTERS.md) contains presentation and facilitation checks.
 
 The separate FastDyn/QEMU environment is optional and does not alter the core
 container's numerical dependencies. The three-flight workshop campaign is under

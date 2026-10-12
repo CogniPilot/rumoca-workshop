@@ -33,7 +33,7 @@ does not require Docker, CUDA, an AI account, Nix or a Google account.
 Git-clone recovery, **only when you intend to discard your own edits**:
 
 ```sh
-git restore models/Quadrotor.mo scripts/fit_drag_jax.py scripts/optimize_casadi.py
+git restore models/Quadrotor.mo examples/fit_drag_jax.py examples/optimize_casadi.py
 uv run --frozen python scripts/smoke_test.py
 ```
 

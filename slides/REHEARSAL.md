@@ -27,9 +27,9 @@ not a promise about network startup.
 Three core commands (copy individually):
 
 ```sh
-uv run --frozen python scripts/simulate.py
-uv run --frozen python scripts/fit_drag_jax.py
-uv run --frozen python scripts/optimize_casadi.py
+uv run --frozen python examples/simulate.py
+uv run --frozen python examples/fit_drag_jax.py
+uv run --frozen python examples/optimize_casadi.py
 ```
 
 One end-to-end rehearsal command:

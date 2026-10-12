@@ -6,7 +6,7 @@ Notes are included in the presentation; Checkpoint appears on the slide.
 Main slide times are contiguous and total 180 minutes, including two breaks.
 
 ## 01 · Hands-On with Rumoca
-Links: Open the slides | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/slides/workshop.pdf ; Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md ; Create Codespace | https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1
+Links: Repository | https://github.com/CogniPilot/rumoca_workshop_amc2026 ; Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md ; Create Codespace | https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1
 Time: 10:00–10:05
 Layout: title
 Visual: assets/repo-qr.png
@@ -62,7 +62,7 @@ Badge: Verified workshop architecture
 
 Checkpoint: Modelica declares physics · Rumoca compiles · backends compute.
 Notes:
-Explain that VS Code is the authoring/LSP path and the playground is browser modeling/simulation. Python 0.10.2 exports JAX and CasADi; deployed browser 0.8.13 is separate. Common Python code performs integration and builds optimization objectives, not another plant. Full language/backends are not certified by this example. The compiler structure is an extension seam for solver specialization and heterogeneous compute. Fast Monte Carlo and RL, native AD or JAX/CasADi/PyTorch integrations, and extensible targets are research directions. Today's core qualifies particular CPU exports; the guide and small Torch target are separate demonstrations, not a general hardware-partitioning or throughput claim.
+Explain that VS Code is the authoring/LSP path and the playground is browser modeling/simulation. Python 0.10.2 exports JAX and CasADi; deployed browser 0.8.13 is separate. Open examples/simulate.py and point to rm.Session().load(...) then model.to_jax(); open examples/optimize_casadi.py and point to model.to_casadi(). Python code performs integration and builds optimization objectives, not another plant. Full language/backends are not certified by this example. The compiler structure is an extension seam for solver specialization and heterogeneous compute. Fast Monte Carlo and RL, native AD or JAX/CasADi/PyTorch integrations, and extensible targets are research directions. Today's core qualifies particular CPU exports; the guide and small Torch target are separate demonstrations, not a general hardware-partitioning or throughput claim.
 
 ## 05 · Everyone gets a browser plot
 Links: Open playground | https://rumoca.cognipilot.org/playground/ ; Browser model | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/browser/Quadrotor_browser.mo
@@ -94,20 +94,19 @@ Checkpoint: Switch route after ten minutes of setup trouble.
 Notes:
 Codespaces URL https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1. Codespaces requires an account with allowance or billing enabled. Cloud qualification is recorded in VERIFICATION.md; account availability varies. Local: download/extract ZIP, install uv/extension, uv sync --frozen. Python and released editor are qualified on Linux/Windows x64 and macOS Intel/Apple Silicon. The local route uses uv and CPU packages.
 
-## 07 · Edit with feedback. Check the pipeline.
-Links: Open vehicle model | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/models/Quadrotor.mo ; Setup guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/LOCAL_SETUP.md
+## 07 · Configure the experiment, then run it
+Links: Simulation walkthrough | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md ; Scenario model | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/models/BrowserFlight.mo
 Time: 10:30–10:35
-Layout: image
-Visual: assets/vscode-quadrotor.png
-Badge: HANDS-ON · released LSP verified on four platforms
+Layout: statement
+Badge: VS CODE · lightning bolt creates the TOML
 
-- Open Quadrotor.mo in models/
-- Hover m; try sin completion
-- Run the smoke test; open results/live
-Command: uv run --frozen python scripts/smoke_test.py
-Checkpoint: WORKSHOP PASS · model editor ready
+- Open BrowserFlight.mo → click the lightning bolt
+- Save scenario TOML → model, source roots, solver, end time
+- Run the scenario → inspect vx and x
+
+Checkpoint: Modelica owns physics · TOML owns the run configuration.
 Notes:
-Give participants most of these five minutes. Verify extension ID JamesGoppert.rumoca-modelica; choose Modelica language, trust workspace per policy. Show a temporary broken expression then undo for actual syntax diagnostics. Hover, completion and diagnostics passed in real VS Code 1.119.0 hosts on all four supported OS/architecture targets; Codespaces remote hover, completion and diagnostics are qualified separately. Smoke runs all three commands, checks gradient/backend agreement, fits, constraints and outputs. Local measured total about 12 seconds after setup. At 10:35 move to the user-guide showcase; use pair or demo recovery if setup is incomplete. App builders can begin their independent challenge once ready.
+Start with the .mo file, not a settings icon. Open models/BrowserFlight.mo, which binds the same Quadrotor plant to level hover thrust, zero torque and initial horizontal speed 6 m/s. Click the lightning-bolt Create Rumoca Scenario icon; the Command Palette fallback is Rumoca: Create Rumoca Scenario. Save the generated rumoca-scenario.…toml beside the model. The selected model is BrowserFlight; inspect the scenario editor and text view. Set source_roots=["."], model.file="BrowserFlight.mo", model.name="BrowserFlight", sim.solver="auto", sim.t_end=8.0 and viewer.mode="results_panel". Save and Run Current Rumoca Scenario. Inspect speed decay and increasing position. Explain that solver and horizon are experiment choices, while Modelica declares physics. The core plant has free inputs; this wrapper defines an experiment. Python later supplies a different prescribed input experiment. Do not compare native coast distances directly to the Python maneuver values. Hover/completion can be checked briefly while opening the model. Let attendees create the TOML themselves; do not paste a prepared scenario first. See WORKSHOP.md for fallback commands and settings. If the editor run is unavailable, use the Python experiment and clearly label that alternate route.
 
 ## 08 · The user guide is a live modeling lab
 Links: Open NACA example | https://cognipilot.github.io/rumoca/user-guide/language/arrays-pde.html#2-d-navierstokes-flow-over-a-naca-2412-airfoil ; Explore user guide | https://cognipilot.github.io/rumoca/user-guide/
@@ -146,7 +145,7 @@ Visual: assets/drag-law.png
 Badge: HANDS-ON · predict before running
 
 - Change k_quad = 0.0 to 0.08, save, then simulate.
-Command: uv run --frozen python scripts/simulate.py
+Command: uv run --frozen python examples/simulate.py
 Checkpoint: What changes at high speed? What about negative velocity?
 Notes:
 Explain units kl N s/m,kq N s²/m²,epsilon .01 m/s. Smooth componentwise law approximates |v|v and never adds energy for nonnegative coefficients; Lean proves the signs and smoothing bound. It differs from Faessler et al.'s body-frame rotor-drag model; do not claim their flatness theorem. Allow 7–8 minutes editing/predicting. Browser users make the same coefficient change and Play again. Default parameter changes affect simulation; fitting estimates parameters explicitly.
@@ -208,7 +207,7 @@ Visual: assets/fit-hero.png
 Badge: HANDS-ON · estimates ≈ 0.18042 and 0.07991
 
 - Open fit_drag.png and fit_drag.json; compare before and after.
-Command: uv run --frozen python scripts/fit_drag_jax.py
+Command: uv run --frozen python examples/fit_drag_jax.py
 Checkpoint: Two coefficients · lower loss · improved held-out prediction
 Notes:
 Give at least 15 minutes for running the fit, inspecting outputs and individual questions. Participants who finish can return to the experiment challenge. Reference truth kl=.18 N s/m, kq=.08 N s²/m². Loss roughly 26932→1.073, about 25000×. Read rms_by_state with separate units or noise_scaled_rms; avoid calling mixed-unit legacy RMS metres. Recovery --one-coefficient assumes known kl=.18. Stretch: different initial guess; audit already checks six. Do not use holdout to tune parameters during this exercise. If live fails, label reference plot honestly.
@@ -276,7 +275,7 @@ Visual: assets/control-hero.png
 Badge: HANDS-ON · fitted physics, constrained trajectory
 
 - Open optimization.png and optimization.json.
-Command: uv run --frozen python scripts/optimize_casadi.py
+Command: uv run --frozen python examples/optimize_casadi.py
 Checkpoint: Solve_Succeeded · limits respected · arrive near rest
 Notes:
 Allow about 15 minutes to run and inspect plots/JSON, with the remaining time for questions or app development. Live computation takes about 1–2 seconds locally. Show acceleration tilt and opposite tilt for braking. Confirm drag matches JAX values, defects near 1e−14, exact endpoint constraints at nodes, and about 2 mm altitude error under finer/adaptive integration. Analytic interval pitch extrema are about 0.542 rad, below 0.55. Checks allow 1e−6 numerical tolerance. Explain continuous/discretized differences and the absence of an all-time formal certificate. A source hash requires refitting after edits. Recover with canonical source/reference fit, then a clearly labeled reference figure. Optional --target-x 3 was separately rehearsed; its receipt is in verification/. MPC would repeat optimization online; it is not demonstrated.
@@ -297,7 +296,7 @@ Notes:
 Advertise the upcoming autonomous fixed-wing pylon racing competition at Purdue UAS Research and Test Facility (PURT). Say: “The next competition will leverage Rumoca. Build your autonomy, learn in a digital twin, and bring it to the experiment.” Point attendees to https://pylon-racing.geddes.rcac.purdue.edu/ for announcements and information. The published competition format connects software-in-the-loop digital-twin simulation with physical flight tests; current public dated details are for the April 2026 edition, so do not announce those dates as upcoming. Future-event dates, registration, rules and exact Rumoca integration will be announced by the organizers. The race-course graphic is illustrative, not an official course or safety envelope. Official facility source: https://engineering.purdue.edu/PURT. Public CogniPilot workspace https://github.com/CogniPilot/cognipilot_workspace documents pure Modelica, host Zephyr SIL and FastDyn/QEMU Cortex-M7 binary-in-the-loop; those paths were not executed here. Synthetic fitting does not establish real-aircraft validity. Briefly connect today's model → identify → optimize workflow with racing and physical validation. Collect challenge entries at 12:40, draw if more than five are ready, and announce presenters/order by 12:45. Move to the fixed-wing workbench at 12:45.
 
 ## 22 · Explore the fixed-wing workbench
-Links: Fixed-wing app | https://cognipilot.github.io/rumoca_fixed_wing/ ; SLAM (in dev) | https://cognipilot.github.io/slam_web/ ; Mocap viewer | https://cognipilot.github.io/mocap_sysid/ ; App guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BROWSER_APPS.md
+Links: Fixed-wing demo | https://cognipilot.github.io/rumoca_fixed_wing/ ; Fixed-wing code | https://github.com/CogniPilot/rumoca_fixed_wing ; Mocap demo | https://cognipilot.github.io/mocap_sysid/ ; Mocap code | https://github.com/CogniPilot/mocap_sysid ; SLAM (in dev) | https://cognipilot.github.io/slam_web/ ; SLAM code | https://github.com/CogniPilot/slam_web
 Time: 12:45–12:50
 Layout: image
 Visual: assets/app-rumoca_fixed_wing.png

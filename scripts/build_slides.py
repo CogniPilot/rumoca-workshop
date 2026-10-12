@@ -182,7 +182,7 @@ def main():
                     text(sub, x+.16, 5.98, 2.55, 11, WHITE, max_lines=1)
                 rect(10.2, 3.65, 2.45, 2.65, WHITE, rounded=True)
                 picture(spec["visual"], 10.37, 3.82, 2.11, 2.11)
-                text("OPEN THE WORKSHOP", 10.38, 6.02, 2.1, 8.5, INK, bold=True, max_lines=1)
+                text("CREATE CORE CODESPACE", 10.38, 6.02, 2.1, 8.5, INK, bold=True, max_lines=1)
             else:
                 text("Bring your model.", .65, 1.6, 9.5, 48, WHITE, bold=True, max_lines=1)
                 text("Join the work.", .65, 2.42, 9.5, 42, GOLD, bold=True, max_lines=1)
@@ -309,7 +309,9 @@ def main():
                 x, y, h = .65+i*(button_w+.12), 7.035, .40
                 first_shape = len(slide.shapes)
                 rect(x, y, button_w, h, GOLD if dark else accent, rounded=True)
-                text(caption+" ↗", x+.12, y+.04, button_w-.24, 13,
+                label_text = caption+" ↗"
+                label_size = min(13, (button_w-.24)*72/pdfmetrics.stringWidth(label_text, "WorkshopBold", 13)*13)
+                text(label_text, x+.12, y+.04, button_w-.24, label_size,
                      INK if dark else WHITE, bold=True, max_lines=1)
                 # Both the label and background are full clickable shapes.
                 for shape in list(slide.shapes)[first_shape:]:

@@ -34,6 +34,31 @@
         "pdf.defaultZoomValue": "page-fit",
         "files.associations": {
           "*.py.jinja": "jinja-py"
+        },
+        "files.exclude": {
+          "**/.*": true,
+          "scripts": true,
+          "verification": true,
+          "formal": true,
+          "templates": true,
+          "browser": true,
+          "extras": true,
+          "docs": true,
+          "data": true,
+          "generated": true,
+          "flake.nix": true,
+          "flake.lock": true,
+          "uv.lock": true,
+          "pyproject.toml": true,
+          "LICENSE": true,
+          "models/Quadrotor_solution.mo": true,
+          "results/reference": true,
+          "slides/assets": true,
+          "slides/build-report.json": true,
+          "slides/workshop.md": true,
+          "slides/*.pptx": true,
+          "slides/PRESENTERS.md": true,
+          "slides/REHEARSAL.md": true
         }
       }
     }

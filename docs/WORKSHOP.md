@@ -1,343 +1,132 @@
-# Hands-On with Rumoca — participant worksheet
+# One model → JAX → CasADi
 
-**Monday, October 12, 2026 · Georgia Tech · 10:00–13:00**
-James Goppert · Micah Condie
-Purdue University, School of Aeronautics and Astronautics
+Follow the [slides](../slides/workshop.pdf). Use this page for commands and
+checkpoints. The opening QR creates the **core** Codespace.
 
-Start with [README.md](../README.md) to choose browser, cloud or local access.
-Keep this worksheet open. Work in pairs if only one laptop has Python running.
-Every core exercise has a [reference figure](../results/reference) for recovery.
-The math assumptions and proofs are in [MATH_REVIEW.md](MATH_REVIEW.md).
-No aerospace background is required; the example lets us change a parameter,
-fit measurements and solve a constrained problem in one workflow.
+## Start in VS Code
 
-## 10:00–10:20 · The result we are building
-
-Why Rumoca? Keep the physical equations consistent as computational questions
-change. Our broader work uses declared mathematics for Lie group theory,
-reachable sets of cyberphysical systems, formal software verification,
-system identification and digital twins. Today focuses on simulation,
-identification and optimization of one small model.
-
-One source file, [models/Quadrotor.mo](../models/Quadrotor.mo), declares six planar
-states and two inputs. Rumoca compiles it into JAX functions for identification
-and CasADi functions for constrained trajectory optimization. Python supplies
-integrators, data handling and optimization problems; it does not re-declare the
-vehicle equations. The core Python exercises run on CPU.
-
-Today’s data are **synthetic**. Today’s control result is an **open-loop trajectory**.
-The example does not certify a real aircraft or implement MPC.
-
-**Optional challenge, announced now:** change a Rumoca model, controller or
-existing interactive simulator and show one checked result. Apply it to a problem
-you care about during downtime and independent work. Agents, a new app and
-public hosting are optional. Enter by **12:40**; up to five presenters give short demos
-at **12:50**. An audience hand vote chooses the winner of a
-**free CogniPilot stocking cap**. Our lead example is `rumoca_fixed_wing`;
-`slam_web` is another example in development. See [CHALLENGE.md](CHALLENGE.md).
-You can begin when ready and return to your experiment during independent work.
-Copy the short experiment prompt in [APP_PROMPT.md](APP_PROMPT.md). Its public
-Three.js launch app and fixed-wing app prompts are optional stretches, not
-assigned projects. AD-based fixed-wing MPC is an ambitious
-optional extension. Any subject is welcome. More than five ready entries are shortlisted
-by random draw; selection is not a quality judgment.
-
-## 10:20–10:40 · Get running
-
-### Everyone: browser first (about 3 minutes)
-
-1. Open the [public Rumoca playground](https://rumoca.cognipilot.org/playground/).
-2. Open [browser/Quadrotor_browser.mo](../browser/Quadrotor_browser.mo), select
-   **Raw**, copy all text. Click inside the playground’s editor, select all and paste.
-   This generated bundle includes the canonical model and a short experiment wrapper.
-3. Click the **gear** beside the editor’s Play button. In simulation settings,
-   choose model **BrowserFlight**, close settings, then click **Play**.
-4. Find **BrowserFlight Results** and the time-series plot. Select `x` or `vx`
-   in the plot’s variable controls if other curves obscure the response.
-
-The deployed playground was tested at Rumoca **0.8.13**. Python is pinned to
-**0.10.2**. Both run the same Modelica equations here; they are separate runtimes.
-The browser has no JAX/CasADi Python terminal.
-
-### Full Python route: cloud or local (about 10 minutes)
-
-**Cloud:** [create a Codespace](https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1).
-Sign in with GitHub; check your account’s allowance/policy before creating it.
-Wait for container setup to complete and the smoke test to say **WORKSHOP PASS**.
-An actual two-core Codespace passed startup and all core commands. Test your
-intended account before class: allowance, prebuild readiness, region availability
-and capacity for 50 users remain presenter preflight items; see
-[verification](VERIFICATION.md).
-
-**Local:** follow [local VS Code setup](LOCAL_SETUP.md), or [download the ZIP](https://github.com/CogniPilot/rumoca_workshop_amc2026/archive/refs/heads/main.zip),
-extract it, open the extracted folder in VS Code. Install
-[uv](https://docs.astral.sh/uv/getting-started/installation/) and the
-[Rumoca extension](https://marketplace.visualstudio.com/items?itemName=JamesGoppert.rumoca-modelica).
-In **Terminal → New Terminal**, run:
+Open `models/Quadrotor.mo`. This is the single source of the plant equations.
+The Explorer keeps infrastructure hidden so you can focus on `models/`,
+`examples/` and your plots in `results/live/`.
 
 ```sh
 uv sync --frozen
-uv run --frozen python scripts/smoke_test.py
 ```
 
-The same commands work in PowerShell and Unix shells. `uv` obtains Python 3.12
-if needed. Supported qualified Python paths: Windows x64, Linux x64 with
-glibc ≥2.28, macOS ≥14 on Apple Silicon or Intel. Linux ARM wheels are pinned
-but the ARM route has not been executed in this workshop’s CI.
+Codespaces has already prepared the packages and installed Rumoca's Modelica
+extension. Local users follow [setup](LOCAL_SETUP.md).
 
-Open `models/Quadrotor.mo`. Accept Workspace Trust for this workshop if your
-policy allows it. The status bar should identify **Modelica**. In Extensions,
-check that **Rumoca Modelica** (`JamesGoppert.rumoca-modelica`) is installed and
-enabled. Hover over `m`; try Ctrl+Space while typing `si` in an expression, then
-undo. The released extension provides verified hover, completion and syntax
-diagnostics on Linux x64, Windows x64 and both Mac architectures. Actual Codespace remote hover, completion and diagnostics are separately
-qualified; see [verification](VERIFICATION.md).
+## Configure a simulation: lightning bolt → TOML → Run
 
-**Checkpoint 1:** a browser plot; on the full route, **WORKSHOP PASS** and a
-`.mo` editor with the extension active. If setup takes over 10 minutes, use
-the browser and pair/screenshare path; [troubleshooting](TROUBLESHOOTING.md).
+1. Open **`models/BrowserFlight.mo`**. This binds the Quadrotor's inputs to hover
+   thrust and zero torque, and starts with horizontal speed 6 m/s. A simulation
+   needs an experiment's inputs and initial conditions as well as plant equations.
+2. Click the **lightning-bolt “Create Rumoca Scenario”** icon in the editor title.
+   If it is hidden, use the Command Palette: **Rumoca: Create Rumoca Scenario**.
+3. Save the generated **`rumoca-scenario.…toml`** next to the `.mo` file.
+   Rumoca opens the scenario editor. This TOML describes the run; it does not
+   replace the Modelica equations.
+4. Check **Model = BrowserFlight**, **model file = BrowserFlight.mo**,
+   **source roots = ["."]**, **solver = auto**, and **end time = 8 seconds**.
+   Use the scenario settings form, or **Reopen Editor With → Text Editor** to
+   inspect the TOML. Its key sections are:
 
-## 10:35–10:40 · Explore a live user-guide example
+   ```toml
+   source_roots = ["."]
+   [rumoca]
+   version = "1"
+   task = "simulate"
+   [model]
+   file = "BrowserFlight.mo"
+   name = "BrowserFlight"
+   [viewer]
+   mode = "results_panel"
+   [sim]
+   solver = "auto"
+   t_end = 8.0
+   ```
 
-The [user guide](https://cognipilot.github.io/rumoca/user-guide/) includes embedded
-editors and runnable examples. Open the
-[NACA 2412 airfoil flow example](https://cognipilot.github.io/rumoca/user-guide/language/arrays-pde.html#2-d-navierstokes-flow-over-a-naca-2412-airfoil).
-In its `AirfoilFlow` editor, change **`StopTime = 30` to `StopTime = 2`**.
-Keep the default grid, leave **Interactive** off, and click **Simulate** with
-**GPU** checked. Select the last frame; try **Field → Vorticity / Pressure**.
+5. Save and **Run Current Rumoca Scenario**. Use the scenario editor's Run
+   control or the Command Palette command. Inspect horizontal speed `vx` and
+   position `x`: speed should decay and position should continue increasing.
+6. Change `k_quad` in **Quadrotor.mo** from `0.0` to `0.08`, save and run again.
+   Compare the plots. The TOML keeps the experiment the same while the declared
+   physics changes. Restore `0.0` when you finish this comparison.
 
-This is a coarse artificial-compressibility and penalized-flow teaching
-visualization, not validated airfoil performance. It uses a separate deployed
-browser runtime. If WebGPU is unavailable or the short run fails, follow the
-presenters’ [saved demonstration](../slides/assets/user-guide-naca.png) and continue.
-The recorded NACA rehearsal covers WebGPU; the CPU NACA route is unqualified
-and is not the recovery path for this five-minute segment.
-The same guide page also offers turkey heating and a vibrating membrane.
-Revisit these examples during downtime if they connect better with your domain.
+**Checkpoint:** explain which settings live in Modelica and which live in TOML.
+The plant has free inputs; `BrowserFlight` supplies an experiment around it.
+Python below supplies a different prescribed input experiment.
 
-## 10:40–11:00 · Change a parameter and see the result
+## Use the Session API with JAX
 
-World `x` points right; `z` points up. Positive pitch `theta` tilts thrust toward
-positive `x`. States are `x, z, theta, vx, vz, omega`; inputs are thrust `T` in
-newtons and torque `tau` in newton metres. Mass is 1.2 kg, pitch inertia
-0.025 kg m². At rest, level thrust `m*g = 11.772 N` balances gravity.
+Open [simulate.py](../examples/simulate.py). Find these lines:
 
-For either velocity component, drag force is
-
-```text
-D(v) = -k_linear*v - k_quad*sqrt(v*v + eps*eps)*v
-k_linear: N s/m      k_quad: N s²/m²      eps = 0.01 m/s
+```python
+model = rm.Session().load(str(MODEL), model="Quadrotor")
+export = model.to_jax()
 ```
 
-This is a smooth, componentwise **world-axis teaching drag law**. It omits
-body-axis rotor aerodynamics, motor dynamics, wind, roll, yaw and contact.
-
-1. Predict: with the same thrust/torque inputs, will adding positive quadratic
-   drag increase or decrease travelled distance? What happens for negative speed?
-2. Run the first Python command and open `results/live/simulation.png`:
-
-   ```sh
-   uv run --frozen python scripts/simulate.py
-   ```
-
-3. In `models/Quadrotor.mo`, change only `k_quad = 0.0` to `k_quad = 0.08`.
-   Save; rerun the same command. The plot compares linear-only and quadratic
-   cases and also marks your current model default. The prescribed Python
-   manoeuvre is different from the browser’s level coasting experiment.
-4. In the browser’s pasted model, make the same coefficient change and press
-   Play with **BrowserFlight** selected. Compare `vx` and `x` qualitatively.
-5. Optional: change `k_linear` to `0.30`; predict the low-speed response first.
-   Restore it to `0.18` before continuing.
-
-**Checkpoint 2:** larger drag shortens the response. In the reference Python
-experiment, final distance is about **41.60 m** with linear-only drag and
-**17.97 m** with quadratic drag. Negative velocity produces positive drag force,
-so force still opposes motion. `models/Quadrotor_solution.mo` records the answer
-as an inheritance override; the underlying equations stay in one file.
-
-## 11:00–11:10 · Break 1
-
-Keep your editor and terminal open. Recovery image:
-[simulation.png](../results/reference/simulation.png). Next command: JAX fit.
-
-## 11:10–11:50 · Fit physical parameters with JAX
-
-[data/noisy_flight.csv](../data/noisy_flight.csv) contains four 8-second experiments
-sampled at 20 Hz. Three flights train the fit; a negative-initial-speed flight
-is held out. Input commands are known; initial states are assumed known exactly.
-Subsequent measurements contain independent Gaussian noise: position 0.025 m,
-velocity 0.035 m/s, angle 0.001 rad and rate 0.003 rad/s.
-
-The dataset was generated from the **Rumoca CasADi export with adaptive DOP853**;
-the fit predicts using the **Rumoca JAX export with RK4**. This avoids generating
-and fitting with the very same numerical integrator. You do not regenerate data
-during class. Ground truth is in `data/truth.json` for checking afterward, not
-as an input to the fitted objective.
-
-1. Run:
-
-   ```sh
-   uv run --frozen python scripts/fit_drag_jax.py
-   ```
-
-2. Open `results/live/fit_drag.png` and `fit_drag.json`. Compare before/after
-   predictions, the three training flights and the held-out flight.
-3. Find `drag`, `final_loss`, `noise_scaled_rms`, `rms_by_state` and
-   `sensitivity_condition_number`. The loss weights position and velocity
-   errors by their measurement standard deviations, so it is dimensionless.
-4. Expected estimates: **linear ≈0.18042 N s/m; quadratic ≈0.07991 N s²/m²**.
-   Truth: 0.18 and 0.08. The initial guesses are 0.06 and 0.025. The mean
-   noise-scaled squared loss drops from about 26,932 to 1.073.
-5. Inspect `scripts/fit_drag_jax.py`: `log` coefficients enforce positivity,
-   `jax.value_and_grad` differentiates through the generated RHS and the RK4
-   rollout, and SciPy L-BFGS-B performs the bounded optimization.
-
-**Checkpoint 3:** two estimates, a loss decrease and improved holdout prediction.
-The sensitivity condition number (about 10.87) is a **local diagnostic**; it is
-not a theorem of global identifiability or statistical certainty.
-
-**Recovery:** fit only quadratic drag with linear drag assumed known:
+`export.rhs` is the compiled plant. Python chooses the inputs and integrates it;
+it does not rewrite the vehicle equations. Run:
 
 ```sh
-uv run --frozen python scripts/fit_drag_jax.py --one-coefficient
+uv run --frozen python examples/simulate.py
 ```
 
-**Stretch:** change the initial guesses in the fitting script, rerun, compare
-estimates. Keep the canonical source equations unchanged. Restore script edits
-before the presenters’ smoke test. The presenter audit already checks six
-starting guesses and twelve noise seeds.
+Open `results/live/simulation.png`. At 8 seconds, the two reference cases travel
+about **41.60 m** and **17.97 m**. Your current Modelica defaults are shown too.
+These values belong to the Python experiment, not the native coast experiment.
 
-## 11:50–11:55 · Check your result or keep building
-
-Open the before-and-after plot. Check the fitted values and whether the held-out
-prediction improved. Ask for help if a result is unexpected. If you are ready,
-continue your [challenge app](CHALLENGE.md) or try another fit starting guess.
-
-JAX autodiff differentiates the implemented discretized computation, subject to
-floating-point arithmetic. It does not remove integration error or model error.
-Native compiler AD is a separate capability and is not demonstrated today.
-The Lean proofs and profile-likelihood audit are presenter evidence in
-[MATH_REVIEW.md](MATH_REVIEW.md), not extra attendee installs.
-
-## 11:55–12:00 · Extend a backend; learn a small policy
-
-Watch the presenters generate **PyTorch** dynamics from the same vehicle with
-an external `target.toml`, then learn two feedback gains for vertical hover.
-The [optional backend guide](BACKENDS.md) explains the code, checks and commands.
-This is differentiable model-based policy optimization, a small bridge to RL.
-The saved [held-out result](../results/reference/torch_policy.png) compares 128 new
-initial conditions. The demonstration is qualified on Linux x64 CPU, including
-Codespaces; the extra Torch package is optional and need not be installed in class.
-
-## 12:00–12:10 · Break 2
-
-Leave `fit_drag.json` in `results/live/`. Next: use those coefficients in CasADi.
-Recovery image: [fit_drag.png](../results/reference/fit_drag.png).
-
-## 12:10–12:40 · Optimize a constrained flight with CasADi
-
-Move from hover at **(0, 1) m** to hover at **(4, 2) m** in 6 seconds. The same
-Modelica source is compiled again; fitted drag is loaded from your JAX output.
-Direct multiple shooting uses 60 constant-input intervals, RK4 dynamics,
-exact endpoint constraints at nodes and IPOPT to solve a local nonlinear program.
-
-Physical limits: thrust 0–20 N; torque ±0.35 N m; altitude 0.25–4 m; pitch
-±0.55 rad. The solver uses ±0.54 rad at nodes to leave a margin between samples.
-An illustrative rotor-pair allocation also restricts each pair to 0–10 N at
-0.2 m moment arm. The objective trades normalized tracking, effort and changes
-in control. It is dimensionless; weights are teaching choices.
-
-1. Run after your fit:
-
-   ```sh
-   uv run --frozen python scripts/optimize_casadi.py
-   ```
-
-2. Open `results/live/optimization.png` and `optimization.json`. Look for
-   **Solve_Succeeded**, motion to the target, braking tilt, thrust limits,
-   terminal error, dynamics defects and finer-rollout error.
-3. Confirm `drag` equals your fitted values. A source hash prevents silently
-   consuming an old fit after further model edits; refit if prompted.
-4. Explain why essentially zero endpoint error at transcription nodes can
-   coexist with about 2 mm altitude error under independent integration.
-
-**Checkpoint 4:** a feasible discretized trajectory, both terminal velocities
-near zero, and bounds checked in finer integration. No claim of global
-optimality or real-aircraft safety follows from IPOPT convergence.
-
-**Recovery:** if your fit file is missing or scripts were changed, restore the
-canonical model defaults (linear 0.18, quadratic 0.0), then run:
+Next open [fit_drag_jax.py](../examples/fit_drag_jax.py). It also starts with
+`Session().load(...).to_jax()`. Find `jax.value_and_grad`: gradients pass through
+Rumoca's dynamics and the integration into a noise-scaled fitting objective.
 
 ```sh
-uv run --frozen python scripts/optimize_casadi.py --fit results/reference/fit_drag.json
+uv run --frozen python examples/fit_drag_jax.py
 ```
 
-If the canonical source hash differs, run your own fit instead. Reference plots
-remain available without Python. The optional target variant `--target-x 3`
-was also rehearsed successfully; see [verification](VERIFICATION.md).
-MPC would repeat optimization with updated measured state; we do not run an MPC loop today.
+Open `results/live/fit_drag.png`. Expect estimates near **0.18** and **0.08**,
+and improved prediction on the flight held out from fitting. The supplied data
+are synthetic. [Math evidence](MATH_REVIEW.md) explains assumptions and limits.
 
-## 12:40–12:45 · Connect the model to experiments
+## Use the same Session API with CasADi
 
-The next **PURT pylon racing competition will leverage Rumoca**. Follow the
-[competition site](https://pylon-racing.geddes.rcac.purdue.edu/) for announcements.
-Its published format connects digital-twin simulation with physical flight
-tests. Upcoming dates, rules and registration will be announced by the organizers.
+Open [optimize_casadi.py](../examples/optimize_casadi.py). Find:
 
-Purdue’s [UAS Research and Test Facility](https://engineering.purdue.edu/PURT)
-grounds model-based work in experiments. Public
-[CogniPilot workspace documentation](https://github.com/CogniPilot/cognipilot_workspace)
-describes pure-Modelica and FastDyn/QEMU embedded testing workflows. They are
-upstream examples, not exercises executed here. Monte Carlo and reinforcement
-learning are application directions. Unified vision/SLAM/estimation models and
-automatic hardware partitioning are research goals.
+```python
+model = rm.Session().load(str(MODEL), model="Quadrotor")
+export = model.to_casadi()
+```
 
-## 12:45–12:50 · Explore the fixed-wing app or finish your demo
+The script uses the JAX-fitted parameters, `export.rhs` and `ca.Opti()` to plan
+between two hover states under thrust, torque and state constraints.
 
-Open [BROWSER_APPS.md](BROWSER_APPS.md) and try the **rumoca_fixed_wing**
-autopilot experiment: change its controller rate, restart and observe.
-This is the lead example of an app we built with coding agents. `slam_web` is
-another example **in development**; `mocap_sysid` is a stored-results viewer.
-No agent account or API key is required to explore the examples manually.
-Selected entrants can use this time to rehearse their 45-second demo and
-open their model, plot or simulator. Public gallery links are optional.
+```sh
+uv run --frozen python examples/optimize_casadi.py
+```
 
-**Checkpoint 5:** describe one observation and one test needed before trusting
-it. These apps use their own models and data. The workshop’s planar-model Lean
-proofs do not cover them. SLAM Lab’s inertial demo is distinct from its unfinished
-full visual-SLAM pipeline; the benchmark viewer displays previously generated
-results rather than retraining methods in your browser.
+Open `results/live/optimization.png`. Expect **Solve_Succeeded**, a final
+position near **(4 m, 2 m)** and a separately checked finer rollout. This is a
+local, open-loop trajectory solution—not a feedback controller or flight safety
+certificate. If you edit the model after fitting, repeat the fit first.
 
-## 12:50–12:55 · Participant demos and audience vote
+**Checkpoint:** point to the same Modelica source in both exports and explain
+what JAX and CasADi contribute. The compiler supplies the equations; the backend
+and Python code supply differentiation, integration and optimization.
 
-Show your experiment, explain your contribution, and demonstrate one interaction
-or before/after comparison plus one checked result in **45 seconds**. Name your
-agent/tool (or “manual”) and elapsed work time, labeling estimates. A local file
-or screen share is welcome; a public app or repository is optional. Any subject
-is welcome. An audience **show-of-hands vote**
-chooses the winner of a **free CogniPilot stocking cap**.
-[CHALLENGE.md](CHALLENGE.md) gives the short-demo format and voting rules.
+## If you finish early
 
-## 12:55–13:00 · Questions, collaboration and take-home
+Explore one [browser experiment](BROWSER_APPS.md), including the reusable-booster
+landing example and the NACA visualization. Apply Rumoca to a question you care
+about. Agents are optional. [Challenge rules](CHALLENGE.md): entries close at
+12:40, up to five 45-second demos at 12:50, random draw if needed, audience hand
+vote for the CogniPilot stocking cap. Record the tool used and elapsed work time.
 
-Bring a model from your own domain, a scientific question and one result we can
-check together. [Join the work](COMMUNITY.md): share a validation case, improve
-a model library or compiler, or open a research/model collaboration conversation.
-Speak with James Goppert or Micah Condie before leaving, or follow the closing QR.
-Take-home challenge: try another initial fit guess, inspect holdout prediction,
-and explain one model limitation before suggesting an extension.
+The optional [FastDyn firmware demo](FASTDYN.md) has a separate Codespace.
+[Custom targets](BACKENDS.md) and [Lean proofs](MATH_REVIEW.md) are take-home
+extensions. They are outside the core Session → JAX → CasADi path.
 
-## Slides and proofs in VS Code
-
-The Codespace installs [PDF Viewer](https://marketplace.visualstudio.com/items?itemName=mathematic.vscode-pdf)
-[Lean 4](https://marketplace.visualstudio.com/items?itemName=leanprover.lean4),
-and [Better Jinja](https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml)
-alongside Rumoca. Open `templates/torch-ode/rhs.py.jinja` for Jinja/Python
-syntax highlighting and `formal/Generated.lean` for the proof source. Open `slides/workshop.pdf` in Explorer to view the slides
-inside VS Code; if necessary choose **Open With → PDF View**. Existing Codespaces
-need **Codespaces: Rebuild Container** to apply the updated configuration.
-
-Lean is optional for participants. Its extension provides editor support;
-checking `formal/Generated.lean` also needs the pinned toolchain and Mathlib
-setup described in [MATH_REVIEW.md](MATH_REVIEW.md). The core exercises do not
-require those downloads.
+If a setup or run fails, use [recovery](TROUBLESHOOTING.md), the presenters' plots
+or the [browser playground](https://rumoca.cognipilot.org/playground/).
+Finish by [joining the research community](COMMUNITY.md) with your model and one
+result we can check together.

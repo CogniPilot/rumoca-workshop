@@ -26,10 +26,14 @@ DT = 0.05
 def compile_model(backend="jax"):
     model = rm.Session().load(str(MODEL), model="Quadrotor")
     export = model.to_jax() if backend == "jax" else model.to_casadi()
+    validate_layout(export)
+    return model, export
+
+
+def validate_layout(export):
     # Fail clearly if a release changes ordering; never guess vector positions.
     if export.state_names != STATE_NAMES or export.input_names != ["T", "tau"]:
         raise RuntimeError(f"Unexpected generated layout: {export}")
-    return model, export
 
 
 def parameters(export, **overrides):

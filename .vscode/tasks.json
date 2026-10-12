@@ -9,7 +9,7 @@
         "run",
         "--frozen",
         "python",
-        "scripts/simulate.py"
+        "examples/simulate.py"
       ],
       "problemMatcher": []
     },
@@ -21,7 +21,7 @@
         "run",
         "--frozen",
         "python",
-        "scripts/fit_drag_jax.py"
+        "examples/fit_drag_jax.py"
       ],
       "problemMatcher": []
     },
@@ -33,7 +33,7 @@
         "run",
         "--frozen",
         "python",
-        "scripts/optimize_casadi.py"
+        "examples/optimize_casadi.py"
       ],
       "problemMatcher": []
     },

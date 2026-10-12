@@ -15,7 +15,7 @@ def digest(name):
     return hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
 
 def main():
-    documents = list(ROOT.glob("*.md")) + list((ROOT/"docs").glob("*.md")) + list((ROOT/"data").glob("*.md")) + [ROOT/"slides/workshop.md"]
+    documents = list(ROOT.glob("*.md")) + list((ROOT/"docs").glob("*.md")) + list((ROOT/"data").glob("*.md")) + list((ROOT/"slides").glob("*.md"))
     documents = [p for p in documents if p.name != "Rumoca_Workshop_Handoff.md"]
     links = 0
     for doc in documents:

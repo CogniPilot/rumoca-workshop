@@ -37,7 +37,7 @@ def main():
     command = ["docker", "run", "--rm", "--init", "--user", f"{os.getuid()}:{os.getgid()}",
                "--volume", f"{checkout}:/workspace", "--volume", f"{ROOT}:/workshop:ro",
                "--volume", f"{runs}:/runs", "--workdir", "/workspace", IMAGE,
-               "python", "/workshop/examples/fastdyn/run_study.py"]
+               "python", "/workshop/extras/fastdyn/run_study.py"]
     subprocess.run(command, check=True)
     report = runs / "campaign/report"
     destination = ROOT / "results/live/fastdyn"

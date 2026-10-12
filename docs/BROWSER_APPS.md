@@ -95,3 +95,13 @@ If loading takes over a minute or the graphics are unresponsive, use a partnerâ€
 working browser or the recorded screenshots. Continue the prediction/validation
 exercise and finish at **12:50** for the participant demos and audience vote.
 Closing questions run 12:55â€“13:00.
+
+## A creative example: reusable-booster landing
+
+[Open the interactive user-guide example](https://cognipilot.github.io/rumoca/user-guide/simulation/reusable-booster-landing.html), a Falcon-9-like teaching scenario.
+Inspect the Modelica and scenario TOML tabs, run it, focus the scene and press
+**Space** to launch. Change wind in **Tune environment and controller**, then
+**R** to reset and compare. **Q** stops.
+The [copied upstream source](../extras/reusable_booster/README.md) is available
+for inspection. Native execution of that snapshot needs the upstream pinned
+library and has not been qualified here. It is not a validated SpaceX model.

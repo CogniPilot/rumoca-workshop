@@ -5,13 +5,13 @@
   "checks": [
     "All authored slide text survives actual PPTX rendering within its intended text panel",
     "All extracted text lies within page bounds",
-    "Visual review of quadrotor walkthrough, fitting symbol key and research-community closing layouts; automatic text retention and bounds checks on all 30 slides"
+    "Visual review of compiler pipeline and Lean/Jinja target layouts; automatic text retention and bounds checks on all 30 slides"
   ],
   "presenters": [
     "James Goppert",
     "Micah Condie"
   ],
   "design": "Purdue gold and deep navy; teal, blue and terracotta phase accents; editable native layout shapes",
-  "pptx_sha256": "63730f33f573cfa612d93561d87b52a42a1a58df9f656ad81b780e79f1821e1b",
+  "pptx_sha256": "4f1361eb71889a9e2c4e63f5b64019dde20f07b44394de230a4441a4681fa005",
   "scope": "Actual LibreOffice rendering. PowerPoint and the venue projector require presenter preflight."
 }

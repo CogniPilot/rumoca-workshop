@@ -86,7 +86,59 @@ The guide's browser flow demo exercises a separate experimental WebGPU path.
 Automatic hardware partitioning, general solver optimization and production
 RL throughput remain research questions to benchmark and validate.
 
-## The Session API connects the targets
+## Compiler stages and target inputs
+
+An **IR** is an intermediate representation. Rumoca 0.10.2 moves from parsed
+**AST** (abstract syntax tree) through name/type resolution and instantiation
+to **Flat** (expanded hierarchy and connections), then **DAE**
+(differential-algebraic equations and event/clock metadata). Structural
+preparation and lowering produce **Solve**: computation plans that execution
+backends consume. Flat equations describe relationships; Solve specifies the
+computations needed by a solver.
+
+**GaLEC** (Guarded Algorithmic Language for Embedded Control) is a separate
+projection from DAE for fixed-sample discrete control models. In this release
+it requires no continuous states or `der()`. Its algorithm-code representation
+supports eFMI/embedded C export. Today's continuous quadrotor takes the Solve
+route. See the released [pipeline overview](https://github.com/CogniPilot/rumoca/blob/v0.10.2/docs/dev-guide/src/compiler/pipeline-overview.md)
+and [GaLEC guide](https://github.com/CogniPilot/rumoca/blob/v0.10.2/docs/user-guide/src/codegen/galec-efmi.md).
+The [GaLEC target manifest](https://github.com/CogniPilot/rumoca/blob/v0.10.2/crates/rumoca-phase-codegen/src/templates/galec/target.toml)
+selects `ir = "algorithm-code"`: the dedicated DAE projection constructs this
+checked representation before the target renders it.
+
+## Walk through the Lean target
+
+Slide 19 uses these actual files. Start with
+[target.toml](../templates/lean-proof/target.toml): `version = 1` is the manifest
+version and `ir = "solve"` selects its input representation. `[capabilities]`
+declares supported features. Each `[[files]]` block names an output and its
+template: `program.json.jinja` produces an inspectable Solve operation list;
+`rhs.lean.jinja` produces Lean types and the exact-real RHS. This manifest
+configures code generation; scenario TOML configures simulation.
+
+Open [rhs.lean.jinja](../templates/lean-proof/rhs.lean.jinja) at `structure Control`.
+With line breaks added to make the loop readable, its actual excerpt is:
+
+```jinja
+structure Control where
+{% for name in solve.solve_layout.input_scalar_names %}
+  {{ name }} : ℝ
+{% endfor %}
+```
+
+`{% ... %}` executes template control flow; `{{ ... }}` inserts a value. Solve
+supplies `T` and `tau`, so the template generates two real-valued fields:
+
+```lean
+structure Control where
+  T : ℝ
+  tau : ℝ
+```
+
+Farther down, `LoadY` and `LoadP` map compiler registers to the named state,
+parameter and control fields. `Unary` and `Binary` render supported operations;
+the final `fail(...)` rejects unsupported cases. Jinja owns the rendering of
+types and equations; the Python driver invokes it and records provenance.
 
 The shared helper in `scripts/common.py` already uses Rumoca's Python Session
 API for the core JAX and CasADi examples. A minimal custom-target call is:
@@ -105,3 +157,33 @@ The teaching target rejects unsupported operations and events; constants must
 be finite integers. Extending this subset requires an exact rational rule and
 new proof checks. This target and the compiler remain trusted; the Lean kernel
 checks the exported equations and the 17 scoped workshop theorems.
+
+Run `uv run --frozen python scripts/export_lean.py`, then compare
+[Generated.lean](../formal/Generated.lean) with
+[Workshop.lean](../formal/Workshop.lean). `generated_matches_physics` relates
+the generated RHS to the displayed physics. `hover_equilibrium` proves that
+level, still flight with thrust `m*g` and zero torque has zero derivatives over
+exact reals. The [proof instructions and trusted boundary](MATH_REVIEW.md#what-lean-checks)
+explain what is checked; use the completed CI proof log during the talk.
+
+For a small edit, copy the target and export to a separate results folder:
+
+```python
+from pathlib import Path
+import shutil
+import rumoca as rum
+
+target = Path("examples/agent_experiment/lean-proof")
+shutil.copytree("templates/lean-proof", target, dirs_exist_ok=True)
+template = target / "rhs.lean.jinja"
+text = template.read_text()
+text = text.replace("  {{ name }} : ℝ", "  -- generated field: {{ name }}\n  {{ name }} : ℝ")
+template.write_text(text)
+model = rum.Session().load("models/Quadrotor.mo", model="Quadrotor")
+model.codegen(str(target)).save_all("results/live/lean-template")
+```
+
+Open `results/live/lean-template/Generated.lean` and find the inserted comments.
+This demonstrates a Jinja edit with compiler-provided names while preserving
+the checked baseline in `formal/`. It changes comments, not equations. Extending
+operation support requires new mathematical and rejection checks.

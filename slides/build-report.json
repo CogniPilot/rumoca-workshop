@@ -11,10 +11,9 @@
     "results/reference/fit_drag.json": "0d67f55cceecbd8d42fde39713bc1d1595687cc7a5481187dfa39035ea162fcb",
     "results/reference/torch_policy.png": "b67366d51acfc5a515419f060eb4efdb283c6501379897cd3d8ecc65352bd8dc",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
-    "scripts/build_slides.py": "12a756331943d2c1d2e53cf8836dd622298ce65bf7e8f2784b91412ea1d9431d",
+    "scripts/build_slides.py": "5d8eba857f50cf83c8d003862c2e4fd453fd7317e4299c5e4eecb3a0b8a9fbcb",
     "scripts/slide_assets.py": "92d9cdba091574331dbf3a4c61257a2757a47367e022ff358aa27ea5966d7149",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
-    "slides/assets/architecture.png": "264ab4f7e3ec35c65e3bcbb56328d42414409c4739dfb59fee95275293c02bde",
     "slides/assets/browser-drag-linear.png": "641732c3c7ceaab4eb393cd290446cbb977172d5a67ee7614b2282c3ce1cd747",
     "slides/assets/control-hero.png": "4458f83fc5a4e26128c21b44346f43e2ffbdc68b8cb4f8f088021563aa15b0ba",
     "slides/assets/control-problem.png": "13b9ff50e114c3c545efecb65b1e434f472d9ae8f64d5028066ee62688937f5e",
@@ -27,7 +26,6 @@
     "slides/assets/penn-state-logo.png": "89335a5f228075d8c4c07d8df185d276ce3fd2ecef5b89d41506356d3516430a",
     "slides/assets/purdue-logo.png": "2a1a122b352c8944f8616dde3c227f11b33a3fd2a7a4d85eab0e52adc844a1cd",
     "slides/assets/purt-facility.png": "4def64123a2312b24fb518842aba66dfa3453ec63ba53558790a742251b61029",
-    "slides/assets/purt-fixed-wing.jpg": "8b7404f5deaa22bb60047a74b39452457d22e8b3c092231b1c3833e7dba61f51",
     "slides/assets/purt-fpv-chase-poster.jpg": "24aad084a593816c44d3d0b80a6fc33ef4ab32e806d422e34c9cfcc5327d914c",
     "slides/assets/pylon-qr.png": "7328a84a4db146ed49df5e748f9dcfd136d4bd420145c6e7266eb2ba42a3345f",
     "slides/assets/quadrotor.png": "a128ef82b974bec61e3f2beb6a126f29d166f8fa8214e7e34e80c15b2e550ef7",
@@ -39,12 +37,14 @@
     "slides/assets/user-guide-quadrotor.png": "6a66a7c8198da6ed1dd82f1ad9f936a805851fa30243c3ea5cfee6d4cd8b3191",
     "slides/media/fastdyn-monte-carlo.mp4": "2a688f567c51d837c23555806250dd5ebd31a34cf16cb14c4d15fe85200f4ab1",
     "slides/media/purt-fpv-chase.mp4": "0cb09e6a72a4f8543ba2e7ad786b1a4e7da1d8580ebf9daccde99c463c37bcef",
-    "slides/workshop.md": "d669c3f65178f93f8d115a3aadb5e1fcfc93a93e5ba8b1c18364884f12994d67",
+    "slides/workshop.md": "8b61a3b247b242ce9066b7d86a6db261ca6f05dfc7d028546af443f33df1a989",
+    "templates/lean-proof/rhs.lean.jinja": "89ed252b731b68f2b766b3f9ffe0179b61bdd068667f5d257ccf0d80a7e51e24",
+    "templates/lean-proof/target.toml": "b6278e81cbda221c41f144174c359e52239ca24b4bc2c14914d065a119073fb8",
     "uv.lock": "9ee98bf337e21af4a4fc616c25e4f3d63f8b16bc6500b375dad975be5a4d9799"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "63730f33f573cfa612d93561d87b52a42a1a58df9f656ad81b780e79f1821e1b",
-    "slides/workshop.pdf": "3e9193213f940d74471c5414ae9ed21c294c272e6fb98811376f28db6c1d05c6"
+    "slides/workshop.pptx": "4f1361eb71889a9e2c4e63f5b64019dde20f07b44394de230a4441a4681fa005",
+    "slides/workshop.pdf": "eb6a177289e7a251172c29a9e1222c509c179cfdb491b9c25386d54333b07632"
   },
   "rendered_text": [
     {
@@ -639,7 +639,7 @@
     },
     {
       "slide": "04",
-      "text": "VERIFIED WORKSHOP ARCHITECTURE",
+      "text": "IR = INTERMEDIATE REPRESENTATION \u00b7 RUMOCA 0.10.2",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -659,7 +659,7 @@
     },
     {
       "slide": "04",
-      "text": "Declare once. Ask different questions.",
+      "text": "How equations become executable programs",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -669,27 +669,227 @@
     },
     {
       "slide": "04",
-      "text": "Quadrotor.mo \u2192 JAX + CasADi \u00b7 the same declared equations",
+      "text": "Modelica source \u2192 parse",
       "font_pt": 22,
       "lines": 1,
       "x": 0.7,
-      "y": 1.75,
-      "width": 11.95,
+      "y": 1.67,
+      "width": 11.9,
       "height": 0.4388888888888889
     },
     {
       "slide": "04",
-      "text": "Digital twins \u2192\nmeasured flight at PURT",
-      "font_pt": 20,
-      "lines": 2,
-      "x": 8.77,
-      "y": 5.16,
-      "width": 3.91,
-      "height": 0.7488888888888889
+      "text": "AST",
+      "font_pt": 31,
+      "lines": 1,
+      "x": 0.8500000000000001,
+      "y": 2.45,
+      "width": 2.3,
+      "height": 0.5938888888888889
     },
     {
       "slide": "04",
-      "text": "Modelica declares physics \u00b7 Rumoca compiles \u00b7 backends compute.",
+      "text": "Parsed syntax +\nsource locations",
+      "font_pt": 15.5,
+      "lines": 2,
+      "x": 0.8500000000000001,
+      "y": 3.1,
+      "width": 2.3,
+      "height": 0.5938888888888889
+    },
+    {
+      "slide": "04",
+      "text": "\u2192",
+      "font_pt": 23,
+      "lines": 1,
+      "x": 3.4099999999999997,
+      "y": 2.81,
+      "width": 0.29,
+      "height": 0.4561111111111111
+    },
+    {
+      "slide": "04",
+      "text": "Flat",
+      "font_pt": 31,
+      "lines": 1,
+      "x": 3.96,
+      "y": 2.45,
+      "width": 2.3,
+      "height": 0.5938888888888889
+    },
+    {
+      "slide": "04",
+      "text": "Expanded hierarchy\n+ connections",
+      "font_pt": 15.5,
+      "lines": 2,
+      "x": 3.96,
+      "y": 3.1,
+      "width": 2.3,
+      "height": 0.5938888888888889
+    },
+    {
+      "slide": "04",
+      "text": "\u2192",
+      "font_pt": 23,
+      "lines": 1,
+      "x": 6.52,
+      "y": 2.81,
+      "width": 0.29,
+      "height": 0.4561111111111111
+    },
+    {
+      "slide": "04",
+      "text": "DAE",
+      "font_pt": 31,
+      "lines": 1,
+      "x": 7.07,
+      "y": 2.45,
+      "width": 2.3,
+      "height": 0.5938888888888889
+    },
+    {
+      "slide": "04",
+      "text": "Canonical equations;\nevents + clocks",
+      "font_pt": 15.5,
+      "lines": 2,
+      "x": 7.07,
+      "y": 3.1,
+      "width": 2.3,
+      "height": 0.5938888888888889
+    },
+    {
+      "slide": "04",
+      "text": "\u2192",
+      "font_pt": 23,
+      "lines": 1,
+      "x": 9.629999999999999,
+      "y": 2.81,
+      "width": 0.29,
+      "height": 0.4561111111111111
+    },
+    {
+      "slide": "04",
+      "text": "Solve",
+      "font_pt": 31,
+      "lines": 1,
+      "x": 10.18,
+      "y": 2.45,
+      "width": 2.3,
+      "height": 0.5938888888888889
+    },
+    {
+      "slide": "04",
+      "text": "Scalar + tensor\ncomputation plans",
+      "font_pt": 15.5,
+      "lines": 2,
+      "x": 10.18,
+      "y": 3.1,
+      "width": 2.3,
+      "height": 0.5938888888888889
+    },
+    {
+      "slide": "04",
+      "text": "resolve \u00b7 typecheck \u00b7 instantiate \u00b7 flatten",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.08,
+      "width": 5.8,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "04",
+      "text": "structural preparation \u2192 solve lowering",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 6.91,
+      "y": 4.08,
+      "width": 5.73,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "04",
+      "text": "Targets choose the IR they need.",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 0.7,
+      "y": 4.72,
+      "width": 5.7,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "04",
+      "text": "Next: Solve \u2192 Jinja \u2192 Lean",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.7,
+      "y": 5.47,
+      "width": 5.7,
+      "height": 0.42166666666666663
+    },
+    {
+      "slide": "04",
+      "text": "\u2193",
+      "font_pt": 20,
+      "lines": 1,
+      "x": 8.07,
+      "y": 4.4,
+      "width": 0.3,
+      "height": 0.40444444444444444
+    },
+    {
+      "slide": "04",
+      "text": "GaLEC",
+      "font_pt": 20,
+      "lines": 1,
+      "x": 7.03,
+      "y": 4.99,
+      "width": 2.38,
+      "height": 0.40444444444444444
+    },
+    {
+      "slide": "04",
+      "text": "Fixed-sample control\neFMI / embedded C",
+      "font_pt": 14,
+      "lines": 2,
+      "x": 7.03,
+      "y": 5.5,
+      "width": 2.38,
+      "height": 0.5422222222222222
+    },
+    {
+      "slide": "04",
+      "text": "\u2193",
+      "font_pt": 20,
+      "lines": 1,
+      "x": 11.18,
+      "y": 4.4,
+      "width": 0.3,
+      "height": 0.40444444444444444
+    },
+    {
+      "slide": "04",
+      "text": "JAX \u00b7 CasADi",
+      "font_pt": 20,
+      "lines": 1,
+      "x": 10.14,
+      "y": 4.99,
+      "width": 2.38,
+      "height": 0.40444444444444444
+    },
+    {
+      "slide": "04",
+      "text": "Torch \u00b7 Lean\nContinuous dynamics",
+      "font_pt": 14,
+      "lines": 2,
+      "x": 10.14,
+      "y": 5.5,
+      "width": 2.38,
+      "height": 0.5422222222222222
+    },
+    {
+      "slide": "04",
+      "text": "Same declared physics \u00b7 inspectable stages \u00b7 targets choose the IR they need.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -699,12 +899,32 @@
     },
     {
       "slide": "04",
-      "text": "Workshop guide \u2197",
+      "text": "Compiler pipeline \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 11.48,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "04",
+      "text": "Custom targets \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 4.716666666666667,
+      "y": 7.075,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "04",
+      "text": "GaLEC / eFMI \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 8.663333333333332,
+      "y": 7.075,
+      "width": 3.586666666666667,
       "height": 0.2838888888888889
     },
     {
@@ -2263,7 +2483,7 @@
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
-      "y": 6.18,
+      "y": 6.13,
       "width": 11.7,
       "height": 0.37
     },
@@ -2723,7 +2943,7 @@
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
-      "y": 6.18,
+      "y": 6.13,
       "width": 11.7,
       "height": 0.37
     },
@@ -2759,7 +2979,7 @@
     },
     {
       "slide": "19",
-      "text": "CHECKPOINT \u00b7 GO DEEPER AT YOUR OWN PACE",
+      "text": "EXTENSIBILITY DEMO \u00b7 SOLVE \u2192 JINJA \u2192 LEAN",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -2779,112 +2999,162 @@
     },
     {
       "slide": "19",
-      "text": "Check your result. Keep building.",
-      "font_pt": 34,
+      "text": "Write a template. Generate checked equations.",
+      "font_pt": 32.504738481718306,
       "lines": 1,
       "x": 0.6,
       "y": 0.82,
       "width": 12.1,
-      "height": 0.6455555555555554
+      "height": 0.6198038294073709
     },
     {
       "slide": "19",
-      "text": "01",
-      "font_pt": 28,
+      "text": "1  TARGET.TOML \u00b7 EXCERPT",
+      "font_pt": 11,
       "lines": 1,
-      "x": 0.9,
+      "x": 0.85,
       "y": 1.98,
-      "width": 0.72,
-      "height": 0.5422222222222222
+      "width": 3.64,
+      "height": 0.24944444444444444
     },
     {
       "slide": "19",
-      "text": "Open your before-and-after prediction plot",
-      "font_pt": 24,
-      "lines": 3,
-      "x": 1.7799999999999998,
-      "y": 2.05,
-      "width": 4.4,
-      "height": 1.3
-    },
-    {
-      "slide": "19",
-      "text": "02",
-      "font_pt": 28,
+      "text": "2  RHS.LEAN.JINJA \u00b7 ACTUAL INPUT FIELDS",
+      "font_pt": 11,
       "lines": 1,
-      "x": 7.07,
+      "x": 5.17,
       "y": 1.98,
-      "width": 0.72,
-      "height": 0.5422222222222222
+      "width": 7.2,
+      "height": 0.24944444444444444
     },
     {
       "slide": "19",
-      "text": "Compare the held-out flight and fitted values",
-      "font_pt": 24,
-      "lines": 2,
-      "x": 7.95,
-      "y": 2.05,
-      "width": 4.4,
-      "height": 0.8866666666666667
+      "text": "ir = \"solve\"\n[capabilities]\nevents = false\n[[files]]\npath = \"Generated.lean\"\ntemplate = \"rhs.lean.jinja\"",
+      "font_pt": 15.5,
+      "lines": 6,
+      "x": 0.85,
+      "y": 2.33,
+      "width": 3.64,
+      "height": 1.6616666666666666
     },
     {
       "slide": "19",
-      "text": "03",
-      "font_pt": 28,
+      "text": "structure Control where\n{% for name in solve.solve_layout.input_scalar_names %}\n  {{ name }} : \u211d\n{% endfor %}",
+      "font_pt": 15.5,
+      "lines": 4,
+      "x": 5.17,
+      "y": 2.33,
+      "width": 7.2,
+      "height": 1.1277777777777778
+    },
+    {
+      "slide": "19",
+      "text": "Input names [\"T\", \"tau\"] \u2192 T : \u211d, tau : \u211d",
+      "font_pt": 20,
       "lines": 1,
-      "x": 0.9,
-      "y": 4.13,
-      "width": 0.72,
-      "height": 0.5422222222222222
+      "x": 5.17,
+      "y": 3.6,
+      "width": 7.2,
+      "height": 0.40444444444444444
     },
     {
       "slide": "19",
-      "text": "Stretch: rerun from another starting guess",
-      "font_pt": 24,
-      "lines": 2,
-      "x": 1.7799999999999998,
-      "y": 4.2,
-      "width": 4.4,
-      "height": 0.8866666666666667
-    },
-    {
-      "slide": "19",
-      "text": "04",
-      "font_pt": 28,
+      "text": "{% ... %} repeats \u00b7 {{ ... }} substitutes",
+      "font_pt": 16,
       "lines": 1,
-      "x": 7.07,
-      "y": 4.13,
-      "width": 0.72,
-      "height": 0.5422222222222222
+      "x": 5.17,
+      "y": 4.14,
+      "width": 7.2,
+      "height": 0.33555555555555555
     },
     {
       "slide": "19",
-      "text": "App builders: keep your prototype moving",
-      "font_pt": 24,
-      "lines": 2,
-      "x": 7.95,
-      "y": 4.2,
-      "width": 4.4,
-      "height": 0.8866666666666667
+      "text": "3  INVOKE WITH THE SAME SESSION MODEL",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.85,
+      "y": 4.74,
+      "width": 11.6,
+      "height": 0.24944444444444444
     },
     {
       "slide": "19",
-      "text": "Fit complete? Continue your experiment or explore the optional checks.",
+      "text": "model.codegen(\"templates/lean-proof\").save_all(\"formal\")",
+      "font_pt": 19,
+      "lines": 1,
+      "x": 0.85,
+      "y": 5.08,
+      "width": 11.6,
+      "height": 0.3872222222222222
+    },
+    {
+      "slide": "19",
+      "text": "Check hover: level + still, T = m\u00b7g, zero torque \u2192 zero derivatives",
+      "font_pt": 19,
+      "lines": 1,
+      "x": 0.85,
+      "y": 5.64,
+      "width": 11.6,
+      "height": 0.3872222222222222
+    },
+    {
+      "slide": "19",
+      "text": "$ uv run --frozen python scripts/export_lean.py",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
-      "y": 6.67,
-      "width": 11.83,
+      "y": 6.13,
+      "width": 11.7,
       "height": 0.37
     },
     {
       "slide": "19",
-      "text": "Workshop guide \u2197",
+      "text": "17 exact-real theorems \u00b7 compiler, template and numerical execution have separate checks.",
+      "font_pt": 16.336128560993423,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.34134443632822004
+    },
+    {
+      "slide": "19",
+      "text": "Lean target.toml \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 11.48,
+      "width": 2.6000000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "19",
+      "text": "Jinja template \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 3.7300000000000004,
+      "y": 7.075,
+      "width": 2.6000000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "19",
+      "text": "Checked theorem \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 6.690000000000001,
+      "y": 7.075,
+      "width": 2.6000000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "19",
+      "text": "Try the walkthrough \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 9.65,
+      "y": 7.075,
+      "width": 2.6000000000000005,
       "height": 0.2838888888888889
     },
     {
@@ -2943,7 +3213,7 @@
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
-      "y": 6.18,
+      "y": 6.13,
       "width": 11.7,
       "height": 0.37
     },
@@ -3293,7 +3563,7 @@
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
-      "y": 6.18,
+      "y": 6.13,
       "width": 11.7,
       "height": 0.37
     },
@@ -3573,7 +3843,7 @@
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
-      "y": 6.18,
+      "y": 6.13,
       "width": 11.7,
       "height": 0.37
     },
@@ -4502,11 +4772,29 @@
     },
     {
       "slide": "04",
-      "label": "Workshop guide",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md",
+      "label": "Compiler pipeline",
+      "url": "https://github.com/CogniPilot/rumoca/blob/v0.10.2/docs/dev-guide/src/compiler/pipeline-overview.md",
       "x": 0.65,
       "y": 7.035,
-      "width": 11.72,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "04",
+      "label": "Custom targets",
+      "url": "https://github.com/CogniPilot/rumoca/blob/v0.10.2/docs/user-guide/src/codegen/custom-targets.md",
+      "x": 4.596666666666667,
+      "y": 7.035,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "04",
+      "label": "GaLEC / eFMI",
+      "url": "https://github.com/CogniPilot/rumoca/blob/v0.10.2/docs/user-guide/src/codegen/galec-efmi.md",
+      "x": 8.543333333333333,
+      "y": 7.035,
+      "width": 3.8266666666666667,
       "height": 0.4
     },
     {
@@ -4727,11 +5015,38 @@
     },
     {
       "slide": "19",
-      "label": "Workshop guide",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md",
+      "label": "Lean target.toml",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/templates/lean-proof/target.toml",
       "x": 0.65,
       "y": 7.035,
-      "width": 11.72,
+      "width": 2.8400000000000003,
+      "height": 0.4
+    },
+    {
+      "slide": "19",
+      "label": "Jinja template",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/templates/lean-proof/rhs.lean.jinja",
+      "x": 3.6100000000000003,
+      "y": 7.035,
+      "width": 2.8400000000000003,
+      "height": 0.4
+    },
+    {
+      "slide": "19",
+      "label": "Checked theorem",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/formal/Workshop.lean",
+      "x": 6.570000000000001,
+      "y": 7.035,
+      "width": 2.8400000000000003,
+      "height": 0.4
+    },
+    {
+      "slide": "19",
+      "label": "Try the walkthrough",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BACKENDS.md#walk-through-the-lean-target",
+      "x": 9.530000000000001,
+      "y": 7.035,
+      "width": 2.8400000000000003,
       "height": 0.4
     },
     {

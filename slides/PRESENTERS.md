@@ -36,7 +36,7 @@ reference figures on your laptop. Participant entry:
 | 10:45–11:00 | 12–14 | Planar model, parameter edit and Python Session API simulation. |
 | 11:00–11:10 | 15 | **Break 1**, ten full minutes. |
 | 11:10–11:50 | 16–18 | Synthetic data, JAX fit and before/after outputs. |
-| 11:50–11:55 | 19 | Checkpoint and independent work/questions. |
+| 11:50–11:55 | 19 | Fit checkpoint; Lean target.toml, Jinja loop and scoped theorem walkthrough. |
 | 11:55–12:00 | 20 | target.toml → Torch dynamics → differentiable hover policy. |
 | 12:00–12:10 | 21 | **Break 2**, ten full minutes. |
 | 12:10–12:40 | 22–23 | Constraints, CasADi solve and plots. |

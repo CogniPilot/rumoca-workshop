@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "tested_at_utc": "2026-10-12T10:44:46.715926+00:00",
+  "rumoca": "0.10.2",
+  "exercise": "Exact copy-and-comment Python snippet from docs/BACKENDS.md",
+  "model_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+  "template_sha256": "89ed252b731b68f2b766b3f9ffe0179b61bdd068667f5d257ccf0d80a7e51e24",
+  "checks": [
+    "Custom target directory generated both files through the Session API",
+    "Jinja iterated over compiler fields; rendered comments contain actual T/tau names",
+    "Generated Lean tokens identical to the checked baseline after comments removed",
+    "Solve operation JSON identical to the checked baseline"
+  ],
+  "scope": "Exercises template rendering and target invocation. No equations or theorem statements changed. Kernel proof rechecking is qualified separately in CI."
+}

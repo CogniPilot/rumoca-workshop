@@ -2,6 +2,7 @@
 from __future__ import annotations
 import re
 import hashlib
+import tomllib
 from pathlib import Path
 from slide_assets import build_assets
 from common import ROOT, write_json
@@ -95,6 +96,10 @@ def main():
             pdf_font = "WorkshopMono" if mono else "WorkshopBold" if bold else "Workshop"
             lines = []
             for paragraph in value.split("\n"):
+                # Preserve code indentation and spacing when a line already fits.
+                if mono and pdfmetrics.stringWidth(paragraph, pdf_font, size) <= w*72:
+                    lines.append(paragraph)
+                    continue
                 current = ""
                 words = []
                 for word in paragraph.split():
@@ -278,7 +283,56 @@ def main():
                 text(spec["bullets"][2], .7, 5.77, 11.9, 23, GOLD, bold=True, max_lines=1)
         else:
             heading()
-            if layout == "cards":
+            if layout == "pipeline":
+                text("Modelica source → parse", .7, 1.67, 11.9, 22, INK, bold=True, max_lines=1)
+                stages = [
+                    ("AST", "Parsed syntax +\nsource locations", TEAL),
+                    ("Flat", "Expanded hierarchy\n+ connections", BLUE),
+                    ("DAE", "Canonical equations;\nevents + clocks", ORANGE),
+                    ("Solve", "Scalar + tensor\ncomputation plans", TEAL),
+                ]
+                for i, (name, description, color) in enumerate(stages):
+                    x = .65 + i*3.11
+                    rect(x, 2.29, 2.7, 1.63, color, rounded=True)
+                    text(name, x+.2, 2.45, 2.3, 31, WHITE, bold=True, max_lines=1)
+                    text(description, x+.2, 3.10, 2.3, 15.5, WHITE, max_lines=2)
+                    if i < 3:
+                        text("→", x+2.76, 2.81, .29, 23, MUTED, max_lines=1)
+                text("resolve · typecheck · instantiate · flatten", .7, 4.08, 5.8, 14, MUTED, max_lines=1)
+                text("structural preparation → solve lowering", 6.91, 4.08, 5.73, 14, MUTED, max_lines=1)
+                text("Targets choose the IR they need.", .7, 4.72, 5.7, 22, INK, bold=True, max_lines=2)
+                text("Next: Solve → Jinja → Lean", .7, 5.47, 5.7, 21, TEAL, max_lines=1)
+                for x, name, description, color in [
+                    (6.87, "GaLEC", "Fixed-sample control\neFMI / embedded C", ORANGE),
+                    (9.98, "JAX · CasADi", "Torch · Lean\nContinuous dynamics", TEAL),
+                ]:
+                    text("↓", x+1.2, 4.40, .3, 20, color, max_lines=1)
+                    rect(x, 4.82, 2.7, 1.35, WHITE, rounded=True)
+                    text(name, x+.16, 4.99, 2.38, 20, color, bold=True, max_lines=1)
+                    text(description, x+.16, 5.50, 2.38, 14, INK, max_lines=2)
+            elif layout == "lean-target":
+                manifest = tomllib.loads((ROOT/"templates/lean-proof/target.toml").read_text())
+                output = next(item for item in manifest["files"] if item["path"] == "Generated.lean")
+                manifest_excerpt = (f'ir = "{manifest["ir"]}"\n[capabilities]\n'
+                                    f'events = {str(manifest["capabilities"]["events"]).lower()}\n'
+                                    f'[[files]]\npath = "{output["path"]}"\n'
+                                    f'template = "{output["template"]}"')
+                template = (ROOT/"templates/lean-proof/rhs.lean.jinja").read_text()
+                control = "structure Control where\n" + template.split("structure Control where\n", 1)[1].split("def generatedRhs", 1)[0].strip()
+                # Show the actual Jinja excerpt with its inline body on a separate line.
+                control = control.replace("%}  ", "%}\n  ")
+                rect(.65, 1.78, 4.08, 2.69, WHITE, rounded=True)
+                rect(4.95, 1.78, 7.73, 2.69, WHITE, rounded=True)
+                label("1  TARGET.TOML · excerpt", .85, 1.98, 3.64, BLUE)
+                label("2  RHS.LEAN.JINJA · actual input fields", 5.17, 1.98, 7.2, TEAL)
+                text(manifest_excerpt, .85, 2.33, 3.64, 15.5, INK, mono=True, max_lines=6)
+                text(control, 5.17, 2.33, 7.2, 15.5, INK, mono=True, max_lines=4)
+                text('Input names ["T", "tau"] → T : ℝ, tau : ℝ', 5.17, 3.60, 7.2, 20, TEAL, bold=True, max_lines=1)
+                text("{% ... %} repeats · {{ ... }} substitutes", 5.17, 4.14, 7.2, 16, MUTED, mono=True, max_lines=1)
+                label("3  INVOKE WITH THE SAME SESSION MODEL", .85, 4.74, 11.6, BLUE)
+                text('model.codegen("templates/lean-proof").save_all("formal")', .85, 5.08, 11.6, 19, INK, mono=True, max_lines=1)
+                text("Check hover: level + still, T = m·g, zero torque → zero derivatives", .85, 5.64, 11.6, 19, TEAL, bold=True, max_lines=1)
+            elif layout == "cards":
                 for i, bullet in enumerate(spec["bullets"]):
                     x, y = .65+(i%2)*6.17, 1.75+(i//2)*2.15
                     color = [TEAL, BLUE, ORANGE, TEAL][i]
@@ -345,8 +399,8 @@ def main():
             else:
                 raise ValueError(layout)
         if "command" in spec:
-            rect(.65, 6.08, 12.03, .48, INK, rounded=True)
-            text("$ " + spec["command"], .85, 6.18, 11.7, 18, WHITE, mono=True, max_lines=1)
+            rect(.65, 6.08, 12.03, .53, INK, rounded=True)
+            text("$ " + spec["command"], .85, 6.13, 11.7, 18, WHITE, mono=True, max_lines=1)
         cp = spec["checkpoint"]
         rect(.65, 6.68, .06, .25, GOLD if dark else accent)
         cp_size=min(18, 11.83*72/pdfmetrics.stringWidth(cp, "WorkshopBold", 18)*18)
@@ -383,6 +437,7 @@ def main():
     inputs = {"slides/workshop.md", "models/Quadrotor.mo", "data/noisy_flight.csv",
               "results/reference/fit_drag.json", "results/reference/trajectory.npz",
               "scripts/build_slides.py", "scripts/slide_assets.py", "pyproject.toml", "uv.lock"}
+    inputs.update({"templates/lean-proof/target.toml", "templates/lean-proof/rhs.lean.jinja"})
     media_keys = ["visual", "movie", "poster", "photo", "purdue logo", "penn state logo", "nxp logo"]
     inputs.update(str((out/s[key]).resolve().relative_to(ROOT))
                   for s in slides for key in media_keys if key in s)

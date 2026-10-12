@@ -85,6 +85,15 @@ Both raw code-generation targets `jax-ode` and `casadi-ode` were executed.
 
 ## Lean and primary literature
 
+Slides 4 and 19 now connect the compiler representations with the actual Lean
+target: AST/Flat/DAE/Solve, the separate GaLEC embedded-control projection,
+manifest IR/capabilities/files, Jinja iteration/substitution and a scoped hover
+theorem. The [template exercise receipt](../verification/lean-target-walkthrough.json)
+records execution of the exact copy-and-comment example in BACKENDS.md:
+comments contain the compiler's field names, generated Lean tokens match the
+checked baseline after comments are removed, and the Solve JSON is unchanged.
+This rendering exercise complements the kernel proof checks below.
+
 Lean 4.29.1 + public Mathlib v4.29.1, exact commit
 `5e932f97dd25535344f80f9dd8da3aab83df0fe6`. Clean CI regenerated the actual
 Solve→Lean representation without a diff, built the proofs, rechecked terms

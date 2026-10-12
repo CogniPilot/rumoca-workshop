@@ -67,7 +67,7 @@ def main():
         pdfmetrics.registerFont(TTFont(name, findfont(FontProperties(family=family, weight=weight))))
     pdf = canvas.Canvas(str(out/"workshop.pdf"), pagesize=(W*72, H*72))
     pdf.setTitle(prs.core_properties.title); pdf.setAuthor(prs.core_properties.author)
-    audit = []
+    audit, hyperlinks = [], []
     for spec in slides:
         slide = prs.slides.add_slide(prs.slide_layouts[6])
         slide.background.fill.solid(); slide.background.fill.fore_color.rgb = RGBColor.from_string(PAPER)
@@ -301,10 +301,29 @@ def main():
         rect(.65, 6.68, .06, .25, GOLD if dark else accent)
         cp_size=min(18, 11.83*72/pdfmetrics.stringWidth(cp, "WorkshopBold", 18)*18)
         text(cp, .85, 6.67, 11.83, cp_size, GOLD if dark else accent, bold=True, max_lines=1)
-        rule(.65, 7.13, 12.03, "344153" if dark else LINE)
-        text("PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026", .7, 7.17, 8.15, 8, "D1D7DF" if dark else MUTED, max_lines=1)
-        stagebar(7.18)
-        text(spec["number"], 12.43, 7.13, .3, 10, GOLD if dark else accent, bold=True, max_lines=1)
+        links = [entry.split(" | ", 1) for entry in spec.get("links", "").split(" ; ") if entry]
+        if links:
+            button_w = (11.72 - .12*(len(links)-1))/len(links)
+            for i, (caption, url) in enumerate(links):
+                assert url.startswith("https://"), (spec["number"], url)
+                x, y, h = .65+i*(button_w+.12), 7.035, .40
+                first_shape = len(slide.shapes)
+                rect(x, y, button_w, h, GOLD if dark else accent, rounded=True)
+                text(caption+" ↗", x+.12, y+.04, button_w-.24, 13,
+                     INK if dark else WHITE, bold=True, max_lines=1)
+                # Both the label and background are full clickable shapes.
+                for shape in list(slide.shapes)[first_shape:]:
+                    shape.click_action.hyperlink.address = url
+                pdf.linkURL(url, (x*72, (H-y-h)*72, (x+button_w)*72, (H-y)*72),
+                            relative=0, thickness=0)
+                hyperlinks.append({"slide":spec["number"], "label":caption, "url":url,
+                                   "x":x, "y":y, "width":button_w, "height":h})
+            text(spec["number"], 12.5, 7.12, .35, 10, GOLD if dark else accent, bold=True, max_lines=1)
+        else:
+            rule(.65, 7.13, 12.03, "344153" if dark else LINE)
+            text("PURDUE AEROSPACE  /  GEORGIA TECH  /  AMC 2026", .7, 7.17, 8.15, 8, "D1D7DF" if dark else MUTED, max_lines=1)
+            stagebar(7.18)
+            text(spec["number"], 12.43, 7.13, .3, 10, GOLD if dark else accent, bold=True, max_lines=1)
         slide.notes_slide.notes_text_frame.text = spec["time"]+"\n"+spec["notes"]
         pdf.showPage()
     prs.save(str(out/"workshop.pptx"))
@@ -319,7 +338,7 @@ def main():
                "schedule_minutes": 180, "break_minutes": 20, "source": "slides/workshop.md",
                "input_sha256": {p: digest(p) for p in sorted(inputs)},
                "artifact_sha256": {p: digest(p) for p in ["slides/workshop.pptx", "slides/workshop.pdf"]},
-               "rendered_text": audit, "notes_in_pptx": True})
+               "rendered_text": audit, "hyperlinks": hyperlinks, "notes_in_pptx": True})
     print(f"Built {len(slides)} slides, PPTX + PDF, 180-minute schedule, speaker notes")
 
 

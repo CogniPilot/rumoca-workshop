@@ -5,9 +5,9 @@ presenter demonstration uses the **same `models/Quadrotor.mo`** as the core,
 then renders its checked scalar Solve program into batched PyTorch operations.
 No Python vehicle equations are added.
 
-The teaching target is in [templates/torch-ode](templates/torch-ode).
-[target.toml](templates/torch-ode/target.toml) declares its IR, capabilities and
-output file; [rhs.py.jinja](templates/torch-ode/rhs.py.jinja) maps supported
+The teaching target is in [templates/torch-ode](../templates/torch-ode).
+[target.toml](../templates/torch-ode/target.toml) declares its IR, capabilities and
+output file; [rhs.py.jinja](../templates/torch-ode/rhs.py.jinja) maps supported
 operations to Torch. The pinned Rumoca release accepts an external target
 directory through `model.codegen(path)`. See the
 [official custom-target guide for 0.10.2](https://github.com/CogniPilot/rumoca/blob/v0.10.2/docs/user-guide/src/codegen/custom-targets.md).
@@ -24,7 +24,7 @@ The optional group pins **PyTorch 2.10.0 CPU** and adds about a 180 MiB wheel;
 the core environment does not install it. This route is qualified on Linux x64,
 including the two-core workshop Codespace. Mac/Windows participants can watch
 the demonstration, use the Codespace or inspect the saved
-[policy plot](results/reference/torch_policy.png).
+[policy plot](../results/reference/torch_policy.png).
 
 The first command creates `generated/torch-ode/Quadrotor_torch.py`. Inspect its
 state/input/parameter maps and the `torch.stack` output. It checks 101 batched
@@ -50,7 +50,7 @@ uses 64 initial conditions for two seconds and 60 Adam updates. Evaluation uses
 weights altitude error, vertical velocity and thrust correction. The reference
 held-out cost falls from about **0.116 to 0.021**. The script also checks complete
 rollout gradients and reintegrates with four substeps while preserving the
-feedback sampling period. See [reference results](results/reference/torch_policy.json).
+feedback sampling period. See [reference results](../results/reference/torch_policy.json).
 
 This is **model-based differentiable policy optimization**, a bridge to RL;
 it is not PPO, DQN or a full-flight trained vehicle. A learned simulator,
@@ -85,3 +85,23 @@ qualifies specific CPU workflows; this target demonstrates one extension seam.
 The guide's browser flow demo exercises a separate experimental WebGPU path.
 Automatic hardware partitioning, general solver optimization and production
 RL throughput remain research questions to benchmark and validate.
+
+## The Session API connects the targets
+
+The shared helper in `scripts/common.py` already uses Rumoca's Python Session
+API for the core JAX and CasADi examples. A minimal custom-target call is:
+
+```python
+import rumoca as rm
+model = rm.Session().load("models/Quadrotor.mo", model="Quadrotor")
+model.codegen("templates/lean-proof").save_all("formal")
+```
+
+The [Lean target](../templates/lean-proof/target.toml) renders fields, operations
+and the exact-real RHS in [rhs.lean.jinja](../templates/lean-proof/rhs.lean.jinja).
+Python only invokes the target, checks the workshop layout and records hashes.
+The JSON output exposes the same checked Solve program for inspection.
+The teaching target rejects unsupported operations and events; constants must
+be finite integers. Extending this subset requires an exact rational rule and
+new proof checks. This target and the compiler remain trusted; the Lean kernel
+checks the exported equations and the 17 scoped workshop theorems.

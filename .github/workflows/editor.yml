@@ -10,7 +10,7 @@ on:
       - '.github/workflows/editor.yml'
       - '.devcontainer/**'
       - '.vscode/**'
-      - 'LOCAL_SETUP.md'
+      - 'docs/LOCAL_SETUP.md'
 permissions:
   contents: read
 jobs:

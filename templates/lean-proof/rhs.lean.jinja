@@ -1,0 +1,44 @@
+{# Teaching backend: the template owns all type and equation rendering. #}
+{% set unary = {"Sin": "Real.sin", "Cos": "Real.cos", "Sqrt": "Real.sqrt", "Neg": "Neg.neg"} -%}
+{% set binary = {"Add": "+", "Sub": "-", "Mul": "*", "Div": "/"} -%}
+{% set parameters = namespace(names=[]) -%}
+{% for role in ["parameter", "constant"] %}{% for variable in dae.variables %}{% if variable.role == role %}{% for name in variable.scalar_names %}{% set parameters.names = parameters.names + [name] %}{% endfor %}{% endif %}{% endfor %}{% endfor -%}
+{% if solve_blocks.continuous.derivative_rhs.output_count != solve.solve_layout.state_scalar_count %}{{ fail("lean teaching target requires one explicit derivative per state") }}{% endif -%}
+-- Real-arithmetic interpretation of the checked scalar Solve program.
+-- Floating-point execution, compiler correctness, and this template are outside the proof.
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
+import Mathlib.Analysis.SpecialFunctions.Exp
+import Mathlib.Tactic
+
+namespace Workshop
+noncomputable section
+
+structure State where
+{% for name in solve.solve_layout.solver_maps.names %}{% if loop.index0 < solve.solve_layout.state_scalar_count %}  {{ name }} : ℝ
+{% endif %}{% endfor %}
+structure Params where
+{% for name in parameters.names %}  {{ name }} : ℝ
+{% endfor %}
+structure Control where
+{% for name in solve.solve_layout.input_scalar_names %}  {{ name }} : ℝ
+{% endfor %}
+def generatedRhs (_t : ℝ) (s : State) (u : Control) (p : Params) : State :=
+{% for program in solve_blocks.continuous.derivative_rhs.scalar_plan.programs -%}
+{% for op in program.ops -%}
+{% if op.kind == "StoreOutput" %}  let o{{ op.output_index }} := r{{ op.src }}
+{% elif op.kind == "LoadY" %}  let r{{ op.dst }} := s.{{ solve.solve_layout.solver_maps.names[op.index] }}
+{% elif op.kind == "LoadP" and op.index < solve.solve_layout.parameter_count %}  let r{{ op.dst }} := p.{{ parameters.names[op.index] }}
+{% elif op.kind == "LoadP" and op.index < solve.solve_layout.parameter_count + (solve.solve_layout.input_scalar_names | length) %}  let r{{ op.dst }} := u.{{ solve.solve_layout.input_scalar_names[op.index - solve.solve_layout.parameter_count] }}
+{% elif op.kind == "LoadTime" %}  let r{{ op.dst }} := _t
+{% elif op.kind == "Move" %}  let r{{ op.dst }} := r{{ op.src }}
+{% elif op.kind == "Const" %}{% if op.value_class != "finite" or op.value != (op.value | int) %}{{ fail("lean teaching target only supports finite integer constants; add an exact rational rule before extending it") }}{% endif %}  let r{{ op.dst }} := ({{ op.value | int }} : ℝ)
+{% elif op.kind == "Unary" and op.operator in unary %}  let r{{ op.dst }} := {{ unary[op.operator] }} r{{ op.arg }}
+{% elif op.kind == "Binary" and op.operator in binary %}  let r{{ op.dst }} := r{{ op.lhs }} {{ binary[op.operator] }} r{{ op.rhs }}
+{% else %}{{ fail("unsupported-feature:workshop-lean." ~ op.kind ~ "." ~ op.operator) }}
+{% endif -%}
+{% endfor -%}
+{% endfor %}  { {% for name in solve.solve_layout.solver_maps.names %}{% if loop.index0 < solve.solve_layout.state_scalar_count %}{{ name }} := o{{ loop.index0 }}{% if loop.index0 + 1 < solve.solve_layout.state_scalar_count %}, {% endif %}{% endif %}{% endfor %} }
+
+end
+end Workshop

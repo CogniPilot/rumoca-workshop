@@ -4,6 +4,7 @@
     "ms-python.python",
     "mathematic.vscode-pdf",
     "leanprover.lean4",
-    "samuelcolvin.jinjahtml"
+    "samuelcolvin.jinjahtml",
+    "bierner.markdown-preview-github-styles"
   ]
 }

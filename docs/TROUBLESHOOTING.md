@@ -1,7 +1,7 @@
 # Recover and keep participating
 
 **If setup takes more than ten minutes:** use the browser exercise, pair with a
-working laptop and interpret [reference results](results/reference). The workshop
+working laptop and interpret [reference results](../results/reference). The workshop
 does not require Docker, CUDA, an AI account, Nix or a Google account.
 
 | Symptom | Fix |

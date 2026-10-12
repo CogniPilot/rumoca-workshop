@@ -1,7 +1,7 @@
 version = 1
 ir = "solve"
 name = "workshop-proof-export"
-description = "Export the checked scalar Solve program for scoped Lean verification"
+description = "Render scoped Lean types and RHS directly from checked scalar Solve operations"
 
 [capabilities]
 continuous_states = true
@@ -16,3 +16,7 @@ dynamic_control_flow = false
 [[files]]
 path = "solve_program.json"
 template = "program.json.jinja"
+
+[[files]]
+path = "Generated.lean"
+template = "rhs.lean.jinja"

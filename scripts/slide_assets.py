@@ -139,9 +139,9 @@ def build_assets():
     ax.annotate("", xy=(.8, 1.2), xytext=(11., 1.2), arrowprops={"arrowstyle": "->", "lw": 2, "connectionstyle": "arc3,rad=-.08", "color": gold})
     ax.text(6, .25, "Measure discrepancies. Improve the model and experiment.", ha="center", fontsize=22)
     save(fig, "research-loop.png")
-    qrcode.make("https://github.com/CogniPilot/rumoca_workshop_amc2026").save(dest/"repo-qr.png")
+    qrcode.make("https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1").save(dest/"repo-qr.png")
     qrcode.make("https://pylon-racing.geddes.rcac.purdue.edu/").save(dest/"pylon-qr.png")
-    qrcode.make("https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/COMMUNITY.md").save(dest/"community-qr.png")
+    qrcode.make("https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/COMMUNITY.md").save(dest/"community-qr.png")
 
 
 if __name__ == "__main__":

@@ -4,10 +4,10 @@
 Purdue University, School of Aeronautics and Astronautics
 American Modelica Conference · Georgia Tech · October 12, 2026 · 10:00–13:00
 
-Use [slides/workshop.pptx](slides/workshop.pptx); its speaker notes and
-[editable source](slides/workshop.md) carry the timed cues. Keep the PDF and
+Use [slides/workshop.pptx](../slides/workshop.pptx); its speaker notes and
+[editable source](../slides/workshop.md) carry the timed cues. Keep the PDF and
 reference figures on your laptop. Participant entry:
-<https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/WORKSHOP.md>.
+<https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md>.
 
 ## Presentation preflight
 

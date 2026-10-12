@@ -1,7 +1,8 @@
 -- Generated from models/Quadrotor.mo by Rumoca 0.10.2
 -- Model SHA256: 3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a
+
 -- Real-arithmetic interpretation of the checked scalar Solve program.
--- Floating-point execution, compiler correctness, and this translator are outside the proof.
+-- Floating-point execution, compiler correctness, and this template are outside the proof.
 import Mathlib.Analysis.SpecialFunctions.Sqrt
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
 import Mathlib.Analysis.SpecialFunctions.Exp

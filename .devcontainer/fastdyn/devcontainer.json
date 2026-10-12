@@ -1,0 +1,49 @@
+{
+  "name": "FastDyn + Rumoca: optional firmware Monte Carlo",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": "../.."
+  },
+  "remoteUser": "vscode",
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "containerEnv": {
+    "JAX_PLATFORMS": "cpu",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "JamesGoppert.rumoca-modelica@0.10.2",
+        "ms-python.python",
+        "mathematic.vscode-pdf@0.1.11",
+        "leanprover.lean4@0.0.240",
+        "samuelcolvin.jinjahtml@0.20.0",
+        "bierner.markdown-preview-github-styles@2.2.0"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+        "extensions.autoUpdate": false,
+        "workbench.editorAssociations": {
+          "*.pdf": "pdf.view"
+        },
+        "pdf.defaultZoomValue": "page-fit",
+        "files.associations": {
+          "*.py.jinja": "jinja-py"
+        }
+      }
+    }
+  },
+  "postCreateCommand": "uv sync --frozen && uv run --frozen python scripts/ensure_codespace_extension.py && uv run --frozen python scripts/smoke_test.py && uv run --frozen python scripts/fastdyn_demo.py --prepare",
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "8gb",
+    "storage": "32gb"
+  },
+  "waitFor": "postCreateCommand",
+  "shutdownAction": "stopContainer"
+}

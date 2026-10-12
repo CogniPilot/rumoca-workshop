@@ -167,8 +167,8 @@ and a 45-second demo: baseline → one change → rerun → compare.
 The existing app already runs a Modelica plant and waypoint controller in WASM;
 the workshop rehearsed both 50 Hz and 20 Hz through its public UI.
 [Run it](https://cognipilot.github.io/rumoca_fixed_wing/) and
-[see the receipt](verification/app-rumoca_fixed_wing.json).
-A [fresh-checkout rehearsal](verification/app-starter.json) also reproduced the
+[see the receipt](../verification/app-rumoca_fixed_wing.json).
+A [fresh-checkout rehearsal](../verification/app-starter.json) also reproduced the
 unchanged app from its pinned source and npm package.
 The new comparison app is a challenge specification, rather than a completed
 app or a guarantee about a particular agent's three-hour performance.

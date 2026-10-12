@@ -15,7 +15,7 @@ def digest(name):
     return hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
 
 def main():
-    documents = list(ROOT.glob("*.md")) + list((ROOT/"data").glob("*.md")) + [ROOT/"slides/workshop.md"]
+    documents = list(ROOT.glob("*.md")) + list((ROOT/"docs").glob("*.md")) + list((ROOT/"data").glob("*.md")) + [ROOT/"slides/workshop.md"]
     documents = [p for p in documents if p.name != "Rumoca_Workshop_Handoff.md"]
     links = 0
     for doc in documents:
@@ -37,6 +37,8 @@ def main():
     assert proof["model_sha256"] == source
     assert proof["solve_program_sha256"] == digest("formal/solve_program.json")
     assert proof["lean_sha256"] == digest("formal/Generated.lean")
+    for name, expected in proof["target_sha256"].items():
+        assert digest("templates/lean-proof/"+name) == expected
     bundle = (ROOT/"browser/Quadrotor_browser.mo").read_text(encoding="utf-8")
     assert source in bundle and (ROOT/"models/Quadrotor.mo").read_text(encoding="utf-8").strip() in bundle
     with (ROOT/"data/noisy_flight.csv").open(newline="") as f:
@@ -59,6 +61,17 @@ def main():
         assert len(slides) == build["slides"] == len(notes) == 28
         presentation = ET.fromstring(deck.read("ppt/presentation.xml"))
         assert len(presentation.find("p:sldIdLst", ns)) == 28
+        for index in range(1, 29):
+            number = f"{index:02}" if index <= 24 else f"A{index-24}"
+            expected = {link["url"] for link in build["hyperlinks"] if link["slide"] == number}
+            relations = ET.fromstring(deck.read(f"ppt/slides/_rels/slide{index}.xml.rels"))
+            actual = {r.attrib["Target"] for r in relations if r.attrib["Type"].endswith("/hyperlink")}
+            assert expected and expected <= actual, f"Missing clickable slide links: {number}"
+    pdf = (ROOT/"slides/workshop.pdf").read_bytes()
+    for link in build["hyperlinks"]:
+        # ReportLab emits URL annotations as literal PDF strings, escaping parentheses.
+        encoded = link["url"].replace("\\", "\\\\").replace("(", "\\(").replace(")", "\\)").encode()
+        assert encoded in pdf, f"Missing PDF link: {link['url']}"
     for name in ["rumoca_fixed_wing", "slam_web", "mocap_sysid"]:
         assert read(f"verification/app-{name}.json")["status"] == "PASS"
         assert (ROOT/f"slides/assets/app-{name}.png").is_file()
@@ -72,7 +85,7 @@ def main():
     report = {"status":"PASS", "local_markdown_links":links, "slides":28, "schedule_minutes":180,
               "break_minutes":20, "model_sha256":source,
               "checks":["local links", "shared model/result/CSV/formal/browser provenance", "deck input/artifact hashes",
-                        "PPTX slides, speaker notes and office-renderer provenance", "app rehearsal receipts",
+                        "PPTX slides, notes, clickable links and office-renderer provenance", "app rehearsal receipts",
                         "Torch target and policy source/template provenance", "embedded user-guide rehearsal receipt"],
               "scope":"Packaging consistency. Mathematical, numerical and UI checks have separate receipts."}
     (ROOT/"verification/materials.json").write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8", newline="\n")

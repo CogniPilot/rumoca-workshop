@@ -10,8 +10,8 @@ smooth ODE and its stated parameters, not arbitrary Modelica or real flight.
 at commit `5c59bd3` passed all **seven** jobs: four Python OS runners,
 full devcontainer configuration, features and startup commands, pinned-flake CPU/Torch checks, and
 generated-equation Lean proof checking.
-The machine-readable [job receipt](verification/ci-jobs.json) and
-[platform reports](verification/platforms) record exact platforms and results.
+The machine-readable [job receipt](../verification/ci-jobs.json) and
+[platform reports](../verification/platforms) record exact platforms and results.
 The receipt records the exact tested commit and job URLs. Subsequent receipt
 and documentation updates do not change the qualified model or numerical code.
 
@@ -62,7 +62,7 @@ No backend substitutes handwritten vehicle dynamics.
   max dynamics defect about `1.7e−14`; exact terminal-node constraints.
   Reintegrated altitude error about 2.1 mm. Physical bounds include rotor-pair
   realizability, pitch-node margin and sampled/finer checks.
-- [Independent audit](results/reference/math_audit.json): analytic linear-drag
+- [Independent audit](../results/reference/math_audit.json): analytic linear-drag
   coasting, JAX/CasADi Jacobians including zero-speed regimes, full-objective
   finite-difference checks, six starting guesses, twelve noise seeds and
   re-optimized profiles. Maximum noise-seed relative coefficient error about
@@ -70,7 +70,7 @@ No backend substitutes handwritten vehicle dynamics.
   peak approximately **0.54164 rad**, below the 0.55 physical limit.
 
 One-coefficient recovery was executed successfully: quadratic ≈0.08001 with
-known linear 0.18; [receipt](verification/recovery-fit_drag.json). Target x=3
+known linear 0.18; [receipt](../verification/recovery-fit_drag.json). Target x=3
 variant also solved with no stored warm start; fine terminal error ≈1.6 mm,
 and it is independently audited in `verification/target3-math_audit.json`.
 These optional results apply to the rehearsed variants, not arbitrary targets.
@@ -82,7 +82,7 @@ Lean 4.29.1 + public Mathlib v4.29.1, exact commit
 `5e932f97dd25535344f80f9dd8da3aab83df0fe6`. Clean CI regenerated the actual
 Solve→Lean representation without a diff, built the proofs, rechecked terms
 with **leanchecker**, and rejected admissions/custom axioms. The assumption
-log is [verification/lean-ci.txt](verification/lean-ci.txt). Exact theorem
+log is [verification/lean-ci.txt](../verification/lean-ci.txt). Exact theorem
 statements, trusted boundary, dimensional review and checked primary papers:
 [MATH_REVIEW.md](MATH_REVIEW.md).
 
@@ -102,28 +102,28 @@ model selector, **BrowserFlight** selected, and Play at quadratic values 0 and
 plot. Browser-reported simulation times approximately 48 ms and 10 ms;
 automation waited longer for rendering. Runtime **0.8.13**, distinct from the
 Python release. Intentional syntax errors produced browser LSP markers.
-Evidence: [browser.json](verification/browser.json), actual screenshots in
-`slides/assets/`, reproducible [UI test](verification/browser-proof.mjs).
+Evidence: [browser.json](../verification/browser.json), actual screenshots in
+`slides/assets/`, reproducible [UI test](../verification/browser-proof.mjs).
 
 The released **0.10.2** VSIX was installed in isolated real **VS Code 1.119.0**
 extension hosts on **Linux x64, Windows x64, macOS ARM64 and macOS x64**.
 Verified activation, no errors on the canonical model, `sin` completion,
 parameter hover, errors on intentionally invalid syntax, and clean diagnostics
 after restoring valid source. CI checks the exact version and
-[release VSIX hashes](verification/vsix-sha256.json) before qualification.
+[release VSIX hashes](../verification/vsix-sha256.json) before qualification.
 [Editor CI run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38189450891)
-passed all four jobs. Receipts: [verification/editors](verification/editors),
-local [vscode-linux.json](verification/vscode-linux.json), actual
+passed all four jobs. Receipts: [verification/editors](../verification/editors),
+local [vscode-linux.json](../verification/vscode-linux.json), actual
 `vscode-quadrotor.png`, and test source in `verification/`.
 
 The same released extension passed from a **native VS Code workspace extension
 host inside an actual two-core GitHub Codespace**. Desktop VS Code connected
 over Remote SSH; the remote test ran the same activation, hover, completion,
-broken-syntax and restoration checks. [Cloud editor receipt](verification/codespace-editor.json).
+broken-syntax and restoration checks. [Cloud editor receipt](../verification/codespace-editor.json).
 Startup also installed the pinned, hash-checked VSIX in Codespaces' normal
 remote extension directory and confirmed the second invocation was idempotent.
 The latest full rebuild also installed **PDF Viewer** and **Lean 4** before
-editor attachment; [extension receipt](verification/codespace-extensions.json).
+editor attachment; [extension receipt](../verification/codespace-extensions.json).
 The Lean extension supplies editor support; toolchain/Mathlib setup remains
 optional and separate from the CI proof qualification.
 
@@ -138,8 +138,8 @@ state/input/parameter Jacobians against JAX/CasADi, forward/reverse AD,
 finite-difference gradcheck and unsupported-feature rejection. The small vertical
 policy's held-out cost improved **0.1156→0.0210** on 128 new initial conditions;
 complete rollout gradients and fixed-sampling fine integration passed.
-[Backend receipt](results/reference/torch_backend.json),
-[policy receipt](results/reference/torch_policy.json). Both commands also passed
+[Backend receipt](../results/reference/torch_backend.json),
+[policy receipt](../results/reference/torch_policy.json). Both commands also passed
 in the actual two-core Codespace: about **11 s** and **14 s** after package setup.
 This is a restricted differentiable policy-learning task with known parameters,
 not a full-flight or model-free RL qualification. The optional CPU package is
@@ -149,9 +149,9 @@ The deployed [user guide](https://cognipilot.github.io/rumoca/user-guide/) embed
 editors and simulations. Its NACA flow example passed an edit from 30 to 2 s,
 default-grid WebGPU simulation, final-frame selection and Pressure/Vorticity
 switching in Chromium with a **software** adapter. About **21 s** total UI time;
-reported integration about **6.6 s**. [Receipt](verification/user-guide.json),
-[test](verification/user-guide-proof.mjs),
-[capture](slides/assets/user-guide-naca.png). This is an experimental coarse
+reported integration about **6.6 s**. [Receipt](../verification/user-guide.json),
+[test](../verification/user-guide-proof.mjs),
+[capture](../slides/assets/user-guide-naca.png). This is an experimental coarse
 artificial-compressibility/penalization visualization, not a CFD accuracy or
 hardware-throughput test. The guide runs a separate deployed compiler/runtime.
 
@@ -170,22 +170,22 @@ The public Chromium UI rehearsal passed for all three linked applications:
 - `rumoca_fixed_wing`: compiled the default Modelica controller and plant,
   observed waypoint/time progress at 50 Hz, selected 20 Hz, **restarted to
   compile at the new rate**, observed progress again and paused; about 14 s
-  for the whole test. [Receipt](verification/app-rumoca_fixed_wing.json).
-  A [fresh-checkout rehearsal](verification/app-starter.json) also reproduced
+  for the whole test. [Receipt](../verification/app-rumoca_fixed_wing.json).
+  A [fresh-checkout rehearsal](../verification/app-starter.json) also reproduced
   the source at `3b972ccb1d5f795771ca9132f9a7e3d00d802145`, installed its pinned
   npm dependencies, passed the upstream static check, and ran the same 50/20 Hz
   interaction locally in about 13 s. This does not qualify new comparison features.
 - `slam_web`: ran and paused `InertialOnly`, selected `ResponsiveInertial`,
   ran and paused again; simulated time advanced in both. Software WebGL warning
-  and lightweight preview were visible; about 25 s. [Receipt](verification/app-slam_web.json).
+  and lightweight preview were visible; about 25 s. [Receipt](../verification/app-slam_web.json).
 - `mocap_sysid`: selected synthetic open-loop data, opened Time Histories,
   Data Splits and Models, then selected LinearSS; about 6 s.
-  [Receipt](verification/app-mocap_sysid.json).
+  [Receipt](../verification/app-mocap_sysid.json).
 
 WASM requests returned HTTP 200 for fixed-wing and SLAM Lab. The tested mocap
 viewer path displays stored results and does not invoke WASM. No page errors
 occurred on the successful rehearsals. Actual screenshots are in
-`slides/assets/app-*.png`; [test](verification/apps-proof.mjs).
+`slides/assets/app-*.png`; [test](../verification/apps-proof.mjs).
 These are UI execution checks, not independent validation of benchmark metrics,
 visual-SLAM completion, real flight or the applications’ complete mathematics.
 The workshop’s planar-model Lean proofs do not cover these different models.
@@ -199,7 +199,7 @@ The maintainer packaging script updates that reference, signature and wheel
 RECORD without altering compiler code. Both artifacts passed qualification and
 are selected by frozen hashes; participants use the ordinary uv commands.
 [Qualification run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38169067520),
-[provenance](verification/wheels), [notice](NOTICE.md).
+[provenance](../verification/wheels), [notice](NOTICE.md).
 
 The container CI now uses Dev Container CLI 0.87.0 from the pinned flake to
 exercise `devcontainer.json`, SSH feature installation, workspace ownership and
@@ -227,12 +227,12 @@ for font substitution/projector differences before class.
 
 The editable PPTX was also rendered by **LibreOffice Impress 26.2.1.2** on Linux.
 All 28 pages retained every authored text item, with extracted text inside page
-bounds. [Presentation receipt](verification/presentation.json) records the
+bounds. [Presentation receipt](../verification/presentation.json) records the
 artifact hash and scope. This adds an office-renderer check to the PDF review;
 the actual presentation laptop and projector remain preflight items.
 
 An actual two-core Codespace built the devcontainer and passed the core, audit,
-optional Torch and native remote-LSP checks. The [cloud receipt](verification/codespace.json)
+optional Torch and native remote-LSP checks. The [cloud receipt](../verification/codespace.json)
 records source/configuration hashes and results. Account quotas, prebuild readiness,
 region availability and simultaneous class capacity are not established by
 that individual rehearsal. Venue Wi-Fi and the presentation laptop/projector are preflight
@@ -247,3 +247,8 @@ coding agents are optional. Up to five 45-second experiment demos are selected b
 random draw, followed by an audience hand vote. The Artemis/Three.js idea is
 only an [example prompt](APP_PROMPT.md); no rocket app/model was added.
 [PRESENTERS.md](PRESENTERS.md) contains presentation and facilitation checks.
+
+The separate FastDyn/QEMU environment is optional and does not alter the core
+container's numerical dependencies. The three-flight workshop campaign is under
+qualification; upstream recorded firmware missions are linked as a fallback.
+Do not infer Codespace readiness from upstream CI alone. See [FASTDYN.md](FASTDYN.md).

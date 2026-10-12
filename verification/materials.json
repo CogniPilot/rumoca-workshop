@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "local_markdown_links": 137,
+  "local_markdown_links": 138,
   "slides": 28,
   "schedule_minutes": 180,
   "break_minutes": 20,
@@ -9,7 +9,7 @@
     "local links",
     "shared model/result/CSV/formal/browser provenance",
     "deck input/artifact hashes",
-    "PPTX slides, speaker notes and office-renderer provenance",
+    "PPTX slides, notes, clickable links and office-renderer provenance",
     "app rehearsal receipts",
     "Torch target and policy source/template provenance",
     "embedded user-guide rehearsal receipt"

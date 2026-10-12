@@ -27,7 +27,7 @@ and a clear question are enough to begin; no aerospace background is required.
   [compiler issues](https://github.com/CogniPilot/rumoca/issues) welcome concrete reproductions.
 - [CogniPilot Modelica models](https://github.com/CogniPilot/modelica_models):
   reusable physics, Lie groups, estimation, planning and control building blocks.
-- [This workshop](README.md): a small shared-model workflow with synthetic data,
+- [This workshop](../README.md): a small shared-model workflow with synthetic data,
   numerical checks and [scoped Lean proofs](MATH_REVIEW.md).
 - [Browser workbenches](BROWSER_APPS.md): fixed-wing experiments, a SLAM example
   in development and a motion-capture results viewer.

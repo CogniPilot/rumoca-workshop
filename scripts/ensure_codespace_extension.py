@@ -31,7 +31,8 @@ def main():
     # Keep the viewer compatible with both the qualified desktop and cloud editors.
     for identifier, version in (("mathematic.vscode-pdf", "0.1.11"),
                                 ("leanprover.lean4", "0.0.240"),
-                                ("samuelcolvin.jinjahtml", "0.20.0")):
+                                ("samuelcolvin.jinjahtml", "0.20.0"),
+                                ("bierner.markdown-preview-github-styles", "2.2.0")):
         subprocess.run([str(servers[0]), "--install-extension", identifier+"@"+version,
                         "--extensions-dir", str(extension_root), "--force"], check=True)
         installed = [json.loads(path.read_text())

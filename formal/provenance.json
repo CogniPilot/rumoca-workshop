@@ -23,6 +23,11 @@
     "tau"
   ],
   "solve_program_sha256": "c22b43487fa66b7ac279342c226e3d2f3eeb269ca8be7ea2f4530a80af88d621",
-  "lean_sha256": "7abbed396d282ef8ed7c6542ee9475b9e34bbba0cc7698f9a4606505f9c94a5e",
-  "scope": "Actual checked Solve RHS operations translated to real arithmetic; bridge not formally verified."
+  "lean_sha256": "ff6bc9c0706215cc6ea6ed25cbb2b889c1abff00234c1a93dee31ff389d2c5ad",
+  "target_sha256": {
+    "program.json.jinja": "c14bdf63dc0e835ebdb206a2dee1f22538e7a1fc920f62df3b3f832b82accb01",
+    "rhs.lean.jinja": "89ed252b731b68f2b766b3f9ffe0179b61bdd068667f5d257ccf0d80a7e51e24",
+    "target.toml": "b6278e81cbda221c41f144174c359e52239ca24b4bc2c14914d065a119073fb8"
+  },
+  "scope": "Actual checked Solve RHS rendered by the Jinja target as real arithmetic; target not formally verified."
 }

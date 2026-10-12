@@ -4,9 +4,9 @@
 James Goppert · Micah Condie
 Purdue University, School of Aeronautics and Astronautics
 
-Start with [README.md](README.md) to choose browser, cloud or local access.
+Start with [README.md](../README.md) to choose browser, cloud or local access.
 Keep this worksheet open. Work in pairs if only one laptop has Python running.
-Every core exercise has a [reference figure](results/reference) for recovery.
+Every core exercise has a [reference figure](../results/reference) for recovery.
 The math assumptions and proofs are in [MATH_REVIEW.md](MATH_REVIEW.md).
 No aerospace background is required; the example lets us change a parameter,
 fit measurements and solve a constrained problem in one workflow.
@@ -19,7 +19,7 @@ reachable sets of cyberphysical systems, formal software verification,
 system identification and digital twins. Today focuses on simulation,
 identification and optimization of one small model.
 
-One source file, [models/Quadrotor.mo](models/Quadrotor.mo), declares six planar
+One source file, [models/Quadrotor.mo](../models/Quadrotor.mo), declares six planar
 states and two inputs. Rumoca compiles it into JAX functions for identification
 and CasADi functions for constrained trajectory optimization. Python supplies
 integrators, data handling and optimization problems; it does not re-declare the
@@ -47,7 +47,7 @@ by random draw; selection is not a quality judgment.
 ### Everyone: browser first (about 3 minutes)
 
 1. Open the [public Rumoca playground](https://rumoca.cognipilot.org/playground/).
-2. Open [browser/Quadrotor_browser.mo](browser/Quadrotor_browser.mo), select
+2. Open [browser/Quadrotor_browser.mo](../browser/Quadrotor_browser.mo), select
    **Raw**, copy all text. Click inside the playground’s editor, select all and paste.
    This generated bundle includes the canonical model and a short experiment wrapper.
 3. Click the **gear** beside the editor’s Play button. In simulation settings,
@@ -109,7 +109,7 @@ Keep the default grid, leave **Interactive** off, and click **Simulate** with
 This is a coarse artificial-compressibility and penalized-flow teaching
 visualization, not validated airfoil performance. It uses a separate deployed
 browser runtime. If WebGPU is unavailable or the short run fails, follow the
-presenters’ [saved demonstration](slides/assets/user-guide-naca.png) and continue.
+presenters’ [saved demonstration](../slides/assets/user-guide-naca.png) and continue.
 The recorded NACA rehearsal covers WebGPU; the CPU NACA route is unqualified
 and is not the recovery path for this five-minute segment.
 The same guide page also offers turkey heating and a vibrating membrane.
@@ -158,11 +158,11 @@ as an inheritance override; the underlying equations stay in one file.
 ## 11:00–11:10 · Break 1
 
 Keep your editor and terminal open. Recovery image:
-[simulation.png](results/reference/simulation.png). Next command: JAX fit.
+[simulation.png](../results/reference/simulation.png). Next command: JAX fit.
 
 ## 11:10–11:50 · Fit physical parameters with JAX
 
-[data/noisy_flight.csv](data/noisy_flight.csv) contains four 8-second experiments
+[data/noisy_flight.csv](../data/noisy_flight.csv) contains four 8-second experiments
 sampled at 20 Hz. Three flights train the fit; a negative-initial-speed flight
 is held out. Input commands are known; initial states are assumed known exactly.
 Subsequent measurements contain independent Gaussian noise: position 0.025 m,
@@ -225,14 +225,14 @@ Watch the presenters generate **PyTorch** dynamics from the same vehicle with
 an external `target.toml`, then learn two feedback gains for vertical hover.
 The [optional backend guide](BACKENDS.md) explains the code, checks and commands.
 This is differentiable model-based policy optimization, a small bridge to RL.
-The saved [held-out result](results/reference/torch_policy.png) compares 128 new
+The saved [held-out result](../results/reference/torch_policy.png) compares 128 new
 initial conditions. The demonstration is qualified on Linux x64 CPU, including
 Codespaces; the extra Torch package is optional and need not be installed in class.
 
 ## 12:00–12:10 · Break 2
 
 Leave `fit_drag.json` in `results/live/`. Next: use those coefficients in CasADi.
-Recovery image: [fit_drag.png](results/reference/fit_drag.png).
+Recovery image: [fit_drag.png](../results/reference/fit_drag.png).
 
 ## 12:10–12:40 · Optimize a constrained flight with CasADi
 

@@ -7,7 +7,7 @@ download the ZIP without a GitHub account.
 
 ## Workshop links
 
-- [Participant walkthrough](https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/WORKSHOP.md)
+- [Participant walkthrough](https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md)
 - [Download ZIP](https://github.com/CogniPilot/rumoca_workshop_amc2026/archive/refs/heads/main.zip)
 - [Create a Codespace](https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1)
 - [Rumoca browser playground](https://rumoca.cognipilot.org/playground/)
@@ -15,7 +15,7 @@ download the ZIP without a GitHub account.
 
 Browser participation needs no account. For the full Python workflow, use a
 Codespace with an available account allowance, or install uv locally and run
-`uv sync --frozen` followed by the smoke command in [README.md](README.md).
+`uv sync --frozen` followed by the smoke command in [README.md](../README.md).
 Bring a charged laptop. Paired work and reference figures provide recovery if
 setup is incomplete.
 

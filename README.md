@@ -42,9 +42,11 @@ The [guide](docs/WORKSHOP.md) walks through simulation configuration, expected
 results and the exercises. [Local setup](docs/LOCAL_SETUP.md) and
 [recovery](docs/TROUBLESHOOTING.md) are available if needed.
 
-The Explorer shows participant files by default. Infrastructure and optional
-material are hidden with `files.exclude`; change **Settings → Files: Exclude**
-to inspect them. This affects the editor view only. Markdown preview:
+The Explorer shows all workshop sources, including `templates/`, `formal/`,
+`scripts/`, `docs/` and reference results. Only Git internals, the Python
+environment and compiler caches are hidden. Pulling the latest workspace
+settings applies this view in existing Codespaces without a container rebuild.
+Markdown preview:
 Ctrl+Shift+V (Linux/Windows), Cmd+Shift+V (Mac). Open the PDF for slides.
 
 After the core: [browser experiments](docs/BROWSER_APPS.md),

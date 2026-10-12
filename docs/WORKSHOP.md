@@ -6,8 +6,10 @@ checkpoints. The opening QR creates the **core** Codespace.
 ## Start in VS Code
 
 Open `models/Quadrotor.mo`. This is the single source of the plant equations.
-The Explorer keeps infrastructure hidden so you can focus on `models/`,
-`examples/` and your plots in `results/live/`.
+Start with `models/`, `examples/` and your plots in `results/live/`. All
+workshop sources are visible in the Explorer, including `templates/lean-proof/`,
+`formal/`, `scripts/` and `docs/`. Only Git internals and disposable caches
+are hidden; generated code appears as you run the export commands.
 
 ```sh
 uv sync --frozen

@@ -15,7 +15,21 @@ def digest(name):
     return hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
 
 def main():
+    # Explicit false entries override the older container's remote exclusions.
+    # Only disposable caches and Git internals may hide workshop content.
+    workspace = read(".vscode/settings.json")
+    cache_exclusions = {".git", ".venv", "**/__pycache__", "formal/.lake"}
+    for name, settings in [
+        ("workspace", workspace),
+        *[(name, read(name)["customizations"]["vscode"]["settings"])
+          for name in [".devcontainer/devcontainer.json", ".devcontainer/fastdyn/devcontainer.json"]],
+    ]:
+        assert settings["files.exclude"] == workspace["files.exclude"], f"Different Explorer visibility: {name}"
+        assert {key for key, value in settings["files.exclude"].items() if value} == cache_exclusions
+        assert settings["files.exclude"]["**/.*"] is False
+        assert settings["explorer.excludeGitIgnore"] is False, f"Generated outputs hidden: {name}"
     documents = list(ROOT.glob("*.md")) + list((ROOT/"docs").glob("*.md")) + list((ROOT/"data").glob("*.md")) + list((ROOT/"slides").glob("*.md"))
+    documents += list((ROOT/"extras").rglob("*.md")) + list((ROOT/"slides/media").glob("*.md"))
     documents = [p for p in documents if p.name != "Rumoca_Workshop_Handoff.md"]
     links = 0
     for doc in documents:
@@ -53,7 +67,33 @@ def main():
     assert {r["split"] for r in rows} == {"train", "validation"}
     build = read("slides/build-report.json")
     from build_slides import parse
-    parse()  # Validate actual slide times and breaks, rather than only the report.
+    slides = parse()  # Validate actual slide times and breaks, rather than only the report.
+    source_links = 0
+    for slide in slides:
+        for path in re.findall(
+            r"https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/([^\s;#]+)",
+            slide.get("links", ""),
+        ):
+            assert (ROOT/unquote(path)).is_file(), f"Missing slide-linked source: {path}"
+            source_links += 1
+    # Presenter rows may combine consecutive slides, but must cover the same
+    # three hours and assign every slide to the correct rounded interval.
+    schedule = []
+    for start, end, first, last in re.findall(
+        r"^\| (\d{2}:\d{2})–(\d{2}:\d{2}) \| (\d+)(?:–(\d+))? \|",
+        (ROOT/"slides/PRESENTERS.md").read_text(encoding="utf-8"), re.M,
+    ):
+        minutes = lambda clock: int(clock[:2])*60 + int(clock[3:])
+        a, b = minutes(start), minutes(end)
+        assert a % 5 == b % 5 == 0 and b > a, "Use five- or ten-minute clock boundaries"
+        assert a == (schedule[-1][1] if schedule else 600), "Presenter schedule gap or overlap"
+        ids = list(range(int(first), int(last or first)+1))
+        for number in ids:
+            s, e = map(minutes, slides[number-1]["time"].split("–"))
+            assert a <= s < e <= b, f"Slide {number} disagrees with presenter schedule"
+        schedule.append((a, b, ids))
+    assert schedule[-1][1] == 780
+    assert [number for _, _, ids in schedule for number in ids] == list(range(1, 31))
     assert build["schedule_minutes"] == 180 and build["break_minutes"] == 20
     for name, expected in {**build["input_sha256"], **build["artifact_sha256"]}.items():
         assert digest(name) == expected, f"Deck needs rebuilding: {name}"
@@ -92,9 +132,12 @@ def main():
         for target, expected in receipt["target_sha256"].items():
             assert digest(f"templates/torch-ode/{target}") == expected
     assert read("verification/user-guide.json")["status"] == "PASS"
-    report = {"status":"PASS", "local_markdown_links":links, "slides":30, "schedule_minutes":180,
+    report = {"status":"PASS", "local_markdown_links":links, "slide_source_links":source_links,
+              "explorer_hidden_paths":sorted(cache_exclusions), "presenter_schedule_blocks":len(schedule),
+              "clock_boundary_minutes":5, "slides":30, "schedule_minutes":180,
               "break_minutes":20, "model_sha256":source,
-              "checks":["local links", "shared model/result/CSV/formal/browser provenance", "deck input/artifact hashes",
+              "checks":["local links", "workshop sources and generated outputs visible in all Explorer configurations",
+                        "rounded slide and presenter schedules agree", "shared model/result/CSV/formal/browser provenance", "deck input/artifact hashes",
                         "PPTX slides, notes, clickable links and office-renderer provenance", "app rehearsal receipts",
                         "Torch target and policy source/template provenance", "embedded user-guide rehearsal receipt"],
               "scope":"Packaging consistency. Mathematical, numerical and UI checks have separate receipts."}

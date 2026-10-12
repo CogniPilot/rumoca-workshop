@@ -29,7 +29,7 @@ reference figures on your laptop. Participant entry:
 | Clock | Slides | Activity / presenter cue |
 |---|---|---|
 | 10:00–10:10 | 1–2 | Welcome, core outcomes and **open experiment challenge**. Announce small interactive experiments, optional agents/hosting, hand vote and prize now. |
-| 10:10–10:20 | 3–4 | Why Rumoca; Lie groups, reachable sets, formal verification, identification and digital twins. Show Cerebri RDD2: Modelica → eFMI C → Zephyr → real drone, with property-specific verification goals. Then show today's Modelica → JAX / CasADi compiler bridge. |
+| 10:10–10:20 | 3–4 | Why Rumoca; Lie groups, reachable sets, formal verification, identification and digital twins. Show Cerebri RDD2: Modelica → eFMI C → Zephyr → real drone, with property-specific verification goals. Walk through AST → Flat → DAE → Solve and the separate GaLEC branch; connect Solve to today's JAX / CasADi Session API examples. |
 | 10:20–10:30 | 5–6 | Browser plot and local/cloud setup. |
 | 10:30–10:40 | 7–10 | User-guide Quadrotor SIL: Settings/TOML, clock, controls, signal routing and Three.js scene. Use SIMULATION_SETUP.md and the saved capture. |
 | 10:40–10:45 | 11 | Embedded NACA editor and flow visualization. |
@@ -45,7 +45,9 @@ reference figures on your laptop. Participant entry:
 | 12:50–12:55 | 29 | Participant demos, audience vote and stocking-cap award. |
 | 12:55–13:00 | 30 | Research community invitation, jgoppert@purdue.edu and questions. |
 
-Total **180 minutes**, including **20 minutes of breaks**. Aim for roughly
+Total **180 minutes**, including **20 minutes of breaks**. All clock cues
+use five- or ten-minute boundaries (for example, 10:05 and 10:10). The slide
+source and this schedule are checked together by `scripts/check_materials.py`. Aim for roughly
 40–45 minutes of explanation; the remaining teaching time is guided work,
 individual app development, questions and interpreting results. Avoid reading every slide. Linked guides
 have no extra scheduled time; open only when an audience question requires them.

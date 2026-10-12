@@ -11,7 +11,7 @@
     "results/reference/fit_drag.json": "0d67f55cceecbd8d42fde39713bc1d1595687cc7a5481187dfa39035ea162fcb",
     "results/reference/torch_policy.png": "b67366d51acfc5a515419f060eb4efdb283c6501379897cd3d8ecc65352bd8dc",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
-    "scripts/build_slides.py": "3e8b98bb408ca143f38f204391d70464e16ba67d7aba86474cbbfd2304638fb9",
+    "scripts/build_slides.py": "f7ecbf4a7ceccf0c0c0054232b3d14c7599e02ced197094738336450f816aaac",
     "scripts/slide_assets.py": "92515b5c9cca20298f9ec58deb6ba7b98efcc9f3efd6eb54acfac1b2900ff700",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
     "slides/assets/architecture.png": "264ab4f7e3ec35c65e3bcbb56328d42414409c4739dfb59fee95275293c02bde",
@@ -25,8 +25,8 @@
     "slides/assets/fit-hero.png": "0ba401f4c7d8994c078b10e9bbff0cd2857825c92329834aa0f95364d0918198",
     "slides/assets/fit-workflow.png": "c54a93202c66c00c1ff76d6a16e280140b2c9dbd70fe6657357ab002174f17a6",
     "slides/assets/nxp-logo.png": "7eb896b67481ff662d18494ef65659618a87089cb9b8464febaa14ffb2d2dd9f",
-    "slides/assets/penn-state-logo.png": "4f918c1a4bc5cd667dafb1c230d85d83be974e046b969f5beea1c8b83e3715d8",
-    "slides/assets/purdue-logo.png": "c06cd20e6d0e6fdf5d5e7359898104669774914bbbc5169fe6eb244f8bed6aa8",
+    "slides/assets/penn-state-logo.png": "89335a5f228075d8c4c07d8df185d276ce3fd2ecef5b89d41506356d3516430a",
+    "slides/assets/purdue-logo.png": "2a1a122b352c8944f8616dde3c227f11b33a3fd2a7a4d85eab0e52adc844a1cd",
     "slides/assets/purt-facility.png": "4def64123a2312b24fb518842aba66dfa3453ec63ba53558790a742251b61029",
     "slides/assets/purt-fixed-wing.jpg": "8b7404f5deaa22bb60047a74b39452457d22e8b3c092231b1c3833e7dba61f51",
     "slides/assets/purt-fpv-chase-poster.jpg": "24aad084a593816c44d3d0b80a6fc33ef4ab32e806d422e34c9cfcc5327d914c",
@@ -39,17 +39,17 @@
     "slides/assets/user-guide-naca.png": "cd554217d939e7fabf149829cb6deba75e87cc44c5b8f1c130b6d00ff2dd3d98",
     "slides/media/fastdyn-monte-carlo.mp4": "2a688f567c51d837c23555806250dd5ebd31a34cf16cb14c4d15fe85200f4ab1",
     "slides/media/purt-fpv-chase.mp4": "0cb09e6a72a4f8543ba2e7ad786b1a4e7da1d8580ebf9daccde99c463c37bcef",
-    "slides/workshop.md": "0caf4841343d553fbe468b0120ec8f22e76c7226bdc3fdc57413f9d49edd53cc",
+    "slides/workshop.md": "229c4f79d6480e84b85592d473510ab5300464eb4cc5f414a884233b74d46674",
     "uv.lock": "9ee98bf337e21af4a4fc616c25e4f3d63f8b16bc6500b375dad975be5a4d9799"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "90a8e3e84d721c99443010c190e9266817a0d90cce76277f35ab6fced1fdef78",
-    "slides/workshop.pdf": "e87b9a9b0c02660350f6dcdbcee5f71c3ee2bbaa5f97629e1beb7e26e7d8ef9c"
+    "slides/workshop.pptx": "0615ea91618f47182233037924943e6822b9c83243ceffa08b97ec59f319a7da",
+    "slides/workshop.pdf": "dc40db2f254b99fe461387dcf7d7884c0a7e1ad34216d5e0deac40538d4c1384"
   },
   "rendered_text": [
     {
       "slide": "01",
-      "text": "AMERICAN MODELICA CONFERENCE \u00b7 OCTOBER 12, 2026",
+      "text": "AMERICAN MODELICA CONFERENCE WORKSHOP 2026",
       "font_pt": 11,
       "lines": 1,
       "x": 0.65,
@@ -139,7 +139,7 @@
     },
     {
       "slide": "01",
-      "text": "Purdue University \u00b7 Georgia Tech \u00b7 10:00\u201313:00",
+      "text": "Purdue University \u00b7 School of Aeronautics and Astronautics",
       "font_pt": 15,
       "lines": 1,
       "x": 0.7,

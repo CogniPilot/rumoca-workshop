@@ -18,11 +18,11 @@ Presenter 1: James Goppert
 Role 1: Managing Director, PURT · Research Assistant Professor
 Presenter 2: Micah Condie
 Role 2: PhD student · School of Aeronautics and Astronautics
-Badge: American Modelica Conference · October 12, 2026
+Badge: American Modelica Conference Workshop 2026
 
 - James Goppert · Micah Condie
 - Purdue University · School of Aeronautics and Astronautics
-- Georgia Tech · 10:00–13:00
+- October 12, 2026 · 10:00–13:00
 - Any modeling domain welcome · no aerospace background needed
 
 Checkpoint: Scan to create the core Codespace · materials linked below

@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import platform
+import re
 import shutil
 import subprocess
 import tarfile
@@ -34,7 +35,7 @@ def main():
             existing = dest/name
             if existing.is_file():
                 version = subprocess.check_output([str(existing), "--version"], text=True).strip()
-                if pin["version"] in version.split():
+                if pin["version"] in re.findall(r"\d+\.\d+\.\d+(?:[-+][\w.-]+)?", version):
                     print(f"Already installed: {version}")
                     continue
             with tempfile.TemporaryDirectory(dir=cache) as tmp:
@@ -58,7 +59,7 @@ def main():
         versions = {}
         for name in ["codex", "claude", "copilot"]:
             versions[name] = subprocess.check_output([name, "--version"], text=True).strip()
-            assert manifest[name]["version"] in versions[name].split(), versions[name]
+            assert manifest[name]["version"] in re.findall(r"\d+\.\d+\.\d+(?:[-+][\w.-]+)?", versions[name]), versions[name]
             subprocess.run([name, "--help"], check=True, stdout=subprocess.DEVNULL)
         for name, flag in [("node", "--version"), ("npm", "--version"), ("gh", "--version"), ("tmux", "-V")]:
             versions[name] = subprocess.check_output([name, flag], text=True).strip()

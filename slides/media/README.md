@@ -21,6 +21,8 @@ The FastDyn recording uses “Drone” by Cafitz3D:
 Changes: scale, material tint and animated placement. Three.js is MIT licensed.
 
 Facility and aircraft photographs were selected from the supplied
-`PURT-10_22_2025.odp` presentation. Purdue and Penn State logo assets are their
-institutional wordmarks; the NXP logo was selected from the supplied deck.
+`PURT-10_22_2025.odp` presentation. Purdue uses its official reverse wordmark from the
+[Purdue brand toolkit](https://www.purdue.edu/brand/visual-identity/logos/).
+Penn State uses the transparent reverse mark from its
+[official university site](https://www.psu.edu/psu-edu-assets/images/shared/psu-mark.svg); the NXP logo was selected from the supplied deck.
 Institutional marks identify workshop affiliations and research collaborators.

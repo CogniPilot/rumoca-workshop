@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "url": "https://cognipilot.github.io/rumoca/user-guide/simulation/interactive.html#quadrotor-sil",
+  "scenario_sha256": "82551f2fc8329aa58313aa742c11b8ea90b7e95ea4e83fb98b15d21103a8bb8c",
+  "scene_sha256": "d033a594de423fb53ff7e963399b949e1a78f0fe2b5fd0769cf51cb02b1999cf",
+  "checks": [
+    "Deployed scenario and scene match the primary upstream source examined",
+    "Browser compiles and starts the scene; animation reports live time advancing",
+    "Capture and Space arm the quadrotor; keyboard throttle input accepted; Escape and Stop tested",
+    "No browser page errors in this rehearsal",
+    "Exact integer matrix multiplication checks the displayed position and attitude basis conversion for all nine matrix basis elements",
+    "Settings opens the shared scenario form with the correct model, solver, pacing and dt"
+  ],
+  "scope": "Specific deployed browser example and coordinate conversion. Not a physical flight validation or a full SIL-model proof."
+}

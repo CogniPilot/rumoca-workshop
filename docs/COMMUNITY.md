@@ -1,4 +1,4 @@
-# Bring your model. Join the work.
+# Join the Rumoca research community
 
 Help us make declared mathematics reusable and checkable across simulation,
 identification, optimization and verification. Your Modelica knowledge and
@@ -6,9 +6,11 @@ experience in your own domain are valuable here.
 
 **Start with a problem, a model and one result we can check together.**
 
-[Open a research/model collaboration conversation](https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/new?template=research.yml),
-or speak with **James Goppert or Micah Condie** at the workshop. A small example
-and a clear question are enough to begin; no aerospace background is required.
+Email **[jgoppert@purdue.edu](mailto:jgoppert@purdue.edu)**, or speak with
+**James Goppert or Micah Condie** at the workshop. Tell us your problem, the
+model you would like to use, and one result we could check together. A small
+example and a clear question are enough to begin; no aerospace background is
+required.
 
 ## Choose a first contribution
 

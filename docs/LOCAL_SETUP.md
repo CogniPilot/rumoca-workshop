@@ -24,8 +24,16 @@ in VS Code, then run **Dev Containers: Reopen in Container** from the Command
 Palette. Choose **Rumoca workshop (CPU JAX + CasADi)**. Wait for setup to finish
 and **WORKSHOP PASS**. This uses the same configuration as the core Codespace;
 you do not install Python, uv or Nix on the host. Downloads and Docker disk space
-are needed for the first build. Then use **Terminal → Run Task → Workshop:
+are needed for the first image pull. Then use **Terminal → Run Task → Workshop:
 simulate**, or follow the participant guide.
+
+The core configuration pulls a **tested public image** (Linux x64 and ARM64)
+with Rumoca **0.10.2**, Node, GitHub CLI, tmux, and the Codex/Claude/Copilot CLIs
+already installed. It also caches the Python dependencies and editor packages.
+The first local pull downloads about **2 GB compressed**, so prepare it before
+arriving if bandwidth is limited. Codespaces pulls this image in the cloud;
+your laptop does not download the container. The workspace is synchronized and
+checked after creation. Cloud VM startup and image pulling still take time.
 
 To apply changes to `.devcontainer`, run **Dev Containers: Rebuild Container**.
 Keep edits in the opened repository; packages installed manually inside the

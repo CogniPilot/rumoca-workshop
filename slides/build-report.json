@@ -1,6 +1,6 @@
 {
-  "slides": 27,
-  "main_slides": 27,
+  "slides": 30,
+  "main_slides": 30,
   "schedule_minutes": 180,
   "break_minutes": 20,
   "source": "slides/workshop.md",
@@ -11,12 +11,11 @@
     "results/reference/fit_drag.json": "0d67f55cceecbd8d42fde39713bc1d1595687cc7a5481187dfa39035ea162fcb",
     "results/reference/torch_policy.png": "b67366d51acfc5a515419f060eb4efdb283c6501379897cd3d8ecc65352bd8dc",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
-    "scripts/build_slides.py": "9c300c203f60b6af7667564bc4aae28e89846fa1bbea28c4f57529062558e24d",
-    "scripts/slide_assets.py": "92515b5c9cca20298f9ec58deb6ba7b98efcc9f3efd6eb54acfac1b2900ff700",
+    "scripts/build_slides.py": "07a23c0e7013e158d54e7ed75452d4e836609d8c51eba67ed6e2051fdbce5878",
+    "scripts/slide_assets.py": "92d9cdba091574331dbf3a4c61257a2757a47367e022ff358aa27ea5966d7149",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
     "slides/assets/architecture.png": "264ab4f7e3ec35c65e3bcbb56328d42414409c4739dfb59fee95275293c02bde",
     "slides/assets/browser-drag-linear.png": "641732c3c7ceaab4eb393cd290446cbb977172d5a67ee7614b2282c3ce1cd747",
-    "slides/assets/community-qr.png": "cf54e4a69d44feaa161000fc8ae5019db706b4c2c54eaad2c8f1c9663279a91f",
     "slides/assets/control-hero.png": "4458f83fc5a4e26128c21b44346f43e2ffbdc68b8cb4f8f088021563aa15b0ba",
     "slides/assets/control-problem.png": "13b9ff50e114c3c545efecb65b1e434f472d9ae8f64d5028066ee62688937f5e",
     "slides/assets/data-hero.png": "ed6331a2d01bd404630954c92e46e1febefd0c42d5b85bc630d86b13edff0f83",
@@ -37,14 +36,15 @@
     "slides/assets/showcase-slam_web.png": "bc1fb433b33ea9c541610bb5923b3c14b0ce55295ed97cff809aec22c2bf2179",
     "slides/assets/simulation-hero.png": "30e4af0a1707e14ff7c1aafbdf71813f2421cfb64d06f281590a29c26a7f24c9",
     "slides/assets/user-guide-naca.png": "cd554217d939e7fabf149829cb6deba75e87cc44c5b8f1c130b6d00ff2dd3d98",
+    "slides/assets/user-guide-quadrotor.png": "6a66a7c8198da6ed1dd82f1ad9f936a805851fa30243c3ea5cfee6d4cd8b3191",
     "slides/media/fastdyn-monte-carlo.mp4": "2a688f567c51d837c23555806250dd5ebd31a34cf16cb14c4d15fe85200f4ab1",
     "slides/media/purt-fpv-chase.mp4": "0cb09e6a72a4f8543ba2e7ad786b1a4e7da1d8580ebf9daccde99c463c37bcef",
-    "slides/workshop.md": "e8836843c444215236221711465da65dade7f7535f843e40d9cbc1dc3c636668",
+    "slides/workshop.md": "f5f0794a905630be383b54bdf6f7e46b33e0cd527f70de66d1b57290ee33020c",
     "uv.lock": "9ee98bf337e21af4a4fc616c25e4f3d63f8b16bc6500b375dad975be5a4d9799"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "9e03e3b0d6b4e97c1760a48b5af5fbed1d7111c3ae545bf7de175507ab658c59",
-    "slides/workshop.pdf": "addf9135e04be9a30ad9385695f39c033085de6d04c24ae0fc497df61c7ec6a2"
+    "slides/workshop.pptx": "5f99b5cabf3fb8f5a76520bd0ebb8fc30f02800a3bf7151bfa3ed2d5703dc45c",
+    "slides/workshop.pdf": "1ee600c5087c65632fbb2535a4bd3279a72da3b849c9eafceb92e30193f6b93d"
   },
   "rendered_text": [
     {
@@ -1019,7 +1019,7 @@
     },
     {
       "slide": "07",
-      "text": "VS CODE \u00b7 LIGHTNING BOLT CREATES THE TOML",
+      "text": "LIVE WALKTHROUGH \u00b7 ONE SCENARIO CONNECTS MODEL, INPUTS AND VIEW",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -1029,7 +1029,7 @@
     },
     {
       "slide": "07",
-      "text": "10:30\u201310:35",
+      "text": "10:30\u201310:40",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -1039,7 +1039,7 @@
     },
     {
       "slide": "07",
-      "text": "Configure the experiment, then run it",
+      "text": "Fly the user guide\u2019s quadrotor",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -1049,23 +1049,33 @@
     },
     {
       "slide": "07",
+      "text": "TRY THIS",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "07",
       "text": "1",
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 2.1350000000000002,
+      "y": 2.4050000000000002,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "07",
-      "text": "Open BrowserFlight.mo \u2192 click the lightning bolt",
-      "font_pt": 29,
-      "lines": 1,
+      "text": "Open Quadrotor SIL \u2192 Settings",
+      "font_pt": 22,
+      "lines": 2,
       "x": 1.25,
-      "y": 2.08,
-      "width": 11.299999999999999,
-      "height": 0.5594444444444444
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
     },
     {
       "slide": "07",
@@ -1073,19 +1083,19 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 3.2244444444444444,
+      "y": 3.602777777777778,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "07",
-      "text": "Save scenario TOML \u2192 model, source roots, solver, end time",
-      "font_pt": 29,
+      "text": "Inspect the TOML \u2192 save \u2192 Simulate",
+      "font_pt": 22,
       "lines": 2,
       "x": 1.25,
-      "y": 3.1694444444444443,
-      "width": 11.299999999999999,
-      "height": 1.058888888888889
+      "y": 3.5477777777777777,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
     },
     {
       "slide": "07",
@@ -1093,23 +1103,23 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 4.813333333333333,
+      "y": 4.800555555555555,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "07",
-      "text": "Run the scenario \u2192 inspect vx and x",
-      "font_pt": 29,
-      "lines": 1,
+      "text": "Capture enables keys: Space arms; W / S changes throttle",
+      "font_pt": 22,
+      "lines": 3,
       "x": 1.25,
-      "y": 4.758333333333333,
-      "width": 11.299999999999999,
-      "height": 0.5594444444444444
+      "y": 4.745555555555555,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
     },
     {
       "slide": "07",
-      "text": "Modelica owns physics \u00b7 TOML owns the run configuration.",
+      "text": "VS Code: open .mo \u2192 lightning bolt creates TOML \u2192 Settings \u2192 Run.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -1119,7 +1129,7 @@
     },
     {
       "slide": "07",
-      "text": "Simulation walkthrough \u2197",
+      "text": "Open Quadrotor SIL \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
@@ -1129,7 +1139,7 @@
     },
     {
       "slide": "07",
-      "text": "Scenario model \u2197",
+      "text": "Walkthrough \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 6.690000000000001,
@@ -1149,7 +1159,7 @@
     },
     {
       "slide": "08",
-      "text": "LIVE DEMO \u00b7 NACA 2412 \u00b7 EMBEDDED EDITOR + WEBGPU",
+      "text": "RUN CONFIGURATION \u00b7 MODELICA STILL OWNS THE PHYSICS",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -1159,7 +1169,7 @@
     },
     {
       "slide": "08",
-      "text": "10:35\u201310:40",
+      "text": "10:30\u201310:40",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -1169,7 +1179,7 @@
     },
     {
       "slide": "08",
-      "text": "The user guide is a live modeling lab",
+      "text": "TOML: choose the model and the clock",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -1179,77 +1189,197 @@
     },
     {
       "slide": "08",
-      "text": "TRY THIS",
-      "font_pt": 11,
+      "text": "rumoca-scenario.acro.toml \u00b7 selected sections",
+      "font_pt": 14,
       "lines": 1,
-      "x": 0.7,
-      "y": 1.86,
-      "width": 4,
-      "height": 0.24944444444444444
+      "x": 0.9,
+      "y": 1.95,
+      "width": 6.05,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "08",
+      "text": "[rumoca]",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 2.43,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "08",
+      "text": "version = \"1\"",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 2.71,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "08",
+      "text": "task = \"simulate\"",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 2.99,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "08",
+      "text": "[model]",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 3.5500000000000003,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "08",
+      "text": "file = \"QuadrotorSIL.mo\"",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 3.83,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "08",
+      "text": "name = \"QuadrotorAcro\"",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 4.11,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "08",
+      "text": "[sim]",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 4.67,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "08",
+      "text": "solver = \"rk-like\"",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 4.950000000000001,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "08",
+      "text": "dt = 0.01",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 5.23,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "08",
+      "text": "mode = \"realtime\"",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 5.51,
+      "width": 6.05,
+      "height": 0.33555555555555555
     },
     {
       "slide": "08",
       "text": "1",
       "font_pt": 14,
       "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 2.4050000000000002,
+      "x": 7.605,
+      "y": 2.095,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "08",
-      "text": "Edit StopTime: 30 \u2192 2 s",
-      "font_pt": 22,
+      "text": "file selects source; name selects the runnable class",
+      "font_pt": 20,
       "lines": 2,
-      "x": 1.25,
-      "y": 2.35,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
+      "x": 8.05,
+      "y": 2.04,
+      "width": 4.55,
+      "height": 0.7488888888888889
     },
     {
       "slide": "08",
       "text": "2",
       "font_pt": 14,
       "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 3.602777777777778,
+      "x": 7.605,
+      "y": 3.163888888888889,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "08",
-      "text": "Simulate; select the final frame",
-      "font_pt": 22,
+      "text": "dt = 0.01 s schedules 100 updates per simulated second",
+      "font_pt": 20,
       "lines": 2,
-      "x": 1.25,
-      "y": 3.5477777777777777,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
+      "x": 8.05,
+      "y": 3.108888888888889,
+      "width": 4.55,
+      "height": 0.7488888888888889
     },
     {
       "slide": "08",
       "text": "3",
       "font_pt": 14,
       "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 4.800555555555555,
+      "x": 7.605,
+      "y": 4.232777777777778,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "08",
-      "text": "Switch vorticity / pressure",
-      "font_pt": 22,
+      "text": "realtime paces the run; solver chooses the numerical method",
+      "font_pt": 20,
       "lines": 2,
-      "x": 1.25,
-      "y": 4.745555555555555,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
+      "x": 8.05,
+      "y": 4.177777777777778,
+      "width": 4.55,
+      "height": 0.7488888888888889
     },
     {
       "slide": "08",
-      "text": "User-guide link and recovery: WORKSHOP.md \u00b7 no install needed",
+      "text": "4",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 7.605,
+      "y": 5.301666666666667,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "08",
+      "text": "Batch: set t_end; live: stop explicitly",
+      "font_pt": 20,
+      "lines": 2,
+      "x": 8.05,
+      "y": 5.246666666666667,
+      "width": 4.55,
+      "height": 0.7488888888888889
+    },
+    {
+      "slide": "08",
+      "text": "Schema version \"1\" is the TOML format, not the Rumoca release.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -1259,7 +1389,7 @@
     },
     {
       "slide": "08",
-      "text": "Open NACA example \u2197",
+      "text": "Actual quadrotor TOML \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
@@ -1269,7 +1399,7 @@
     },
     {
       "slide": "08",
-      "text": "Explore user guide \u2197",
+      "text": "Settings reference \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 6.690000000000001,
@@ -1289,7 +1419,7 @@
     },
     {
       "slide": "09",
-      "text": "SIX STATES \u00b7 TWO AGGREGATE INPUTS",
+      "text": "TRACE ONE SIGNAL \u00b7 DEVICE \u2192 LOCAL \u2192 MODEL \u2192 VIEWER",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -1299,7 +1429,7 @@
     },
     {
       "slide": "09",
-      "text": "10:40\u201310:45",
+      "text": "10:30\u201310:40",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -1309,7 +1439,7 @@
     },
     {
       "slide": "09",
-      "text": "A planar quadrotor we can inspect",
+      "text": "TOML: route controls into the model",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -1319,77 +1449,207 @@
     },
     {
       "slide": "09",
-      "text": "READ THE MODEL",
-      "font_pt": 11,
+      "text": "Local state \u2192 input mapping \u2192 Modelica input",
+      "font_pt": 14,
       "lines": 1,
-      "x": 0.7,
-      "y": 1.86,
-      "width": 4,
-      "height": 0.24944444444444444
+      "x": 0.9,
+      "y": 1.95,
+      "width": 6.05,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "09",
+      "text": "[locals.throttle]",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 2.43,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "09",
+      "text": "type = \"float\"",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 2.71,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "09",
+      "text": "default = 0.0",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 2.99,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "09",
+      "text": "[input.gamepad.integrators.throttle]",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 3.5500000000000003,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "09",
+      "text": "source = \"LeftStickY\"",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 3.83,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "09",
+      "text": "write = \"throttle\"",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 4.11,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "09",
+      "text": "rate = 0.7",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 4.390000000000001,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "09",
+      "text": "deadband = 0.1",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 4.67,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "09",
+      "text": "clamp = [0.0, 1.0]",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 4.950000000000001,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "09",
+      "text": "[signals.model_inputs]",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 5.51,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "09",
+      "text": "stick_throttle = \"local:throttle\"",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 5.790000000000001,
+      "width": 6.05,
+      "height": 0.33555555555555555
     },
     {
       "slide": "09",
       "text": "1",
       "font_pt": 14,
       "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 2.4050000000000002,
+      "x": 7.605,
+      "y": 2.095,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "09",
-      "text": "World x right; z up",
-      "font_pt": 22,
-      "lines": 1,
-      "x": 1.25,
-      "y": 2.35,
-      "width": 3.2800000000000002,
-      "height": 0.4388888888888889
+      "text": "The stick changes persistent throttle; clamp keeps it within 0\u20131",
+      "font_pt": 20,
+      "lines": 3,
+      "x": 8.05,
+      "y": 2.04,
+      "width": 4.55,
+      "height": 1.0933333333333335
     },
     {
       "slide": "09",
       "text": "2",
       "font_pt": 14,
       "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 3.2238888888888892,
+      "x": 7.605,
+      "y": 3.5083333333333337,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "09",
-      "text": "Positive pitch tilts thrust toward +x",
-      "font_pt": 22,
+      "text": "W / S drives the keyboard integrator instead",
+      "font_pt": 20,
       "lines": 2,
-      "x": 1.25,
-      "y": 3.168888888888889,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
+      "x": 8.05,
+      "y": 3.4533333333333336,
+      "width": 4.55,
+      "height": 0.7488888888888889
     },
     {
       "slide": "09",
       "text": "3",
       "font_pt": 14,
       "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 4.421666666666667,
+      "x": 7.605,
+      "y": 4.577222222222222,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "09",
-      "text": "Hover: T = mg = 11.772 N",
-      "font_pt": 22,
+      "text": "Space toggles armed when throttle \u2264 0.05",
+      "font_pt": 20,
       "lines": 2,
-      "x": 1.25,
-      "y": 4.366666666666667,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
+      "x": 8.05,
+      "y": 4.522222222222222,
+      "width": 4.55,
+      "height": 0.7488888888888889
     },
     {
       "slide": "09",
-      "text": "Find velocities, pitch rate, thrust and torque in the model.",
+      "text": "4",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 7.605,
+      "y": 5.646111111111111,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "09",
+      "text": "signals.viewer names the channels the scene reads",
+      "font_pt": 20,
+      "lines": 2,
+      "x": 8.05,
+      "y": 5.591111111111111,
+      "width": 4.55,
+      "height": 0.7488888888888889
+    },
+    {
+      "slide": "09",
+      "text": "Experiment: change rate 0.7 \u2192 0.3; predict the throttle response.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -1399,7 +1659,7 @@
     },
     {
       "slide": "09",
-      "text": "Open vehicle model \u2197",
+      "text": "Full input mappings \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
@@ -1409,7 +1669,7 @@
     },
     {
       "slide": "09",
-      "text": "Workshop guide \u2197",
+      "text": "Copyable walkthrough \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 6.690000000000001,
@@ -1429,7 +1689,7 @@
     },
     {
       "slide": "10",
-      "text": "HANDS-ON \u00b7 PREDICT BEFORE RUNNING",
+      "text": "PRESENTATION \u00b7 MODEL STATES BECOME POSITION, ATTITUDE AND MOTION",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -1439,7 +1699,7 @@
     },
     {
       "slide": "10",
-      "text": "10:45\u201310:55",
+      "text": "10:30\u201310:40",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -1449,7 +1709,7 @@
     },
     {
       "slide": "10",
-      "text": "Your first engineering change: drag",
+      "text": "Three.js draws the simulated state",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -1459,27 +1719,187 @@
     },
     {
       "slide": "10",
-      "text": "Change k_quad = 0.0 to 0.08, save, then simulate.",
-      "font_pt": 21,
+      "text": "quadrotor_scene.js \u00b7 excerpt from onFrame(api)",
+      "font_pt": 14,
       "lines": 1,
-      "x": 0.85,
-      "y": 1.71,
-      "width": 11.6,
-      "height": 0.42166666666666663
+      "x": 0.9,
+      "y": 1.95,
+      "width": 6.05,
+      "height": 0.3011111111111111
     },
     {
       "slide": "10",
-      "text": "$ uv run --frozen python examples/simulate.py",
-      "font_pt": 18,
+      "text": "const get = api.get;",
+      "font_pt": 16,
       "lines": 1,
-      "x": 0.85,
-      "y": 6.18,
-      "width": 11.7,
-      "height": 0.37
+      "x": 0.9,
+      "y": 2.43,
+      "width": 6.05,
+      "height": 0.33555555555555555
     },
     {
       "slide": "10",
-      "text": "What changes at high speed? What about negative velocity?",
+      "text": "const px = get(\"px\") ?? 0;",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 2.71,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "10",
+      "text": "const py = get(\"py\") ?? 0;",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 2.99,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "10",
+      "text": "const pz = get(\"pz\") ?? 0;",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 3.2700000000000005,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "10",
+      "text": "// Model: forward, left, up",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 3.83,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "10",
+      "text": "// Three.js: map into x, y, z",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 4.11,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "10",
+      "text": "const tx = -py, ty = pz, tz = px;",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 4.390000000000001,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "10",
+      "text": "// Full script also transforms",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 4.950000000000001,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "10",
+      "text": "// attitude and updates the mesh.",
+      "font_pt": 16,
+      "lines": 1,
+      "x": 0.9,
+      "y": 5.23,
+      "width": 6.05,
+      "height": 0.33555555555555555
+    },
+    {
+      "slide": "10",
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 7.605,
+      "y": 2.095,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "10",
+      "text": "onInit: create/load meshes, lighting and persistent state",
+      "font_pt": 20,
+      "lines": 2,
+      "x": 8.05,
+      "y": 2.04,
+      "width": 4.55,
+      "height": 0.7488888888888889
+    },
+    {
+      "slide": "10",
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 7.605,
+      "y": 3.163888888888889,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "10",
+      "text": "onFrame: read named signals and move the vehicle",
+      "font_pt": 20,
+      "lines": 2,
+      "x": 8.05,
+      "y": 3.108888888888889,
+      "width": 4.55,
+      "height": 0.7488888888888889
+    },
+    {
+      "slide": "10",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 7.605,
+      "y": 4.232777777777778,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "10",
+      "text": "Convert position and attitude together: R\u2083 = A R A\u207b\u00b9",
+      "font_pt": 20,
+      "lines": 2,
+      "x": 8.05,
+      "y": 4.177777777777778,
+      "width": 4.55,
+      "height": 0.7488888888888889
+    },
+    {
+      "slide": "10",
+      "text": "4",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 7.605,
+      "y": 5.301666666666667,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "10",
+      "text": "Customize colors, trails or camera; keep physics in Modelica",
+      "font_pt": 20,
+      "lines": 3,
+      "x": 8.05,
+      "y": 5.246666666666667,
+      "width": 4.55,
+      "height": 1.0933333333333335
+    },
+    {
+      "slide": "10",
+      "text": "[transport.http].scene selects this JavaScript file.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -1489,7 +1909,7 @@
     },
     {
       "slide": "10",
-      "text": "Workshop guide \u2197",
+      "text": "Actual scene script \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
@@ -1499,7 +1919,7 @@
     },
     {
       "slide": "10",
-      "text": "Open playground \u2197",
+      "text": "Scene + frame walkthrough \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 6.690000000000001,
@@ -1519,7 +1939,7 @@
     },
     {
       "slide": "11",
-      "text": "HANDS-ON \u00b7 SAME PRESCRIBED PYTHON INPUTS",
+      "text": "LIVE DEMO \u00b7 NACA 2412 \u00b7 EMBEDDED EDITOR + WEBGPU",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -1529,7 +1949,7 @@
     },
     {
       "slide": "11",
-      "text": "10:55\u201311:00",
+      "text": "10:40\u201310:45",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -1539,7 +1959,7 @@
     },
     {
       "slide": "11",
-      "text": "More drag, less distance",
+      "text": "The user guide is a live modeling lab",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -1549,17 +1969,77 @@
     },
     {
       "slide": "11",
-      "text": "Reference at 8 s: 41.60 m \u2192 17.97 m",
-      "font_pt": 21,
+      "text": "TRY THIS",
+      "font_pt": 11,
       "lines": 1,
-      "x": 0.85,
-      "y": 1.71,
-      "width": 11.6,
-      "height": 0.42166666666666663
+      "x": 0.7,
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
     },
     {
       "slide": "11",
-      "text": "Compare your current default with the two reference cases.",
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 2.4050000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "11",
+      "text": "Edit StopTime: 30 \u2192 2 s",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "11",
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.602777777777778,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "11",
+      "text": "Simulate; select the final frame",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 3.5477777777777777,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "11",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.800555555555555,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "11",
+      "text": "Switch vorticity / pressure",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 4.745555555555555,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "11",
+      "text": "User-guide link and recovery: WORKSHOP.md \u00b7 no install needed",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -1569,12 +2049,22 @@
     },
     {
       "slide": "11",
-      "text": "Workshop guide \u2197",
+      "text": "Open NACA example \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 11.48,
+      "width": 5.5600000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "11",
+      "text": "Explore user guide \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 6.690000000000001,
+      "y": 7.075,
+      "width": 5.5600000000000005,
       "height": 0.2838888888888889
     },
     {
@@ -1589,97 +2079,107 @@
     },
     {
       "slide": "12",
-      "text": "PAUSE / RECHARGE",
+      "text": "SIX STATES \u00b7 TWO AGGREGATE INPUTS",
       "font_pt": 11,
       "lines": 1,
-      "x": 0.65,
-      "y": 0.4,
-      "width": 10,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
       "height": 0.24944444444444444
     },
     {
       "slide": "12",
-      "text": "Back at",
-      "font_pt": 35,
-      "lines": 1,
-      "x": 0.7,
-      "y": 1.35,
-      "width": 8,
-      "height": 0.6627777777777777
-    },
-    {
-      "slide": "12",
-      "text": "11:10",
-      "font_pt": 102,
-      "lines": 1,
-      "x": 0.62,
-      "y": 2.02,
-      "width": 8.3,
-      "height": 1.8166666666666669
-    },
-    {
-      "slide": "12",
-      "text": "KEEP YOUR PLACE",
+      "text": "10:45\u201310:50",
       "font_pt": 11,
       "lines": 1,
-      "x": 9.65,
-      "y": 1.6,
-      "width": 2.8,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
       "height": 0.24944444444444444
     },
     {
       "slide": "12",
-      "text": "Keep your editor and terminal open.",
-      "font_pt": 19,
-      "lines": 2,
-      "x": 9.65,
-      "y": 2.18,
-      "width": 2.75,
-      "height": 0.7144444444444444
+      "text": "A planar quadrotor we can inspect",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "12",
-      "text": "Your simulation plot is the recovery point.",
-      "font_pt": 19,
-      "lines": 3,
-      "x": 9.65,
-      "y": 3.2444444444444445,
-      "width": 2.75,
-      "height": 1.0416666666666665
-    },
-    {
-      "slide": "12",
-      "text": "Next: learn drag from noisy data.",
-      "font_pt": 19,
-      "lines": 2,
-      "x": 9.65,
-      "y": 4.636111111111111,
-      "width": 2.75,
-      "height": 0.7144444444444444
-    },
-    {
-      "slide": "12",
-      "text": "10 MINUTES",
-      "font_pt": 20,
+      "text": "READ THE MODEL",
+      "font_pt": 11,
       "lines": 1,
       "x": 0.7,
-      "y": 4.35,
-      "width": 8.2,
-      "height": 0.40444444444444444
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
     },
     {
       "slide": "12",
-      "text": "Stretch. Ask a question. Keep your editor open.",
-      "font_pt": 21,
+      "text": "1",
+      "font_pt": 14,
       "lines": 1,
-      "x": 0.7,
-      "y": 4.98,
-      "width": 8,
-      "height": 0.42166666666666663
+      "x": 0.8049999999999999,
+      "y": 2.4050000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "12",
-      "text": "Worksheet and commands: WORKSHOP.md \u00b7 scan the opening QR.",
+      "text": "World x right; z up",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "12",
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.2238888888888892,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "12",
+      "text": "Positive pitch tilts thrust toward +x",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 3.168888888888889,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "12",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.421666666666667,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "12",
+      "text": "Hover: T = mg = 11.772 N",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 4.366666666666667,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "12",
+      "text": "Find velocities, pitch rate, thrust and torque in the model.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -1689,12 +2189,22 @@
     },
     {
       "slide": "12",
-      "text": "Workshop guide \u2197",
+      "text": "Open vehicle model \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 11.48,
+      "width": 5.5600000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "12",
+      "text": "Workshop guide \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 6.690000000000001,
+      "y": 7.075,
+      "width": 5.5600000000000005,
       "height": 0.2838888888888889
     },
     {
@@ -1709,7 +2219,7 @@
     },
     {
       "slide": "13",
-      "text": "SYNTHETIC DATA \u00b7 SEED 20261012",
+      "text": "HANDS-ON \u00b7 PREDICT BEFORE RUNNING",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -1719,7 +2229,7 @@
     },
     {
       "slide": "13",
-      "text": "11:10\u201311:20",
+      "text": "10:50\u201310:55",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -1729,7 +2239,7 @@
     },
     {
       "slide": "13",
-      "text": "Known experiment. Unknown coefficients.",
+      "text": "Your first engineering change: drag",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -1739,7 +2249,7 @@
     },
     {
       "slide": "13",
-      "text": "Three training flights; one held-out flight. 20 Hz, 8 s each.",
+      "text": "Change k_quad = 0.0 to 0.08, save, then simulate.",
       "font_pt": 21,
       "lines": 1,
       "x": 0.85,
@@ -1749,7 +2259,17 @@
     },
     {
       "slide": "13",
-      "text": "Speed variation helps separate linear and quadratic drag.",
+      "text": "$ uv run --frozen python examples/simulate.py",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.18,
+      "width": 11.7,
+      "height": 0.37
+    },
+    {
+      "slide": "13",
+      "text": "What changes at high speed? What about negative velocity?",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -1764,7 +2284,17 @@
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 11.48,
+      "width": 5.5600000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "13",
+      "text": "Open playground \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 6.690000000000001,
+      "y": 7.075,
+      "width": 5.5600000000000005,
       "height": 0.2838888888888889
     },
     {
@@ -1779,7 +2309,7 @@
     },
     {
       "slide": "14",
-      "text": "JAX AUTODIFF THROUGH GENERATED PHYSICS + RK4",
+      "text": "HANDS-ON \u00b7 SAME PRESCRIBED PYTHON INPUTS",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -1789,7 +2319,7 @@
     },
     {
       "slide": "14",
-      "text": "11:20\u201311:30",
+      "text": "10:55\u201311:00",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -1799,7 +2329,7 @@
     },
     {
       "slide": "14",
-      "text": "Differentiate the prediction error",
+      "text": "More drag, less distance",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -1809,7 +2339,7 @@
     },
     {
       "slide": "14",
-      "text": "Positive parameters; noise-scaled loss; bounded optimization",
+      "text": "Reference at 8 s: 41.60 m \u2192 17.97 m",
       "font_pt": 21,
       "lines": 1,
       "x": 0.85,
@@ -1819,7 +2349,7 @@
     },
     {
       "slide": "14",
-      "text": "JAX provides gradients. SciPy updates the coefficients.",
+      "text": "Compare your current default with the two reference cases.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -1849,57 +2379,97 @@
     },
     {
       "slide": "15",
-      "text": "HANDS-ON \u00b7 ESTIMATES \u2248 0.18042 AND 0.07991",
+      "text": "PAUSE / RECHARGE",
       "font_pt": 11,
       "lines": 1,
-      "x": 0.6,
-      "y": 0.28,
-      "width": 11.1,
+      "x": 0.65,
+      "y": 0.4,
+      "width": 10,
       "height": 0.24944444444444444
     },
     {
       "slide": "15",
-      "text": "11:30\u201311:50",
+      "text": "Back at",
+      "font_pt": 35,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.35,
+      "width": 8,
+      "height": 0.6627777777777777
+    },
+    {
+      "slide": "15",
+      "text": "11:10",
+      "font_pt": 102,
+      "lines": 1,
+      "x": 0.62,
+      "y": 2.02,
+      "width": 8.3,
+      "height": 1.8166666666666669
+    },
+    {
+      "slide": "15",
+      "text": "KEEP YOUR PLACE",
       "font_pt": 11,
       "lines": 1,
-      "x": 11.5,
-      "y": 0.28,
-      "width": 1.25,
+      "x": 9.65,
+      "y": 1.6,
+      "width": 2.8,
       "height": 0.24944444444444444
     },
     {
       "slide": "15",
-      "text": "Run the fit. Test the held-out flight.",
-      "font_pt": 34,
-      "lines": 1,
-      "x": 0.6,
-      "y": 0.82,
-      "width": 12.1,
-      "height": 0.6455555555555554
+      "text": "Keep your editor and terminal open.",
+      "font_pt": 19,
+      "lines": 2,
+      "x": 9.65,
+      "y": 2.18,
+      "width": 2.75,
+      "height": 0.7144444444444444
     },
     {
       "slide": "15",
-      "text": "Open fit_drag.png and fit_drag.json; compare before and after.",
+      "text": "Your simulation plot is the recovery point.",
+      "font_pt": 19,
+      "lines": 3,
+      "x": 9.65,
+      "y": 3.2444444444444445,
+      "width": 2.75,
+      "height": 1.0416666666666665
+    },
+    {
+      "slide": "15",
+      "text": "Next: learn drag from noisy data.",
+      "font_pt": 19,
+      "lines": 2,
+      "x": 9.65,
+      "y": 4.636111111111111,
+      "width": 2.75,
+      "height": 0.7144444444444444
+    },
+    {
+      "slide": "15",
+      "text": "10 MINUTES",
+      "font_pt": 20,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.35,
+      "width": 8.2,
+      "height": 0.40444444444444444
+    },
+    {
+      "slide": "15",
+      "text": "Stretch. Ask a question. Keep your editor open.",
       "font_pt": 21,
       "lines": 1,
-      "x": 0.85,
-      "y": 1.71,
-      "width": 11.6,
+      "x": 0.7,
+      "y": 4.98,
+      "width": 8,
       "height": 0.42166666666666663
     },
     {
       "slide": "15",
-      "text": "$ uv run --frozen python examples/fit_drag_jax.py",
-      "font_pt": 18,
-      "lines": 1,
-      "x": 0.85,
-      "y": 6.18,
-      "width": 11.7,
-      "height": 0.37
-    },
-    {
-      "slide": "15",
-      "text": "Two coefficients \u00b7 lower loss \u00b7 improved held-out prediction",
+      "text": "Worksheet and commands: WORKSHOP.md \u00b7 scan the opening QR.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -1929,7 +2499,7 @@
     },
     {
       "slide": "16",
-      "text": "CHECKPOINT \u00b7 GO DEEPER AT YOUR OWN PACE",
+      "text": "SYNTHETIC DATA \u00b7 SEED 20261012",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -1939,7 +2509,7 @@
     },
     {
       "slide": "16",
-      "text": "11:50\u201311:55",
+      "text": "11:10\u201311:20",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -1949,7 +2519,7 @@
     },
     {
       "slide": "16",
-      "text": "Check your result. Keep building.",
+      "text": "Known experiment. Unknown coefficients.",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -1959,87 +2529,17 @@
     },
     {
       "slide": "16",
-      "text": "01",
-      "font_pt": 28,
+      "text": "Three training flights; one held-out flight. 20 Hz, 8 s each.",
+      "font_pt": 21,
       "lines": 1,
-      "x": 0.9,
-      "y": 1.98,
-      "width": 0.72,
-      "height": 0.5422222222222222
+      "x": 0.85,
+      "y": 1.71,
+      "width": 11.6,
+      "height": 0.42166666666666663
     },
     {
       "slide": "16",
-      "text": "Open your before-and-after prediction plot",
-      "font_pt": 24,
-      "lines": 3,
-      "x": 1.7799999999999998,
-      "y": 2.05,
-      "width": 4.4,
-      "height": 1.3
-    },
-    {
-      "slide": "16",
-      "text": "02",
-      "font_pt": 28,
-      "lines": 1,
-      "x": 7.07,
-      "y": 1.98,
-      "width": 0.72,
-      "height": 0.5422222222222222
-    },
-    {
-      "slide": "16",
-      "text": "Compare the held-out flight and fitted values",
-      "font_pt": 24,
-      "lines": 2,
-      "x": 7.95,
-      "y": 2.05,
-      "width": 4.4,
-      "height": 0.8866666666666667
-    },
-    {
-      "slide": "16",
-      "text": "03",
-      "font_pt": 28,
-      "lines": 1,
-      "x": 0.9,
-      "y": 4.13,
-      "width": 0.72,
-      "height": 0.5422222222222222
-    },
-    {
-      "slide": "16",
-      "text": "Stretch: rerun from another starting guess",
-      "font_pt": 24,
-      "lines": 2,
-      "x": 1.7799999999999998,
-      "y": 4.2,
-      "width": 4.4,
-      "height": 0.8866666666666667
-    },
-    {
-      "slide": "16",
-      "text": "04",
-      "font_pt": 28,
-      "lines": 1,
-      "x": 7.07,
-      "y": 4.13,
-      "width": 0.72,
-      "height": 0.5422222222222222
-    },
-    {
-      "slide": "16",
-      "text": "App builders: keep your prototype moving",
-      "font_pt": 24,
-      "lines": 2,
-      "x": 7.95,
-      "y": 4.2,
-      "width": 4.4,
-      "height": 0.8866666666666667
-    },
-    {
-      "slide": "16",
-      "text": "Fit complete? Continue your experiment or explore the optional checks.",
+      "text": "Speed variation helps separate linear and quadratic drag.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -2069,7 +2569,7 @@
     },
     {
       "slide": "17",
-      "text": "EXTENSIBILITY DEMO \u00b7 SAME VEHICLE \u00b7 LINUX CPU / CODESPACES",
+      "text": "JAX AUTODIFF THROUGH GENERATED PHYSICS + RK4",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -2079,7 +2579,7 @@
     },
     {
       "slide": "17",
-      "text": "11:55\u201312:00",
+      "text": "11:20\u201311:30",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -2089,7 +2589,7 @@
     },
     {
       "slide": "17",
-      "text": "Make a target. Learn a policy.",
+      "text": "Differentiate the prediction error",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -2099,7 +2599,7 @@
     },
     {
       "slide": "17",
-      "text": "target.toml \u2192 generated Torch \u2192 differentiable policy learning",
+      "text": "Positive parameters; noise-scaled loss; bounded optimization",
       "font_pt": 21,
       "lines": 1,
       "x": 0.85,
@@ -2109,17 +2609,7 @@
     },
     {
       "slide": "17",
-      "text": "$ uv run --frozen --group torch python scripts/learn_hover_torch.py",
-      "font_pt": 18,
-      "lines": 1,
-      "x": 0.85,
-      "y": 6.18,
-      "width": 11.7,
-      "height": 0.37
-    },
-    {
-      "slide": "17",
-      "text": "Held-out cost \u2248 0.116 \u2192 0.021 \u00b7 optional instructions: BACKENDS.md",
+      "text": "JAX provides gradients. SciPy updates the coefficients.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -2129,32 +2619,12 @@
     },
     {
       "slide": "17",
-      "text": "Backend walkthrough \u2197",
+      "text": "Workshop guide \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 3.586666666666667,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "17",
-      "text": "Torch target.toml \u2197",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 4.716666666666667,
-      "y": 7.075,
-      "width": 3.586666666666667,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "17",
-      "text": "Lean Jinja target \u2197",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 8.663333333333332,
-      "y": 7.075,
-      "width": 3.586666666666667,
+      "width": 11.48,
       "height": 0.2838888888888889
     },
     {
@@ -2169,97 +2639,57 @@
     },
     {
       "slide": "18",
-      "text": "PAUSE / RECHARGE",
+      "text": "HANDS-ON \u00b7 ESTIMATES \u2248 0.18042 AND 0.07991",
       "font_pt": 11,
       "lines": 1,
-      "x": 0.65,
-      "y": 0.4,
-      "width": 10,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
       "height": 0.24944444444444444
     },
     {
       "slide": "18",
-      "text": "Back at",
-      "font_pt": 35,
-      "lines": 1,
-      "x": 0.7,
-      "y": 1.35,
-      "width": 8,
-      "height": 0.6627777777777777
-    },
-    {
-      "slide": "18",
-      "text": "12:10",
-      "font_pt": 102,
-      "lines": 1,
-      "x": 0.62,
-      "y": 2.02,
-      "width": 8.3,
-      "height": 1.8166666666666669
-    },
-    {
-      "slide": "18",
-      "text": "KEEP YOUR PLACE",
+      "text": "11:30\u201311:50",
       "font_pt": 11,
       "lines": 1,
-      "x": 9.65,
-      "y": 1.6,
-      "width": 2.8,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
       "height": 0.24944444444444444
     },
     {
       "slide": "18",
-      "text": "Keep your fitted coefficients.",
-      "font_pt": 19,
-      "lines": 2,
-      "x": 9.65,
-      "y": 2.18,
-      "width": 2.75,
-      "height": 0.7144444444444444
-    },
-    {
-      "slide": "18",
-      "text": "Next: plan a flight using your fit.",
-      "font_pt": 19,
-      "lines": 2,
-      "x": 9.65,
-      "y": 3.2444444444444445,
-      "width": 2.75,
-      "height": 0.7144444444444444
-    },
-    {
-      "slide": "18",
-      "text": "Your fit plot is the recovery point.",
-      "font_pt": 19,
-      "lines": 2,
-      "x": 9.65,
-      "y": 4.308888888888889,
-      "width": 2.75,
-      "height": 0.7144444444444444
-    },
-    {
-      "slide": "18",
-      "text": "10 MINUTES",
-      "font_pt": 20,
+      "text": "Run the fit. Test the held-out flight.",
+      "font_pt": 34,
       "lines": 1,
-      "x": 0.7,
-      "y": 4.35,
-      "width": 8.2,
-      "height": 0.40444444444444444
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "18",
-      "text": "Stretch. Ask a question. Keep your editor open.",
+      "text": "Open fit_drag.png and fit_drag.json; compare before and after.",
       "font_pt": 21,
       "lines": 1,
-      "x": 0.7,
-      "y": 4.98,
-      "width": 8,
+      "x": 0.85,
+      "y": 1.71,
+      "width": 11.6,
       "height": 0.42166666666666663
     },
     {
       "slide": "18",
-      "text": "Same Modelica source; now compile to CasADi.",
+      "text": "$ uv run --frozen python examples/fit_drag_jax.py",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.18,
+      "width": 11.7,
+      "height": 0.37
+    },
+    {
+      "slide": "18",
+      "text": "Two coefficients \u00b7 lower loss \u00b7 improved held-out prediction",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -2289,7 +2719,7 @@
     },
     {
       "slide": "19",
-      "text": "CASADI SYMBOLIC DYNAMICS \u00b7 IPOPT LOCAL NLP",
+      "text": "CHECKPOINT \u00b7 GO DEEPER AT YOUR OWN PACE",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -2299,7 +2729,7 @@
     },
     {
       "slide": "19",
-      "text": "12:10\u201312:20",
+      "text": "11:50\u201311:55",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -2309,7 +2739,7 @@
     },
     {
       "slide": "19",
-      "text": "Move between hovers, respect limits",
+      "text": "Check your result. Keep building.",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -2319,77 +2749,87 @@
     },
     {
       "slide": "19",
-      "text": "THE IDEA",
-      "font_pt": 11,
+      "text": "01",
+      "font_pt": 28,
       "lines": 1,
-      "x": 0.7,
-      "y": 1.86,
-      "width": 4,
-      "height": 0.24944444444444444
+      "x": 0.9,
+      "y": 1.98,
+      "width": 0.72,
+      "height": 0.5422222222222222
     },
     {
       "slide": "19",
-      "text": "1",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 2.4050000000000002,
-      "width": 0.2,
-      "height": 0.3011111111111111
+      "text": "Open your before-and-after prediction plot",
+      "font_pt": 24,
+      "lines": 3,
+      "x": 1.7799999999999998,
+      "y": 2.05,
+      "width": 4.4,
+      "height": 1.3
     },
     {
       "slide": "19",
-      "text": "(0, 1) m \u2192 (4, 2) m in 6 s",
-      "font_pt": 22,
+      "text": "02",
+      "font_pt": 28,
+      "lines": 1,
+      "x": 7.07,
+      "y": 1.98,
+      "width": 0.72,
+      "height": 0.5422222222222222
+    },
+    {
+      "slide": "19",
+      "text": "Compare the held-out flight and fitted values",
+      "font_pt": 24,
       "lines": 2,
-      "x": 1.25,
-      "y": 2.35,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
+      "x": 7.95,
+      "y": 2.05,
+      "width": 4.4,
+      "height": 0.8866666666666667
     },
     {
       "slide": "19",
-      "text": "2",
-      "font_pt": 14,
+      "text": "03",
+      "font_pt": 28,
       "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 3.602777777777778,
-      "width": 0.2,
-      "height": 0.3011111111111111
+      "x": 0.9,
+      "y": 4.13,
+      "width": 0.72,
+      "height": 0.5422222222222222
     },
     {
       "slide": "19",
-      "text": "Track target; limit effort and control changes",
-      "font_pt": 22,
-      "lines": 3,
-      "x": 1.25,
-      "y": 3.5477777777777777,
-      "width": 3.2800000000000002,
-      "height": 1.1966666666666668
+      "text": "Stretch: rerun from another starting guess",
+      "font_pt": 24,
+      "lines": 2,
+      "x": 1.7799999999999998,
+      "y": 4.2,
+      "width": 4.4,
+      "height": 0.8866666666666667
     },
     {
       "slide": "19",
-      "text": "3",
-      "font_pt": 14,
+      "text": "04",
+      "font_pt": 28,
       "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 5.179444444444444,
-      "width": 0.2,
-      "height": 0.3011111111111111
+      "x": 7.07,
+      "y": 4.13,
+      "width": 0.72,
+      "height": 0.5422222222222222
     },
     {
       "slide": "19",
-      "text": "Bound thrust, torque, pitch and altitude",
-      "font_pt": 22,
-      "lines": 3,
-      "x": 1.25,
-      "y": 5.124444444444444,
-      "width": 3.2800000000000002,
-      "height": 1.1966666666666668
+      "text": "App builders: keep your prototype moving",
+      "font_pt": 24,
+      "lines": 2,
+      "x": 7.95,
+      "y": 4.2,
+      "width": 4.4,
+      "height": 0.8866666666666667
     },
     {
       "slide": "19",
-      "text": "Identified drag is an input to this optimization.",
+      "text": "Fit complete? Continue your experiment or explore the optional checks.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -2419,7 +2859,7 @@
     },
     {
       "slide": "20",
-      "text": "HANDS-ON \u00b7 FITTED PHYSICS, CONSTRAINED TRAJECTORY",
+      "text": "EXTENSIBILITY DEMO \u00b7 SAME VEHICLE \u00b7 LINUX CPU / CODESPACES",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -2429,7 +2869,7 @@
     },
     {
       "slide": "20",
-      "text": "12:20\u201312:40",
+      "text": "11:55\u201312:00",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -2439,7 +2879,7 @@
     },
     {
       "slide": "20",
-      "text": "Solve. Inspect. Explain the braking.",
+      "text": "Make a target. Learn a policy.",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -2449,7 +2889,7 @@
     },
     {
       "slide": "20",
-      "text": "Open optimization.png and optimization.json.",
+      "text": "target.toml \u2192 generated Torch \u2192 differentiable policy learning",
       "font_pt": 21,
       "lines": 1,
       "x": 0.85,
@@ -2459,7 +2899,7 @@
     },
     {
       "slide": "20",
-      "text": "$ uv run --frozen python examples/optimize_casadi.py",
+      "text": "$ uv run --frozen --group torch python scripts/learn_hover_torch.py",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -2469,7 +2909,7 @@
     },
     {
       "slide": "20",
-      "text": "Solve_Succeeded \u00b7 limits respected \u00b7 arrive near rest",
+      "text": "Held-out cost \u2248 0.116 \u2192 0.021 \u00b7 optional instructions: BACKENDS.md",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -2479,12 +2919,32 @@
     },
     {
       "slide": "20",
-      "text": "Workshop guide \u2197",
+      "text": "Backend walkthrough \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 11.48,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "20",
+      "text": "Torch target.toml \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 4.716666666666667,
+      "y": 7.075,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "20",
+      "text": "Lean Jinja target \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 8.663333333333332,
+      "y": 7.075,
+      "width": 3.586666666666667,
       "height": 0.2838888888888889
     },
     {
@@ -2499,67 +2959,97 @@
     },
     {
       "slide": "21",
-      "text": "PURDUE UAS RESEARCH AND TEST FACILITY \u00b7 UPCOMING COMPETITION",
+      "text": "PAUSE / RECHARGE",
       "font_pt": 11,
       "lines": 1,
-      "x": 0.6,
-      "y": 0.28,
-      "width": 11.1,
+      "x": 0.65,
+      "y": 0.4,
+      "width": 10,
       "height": 0.24944444444444444
     },
     {
       "slide": "21",
-      "text": "12:40\u201312:45",
+      "text": "Back at",
+      "font_pt": 35,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.35,
+      "width": 8,
+      "height": 0.6627777777777777
+    },
+    {
+      "slide": "21",
+      "text": "12:10",
+      "font_pt": 102,
+      "lines": 1,
+      "x": 0.62,
+      "y": 2.02,
+      "width": 8.3,
+      "height": 1.8166666666666669
+    },
+    {
+      "slide": "21",
+      "text": "KEEP YOUR PLACE",
       "font_pt": 11,
       "lines": 1,
-      "x": 11.5,
-      "y": 0.28,
-      "width": 1.25,
+      "x": 9.65,
+      "y": 1.6,
+      "width": 2.8,
       "height": 0.24944444444444444
     },
     {
       "slide": "21",
-      "text": "Next up: pylon racing at PURT",
-      "font_pt": 34,
-      "lines": 1,
-      "x": 0.6,
-      "y": 0.82,
-      "width": 12.1,
-      "height": 0.6455555555555554
-    },
-    {
-      "slide": "21",
-      "text": "The next competition will leverage Rumoca",
-      "font_pt": 24,
-      "lines": 1,
-      "x": 0.7,
-      "y": 1.73,
-      "width": 9.05,
-      "height": 0.47333333333333333
-    },
-    {
-      "slide": "21",
-      "text": "PURT FPV chase \u00b7 September 2025 \u00b7 click video to play",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.7,
-      "y": 6.29,
-      "width": 9.05,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "21",
-      "text": "FOLLOW THE\nNEXT COMPETITION",
-      "font_pt": 12,
+      "text": "Keep your fitted coefficients.",
+      "font_pt": 19,
       "lines": 2,
-      "x": 10.36,
-      "y": 5.05,
-      "width": 2.05,
-      "height": 0.47333333333333333
+      "x": 9.65,
+      "y": 2.18,
+      "width": 2.75,
+      "height": 0.7144444444444444
     },
     {
       "slide": "21",
-      "text": "pylon-racing.geddes.rcac.purdue.edu",
+      "text": "Next: plan a flight using your fit.",
+      "font_pt": 19,
+      "lines": 2,
+      "x": 9.65,
+      "y": 3.2444444444444445,
+      "width": 2.75,
+      "height": 0.7144444444444444
+    },
+    {
+      "slide": "21",
+      "text": "Your fit plot is the recovery point.",
+      "font_pt": 19,
+      "lines": 2,
+      "x": 9.65,
+      "y": 4.308888888888889,
+      "width": 2.75,
+      "height": 0.7144444444444444
+    },
+    {
+      "slide": "21",
+      "text": "10 MINUTES",
+      "font_pt": 20,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.35,
+      "width": 8.2,
+      "height": 0.40444444444444444
+    },
+    {
+      "slide": "21",
+      "text": "Stretch. Ask a question. Keep your editor open.",
+      "font_pt": 21,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.98,
+      "width": 8,
+      "height": 0.42166666666666663
+    },
+    {
+      "slide": "21",
+      "text": "Same Modelica source; now compile to CasADi.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -2569,32 +3059,12 @@
     },
     {
       "slide": "21",
-      "text": "PURT pylon racing \u2197",
+      "text": "Workshop guide \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 3.586666666666667,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "21",
-      "text": "Watch race video \u2197",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 4.716666666666667,
-      "y": 7.075,
-      "width": 3.586666666666667,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "21",
-      "text": "Challenge rules \u2197",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 8.663333333333332,
-      "y": 7.075,
-      "width": 3.586666666666667,
+      "width": 11.48,
       "height": 0.2838888888888889
     },
     {
@@ -2609,7 +3079,7 @@
     },
     {
       "slide": "22",
-      "text": "ARSLAN KHAN\u2019S GROUP \u00b7 PENN STATE + PURDUE \u00b7 BOARDRUNNER, CCS \u201926",
+      "text": "CASADI SYMBOLIC DYNAMICS \u00b7 IPOPT LOCAL NLP",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -2619,7 +3089,7 @@
     },
     {
       "slide": "22",
-      "text": "12:40\u201312:45",
+      "text": "12:10\u201312:20",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -2629,21 +3099,21 @@
     },
     {
       "slide": "22",
-      "text": "FastDyn: fly the firmware against declared physics",
-      "font_pt": 30.265599131496806,
+      "text": "Move between hovers, respect limits",
+      "font_pt": 34,
       "lines": 1,
       "x": 0.6,
       "y": 0.82,
       "width": 12.1,
-      "height": 0.581240873931334
+      "height": 0.6455555555555554
     },
     {
       "slide": "22",
-      "text": "PHYSICS + ACTUAL FIRMWARE",
+      "text": "THE IDEA",
       "font_pt": 11,
       "lines": 1,
       "x": 0.7,
-      "y": 1.79,
+      "y": 1.86,
       "width": 4,
       "height": 0.24944444444444444
     },
@@ -2653,19 +3123,19 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 2.2550000000000003,
+      "y": 2.4050000000000002,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "22",
-      "text": "Modelica \u2192 Rumoca FMI 3 plant",
-      "font_pt": 19,
+      "text": "(0, 1) m \u2192 (4, 2) m in 6 s",
+      "font_pt": 22,
       "lines": 2,
       "x": 1.25,
-      "y": 2.2,
+      "y": 2.35,
       "width": 3.2800000000000002,
-      "height": 0.7144444444444444
+      "height": 0.8177777777777777
     },
     {
       "slide": "22",
@@ -2673,19 +3143,19 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 3.249444444444445,
+      "y": 3.602777777777778,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "22",
-      "text": "ArduPilot firmware \u2192 FastDyn / QEMU",
-      "font_pt": 19,
-      "lines": 2,
+      "text": "Track target; limit effort and control changes",
+      "font_pt": 22,
+      "lines": 3,
       "x": 1.25,
-      "y": 3.1944444444444446,
+      "y": 3.5477777777777777,
       "width": 3.2800000000000002,
-      "height": 0.7144444444444444
+      "height": 1.1966666666666668
     },
     {
       "slide": "22",
@@ -2693,63 +3163,23 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 4.243888888888889,
+      "y": 5.179444444444444,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "22",
-      "text": "Recorded: 100 paired wind scenarios",
-      "font_pt": 19,
-      "lines": 2,
+      "text": "Bound thrust, torque, pitch and altitude",
+      "font_pt": 22,
+      "lines": 3,
       "x": 1.25,
-      "y": 4.188888888888889,
+      "y": 5.124444444444444,
       "width": 3.2800000000000002,
-      "height": 0.7144444444444444
+      "height": 1.1966666666666668
     },
     {
       "slide": "22",
-      "text": "4",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 5.238333333333333,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "22",
-      "text": "Try: 3 load trials in a FastDyn Codespace",
-      "font_pt": 19,
-      "lines": 2,
-      "x": 1.25,
-      "y": 5.183333333333334,
-      "width": 3.2800000000000002,
-      "height": 0.7144444444444444
-    },
-    {
-      "slide": "22",
-      "text": "Recorded research demo \u00b7 separate from today\u2019s 3 trials",
-      "font_pt": 12,
-      "lines": 1,
-      "x": 4.98,
-      "y": 5.75,
-      "width": 7.53,
-      "height": 0.26666666666666666
-    },
-    {
-      "slide": "22",
-      "text": "$ uv run --frozen python scripts/fastdyn_demo.py",
-      "font_pt": 18,
-      "lines": 1,
-      "x": 0.85,
-      "y": 6.18,
-      "width": 11.7,
-      "height": 0.37
-    },
-    {
-      "slide": "22",
-      "text": "Choose the FastDyn container \u00b7 open results/live/fastdyn/trajectories.png",
+      "text": "Identified drag is an input to this optimization.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -2759,42 +3189,12 @@
     },
     {
       "slide": "22",
-      "text": "FastDyn demo guide \u2197",
+      "text": "Workshop guide \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 2.6000000000000005,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "22",
-      "text": "BoardRunner paper \u2197",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 3.7300000000000004,
-      "y": 7.075,
-      "width": 2.6000000000000005,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "22",
-      "text": "FastDyn source \u2197",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 6.690000000000001,
-      "y": 7.075,
-      "width": 2.6000000000000005,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "22",
-      "text": "Recorded Monte Carlo \u2197",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 9.65,
-      "y": 7.075,
-      "width": 2.6000000000000005,
+      "width": 11.48,
       "height": 0.2838888888888889
     },
     {
@@ -2809,7 +3209,7 @@
     },
     {
       "slide": "23",
-      "text": "AGENT-BUILT APPS \u00b7 TRY FIXED-WING OR FINISH YOUR OWN DEMO",
+      "text": "HANDS-ON \u00b7 FITTED PHYSICS, CONSTRAINED TRAJECTORY",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -2819,7 +3219,7 @@
     },
     {
       "slide": "23",
-      "text": "12:45\u201312:50",
+      "text": "12:20\u201312:40",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -2829,7 +3229,7 @@
     },
     {
       "slide": "23",
-      "text": "Explore the fixed-wing workbench",
+      "text": "Solve. Inspect. Explain the braking.",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -2839,77 +3239,27 @@
     },
     {
       "slide": "23",
-      "text": "TRY THIS",
-      "font_pt": 11,
+      "text": "Open optimization.png and optimization.json.",
+      "font_pt": 21,
       "lines": 1,
-      "x": 0.7,
-      "y": 1.86,
-      "width": 4,
-      "height": 0.24944444444444444
+      "x": 0.85,
+      "y": 1.71,
+      "width": 11.6,
+      "height": 0.42166666666666663
     },
     {
       "slide": "23",
-      "text": "1",
-      "font_pt": 14,
+      "text": "$ uv run --frozen python examples/optimize_casadi.py",
+      "font_pt": 18,
       "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 2.4050000000000002,
-      "width": 0.2,
-      "height": 0.3011111111111111
+      "x": 0.85,
+      "y": 6.18,
+      "width": 11.7,
+      "height": 0.37
     },
     {
       "slide": "23",
-      "text": "Modelica flight simulation + autopilot",
-      "font_pt": 22,
-      "lines": 3,
-      "x": 1.25,
-      "y": 2.35,
-      "width": 3.2800000000000002,
-      "height": 1.1966666666666668
-    },
-    {
-      "slide": "23",
-      "text": "2",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 3.981666666666667,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "23",
-      "text": "Try 50 Hz \u2192 20 Hz, restart, then observe",
-      "font_pt": 22,
-      "lines": 2,
-      "x": 1.25,
-      "y": 3.9266666666666667,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
-    },
-    {
-      "slide": "23",
-      "text": "3",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 5.179444444444444,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "23",
-      "text": "Change a setting. Check what changes.",
-      "font_pt": 22,
-      "lines": 2,
-      "x": 1.25,
-      "y": 5.124444444444444,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
-    },
-    {
-      "slide": "23",
-      "text": "Live links + short experiments: BROWSER_APPS.md",
+      "text": "Solve_Succeeded \u00b7 limits respected \u00b7 arrive near rest",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -2919,32 +3269,12 @@
     },
     {
       "slide": "23",
-      "text": "Try fixed-wing \u2197",
+      "text": "Workshop guide \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 3.586666666666667,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "23",
-      "text": "Source code \u2197",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 4.716666666666667,
-      "y": 7.075,
-      "width": 3.586666666666667,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "23",
-      "text": "Experiment guide \u2197",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 8.663333333333332,
-      "y": 7.075,
-      "width": 3.586666666666667,
+      "width": 11.48,
       "height": 0.2838888888888889
     },
     {
@@ -2959,7 +3289,7 @@
     },
     {
       "slide": "24",
-      "text": "AGENT-BUILT APPS \u00b7 EXPLORE YOUR OWN SCIENTIFIC QUESTION",
+      "text": "PURDUE UAS RESEARCH AND TEST FACILITY \u00b7 UPCOMING COMPETITION",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -2969,7 +3299,7 @@
     },
     {
       "slide": "24",
-      "text": "12:45\u201312:50",
+      "text": "12:40\u201312:45",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -2979,7 +3309,7 @@
     },
     {
       "slide": "24",
-      "text": "Explore motion-capture identification",
+      "text": "Next up: pylon racing at PURT",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -2989,77 +3319,37 @@
     },
     {
       "slide": "24",
-      "text": "TRY THIS",
-      "font_pt": 11,
+      "text": "The next competition will leverage Rumoca",
+      "font_pt": 24,
       "lines": 1,
       "x": 0.7,
-      "y": 1.86,
-      "width": 4,
-      "height": 0.24944444444444444
+      "y": 1.73,
+      "width": 9.05,
+      "height": 0.47333333333333333
     },
     {
       "slide": "24",
-      "text": "1",
+      "text": "PURT FPV chase \u00b7 September 2025 \u00b7 click video to play",
       "font_pt": 14,
       "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 2.4050000000000002,
-      "width": 0.2,
+      "x": 0.7,
+      "y": 6.29,
+      "width": 9.05,
       "height": 0.3011111111111111
     },
     {
       "slide": "24",
-      "text": "Visualize vehicle data and model structure",
-      "font_pt": 22,
-      "lines": 3,
-      "x": 1.25,
-      "y": 2.35,
-      "width": 3.2800000000000002,
-      "height": 1.1966666666666668
+      "text": "FOLLOW THE\nNEXT COMPETITION",
+      "font_pt": 12,
+      "lines": 2,
+      "x": 10.36,
+      "y": 5.05,
+      "width": 2.05,
+      "height": 0.47333333333333333
     },
     {
       "slide": "24",
-      "text": "2",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 3.981666666666667,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "24",
-      "text": "Compare experiments and data splits",
-      "font_pt": 22,
-      "lines": 3,
-      "x": 1.25,
-      "y": 3.9266666666666667,
-      "width": 3.2800000000000002,
-      "height": 1.1966666666666668
-    },
-    {
-      "slide": "24",
-      "text": "3",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 5.558333333333334,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "24",
-      "text": "A viewer for exported benchmark results",
-      "font_pt": 22,
-      "lines": 3,
-      "x": 1.25,
-      "y": 5.503333333333334,
-      "width": 3.2800000000000002,
-      "height": 1.1966666666666668
-    },
-    {
-      "slide": "24",
-      "text": "Explore exported identification results.",
+      "text": "pylon-racing.geddes.rcac.purdue.edu",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -3069,7 +3359,7 @@
     },
     {
       "slide": "24",
-      "text": "Try the app \u2197",
+      "text": "PURT pylon racing \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
@@ -3079,7 +3369,7 @@
     },
     {
       "slide": "24",
-      "text": "Source code \u2197",
+      "text": "Watch race video \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 4.716666666666667,
@@ -3089,7 +3379,7 @@
     },
     {
       "slide": "24",
-      "text": "Experiment guide \u2197",
+      "text": "Challenge rules \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 8.663333333333332,
@@ -3109,7 +3399,7 @@
     },
     {
       "slide": "25",
-      "text": "AGENT-BUILT APPS \u00b7 EXPLORE YOUR OWN SCIENTIFIC QUESTION",
+      "text": "ARSLAN KHAN\u2019S GROUP \u00b7 PENN STATE + PURDUE \u00b7 BOARDRUNNER, CCS \u201926",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -3119,7 +3409,7 @@
     },
     {
       "slide": "25",
-      "text": "12:45\u201312:50",
+      "text": "12:40\u201312:45",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -3129,21 +3419,21 @@
     },
     {
       "slide": "25",
-      "text": "Explore SLAM Lab \u00b7 in development",
-      "font_pt": 34,
+      "text": "FastDyn: fly the firmware against declared physics",
+      "font_pt": 30.265599131496806,
       "lines": 1,
       "x": 0.6,
       "y": 0.82,
       "width": 12.1,
-      "height": 0.6455555555555554
+      "height": 0.581240873931334
     },
     {
       "slide": "25",
-      "text": "TRY THIS",
+      "text": "PHYSICS + ACTUAL FIRMWARE",
       "font_pt": 11,
       "lines": 1,
       "x": 0.7,
-      "y": 1.86,
+      "y": 1.79,
       "width": 4,
       "height": 0.24944444444444444
     },
@@ -3153,19 +3443,19 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 2.4050000000000002,
+      "y": 2.2550000000000003,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "25",
-      "text": "Try the inertial estimation baseline",
-      "font_pt": 22,
+      "text": "Modelica \u2192 Rumoca FMI 3 plant",
+      "font_pt": 19,
       "lines": 2,
       "x": 1.25,
-      "y": 2.35,
+      "y": 2.2,
       "width": 3.2800000000000002,
-      "height": 0.8177777777777777
+      "height": 0.7144444444444444
     },
     {
       "slide": "25",
@@ -3173,19 +3463,19 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 3.602777777777778,
+      "y": 3.249444444444445,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "25",
-      "text": "Inspect RGB, depth and trajectories",
-      "font_pt": 22,
+      "text": "ArduPilot firmware \u2192 FastDyn / QEMU",
+      "font_pt": 19,
       "lines": 2,
       "x": 1.25,
-      "y": 3.5477777777777777,
+      "y": 3.1944444444444446,
       "width": 3.2800000000000002,
-      "height": 0.8177777777777777
+      "height": 0.7144444444444444
     },
     {
       "slide": "25",
@@ -3193,23 +3483,63 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 4.800555555555555,
+      "y": 4.243888888888889,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "25",
-      "text": "Visual SLAM and loop closure are in development",
-      "font_pt": 22,
-      "lines": 3,
+      "text": "Recorded: 100 paired wind scenarios",
+      "font_pt": 19,
+      "lines": 2,
       "x": 1.25,
-      "y": 4.745555555555555,
+      "y": 4.188888888888889,
       "width": 3.2800000000000002,
-      "height": 1.1966666666666668
+      "height": 0.7144444444444444
     },
     {
       "slide": "25",
-      "text": "Start with the tested inertial baseline.",
+      "text": "4",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 5.238333333333333,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "25",
+      "text": "Try: 3 load trials in a FastDyn Codespace",
+      "font_pt": 19,
+      "lines": 2,
+      "x": 1.25,
+      "y": 5.183333333333334,
+      "width": 3.2800000000000002,
+      "height": 0.7144444444444444
+    },
+    {
+      "slide": "25",
+      "text": "Recorded research demo \u00b7 separate from today\u2019s 3 trials",
+      "font_pt": 12,
+      "lines": 1,
+      "x": 4.98,
+      "y": 5.75,
+      "width": 7.53,
+      "height": 0.26666666666666666
+    },
+    {
+      "slide": "25",
+      "text": "$ uv run --frozen python scripts/fastdyn_demo.py",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.18,
+      "width": 11.7,
+      "height": 0.37
+    },
+    {
+      "slide": "25",
+      "text": "Choose the FastDyn container \u00b7 open results/live/fastdyn/trajectories.png",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -3219,32 +3549,42 @@
     },
     {
       "slide": "25",
-      "text": "Try the app \u2197",
+      "text": "FastDyn demo guide \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 3.586666666666667,
+      "width": 2.6000000000000005,
       "height": 0.2838888888888889
     },
     {
       "slide": "25",
-      "text": "Source code \u2197",
+      "text": "BoardRunner paper \u2197",
       "font_pt": 13,
       "lines": 1,
-      "x": 4.716666666666667,
+      "x": 3.7300000000000004,
       "y": 7.075,
-      "width": 3.586666666666667,
+      "width": 2.6000000000000005,
       "height": 0.2838888888888889
     },
     {
       "slide": "25",
-      "text": "Experiment guide \u2197",
+      "text": "FastDyn source \u2197",
       "font_pt": 13,
       "lines": 1,
-      "x": 8.663333333333332,
+      "x": 6.690000000000001,
       "y": 7.075,
-      "width": 3.586666666666667,
+      "width": 2.6000000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "25",
+      "text": "Recorded Monte Carlo \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 9.65,
+      "y": 7.075,
+      "width": 2.6000000000000005,
       "height": 0.2838888888888889
     },
     {
@@ -3259,7 +3599,7 @@
     },
     {
       "slide": "26",
-      "text": "OPEN CHALLENGE \u00b7 SHORT DEMOS \u00b7 AUDIENCE SHOW OF HANDS",
+      "text": "AGENT-BUILT APPS \u00b7 TRY FIXED-WING OR FINISH YOUR OWN DEMO",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -3269,7 +3609,7 @@
     },
     {
       "slide": "26",
-      "text": "12:50\u201312:55",
+      "text": "12:45\u201312:50",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -3279,7 +3619,7 @@
     },
     {
       "slide": "26",
-      "text": "Show your experiment. Vote for the cap.",
+      "text": "Explore the fixed-wing workbench",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -3289,97 +3629,77 @@
     },
     {
       "slide": "26",
-      "text": "5",
-      "font_pt": 60,
+      "text": "TRY THIS",
+      "font_pt": 11,
       "lines": 1,
-      "x": 0.9,
-      "y": 1.94,
-      "width": 3.45,
-      "height": 1.0933333333333335
-    },
-    {
-      "slide": "26",
-      "text": "MAX. PRESENTERS",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 0.9,
-      "y": 3.43,
-      "width": 3.45,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "26",
-      "text": "45 s",
-      "font_pt": 60,
-      "lines": 1,
-      "x": 5.090000000000001,
-      "y": 1.94,
-      "width": 3.45,
-      "height": 1.0933333333333335
-    },
-    {
-      "slide": "26",
-      "text": "EACH DEMO",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 5.090000000000001,
-      "y": 3.43,
-      "width": 3.45,
-      "height": 0.2838888888888889
+      "x": 0.7,
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
     },
     {
       "slide": "26",
       "text": "1",
-      "font_pt": 60,
+      "font_pt": 14,
       "lines": 1,
-      "x": 9.280000000000001,
-      "y": 1.94,
-      "width": 3.45,
-      "height": 1.0933333333333335
+      "x": 0.8049999999999999,
+      "y": 2.4050000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "26",
-      "text": "VOTE PER PERSON",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 9.280000000000001,
-      "y": 3.43,
-      "width": 3.45,
-      "height": 0.2838888888888889
+      "text": "Modelica flight simulation + autopilot",
+      "font_pt": 22,
+      "lines": 3,
+      "x": 1.25,
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
     },
     {
       "slide": "26",
-      "text": "Show your change + one checked result",
-      "font_pt": 29,
+      "text": "2",
+      "font_pt": 14,
       "lines": 1,
-      "x": 0.7,
-      "y": 4.5,
-      "width": 11.9,
-      "height": 0.5594444444444444
+      "x": 0.8049999999999999,
+      "y": 3.981666666666667,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "26",
-      "text": "Name your tool. Share elapsed work time.",
-      "font_pt": 23,
-      "lines": 1,
-      "x": 0.7,
-      "y": 5.14,
-      "width": 11.9,
-      "height": 0.4561111111111111
+      "text": "Try 50 Hz \u2192 20 Hz, restart, then observe",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 3.9266666666666667,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
     },
     {
       "slide": "26",
-      "text": "Audience favorite wins a free CogniPilot stocking cap",
-      "font_pt": 23,
+      "text": "3",
+      "font_pt": 14,
       "lines": 1,
-      "x": 0.7,
-      "y": 5.77,
-      "width": 11.9,
-      "height": 0.4561111111111111
+      "x": 0.8049999999999999,
+      "y": 5.179444444444444,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "26",
-      "text": "Random draw if more than 5 ready entries \u2192 audience hand vote",
+      "text": "Change a setting. Check what changes.",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 5.124444444444444,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "26",
+      "text": "Live links + short experiments: BROWSER_APPS.md",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -3389,22 +3709,32 @@
     },
     {
       "slide": "26",
-      "text": "Challenge rules \u2197",
+      "text": "Try fixed-wing \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 5.5600000000000005,
+      "width": 3.586666666666667,
       "height": 0.2838888888888889
     },
     {
       "slide": "26",
-      "text": "Optional gallery \u2197",
+      "text": "Source code \u2197",
       "font_pt": 13,
       "lines": 1,
-      "x": 6.690000000000001,
+      "x": 4.716666666666667,
       "y": 7.075,
-      "width": 5.5600000000000005,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "26",
+      "text": "Experiment guide \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 8.663333333333332,
+      "y": 7.075,
+      "width": 3.586666666666667,
       "height": 0.2838888888888889
     },
     {
@@ -3419,43 +3749,43 @@
     },
     {
       "slide": "27",
-      "text": "YOUR MODELICA EXPERTISE CAN MOVE THIS RESEARCH FORWARD",
+      "text": "AGENT-BUILT APPS \u00b7 EXPLORE YOUR OWN SCIENTIFIC QUESTION",
       "font_pt": 11,
       "lines": 1,
-      "x": 0.65,
-      "y": 0.35,
-      "width": 11,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
       "height": 0.24944444444444444
     },
     {
       "slide": "27",
-      "text": "12:55\u201313:00",
+      "text": "12:45\u201312:50",
       "font_pt": 11,
       "lines": 1,
-      "x": 11.35,
-      "y": 0.35,
-      "width": 1.35,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
       "height": 0.24944444444444444
     },
     {
       "slide": "27",
-      "text": "Bring your model.",
-      "font_pt": 48,
+      "text": "Explore motion-capture identification",
+      "font_pt": 34,
       "lines": 1,
-      "x": 0.65,
-      "y": 1.6,
-      "width": 9.5,
-      "height": 0.8866666666666667
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "27",
-      "text": "Join the work.",
-      "font_pt": 42,
+      "text": "TRY THIS",
+      "font_pt": 11,
       "lines": 1,
-      "x": 0.65,
-      "y": 2.42,
-      "width": 9.5,
-      "height": 0.7833333333333332
+      "x": 0.7,
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
     },
     {
       "slide": "27",
@@ -3463,19 +3793,19 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 3.605,
+      "y": 2.4050000000000002,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "27",
-      "text": "Bring a model or a question from your own domain",
+      "text": "Visualize vehicle data and model structure",
       "font_pt": 22,
-      "lines": 1,
+      "lines": 3,
       "x": 1.25,
-      "y": 3.55,
-      "width": 8.549999999999999,
-      "height": 0.4388888888888889
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
     },
     {
       "slide": "27",
@@ -3483,19 +3813,19 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 4.273888888888888,
+      "y": 3.981666666666667,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "27",
-      "text": "Add a validation case, model library or compiler fix",
+      "text": "Compare experiments and data splits",
       "font_pt": 22,
-      "lines": 1,
+      "lines": 3,
       "x": 1.25,
-      "y": 4.2188888888888885,
-      "width": 8.549999999999999,
-      "height": 0.4388888888888889
+      "y": 3.9266666666666667,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
     },
     {
       "slide": "27",
@@ -3503,33 +3833,23 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 4.942777777777777,
+      "y": 5.558333333333334,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "27",
-      "text": "Start a conversation: problem + model + one check",
+      "text": "A viewer for exported benchmark results",
       "font_pt": 22,
-      "lines": 1,
+      "lines": 3,
       "x": 1.25,
-      "y": 4.887777777777777,
-      "width": 8.549999999999999,
-      "height": 0.4388888888888889
+      "y": 5.503333333333334,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
     },
     {
       "slide": "27",
-      "text": "James Goppert \u00b7 Micah Condie",
-      "font_pt": 17,
-      "lines": 1,
-      "x": 0.7,
-      "y": 6.29,
-      "width": 9.5,
-      "height": 0.35277777777777775
-    },
-    {
-      "slide": "27",
-      "text": "Scan to join the work \u00b7 COMMUNITY.md \u00b7 questions welcome",
+      "text": "Explore exported identification results.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -3539,7 +3859,7 @@
     },
     {
       "slide": "27",
-      "text": "Join the community \u2197",
+      "text": "Try the app \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
@@ -3549,7 +3869,7 @@
     },
     {
       "slide": "27",
-      "text": "Rumoca compiler \u2197",
+      "text": "Source code \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 4.716666666666667,
@@ -3559,7 +3879,7 @@
     },
     {
       "slide": "27",
-      "text": "Model library \u2197",
+      "text": "Experiment guide \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 8.663333333333332,
@@ -3570,6 +3890,486 @@
     {
       "slide": "27",
       "text": "27",
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.5,
+      "y": 7.12,
+      "width": 0.35,
+      "height": 0.23222222222222222
+    },
+    {
+      "slide": "28",
+      "text": "AGENT-BUILT APPS \u00b7 EXPLORE YOUR OWN SCIENTIFIC QUESTION",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "28",
+      "text": "12:45\u201312:50",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "28",
+      "text": "Explore SLAM Lab \u00b7 in development",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
+    },
+    {
+      "slide": "28",
+      "text": "TRY THIS",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.7,
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "28",
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 2.4050000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "28",
+      "text": "Try the inertial estimation baseline",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "28",
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.602777777777778,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "28",
+      "text": "Inspect RGB, depth and trajectories",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 3.5477777777777777,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "28",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.800555555555555,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "28",
+      "text": "Visual SLAM and loop closure are in development",
+      "font_pt": 22,
+      "lines": 3,
+      "x": 1.25,
+      "y": 4.745555555555555,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
+    },
+    {
+      "slide": "28",
+      "text": "Start with the tested inertial baseline.",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "28",
+      "text": "Try the app \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 0.77,
+      "y": 7.075,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "28",
+      "text": "Source code \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 4.716666666666667,
+      "y": 7.075,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "28",
+      "text": "Experiment guide \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 8.663333333333332,
+      "y": 7.075,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "28",
+      "text": "28",
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.5,
+      "y": 7.12,
+      "width": 0.35,
+      "height": 0.23222222222222222
+    },
+    {
+      "slide": "29",
+      "text": "OPEN CHALLENGE \u00b7 SHORT DEMOS \u00b7 AUDIENCE SHOW OF HANDS",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "29",
+      "text": "12:50\u201312:55",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "29",
+      "text": "Show your experiment. Vote for the cap.",
+      "font_pt": 34,
+      "lines": 1,
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
+    },
+    {
+      "slide": "29",
+      "text": "5",
+      "font_pt": 60,
+      "lines": 1,
+      "x": 0.9,
+      "y": 1.94,
+      "width": 3.45,
+      "height": 1.0933333333333335
+    },
+    {
+      "slide": "29",
+      "text": "MAX. PRESENTERS",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 0.9,
+      "y": 3.43,
+      "width": 3.45,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "29",
+      "text": "45 s",
+      "font_pt": 60,
+      "lines": 1,
+      "x": 5.090000000000001,
+      "y": 1.94,
+      "width": 3.45,
+      "height": 1.0933333333333335
+    },
+    {
+      "slide": "29",
+      "text": "EACH DEMO",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 5.090000000000001,
+      "y": 3.43,
+      "width": 3.45,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "29",
+      "text": "1",
+      "font_pt": 60,
+      "lines": 1,
+      "x": 9.280000000000001,
+      "y": 1.94,
+      "width": 3.45,
+      "height": 1.0933333333333335
+    },
+    {
+      "slide": "29",
+      "text": "VOTE PER PERSON",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 9.280000000000001,
+      "y": 3.43,
+      "width": 3.45,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "29",
+      "text": "Show your change + one checked result",
+      "font_pt": 29,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.5,
+      "width": 11.9,
+      "height": 0.5594444444444444
+    },
+    {
+      "slide": "29",
+      "text": "Name your tool. Share elapsed work time.",
+      "font_pt": 23,
+      "lines": 1,
+      "x": 0.7,
+      "y": 5.14,
+      "width": 11.9,
+      "height": 0.4561111111111111
+    },
+    {
+      "slide": "29",
+      "text": "Audience favorite wins a free CogniPilot stocking cap",
+      "font_pt": 23,
+      "lines": 1,
+      "x": 0.7,
+      "y": 5.77,
+      "width": 11.9,
+      "height": 0.4561111111111111
+    },
+    {
+      "slide": "29",
+      "text": "Random draw if more than 5 ready entries \u2192 audience hand vote",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "29",
+      "text": "Challenge rules \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 0.77,
+      "y": 7.075,
+      "width": 5.5600000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "29",
+      "text": "Optional gallery \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 6.690000000000001,
+      "y": 7.075,
+      "width": 5.5600000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "29",
+      "text": "29",
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.5,
+      "y": 7.12,
+      "width": 0.35,
+      "height": 0.23222222222222222
+    },
+    {
+      "slide": "30",
+      "text": "YOUR MODELICA EXPERTISE CAN MOVE THIS RESEARCH FORWARD",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.65,
+      "y": 0.35,
+      "width": 11,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "30",
+      "text": "12:55\u201313:00",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.35,
+      "y": 0.35,
+      "width": 1.35,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "30",
+      "text": "Bring your model.",
+      "font_pt": 48,
+      "lines": 1,
+      "x": 0.65,
+      "y": 1.6,
+      "width": 9.5,
+      "height": 0.8866666666666667
+    },
+    {
+      "slide": "30",
+      "text": "Join the Rumoca research community.",
+      "font_pt": 31,
+      "lines": 1,
+      "x": 0.65,
+      "y": 2.42,
+      "width": 12.0,
+      "height": 0.5938888888888889
+    },
+    {
+      "slide": "30",
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.4050000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "30",
+      "text": "Bring a model or a question from your own domain",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 3.35,
+      "width": 11.35,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "30",
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.073888888888889,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "30",
+      "text": "Contribute a validation case, model library or compiler improvement",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 4.018888888888889,
+      "width": 11.35,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "30",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.7427777777777775,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "30",
+      "text": "Interested in research collaboration? Talk with James or Micah",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 4.687777777777778,
+      "width": 11.35,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "30",
+      "text": "jgoppert@purdue.edu",
+      "font_pt": 32,
+      "lines": 1,
+      "x": 0.7,
+      "y": 5.73,
+      "width": 11.9,
+      "height": 0.6111111111111112
+    },
+    {
+      "slide": "30",
+      "text": "James Goppert \u00b7 Micah Condie",
+      "font_pt": 17,
+      "lines": 1,
+      "x": 0.7,
+      "y": 6.29,
+      "width": 9.5,
+      "height": 0.35277777777777775
+    },
+    {
+      "slide": "30",
+      "text": "Email James with your problem, model and one result to check together.",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "30",
+      "text": "Email James \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 0.77,
+      "y": 7.075,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "30",
+      "text": "Rumoca compiler \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 4.716666666666667,
+      "y": 7.075,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "30",
+      "text": "Model library \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 8.663333333333332,
+      "y": 7.075,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "30",
+      "text": "30",
       "font_pt": 10,
       "lines": 1,
       "x": 12.5,
@@ -3716,8 +4516,8 @@
     },
     {
       "slide": "07",
-      "label": "Simulation walkthrough",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md",
+      "label": "Open Quadrotor SIL",
+      "url": "https://cognipilot.github.io/rumoca/user-guide/simulation/interactive.html#quadrotor-sil",
       "x": 0.65,
       "y": 7.035,
       "width": 5.800000000000001,
@@ -3725,8 +4525,8 @@
     },
     {
       "slide": "07",
-      "label": "Scenario model",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/models/BrowserFlight.mo",
+      "label": "Walkthrough",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/SIMULATION_SETUP.md",
       "x": 6.570000000000001,
       "y": 7.035,
       "width": 5.800000000000001,
@@ -3734,6 +4534,60 @@
     },
     {
       "slide": "08",
+      "label": "Actual quadrotor TOML",
+      "url": "https://github.com/CogniPilot/rumoca/blob/main/examples/interactive/quadrotor/rumoca-scenario.acro.toml",
+      "x": 0.65,
+      "y": 7.035,
+      "width": 5.800000000000001,
+      "height": 0.4
+    },
+    {
+      "slide": "08",
+      "label": "Settings reference",
+      "url": "https://cognipilot.github.io/rumoca/user-guide/simulation/scenario-tomls.html",
+      "x": 6.570000000000001,
+      "y": 7.035,
+      "width": 5.800000000000001,
+      "height": 0.4
+    },
+    {
+      "slide": "09",
+      "label": "Full input mappings",
+      "url": "https://github.com/CogniPilot/rumoca/blob/main/examples/interactive/quadrotor/rumoca-scenario.acro.toml",
+      "x": 0.65,
+      "y": 7.035,
+      "width": 5.800000000000001,
+      "height": 0.4
+    },
+    {
+      "slide": "09",
+      "label": "Copyable walkthrough",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/SIMULATION_SETUP.md",
+      "x": 6.570000000000001,
+      "y": 7.035,
+      "width": 5.800000000000001,
+      "height": 0.4
+    },
+    {
+      "slide": "10",
+      "label": "Actual scene script",
+      "url": "https://github.com/CogniPilot/rumoca/blob/main/examples/interactive/quadrotor/quadrotor_scene.js",
+      "x": 0.65,
+      "y": 7.035,
+      "width": 5.800000000000001,
+      "height": 0.4
+    },
+    {
+      "slide": "10",
+      "label": "Scene + frame walkthrough",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/SIMULATION_SETUP.md",
+      "x": 6.570000000000001,
+      "y": 7.035,
+      "width": 5.800000000000001,
+      "height": 0.4
+    },
+    {
+      "slide": "11",
       "label": "Open NACA example",
       "url": "https://cognipilot.github.io/rumoca/user-guide/language/arrays-pde.html#2-d-navierstokes-flow-over-a-naca-2412-airfoil",
       "x": 0.65,
@@ -3742,7 +4596,7 @@
       "height": 0.4
     },
     {
-      "slide": "08",
+      "slide": "11",
       "label": "Explore user guide",
       "url": "https://cognipilot.github.io/rumoca/user-guide/",
       "x": 6.570000000000001,
@@ -3751,7 +4605,7 @@
       "height": 0.4
     },
     {
-      "slide": "09",
+      "slide": "12",
       "label": "Open vehicle model",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/models/Quadrotor.mo",
       "x": 0.65,
@@ -3760,48 +4614,12 @@
       "height": 0.4
     },
     {
-      "slide": "09",
-      "label": "Workshop guide",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md",
-      "x": 6.570000000000001,
-      "y": 7.035,
-      "width": 5.800000000000001,
-      "height": 0.4
-    },
-    {
-      "slide": "10",
-      "label": "Workshop guide",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md",
-      "x": 0.65,
-      "y": 7.035,
-      "width": 5.800000000000001,
-      "height": 0.4
-    },
-    {
-      "slide": "10",
-      "label": "Open playground",
-      "url": "https://rumoca.cognipilot.org/playground/",
-      "x": 6.570000000000001,
-      "y": 7.035,
-      "width": 5.800000000000001,
-      "height": 0.4
-    },
-    {
-      "slide": "11",
-      "label": "Workshop guide",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md",
-      "x": 0.65,
-      "y": 7.035,
-      "width": 11.72,
-      "height": 0.4
-    },
-    {
       "slide": "12",
       "label": "Workshop guide",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md",
-      "x": 0.65,
+      "x": 6.570000000000001,
       "y": 7.035,
-      "width": 11.72,
+      "width": 5.800000000000001,
       "height": 0.4
     },
     {
@@ -3810,7 +4628,16 @@
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md",
       "x": 0.65,
       "y": 7.035,
-      "width": 11.72,
+      "width": 5.800000000000001,
+      "height": 0.4
+    },
+    {
+      "slide": "13",
+      "label": "Open playground",
+      "url": "https://rumoca.cognipilot.org/playground/",
+      "x": 6.570000000000001,
+      "y": 7.035,
+      "width": 5.800000000000001,
       "height": 0.4
     },
     {
@@ -3842,29 +4669,11 @@
     },
     {
       "slide": "17",
-      "label": "Backend walkthrough",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BACKENDS.md",
+      "label": "Workshop guide",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md",
       "x": 0.65,
       "y": 7.035,
-      "width": 3.8266666666666667,
-      "height": 0.4
-    },
-    {
-      "slide": "17",
-      "label": "Torch target.toml",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/templates/torch-ode/target.toml",
-      "x": 4.596666666666667,
-      "y": 7.035,
-      "width": 3.8266666666666667,
-      "height": 0.4
-    },
-    {
-      "slide": "17",
-      "label": "Lean Jinja target",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/templates/lean-proof/rhs.lean.jinja",
-      "x": 8.543333333333333,
-      "y": 7.035,
-      "width": 3.8266666666666667,
+      "width": 11.72,
       "height": 0.4
     },
     {
@@ -3887,6 +4696,33 @@
     },
     {
       "slide": "20",
+      "label": "Backend walkthrough",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BACKENDS.md",
+      "x": 0.65,
+      "y": 7.035,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "20",
+      "label": "Torch target.toml",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/templates/torch-ode/target.toml",
+      "x": 4.596666666666667,
+      "y": 7.035,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "20",
+      "label": "Lean Jinja target",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/templates/lean-proof/rhs.lean.jinja",
+      "x": 8.543333333333333,
+      "y": 7.035,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "21",
       "label": "Workshop guide",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md",
       "x": 0.65,
@@ -3895,7 +4731,25 @@
       "height": 0.4
     },
     {
-      "slide": "21",
+      "slide": "22",
+      "label": "Workshop guide",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md",
+      "x": 0.65,
+      "y": 7.035,
+      "width": 11.72,
+      "height": 0.4
+    },
+    {
+      "slide": "23",
+      "label": "Workshop guide",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md",
+      "x": 0.65,
+      "y": 7.035,
+      "width": 11.72,
+      "height": 0.4
+    },
+    {
+      "slide": "24",
       "label": "PURT pylon racing",
       "url": "https://pylon-racing.geddes.rcac.purdue.edu/",
       "x": 0.65,
@@ -3904,7 +4758,7 @@
       "height": 0.4
     },
     {
-      "slide": "21",
+      "slide": "24",
       "label": "Watch race video",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/releases/download/workshop-amc2026-r3/purt-fpv-chase.mp4",
       "x": 4.596666666666667,
@@ -3913,7 +4767,7 @@
       "height": 0.4
     },
     {
-      "slide": "21",
+      "slide": "24",
       "label": "Challenge rules",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/CHALLENGE.md",
       "x": 8.543333333333333,
@@ -3922,7 +4776,7 @@
       "height": 0.4
     },
     {
-      "slide": "22",
+      "slide": "25",
       "label": "FastDyn demo guide",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/FASTDYN.md",
       "x": 0.65,
@@ -3931,7 +4785,7 @@
       "height": 0.4
     },
     {
-      "slide": "22",
+      "slide": "25",
       "label": "BoardRunner paper",
       "url": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
       "x": 3.6100000000000003,
@@ -3940,7 +4794,7 @@
       "height": 0.4
     },
     {
-      "slide": "22",
+      "slide": "25",
       "label": "FastDyn source",
       "url": "https://github.com/jgoppert/FastDyn",
       "x": 6.570000000000001,
@@ -3949,7 +4803,7 @@
       "height": 0.4
     },
     {
-      "slide": "22",
+      "slide": "25",
       "label": "Recorded Monte Carlo",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/releases/download/workshop-amc2026-r3/fastdyn-monte-carlo.mp4",
       "x": 9.530000000000001,
@@ -3958,7 +4812,7 @@
       "height": 0.4
     },
     {
-      "slide": "23",
+      "slide": "26",
       "label": "Try fixed-wing",
       "url": "https://cognipilot.github.io/rumoca_fixed_wing/",
       "x": 0.65,
@@ -3967,7 +4821,7 @@
       "height": 0.4
     },
     {
-      "slide": "23",
+      "slide": "26",
       "label": "Source code",
       "url": "https://github.com/CogniPilot/rumoca_fixed_wing",
       "x": 4.596666666666667,
@@ -3976,7 +4830,7 @@
       "height": 0.4
     },
     {
-      "slide": "23",
+      "slide": "26",
       "label": "Experiment guide",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BROWSER_APPS.md",
       "x": 8.543333333333333,
@@ -3985,7 +4839,7 @@
       "height": 0.4
     },
     {
-      "slide": "24",
+      "slide": "27",
       "label": "Try the app",
       "url": "https://cognipilot.github.io/mocap_sysid/",
       "x": 0.65,
@@ -3994,7 +4848,7 @@
       "height": 0.4
     },
     {
-      "slide": "24",
+      "slide": "27",
       "label": "Source code",
       "url": "https://github.com/CogniPilot/mocap_sysid",
       "x": 4.596666666666667,
@@ -4003,7 +4857,7 @@
       "height": 0.4
     },
     {
-      "slide": "24",
+      "slide": "27",
       "label": "Experiment guide",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BROWSER_APPS.md",
       "x": 8.543333333333333,
@@ -4012,7 +4866,7 @@
       "height": 0.4
     },
     {
-      "slide": "25",
+      "slide": "28",
       "label": "Try the app",
       "url": "https://cognipilot.github.io/slam_web/",
       "x": 0.65,
@@ -4021,7 +4875,7 @@
       "height": 0.4
     },
     {
-      "slide": "25",
+      "slide": "28",
       "label": "Source code",
       "url": "https://github.com/CogniPilot/slam_web",
       "x": 4.596666666666667,
@@ -4030,7 +4884,7 @@
       "height": 0.4
     },
     {
-      "slide": "25",
+      "slide": "28",
       "label": "Experiment guide",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BROWSER_APPS.md",
       "x": 8.543333333333333,
@@ -4039,7 +4893,7 @@
       "height": 0.4
     },
     {
-      "slide": "26",
+      "slide": "29",
       "label": "Challenge rules",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/CHALLENGE.md",
       "x": 0.65,
@@ -4048,7 +4902,7 @@
       "height": 0.4
     },
     {
-      "slide": "26",
+      "slide": "29",
       "label": "Optional gallery",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/1",
       "x": 6.570000000000001,
@@ -4057,16 +4911,25 @@
       "height": 0.4
     },
     {
-      "slide": "27",
-      "label": "Join the community",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/COMMUNITY.md",
+      "slide": "30",
+      "label": "jgoppert@purdue.edu",
+      "url": "mailto:jgoppert@purdue.edu",
+      "x": 0.7,
+      "y": 5.7,
+      "width": 7.5,
+      "height": 0.6
+    },
+    {
+      "slide": "30",
+      "label": "Email James",
+      "url": "mailto:jgoppert@purdue.edu",
       "x": 0.65,
       "y": 7.035,
       "width": 3.8266666666666667,
       "height": 0.4
     },
     {
-      "slide": "27",
+      "slide": "30",
       "label": "Rumoca compiler",
       "url": "https://github.com/CogniPilot/rumoca",
       "x": 4.596666666666667,
@@ -4075,7 +4938,7 @@
       "height": 0.4
     },
     {
-      "slide": "27",
+      "slide": "30",
       "label": "Model library",
       "url": "https://github.com/CogniPilot/modelica_models",
       "x": 8.543333333333333,
@@ -4087,12 +4950,12 @@
   "notes_in_pptx": true,
   "embedded_movies": [
     {
-      "slide": "21",
+      "slide": "24",
       "source": "slides/media/purt-fpv-chase.mp4",
       "sha256": "0cb09e6a72a4f8543ba2e7ad786b1a4e7da1d8580ebf9daccde99c463c37bcef"
     },
     {
-      "slide": "22",
+      "slide": "25",
       "source": "slides/media/fastdyn-monte-carlo.mp4",
       "sha256": "2a688f567c51d837c23555806250dd5ebd31a34cf16cb14c4d15fe85200f4ab1"
     }

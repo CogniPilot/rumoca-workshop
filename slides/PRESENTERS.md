@@ -30,19 +30,20 @@ reference figures on your laptop. Participant entry:
 |---|---|---|
 | 10:00–10:10 | 1–2 | Welcome, core outcomes and **open experiment challenge**. Announce small interactive experiments, optional agents/hosting, hand vote and prize now. |
 | 10:10–10:20 | 3–4 | Why Rumoca; Lie groups, reachable sets, formal verification, identification and digital twins. Show Cerebri RDD2: Modelica → eFMI C → Zephyr → real drone, with property-specific verification goals. Then show today's Modelica → JAX / CasADi compiler bridge. |
-| 10:20–10:35 | 5–7 | Browser plot, cloud/local setup and smoke. Experienced participants can begin their app when ready. |
-| 10:35–10:40 | 8 | User-guide embedded editor and NACA flow visualization. Use a warm successful tab; keep the saved capture ready. |
-| 10:40–11:00 | 9–11 | Introduce the small model, change a parameter, run and inspect the plot. Assume no aerospace background. |
-| 11:00–11:10 | 12 | **Break 1**, ten full minutes. Leave recovery link visible. |
-| 11:10–11:50 | 13–15 | Synthetic data, prediction error, JAX fit and before/after outputs. App builders use independent work time. |
-| 11:50–11:55 | 16 | Checkpoint and independent work/questions. Offer detailed mathematics only when requested. |
-| 11:55–12:00 | 17 | External target.toml → Torch dynamics → small differentiable hover policy. Presenter demo; optional package preinstalled. |
-| 12:00–12:10 | 18 | **Break 2**, ten full minutes. Leave next command visible. |
-| 12:10–12:40 | 19–20 | Constraints, CasADi solve and plots. Optional target variant or continued app development. |
-| 12:40–12:45 | 21–22 | Advertise the next PURT pylon racing competition and its planned Rumoca use. Play 20–30 seconds of the embedded PURT FPV chase movie, then show the FastDyn Monte Carlo poster and 30-second movie. Share the container run command and announce challenge presenters by 12:45. |
-| 12:45–12:50 | 23–25 | Explore **rumoca_fixed_wing** or finish challenge demos. Show SLAM as another example in development. |
-| 12:50–12:55 | 26 | Short participant demos, then **audience show-of-hands vote** and stocking-cap award. |
-| 12:55–13:00 | 27 | Questions, research invitation and take-home links. |
+| 10:20–10:30 | 5–6 | Browser plot and local/cloud setup. |
+| 10:30–10:40 | 7–10 | User-guide Quadrotor SIL: Settings/TOML, clock, controls, signal routing and Three.js scene. Use SIMULATION_SETUP.md and the saved capture. |
+| 10:40–10:45 | 11 | Embedded NACA editor and flow visualization. |
+| 10:45–11:00 | 12–14 | Planar model, parameter edit and Python Session API simulation. |
+| 11:00–11:10 | 15 | **Break 1**, ten full minutes. |
+| 11:10–11:50 | 16–18 | Synthetic data, JAX fit and before/after outputs. |
+| 11:50–11:55 | 19 | Checkpoint and independent work/questions. |
+| 11:55–12:00 | 20 | target.toml → Torch dynamics → differentiable hover policy. |
+| 12:00–12:10 | 21 | **Break 2**, ten full minutes. |
+| 12:10–12:40 | 22–23 | Constraints, CasADi solve and plots. |
+| 12:40–12:45 | 24–25 | PURT pylon racing and FastDyn Monte Carlo: embedded movies, links and run command. Announce challenge presenters. |
+| 12:45–12:50 | 26–28 | Fixed-wing, mocap and SLAM app showcase; finish challenge demos. |
+| 12:50–12:55 | 29 | Participant demos, audience vote and stocking-cap award. |
+| 12:55–13:00 | 30 | Research community invitation, jgoppert@purdue.edu and questions. |
 
 Total **180 minutes**, including **20 minutes of breaks**. Aim for roughly
 40–45 minutes of explanation; the remaining teaching time is guided work,
@@ -146,7 +147,7 @@ explicit proof obligations. Today's planar exercise does not compute a reachable
 tube or certify generated machine code. [Math context](../docs/MATH_REVIEW.md) links
 primary sources for the broader ideas.
 
-Slide 21 promotes the next **PURT pylon racing competition**, which will leverage
+Slide 24 promotes the next **PURT pylon racing competition**, which will leverage
 Rumoca. Share the [competition site](https://pylon-racing.geddes.rcac.purdue.edu/)
 and the slide's QR code. The public site explains the digital-twin-to-flight-test
 format; its currently listed dates are for April 2026. Refer attendees to future
@@ -178,7 +179,7 @@ short SLAM Lab exercise. Stored mocap benchmark metrics were not regenerated
 or independently validated by this workshop. Gallery models are outside the
 planar quadrotor’s proof scope.
 
-Future roadmap in Main slide 22: unified vision/SLAM/estimation and physics; compiler-scale
+Research directions: unified vision/SLAM/estimation and physics; compiler-scale
 differentiation; richer browser/FMI/WASM workflows; CPU/GPU/embedded partitioning.
 Label these **research directions**. The current browser demonstration is real,
 but it does not establish these larger future workflows or million-variable
@@ -187,8 +188,8 @@ in this workshop. No unrelated evolving project is on the critical path.
 
 Suggested close: “You bring Modelica knowledge we need. Bring a model from
 your domain, one scientific question and one result we can check together.
-Help us make declared mathematics reusable across tools.” Use the closing QR
-to open [COMMUNITY.md](../docs/COMMUNITY.md) and its research/model collaboration form.
+Help us make declared mathematics reusable across tools.” Show the closing address and invite attendees
+to email [jgoppert@purdue.edu](mailto:jgoppert@purdue.edu) with a model, question and one checked result.
 Invite attendees to speak with James Goppert or Micah Condie before leaving.
 Ask which model from their work they would try next, and leave time to listen.
 
@@ -249,7 +250,7 @@ starting points; broad hardware partitioning and scaling remain research work.
 
 ## Optional firmware demonstration
 
-Main slide 22 gives the FastDyn container choice, terminal command and plot path.
+Main slide 25 gives the FastDyn container choice, terminal command and plot path.
 Prepare a separate **FastDyn + Rumoca: optional firmware Monte Carlo** Codespace
 before the session. Run `uv run --frozen python scripts/fastdyn_demo.py` and open
 `results/live/fastdyn/trajectories.png`. The three flights completed in the actual

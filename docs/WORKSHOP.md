@@ -16,6 +16,13 @@ uv sync --frozen
 Codespaces has already prepared the packages and installed Rumoca's Modelica
 extension. Local users follow [setup](LOCAL_SETUP.md).
 
+## Interactive quadrotor walkthrough
+
+Slides 7–10 use the [user guide’s Quadrotor SIL](https://cognipilot.github.io/rumoca/user-guide/simulation/interactive.html#quadrotor-sil).
+Follow [the simulation settings and Three.js walkthrough](SIMULATION_SETUP.md)
+for the TOML, controls, signal routing and frame conversion. Then return to the
+compact planar vehicle below for the Python Session API exercises.
+
 ## Configure a simulation: lightning bolt → TOML → Run
 
 1. Open **`models/BrowserFlight.mo`**. This binds the Quadrotor's inputs to hover

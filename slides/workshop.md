@@ -104,23 +104,79 @@ Checkpoint: Switch route after ten minutes of setup trouble.
 Notes:
 Codespaces URL https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1. Codespaces requires an account with allowance or billing enabled. Cloud qualification is recorded in VERIFICATION.md; account availability varies. Local: download/extract ZIP, install uv/extension, uv sync --frozen. Python and released editor are qualified on Linux/Windows x64 and macOS Intel/Apple Silicon. The local Dev Container route uses the same configuration as Codespaces: install Docker and the VS Code Dev Containers extension, open the workshop folder, run Dev Containers: Reopen in Container, and select the core workshop. Wait for WORKSHOP PASS. No host uv or Nix is required. Docker Desktop uses Linux containers / WSL 2 on Windows; Docker Engine works on Linux. Native uv remains an optional route.
 
-## 07 · Configure the experiment, then run it
-Links: Simulation walkthrough | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md ; Scenario model | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/models/BrowserFlight.mo
-Time: 10:30–10:35
-Layout: statement
-Badge: VS CODE · lightning bolt creates the TOML
+## 07 · Fly the user guide’s quadrotor
+Links: Open Quadrotor SIL | https://cognipilot.github.io/rumoca/user-guide/simulation/interactive.html#quadrotor-sil ; Walkthrough | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/SIMULATION_SETUP.md
+Time: 10:30–10:40
+Time group: Simulation setup
+Layout: image
+Visual: assets/user-guide-quadrotor.png
+Badge: LIVE WALKTHROUGH · one scenario connects model, inputs and view
 
-- Open BrowserFlight.mo → click the lightning bolt
-- Save scenario TOML → model, source roots, solver, end time
-- Run the scenario → inspect vx and x
+- Open Quadrotor SIL → Settings
+- Inspect the TOML → save → Simulate
+- Capture enables keys: Space arms; W / S changes throttle
 
-Checkpoint: Modelica owns physics · TOML owns the run configuration.
+Checkpoint: VS Code: open .mo → lightning bolt creates TOML → Settings → Run.
 Notes:
-Start with the .mo file, not a settings icon. Open models/BrowserFlight.mo, which binds the same Quadrotor plant to level hover thrust, zero torque and initial horizontal speed 6 m/s. Click the lightning-bolt Create Rumoca Scenario icon; the Command Palette fallback is Rumoca: Create Rumoca Scenario. Save the generated rumoca-scenario.…toml beside the model. The selected model is BrowserFlight; inspect the scenario editor and text view. Set source_roots=["."], model.file="BrowserFlight.mo", model.name="BrowserFlight", sim.solver="auto", sim.t_end=8.0 and viewer.mode="results_panel". Save and Run Current Rumoca Scenario. Inspect speed decay and increasing position. Explain that solver and horizon are experiment choices, while Modelica declares physics. The core plant has free inputs; this wrapper defines an experiment. Python later supplies a different prescribed input experiment. Do not compare native coast distances directly to the Python maneuver values. Hover/completion can be checked briefly while opening the model. Let attendees create the TOML themselves; do not paste a prepared scenario first. See WORKSHOP.md for fallback commands and settings. If the editor run is unavailable, use the Python experiment and clearly label that alternate route.
+This is the linked user-guide QuadrotorAcro example, built around the six-degree-of-freedom QuadrotorSIL plant and CMM controller/library. It is a richer interactive example than our six-state planar Quadrotor.mo; keep those models distinct. Open the link and choose Settings in the first embedded editor. Walk through the next three slides using its actual TOML and scene script. In VS Code, first open the .mo file and click the lightning-bolt Create Rumoca Scenario icon; it creates the scenario TOML. Settings then edits the run through typed controls or text. Do not imply that the guide’s CMM paths are already installed in the small workshop checkout. For the guided live experience, use the already deployed browser guide. The scenario already selects its live viewer. Leave GPU off for this CPU example, choose Simulate, then press Capture in the scene. Space toggles arming only with throttle at or below 0.05. W/S raises/lowers throttle; arrows command roll/pitch, A/D yaw, R resets, Q quits, and the Stop button is the reliable browser stop control. Use brief throttle taps rather than holding W. The ACRO wrapper commands angular rate; neutral sticks do not mean automatic altitude hold or attitude leveling. Preview this browser run before the workshop; browser runtime is a separate deployed build from the pinned Python/VS Code 0.10.2. If the live guide cannot start, use the labeled saved capture and inspect its linked TOML and scene. After this ten-minute walkthrough, return to the compact planar model and Python Session API. Native BrowserFlight scenario creation remains documented in WORKSHOP.md.
 
-## 08 · The user guide is a live modeling lab
+## 08 · TOML: choose the model and the clock
+Links: Actual quadrotor TOML | https://github.com/CogniPilot/rumoca/blob/main/examples/interactive/quadrotor/rumoca-scenario.acro.toml ; Settings reference | https://cognipilot.github.io/rumoca/user-guide/simulation/scenario-tomls.html
+Time: 10:30–10:40
+Time group: Simulation setup
+Layout: code
+Code title: rumoca-scenario.acro.toml · selected sections
+Code: [rumoca]\nversion = "1"\ntask = "simulate"\n\n[model]\nfile = "QuadrotorSIL.mo"\nname = "QuadrotorAcro"\n\n[sim]\nsolver = "rk-like"\ndt = 0.01\nmode = "realtime"
+Badge: RUN CONFIGURATION · Modelica still owns the physics
+
+- file selects source; name selects the runnable class
+- dt = 0.01 s schedules 100 updates per simulated second
+- realtime paces the run; solver chooses the numerical method
+- Batch: set t_end; live: stop explicitly
+
+Checkpoint: Schema version "1" is the TOML format, not the Rumoca release.
+Notes:
+Read the actual file. source_roots is a top-level key before any section; the upstream example points to ../../../target/cmm/CMM-a642c381, prepared in the Rumoca repository by cargo xtask repo modelica-deps ensure. It supplies the CMM library dependency. Paths resolve relative to the scenario file, not the terminal directory. file selects the source containing multiple classes; name selects QuadrotorAcro, not just the file-stem plant. version="1" is the scenario schema, not Rumoca 1.0. solver="rk-like" selects the explicit RK-like solver family; auto chooses automatically, bdf is intended for stiff models. dt=0.01 is the live scheduling/advance interval, not a claim that an adaptive solver takes exactly one fixed internal step or that the renderer runs at 100 FPS. realtime paces against wall-clock time with held inputs; it cannot guarantee a slow computer meets deadlines. as_fast_as_possible removes sleeps; lockstep advances when an external packet arrives. atol/rtol optionally control solver accuracy and should be checked by refinement rather than chosen for appearance. t_end sets batch/results-panel horizon; live interactive runs continue until the quit signal, Stop control or interrupt. Have attendees locate these fields in Settings, then view TOML. Save before running; changing a horizon or solver is changing the experiment rather than the physical equations.
+
+## 09 · TOML: route controls into the model
+Links: Full input mappings | https://github.com/CogniPilot/rumoca/blob/main/examples/interactive/quadrotor/rumoca-scenario.acro.toml ; Copyable walkthrough | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/SIMULATION_SETUP.md
+Time: 10:30–10:40
+Time group: Simulation setup
+Layout: code
+Code title: Local state → input mapping → Modelica input
+Code: [locals.throttle]\ntype = "float"\ndefault = 0.0\n\n[input.gamepad.integrators.throttle]\nsource = "LeftStickY"\nwrite = "throttle"\nrate = 0.7\ndeadband = 0.1\nclamp = [0.0, 1.0]\n\n[signals.model_inputs]\nstick_throttle = "local:throttle"
+Badge: TRACE ONE SIGNAL · device → local → model → viewer
+
+- The stick changes persistent throttle; clamp keeps it within 0–1
+- W / S drives the keyboard integrator instead
+- Space toggles armed when throttle ≤ 0.05
+- signals.viewer names the channels the scene reads
+
+Checkpoint: Experiment: change rate 0.7 → 0.3; predict the throttle response.
+Notes:
+[input].mode="auto" chooses the available input route. locals declares persistent simulation state with types and defaults. The gamepad integrator accumulates throttle from LeftStickY, with a deadband, rate and clamp; a direct axis mapping would replace a command each update. The keyboard route maps W to throttle_input=1 and S to -1, then integrates into the same throttle local. Its decay factor=0.85 referenced to ref_dt=0.016 returns released stick commands toward neutral; it is input shaping, not aerodynamic drag. Space uses action="toggle", state="armed", debounce_ms=500 and precondition="throttle <= 0.05". signals.model_inputs converts the Boolean local to the Modelica numeric armed input with when_false=0 and when_true=1; stick_throttle points to local:throttle. These are educational simulator controls, not a physical arming safety guarantee. signals.viewer uses e.g. px="model:position[1]", pz="model:position[3]" and q0 from quat[1] with default=1 to expose named display channels; aliases are not new physical variables. [[viewer.controls.keyboard]] lists help text; it does not define key behavior—[input.keyboard.keys.*] does. [reset] can reset both model/session and locals in response to the reset signal. In Settings, change only the keyboard throttle integrator rate from 0.7 to 0.3, reset, and compare equal W taps. If using a gamepad, change the shown gamepad rate instead. Restore 0.7 afterward. Avoid discussing motor physics here; the audience needs the general route from a device to a model input.
+
+## 10 · Three.js draws the simulated state
+Links: Actual scene script | https://github.com/CogniPilot/rumoca/blob/main/examples/interactive/quadrotor/quadrotor_scene.js ; Scene + frame walkthrough | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/SIMULATION_SETUP.md
+Time: 10:30–10:40
+Time group: Simulation setup
+Layout: code
+Code title: quadrotor_scene.js · excerpt from onFrame(api)
+Code: const get = api.get;\nconst px = get("px") ?? 0;\nconst py = get("py") ?? 0;\nconst pz = get("pz") ?? 0;\n\n// Model: forward, left, up\n// Three.js: map into x, y, z\nconst tx = -py, ty = pz, tz = px;\n\n// Full script also transforms\n// attitude and updates the mesh.
+Badge: PRESENTATION · model states become position, attitude and motion
+
+- onInit: create/load meshes, lighting and persistent state
+- onFrame: read named signals and move the vehicle
+- Convert position and attitude together: R₃ = A R A⁻¹
+- Customize colors, trails or camera; keep physics in Modelica
+
+Checkpoint: [transport.http].scene selects this JavaScript file.
+Notes:
+Start with the actual script header: ctx.onInit(api) is called once after Three.js is ready; ctx.onFrame(api) runs on animation frames. api.THREE supplies the library, api.scene the scene, api.state the persistent meshes and api.get(name) the latest named signal. onInit loads the GLB drone and desert textures, creates lighting/propeller groups and camera anchors; onFrame reads position, quaternion, motor speeds and armed state. The model is Forward-Left-Up, whereas the mesh uses +Z forward, -X left and +Y up. Its position mapping is tx=-py, ty=pz, tz=px. With A=[[0,-1,0],[0,0,1],[1,0,0]], the attitude is transformed by A R A^-1, then translation is inserted into quad.matrix. Check that model +x becomes scene +z, model +y becomes scene -x, and model +z becomes scene +y; identity attitude stays identity. q0 is scalar-first (model quat[1]); do not pass it first to Three.js Quaternion, whose constructor takes x,y,z,w. The upstream DCM comment says NED, but both the model and applied A map are FLU; call out the comment as stale when reading it, rather than teaching the wrong frame. No upstream files are changed for this workshop. The full script gates propeller visual motion on armed and reads omega_m1..4; visual spin is an illustrative bounded per-frame effect, not the physical motor integrator. Camera/HUD/shadows are presentation. [transport.http] chooses scene="quadrotor_scene.js", asset_dir="../../assets" and port=8080; [transport.websocket].port=8081 streams native state. Embedded browser execution hosts its own surface; those native ports need not be exposed to try the guide. [[viewer.frame]] declares scalar-first quaternion/position aliases for a named body frame; camera/HUD references reuse it. In native Codespaces runs, HTTP and WebSocket ports must be forwarded and reachable, with the correct wss URL; this guide demo avoids that additional setup. Make a small visual customization in the challenge rather than reimplementing dynamics in JavaScript.
+
+## 11 · The user guide is a live modeling lab
 Links: Open NACA example | https://cognipilot.github.io/rumoca/user-guide/language/arrays-pde.html#2-d-navierstokes-flow-over-a-naca-2412-airfoil ; Explore user guide | https://cognipilot.github.io/rumoca/user-guide/
-Time: 10:35–10:40
+Time: 10:40–10:45
 Layout: image
 Visual: assets/user-guide-naca.png
 Badge: LIVE DEMO · NACA 2412 · embedded editor + WebGPU
@@ -133,9 +189,9 @@ Checkpoint: User-guide link and recovery: WORKSHOP.md · no install needed
 Notes:
 Use the deployed user guide as a workshop resource, not only a reference manual. Open https://cognipilot.github.io/rumoca/user-guide/language/arrays-pde.html#2-d-navierstokes-flow-over-a-naca-2412-airfoil. This page embeds Monaco editors, simulation controls, plots and custom visualizations; it also has turkey heating and a vibrating membrane for other domains. Find AirfoilFlow, change StopTime = 30 to 2, leave NX=30 and NY=18, keep GPU checked and Interactive off, then Simulate. Move the time slider to the final frame and switch Field between Vorticity and Pressure. Our rehearsal used Chromium with a software WebGPU adapter; it demonstrates execution and UI, not a hardware speed claim. The NACA contour and coarse artificial-compressibility/penalization flow field make declared array equations visible; this is a qualitative teaching model, not a validated lift/drag or aircraft design calculation. If WebGPU is unavailable or the short run fails, show the labeled saved capture and continue. Do not try the unqualified CPU NACA route during this five-minute segment. The browser guide is a separately deployed compiler/runtime from the pinned Python release. Keep the warm successful tab ready before class; participants can revisit these editors during downtime.
 
-## 09 · A planar quadrotor we can inspect
+## 12 · A planar quadrotor we can inspect
 Links: Open vehicle model | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/models/Quadrotor.mo ; Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md
-Time: 10:40–10:45
+Time: 10:45–10:50
 Layout: image
 Visual: assets/quadrotor.png
 Badge: Six states · two aggregate inputs
@@ -147,9 +203,9 @@ Checkpoint: Find velocities, pitch rate, thrust and torque in the model.
 Notes:
 States x,z,theta,vx,vz,omega; inputs T and tau. m=1.2 kg,Iyy=.025 kg m²,g=9.81. Diagram is generated from our convention, not a borrowed paper figure. Simplified world-axis drag; no roll/yaw/motors/wind/contact. The compact planar example keeps the equations inspectable and the computations short. Introduce pitch as the angle that directs the thrust; specialist aerodynamics is optional.
 
-## 10 · Your first engineering change: drag
+## 13 · Your first engineering change: drag
 Links: Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md ; Open playground | https://rumoca.cognipilot.org/playground/
-Time: 10:45–10:55
+Time: 10:50–10:55
 Layout: wide
 Visual: assets/drag-law.png
 Badge: HANDS-ON · predict before running
@@ -160,7 +216,7 @@ Checkpoint: What changes at high speed? What about negative velocity?
 Notes:
 Explain units kl N s/m,kq N s²/m²,epsilon .01 m/s. Smooth componentwise law approximates |v|v and never adds energy for nonnegative coefficients; Lean proves the signs and smoothing bound. It differs from Faessler et al.'s body-frame rotor-drag model; do not claim their flatness theorem. Allow 7–8 minutes editing/predicting. Browser users make the same coefficient change and Play again. Default parameter changes affect simulation; fitting estimates parameters explicitly.
 
-## 11 · More drag, less distance
+## 14 · More drag, less distance
 Links: Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md
 Time: 10:55–11:00
 Layout: wide
@@ -172,7 +228,7 @@ Checkpoint: Compare your current default with the two reference cases.
 Notes:
 Open the actual live plot and ask participants to explain the sign. The slide plot uses emitted JAX equations and reference parameters; not real flight data. Browser wrapper coasts at level hover, so its numbers differ. Optional kl=.30 then restore .18. Presenter solution is an inheritance override, not a second dynamics implementation. Take two questions. End on time for break.
 
-## 12 · Break · back at 11:10
+## 15 · Break · back at 11:10
 Links: Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md
 Time: 11:00–11:10
 Layout: break
@@ -185,7 +241,7 @@ Checkpoint: Worksheet and commands: WORKSHOP.md · scan the opening QR.
 Notes:
 Actually pause for ten minutes. Help only small recovery questions; avoid turning the break into a lecture. Browser-only attendees can pair for the next exercise. Keep the next command in the worksheet, not a wall of terminal text.
 
-## 13 · Known experiment. Unknown coefficients.
+## 16 · Known experiment. Unknown coefficients.
 Links: Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md
 Time: 11:10–11:20
 Layout: wide
@@ -197,7 +253,7 @@ Checkpoint: Speed variation helps separate linear and quadratic drag.
 Notes:
 Data generated by Rumoca CasADi + independent adaptive DOP853; JAX fit uses RK4. Position noise .025 m; velocity .035 m/s; angles/rates also noisy, but only exact initial angles/rates enter the fit. Commands and initial state assumed known. Holdout has different excitation and negative initial speed. The data are synthetic. Explain how real logs would bring actuator timing, wind and sensor bias. Truth is reporting only.
 
-## 14 · Differentiate the prediction error
+## 17 · Differentiate the prediction error
 Links: Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md
 Time: 11:20–11:30
 Layout: wide
@@ -209,7 +265,7 @@ Checkpoint: JAX provides gradients. SciPy updates the coefficients.
 Notes:
 Show fit script's p_from_log, residual, value_and_grad, minimize. Each coefficient divided by one native SI unit equals exp(log parameter), so the logarithm is dimensionless; fitted bounds .001..2 in native units. Mean residual² divided by known noise variance is dimensionless, over x,z,vx,vz. Avoid differentiating noisy acceleration estimates. JAX derivative is of the implemented discrete rollout; finite differences are checks. The system ID is not an autodiff proof of model correctness. Participants can run the next command and inspect the provided algorithm.
 
-## 15 · Run the fit. Test the held-out flight.
+## 18 · Run the fit. Test the held-out flight.
 Links: Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md
 Time: 11:30–11:50
 Layout: wide
@@ -222,7 +278,7 @@ Checkpoint: Two coefficients · lower loss · improved held-out prediction
 Notes:
 Give at least 15 minutes for running the fit, inspecting outputs and individual questions. Participants who finish can return to the experiment challenge. Reference truth kl=.18 N s/m, kq=.08 N s²/m². Loss roughly 26932→1.073, about 25000×. Read rms_by_state with separate units or noise_scaled_rms; avoid calling mixed-unit legacy RMS metres. Recovery --one-coefficient assumes known kl=.18. Stretch: different initial guess; audit already checks six. Do not use holdout to tune parameters during this exercise. If live fails, label reference plot honestly.
 
-## 16 · Check your result. Keep building.
+## 19 · Check your result. Keep building.
 Links: Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md
 Time: 11:50–11:55
 Layout: cards
@@ -237,7 +293,7 @@ Checkpoint: Fit complete? Continue your experiment or explore the optional check
 Notes:
 Spend one minute showing where the result files are and four minutes on independent work and questions. Ask whether the held-out prediction improved; no aerospace background is needed. App builders can continue the open challenge. Offer detailed gradient, excitation and proof discussion only when requested, using MATH_REVIEW.md. The audit checks six starting guesses, twelve noise seeds, Jacobians, analytic coasting and re-optimized profiles. Lean checks scoped exact-real equation equality and invariants; numerical and statistical claims have separate evidence.
 
-## 17 · Make a target. Learn a policy.
+## 20 · Make a target. Learn a policy.
 Links: Backend walkthrough | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BACKENDS.md ; Torch target.toml | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/templates/torch-ode/target.toml ; Lean Jinja target | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/templates/lean-proof/rhs.lean.jinja
 Time: 11:55–12:00
 Layout: wide
@@ -250,7 +306,7 @@ Checkpoint: Held-out cost ≈ 0.116 → 0.021 · optional instructions: BACKENDS
 Notes:
 Show templates/torch-ode/target.toml: ir="solve", explicit capabilities and output template. Open rhs.py.jinja and the generated/torch-ode/Quadrotor_torch.py output. The small external target maps the actual scalar Solve operations to Torch; it does not handwrite the vehicle dynamics or require a Rust compiler change. The target passes 101-point batched RHS comparisons, JAX/CasADi Jacobians, forward/reverse AD, finite differences and rejection gates. Use the optional preinstalled Torch environment in the Codespace; do not ask all attendees to download the extra CPU package during the five-minute demonstration. Run or show learn_hover_torch.py: two positive feedback gains learned through the same generated six-state vehicle's RK4 rollout, restricted to vertical hover with zero torque. Sixty Adam updates on 64 initial conditions; test on 128 new initial conditions. The dimensionless held-out cost drops about .116 to .021; complete objective gradients and fixed-sampling finer-integration checks pass. Call this differentiable model-based policy optimization, a bridge to RL, not PPO/DQN or full-flight autonomy. Known fixed drag coefficients are used for this separate teaching task. Source/template provenance is saved with results. The full target supports a small scalar ODE subset and rejects events/unsupported primitives. Invite compiler contributors to add one primitive and compare its derivatives before declaring support. This is one concrete extension seam toward fast Monte Carlo/RL, native AD or JAX/CasADi/PyTorch integrations and solver specialization for heterogeneous compute. Broad automatic partitioning and performance scaling remain research directions. Primary context: Heess et al. 2015 https://arxiv.org/abs/1510.09142. Stop at noon for a full break.
 
-## 18 · Break · back at 12:10
+## 21 · Break · back at 12:10
 Links: Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md
 Time: 12:00–12:10
 Layout: break
@@ -263,7 +319,7 @@ Checkpoint: Same Modelica source; now compile to CasADi.
 Notes:
 Ten-minute break. Confirm most pairs have fit outputs. Do not edit the model again after fitting; a source hash will require refitting if it changes. Presenters have successful reference fit and primal trajectory warm start. No Mathlib or extra packages are needed for next exercise.
 
-## 19 · Move between hovers, respect limits
+## 22 · Move between hovers, respect limits
 Links: Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md
 Time: 12:10–12:20
 Layout: image
@@ -277,7 +333,7 @@ Checkpoint: Identified drag is an input to this optimization.
 Notes:
 Explain 60 constant-input intervals and RK4 direct multiple shooting: decision states at each node, linked by continuity constraints. Bounds: thrust 0–20 N, torque ±0.35 N m, altitude 0.25–4 m, physical pitch ±0.55 rad, node pitch ±0.54 rad. Illustrative rotor pairs: each 0–10 N, arm 0.2 m. Normalize cost with physical reference scales before choosing weights. A stored successful primal solution warm-starts the default problem. Andersson et al. 2019, section 5.4 supports the transcription; their DAE/IDAS example differs from our ODE/RK4. Local feasible result; no global-optimality, electrical-energy or real-flight claim.
 
-## 20 · Solve. Inspect. Explain the braking.
+## 23 · Solve. Inspect. Explain the braking.
 Links: Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md
 Time: 12:20–12:40
 Layout: wide
@@ -290,7 +346,7 @@ Checkpoint: Solve_Succeeded · limits respected · arrive near rest
 Notes:
 Allow about 15 minutes to run and inspect plots/JSON, with the remaining time for questions or app development. Live computation takes about 1–2 seconds locally. Show acceleration tilt and opposite tilt for braking. Confirm drag matches JAX values, defects near 1e−14, exact endpoint constraints at nodes, and about 2 mm altitude error under finer/adaptive integration. Analytic interval pitch extrema are about 0.542 rad, below 0.55. Checks allow 1e−6 numerical tolerance. Explain continuous/discretized differences and the absence of an all-time formal certificate. A source hash requires refitting after edits. Recover with canonical source/reference fit, then a clearly labeled reference figure. Optional --target-x 3 was separately rehearsed; its receipt is in verification/. MPC would repeat optimization online; it is not demonstrated.
 
-## 21 · Next up: pylon racing at PURT
+## 24 · Next up: pylon racing at PURT
 Links: PURT pylon racing | https://pylon-racing.geddes.rcac.purdue.edu/ ; Watch race video | https://github.com/CogniPilot/rumoca_workshop_amc2026/releases/download/workshop-amc2026-r3/purt-fpv-chase.mp4 ; Challenge rules | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/CHALLENGE.md
 Time: 12:40–12:45
 Time group: Physical experiments
@@ -309,7 +365,7 @@ Checkpoint: pylon-racing.geddes.rcac.purdue.edu
 Notes:
 Advertise the upcoming autonomous fixed-wing pylon racing competition at Purdue UAS Research and Test Facility (PURT). Say: “The next competition will leverage Rumoca. Build your autonomy, learn in a digital twin, and bring it to the experiment.” Point attendees to https://pylon-racing.geddes.rcac.purdue.edu/ for announcements and information. The published competition format connects software-in-the-loop digital-twin simulation with physical flight tests; current public dated details are for the April 2026 edition, so do not announce those dates as upcoming. Future-event dates, registration, rules and exact Rumoca integration will be announced by the organizers. Play 20–30 seconds of the embedded September 2025 PURT FPV chase recording to show actual fixed-wing flight; pause before continuing. The complete 5:58 video is embedded as compressed 1080p H.264/AAC, with a downloadable MP4 fallback and a clickable poster in the PDF. The original user-provided SharePoint recording and matching local movie are the source. This is past event footage, not a newly announced event date. Keep the original 4K file as the quality master; no conference-network streaming is needed for the PPTX. Official facility source: https://engineering.purdue.edu/PURT. Public CogniPilot workspace https://github.com/CogniPilot/cognipilot_workspace documents pure Modelica, host Zephyr SIL and FastDyn/QEMU Cortex-M7 binary-in-the-loop; those paths were not executed here. Synthetic fitting does not establish real-aircraft validity. Briefly connect today's model → identify → optimize workflow with racing and physical validation. Collect challenge entries at 12:40, draw if more than five are ready, and announce presenters/order by 12:45. Move to the fixed-wing workbench at 12:45.
 
-## 22 · FastDyn: fly the firmware against declared physics
+## 25 · FastDyn: fly the firmware against declared physics
 Links: FastDyn demo guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/FASTDYN.md ; BoardRunner paper | https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html ; FastDyn source | https://github.com/jgoppert/FastDyn ; Recorded Monte Carlo | https://github.com/CogniPilot/rumoca_workshop_amc2026/releases/download/workshop-amc2026-r3/fastdyn-monte-carlo.mp4
 Time: 12:40–12:45
 Time group: Physical experiments
@@ -329,7 +385,7 @@ Checkpoint: Choose the FastDyn container · open results/live/fastdyn/trajectori
 Notes:
 Credit Arslan Khan’s group at Penn State and the Penn State/Purdue collaboration. Cite Muhammad Hammad Bashir, Michael Rooney, Colin Smith, Dongyan Xu and Arslan Khan, “BoardRunner: Automatic Firmware Rehosting using High-Fidelity Compositional Device Models,” ACM CCS 2026. The accepted-paper program verifies the title and authors: https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html. BoardRunner is the firmware-rehosting work; the Rumoca/FMI coupling and workshop campaign are integration examples, not results attributed to that paper. Play the supplied 30-second public Monte Carlo recording. Its documented study compares 100 paired wind scenarios / 200 firmware-in-the-loop flights with and without ideal modeled current-based compass compensation; it uses a generic quadrotor and ArduCopter 4.7.0. It is separate recorded research evidence, not today’s three-load campaign (ArduCopter 4.6.2), and was not independently rerun by this workshop. The ideal compensation uses known synthetic coupling/current, empirical trajectories are not a reachable-set proof, and results do not establish field failure probabilities. Preserve the supplied drone-mesh CC BY 4.0 attribution; see slides/media/README.md. Instruction-counted virtual time coordinates firmware and plant steps. Follow the loop: firmware actuator command → FMU motor/rigid-body dynamics → simulated sensor values → firmware. This executes a rehosted hardware firmware binary, rather than ArduPilot SITL. The optional FastDyn configuration uses its own pinned Rumoca 0.10.0, separate from the workshop Python 0.10.2. The three-run example holds the vehicle, gains and mission fixed, applies prescribed external payload weight at a motor, and records seed, sources, telemetry, completion and failure reasons. It does not change inertial mass or simulate swinging payload motion. Three samples do not estimate rare-event probabilities or establish safety. Launch from https://github.com/codespaces/new/CogniPilot/rumoca_workshop_amc2026 using New with options and select FastDyn + Rumoca: optional firmware Monte Carlo, rather than the default core configuration. Then run the displayed command in its VS Code terminal, or select Terminal → Run Task → Workshop: optional FastDyn Monte Carlo. Open results/live/fastdyn/trajectories.png and compare the three flights; seed, sources, firmware logs and outcome summaries are retained. The pinned optional environment was created and the reference, 100 g endpoint and one seeded 87.7 g trial all completed the mission and landing in an actual two-core Codespace, taking about 74, 68 and 61 seconds after setup. Show the saved plot if the network is slow. See docs/FASTDYN.md for setup, storage and scope. Main workshop remains model → simulate → identify → optimize. Solver specialization, heterogeneous compute, batched Monte Carlo/RL and extensible AD targets remain research directions.
 
-## 23 · Explore the fixed-wing workbench
+## 26 · Explore the fixed-wing workbench
 Links: Try fixed-wing | https://cognipilot.github.io/rumoca_fixed_wing/ ; Source code | https://github.com/CogniPilot/rumoca_fixed_wing ; Experiment guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BROWSER_APPS.md
 Time: 12:45–12:50
 Time group: App showcase
@@ -345,7 +401,7 @@ Checkpoint: Live links + short experiments: BROWSER_APPS.md
 Notes:
 Lead with rumoca_fixed_wing, the more complete app example. Coding agents helped build the interface and experiments; engineers review models and validate output. Briefly show Autopilot → Start sim, waypoint progress, then 50 to 20 Hz → Start sim again → pause. Invite participants to try that interaction or finish their challenge app. SLAM Lab is an additional example in development; only its inertial baseline and filter variant were rehearsed, not the complete visual-SLAM pipeline. Mocap is a viewer for stored benchmark results, not browser retraining. Fixed-wing and SLAM use WASM; the tested mocap viewer interaction does not. No login, agent account or API key is needed to explore these examples manually. They use different models from the core exercise and are outside its Lean proof scope. Keep the recorded screenshots available for network/graphics recovery. At 12:50 move to participant demos.
 
-## 24 · Explore motion-capture identification
+## 27 · Explore motion-capture identification
 Links: Try the app | https://cognipilot.github.io/mocap_sysid/ ; Source code | https://github.com/CogniPilot/mocap_sysid ; Experiment guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BROWSER_APPS.md
 Time: 12:45–12:50
 Time group: App showcase
@@ -361,7 +417,7 @@ Checkpoint: Explore exported identification results.
 Notes:
 Show the stored synthetic 6-DOF open-loop example and its model structure. This viewer does not train models or execute a WASM simulation. Recorded benchmark data is distinct from a live fit. Invite users to explore a problem or dataset from their own domain; do not invent method scores. Together with the neighboring app slides, share the five-minute showcase slot.
 
-## 25 · Explore SLAM Lab · in development
+## 28 · Explore SLAM Lab · in development
 Links: Try the app | https://cognipilot.github.io/slam_web/ ; Source code | https://github.com/CogniPilot/slam_web ; Experiment guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BROWSER_APPS.md
 Time: 12:45–12:50
 Time group: App showcase
@@ -377,7 +433,7 @@ Checkpoint: Start with the tested inertial baseline.
 Notes:
 Show the tested InertialOnly or ResponsiveInertial model. This is an additional app in development, with a browser WASM path; the full visual-SLAM pipeline was not qualified. Point out the declared estimator model. Invite users to explore the supported baseline or continue their challenge. Together with the neighboring app slides, share the five-minute showcase slot.
 
-## 26 · Show your experiment. Vote for the cap.
+## 29 · Show your experiment. Vote for the cap.
 Links: Challenge rules | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/CHALLENGE.md ; Optional gallery | https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/1
 Time: 12:50–12:55
 Layout: statement
@@ -391,18 +447,17 @@ Checkpoint: Random draw if more than 5 ready entries → audience hand vote
 Notes:
 Use up to five 45-second demos, selected by the announced readiness check and random draw if needed. Draw order and a backup in advance. Each entrant shows a question Rumoca helps explore, their original change, a working interaction or before/after comparison, one checked result, tool used and elapsed work time. Local files, browser tabs and screenshares are acceptable; public source links are optional. Manual experiments are welcome; name the agent if used and label estimated times. Have tabs/files ready and use the same limit for everyone. Five demos leave 75 seconds for a hand vote and award. Each attendee votes for one entry; count visibly. If tied, run a quick vote between the tied entries; if still tied, draw among them. Award one stocking cap; a team chooses its recipient. Share voluntary links from all entries, including those not drawn. If no entries are ready, take a brief question and continue. CHALLENGE.md carries the same rules. Keep the core exercise as the workshop's main focus.
 
-## 27 · Bring your model. Join the work.
-Links: Join the community | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/COMMUNITY.md ; Rumoca compiler | https://github.com/CogniPilot/rumoca ; Model library | https://github.com/CogniPilot/modelica_models
+## 30 · Join the Rumoca research community
+Links: Email James | mailto:jgoppert@purdue.edu ; Rumoca compiler | https://github.com/CogniPilot/rumoca ; Model library | https://github.com/CogniPilot/modelica_models
 Time: 12:55–13:00
 Layout: title
-Visual: assets/community-qr.png
+Email: jgoppert@purdue.edu
 Badge: Your Modelica expertise can move this research forward
 
 - Bring a model or a question from your own domain
-- Add a validation case, model library or compiler fix
-- Start a conversation: problem + model + one check
+- Contribute a validation case, model library or compiler improvement
+- Interested in research collaboration? Talk with James or Micah
 
-Checkpoint: Scan to join the work · COMMUNITY.md · questions welcome
+Checkpoint: Email James with your problem, model and one result to check together.
 Notes:
-Use a concrete invitation: “You already bring Modelica knowledge we need. Bring a model from your domain, one scientific question, and one result we can check together. Help us make declared mathematics reusable across simulation, identification, optimization and verification.” The community QR opens COMMUNITY.md, with a research/model collaboration issue form and links to the compiler and model library. Modelers can contribute small models with units and expected behavior; researchers can propose a measurable identification, geometry or verification question; software contributors can share a minimal compiler/backend reproduction or improvement. No aerospace background or coding-agent subscription is needed. Invite attendees to speak with James Goppert or Micah Condie before leaving, then continue through the public collaboration form. Ask: “Which model from your work would you try next?” Allow answers and questions rather than reading the bullets. The first step is a small shared check, not an implied promise of a certified full-system workflow. Point to today's tested source/results and MATH_REVIEW.md as an example of evidence we can build together. Stop at 13:00. Link to MATH_REVIEW.md for detailed proofs and references.
-
+Invite participants to join the Rumoca research community: “Bring a model from your domain, one scientific question, and one result we can check together. Help us make declared mathematics reusable across simulation, identification, optimization and verification.” The invitation is to research collaboration and open-source participation, not a job offer or a promise of Purdue team membership. Ask attendees to speak with James Goppert or Micah Condie, or email jgoppert@purdue.edu. The large visible address and Email James button both open an email composer. Modelers can contribute small models with units and expected behavior; researchers can propose a measurable identification, geometry or verification question; software contributors can share a minimal compiler/backend reproduction or improvement. No aerospace background or coding-agent subscription is needed. Ask: “Which model from your work would you try next?” Allow answers and questions rather than reading the bullets. Stop at 13:00. Detailed mathematical proofs and references remain linked from the workshop guide.

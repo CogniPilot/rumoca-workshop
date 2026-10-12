@@ -58,10 +58,10 @@ def main():
     with zipfile.ZipFile(ROOT/"slides/workshop.pptx") as deck:
         slides = [n for n in deck.namelist() if re.fullmatch(r"ppt/slides/slide\d+\.xml", n)]
         notes = [n for n in deck.namelist() if re.fullmatch(r"ppt/notesSlides/notesSlide\d+\.xml", n)]
-        assert len(slides) == build["slides"] == len(notes) == 27
+        assert len(slides) == build["slides"] == len(notes) == 30
         presentation = ET.fromstring(deck.read("ppt/presentation.xml"))
-        assert len(presentation.find("p:sldIdLst", ns)) == 27
-        for index in range(1, 28):
+        assert len(presentation.find("p:sldIdLst", ns)) == 30
+        for index in range(1, 31):
             number = f"{index:02}" if index <= build["main_slides"] else f"A{index-build['main_slides']}"
             expected = {link["url"] for link in build["hyperlinks"] if link["slide"] == number}
             relations = ET.fromstring(deck.read(f"ppt/slides/_rels/slide{index}.xml.rels"))
@@ -86,14 +86,14 @@ def main():
         for target, expected in receipt["target_sha256"].items():
             assert digest(f"templates/torch-ode/{target}") == expected
     assert read("verification/user-guide.json")["status"] == "PASS"
-    report = {"status":"PASS", "local_markdown_links":links, "slides":27, "schedule_minutes":180,
+    report = {"status":"PASS", "local_markdown_links":links, "slides":30, "schedule_minutes":180,
               "break_minutes":20, "model_sha256":source,
               "checks":["local links", "shared model/result/CSV/formal/browser provenance", "deck input/artifact hashes",
                         "PPTX slides, notes, clickable links and office-renderer provenance", "app rehearsal receipts",
                         "Torch target and policy source/template provenance", "embedded user-guide rehearsal receipt"],
               "scope":"Packaging consistency. Mathematical, numerical and UI checks have separate receipts."}
     (ROOT/"verification/materials.json").write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8", newline="\n")
-    print(f"MATERIALS PASS: {links} local links, 27 slides with notes and 2 embedded movies, 180 minutes, matching provenance")
+    print(f"MATERIALS PASS: {links} local links, 30 slides with notes and 2 embedded movies, 180 minutes, matching provenance")
 
 if __name__ == "__main__":
     main()

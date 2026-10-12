@@ -84,7 +84,7 @@ explains availability, storage and billing. `onCreateCommand` and
 individual creation.
 
 This workshop caches Python dependencies in the container image and runs
-`uv sync` plus the smoke test at `postCreate`. A container CI pass does not
+`uv sync` plus the smoke test at `updateContentCommand`. A container CI pass does not
 establish prebuild readiness or simultaneous availability for a class.
 
 ## Qualified macOS wheel release
@@ -100,6 +100,27 @@ Linux/Windows retain upstream release wheels. See [NOTICE.md](NOTICE.md).
 No Nix, Rust compiler or manual binary repair is required for attendees. The
 released VS Code extension was separately qualified on all four OS/architecture
 targets; Python and editor receipts are recorded in [VERIFICATION.md](VERIFICATION.md).
+
+## Public prebuilt Docker image
+
+The core Dev Container uses a public, digest-pinned image built and tested on
+Linux x64 and ARM64. [Image receipt](../verification/container-image.json)
+records the build and anonymous access checks. Rumoca Python and native LSP
+are pinned to **0.10.2**. Python dependencies, terminal agents and editor
+packages are cached in the image. The initial compressed pull is about 2 GB;
+Codespaces downloads it inside the cloud, not onto participants' laptops.
+The core configuration does not rebuild Docker layers or reinstall features.
+It still needs VM allocation, an image pull and workspace preparation.
+
+The maintainers rebuild from `scripts/container-build/devcontainer.json` using
+the **Workshop container image** GitHub Actions workflow; participants use the
+core configuration. The separately selected FastDyn environment has additional
+Docker/firmware requirements.
+
+GitHub Container Registry currently lists container storage and bandwidth as
+free ([GitHub billing documentation](https://docs.github.com/en/billing/concepts/product-billing/github-packages)).
+This does not remove Codespaces account quotas or the organization's spending
+cap. Participants need their own usable allowance/billing route.
 
 ## Optional Codespaces snapshot prebuild
 

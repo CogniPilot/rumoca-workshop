@@ -44,7 +44,7 @@ def parse():
             breaks.append(minutes(b) - minutes(a))
         previous = minutes(b)
         previous_slot = slot
-    assert previous == 780 and len(main_slides) == 27 and len(slides) == 27
+    assert previous == 780 and len(main_slides) == 30 and len(slides) == 30
     assert breaks == [10, 10], "Keep two full ten-minute breaks"
     return slides
 
@@ -155,10 +155,10 @@ def main():
                         (xx+aw)*72, (H-yy)*72), relative=0, thickness=0)
         # Each phase has one accent, reused in navigation, prompts and plots.
         num = int(spec["number"]) if spec["number"].isdigit() else 99
-        phase = "MODEL" if num <= 11 else "FIT" if num <= 18 else "OPTIMIZE" if num <= 20 else "EXPLORE"
+        phase = "MODEL" if num <= 14 else "FIT" if num <= 21 else "OPTIMIZE" if num <= 23 else "EXPLORE"
         accent = {"MODEL": TEAL, "FIT": BLUE, "OPTIMIZE": ORANGE, "EXPLORE": TEAL}[phase]
         layout = spec["layout"]
-        dark = layout in {"title", "break", "race"} or num in {2, 26}
+        dark = layout in {"title", "break", "race"} or num in {2, 29}
         bg, fg = (INK, WHITE) if dark else (PAPER, INK)
         rect(0, 0, W, H, bg)
         rect(0, 0, W, .065, GOLD)
@@ -209,10 +209,15 @@ def main():
                 text("CREATE CORE CODESPACE", 10.38, 6.02, 2.1, 8.5, INK, bold=True, max_lines=1)
             else:
                 text("Bring your model.", .65, 1.6, 9.5, 48, WHITE, bold=True, max_lines=1)
-                text("Join the work.", .65, 2.42, 9.5, 42, GOLD, bold=True, max_lines=1)
-                steps(spec["bullets"], .7, 3.55, 9.1, size=22, gap=.23)
-                rect(10.15, 3.4, 2.5, 2.6, WHITE, rounded=True)
-                picture(spec["visual"], 10.35, 3.6, 2.1, 2.1)
+                text("Join the Rumoca research community.", .65, 2.42, 12.0, 31, GOLD, bold=True, max_lines=1)
+                steps(spec["bullets"], .7, 3.35, 11.9, size=22, gap=.23)
+                email = spec["email"]
+                shape = text(email, .7, 5.73, 11.9, 32, WHITE, bold=True, max_lines=1)
+                # The address is also a clickable contact, in both formats.
+                slide.shapes[-1].click_action.hyperlink.address = "mailto:"+email
+                pdf.linkURL("mailto:"+email, (.7*72, (H-6.3)*72, 8.2*72, (H-5.7)*72), relative=0, thickness=0)
+                hyperlinks.append({"slide":spec["number"], "label":email, "url":"mailto:"+email,
+                                   "x":.7, "y":5.7, "width":7.5, "height":.6})
                 text("James Goppert · Micah Condie", .7, 6.29, 9.5, 17, GOLD, max_lines=1)
         elif layout == "break":
             label("PAUSE / RECHARGE", .65, .4, 10, GOLD)
@@ -247,7 +252,7 @@ def main():
                 text(explanation, x+.27, y+.8, 5.22, 18, INK, max_lines=2)
             text("Cerebri RDD2: Modelica → eFMI C → Zephyr RTOS → real drone",
                  .7, 6.1, 11.9, 19, TEAL, bold=True, max_lines=1)
-        elif num in {2, 26}:
+        elif num in {2, 29}:
             heading()
             if num == 2:
                 label("YOUR QUESTION. YOUR EXPERIMENT.", .7, 1.8, 8.6, GOLD)
@@ -285,8 +290,17 @@ def main():
                 image_h = 4.22 if "command" in spec else 4.45
                 rect(4.82, 1.7, 7.86, image_h, WHITE, rounded=True)
                 picture(spec["visual"], 4.94, 1.83, 7.62, image_h-.26)
-                label("TRY THIS" if num in {5,7,8,23,24,25} else "READ THE MODEL" if num == 9 else "THE IDEA", .7, 1.86, 4)
+                label("TRY THIS" if num in {5,7,11,26,27,28} else "READ THE MODEL" if num == 12 else "THE IDEA", .7, 1.86, 4)
                 steps(spec["bullets"], .7, 2.35, 3.83, size=22, gap=.38)
+            elif layout == "code":
+                rect(.65, 1.73, 6.55, 4.7, INK, rounded=True)
+                text(spec["code title"], .9, 1.95, 6.05, 14, GOLD, bold=True, max_lines=1)
+                for i, line in enumerate(spec["code"].split(r"\n")):
+                    if line:
+                        indentation = len(line) - len(line.lstrip())
+                        text(line.lstrip(), .9+indentation*.12, 2.43+i*.28,
+                             6.05-indentation*.12, 16, WHITE, mono=True, max_lines=1)
+                steps(spec["bullets"], 7.5, 2.04, 5.1, size=20, gap=.32)
             elif layout == "wide":
                 if spec["bullets"]:
                     rect(.65, 1.65, .045, .54, accent)
@@ -332,7 +346,7 @@ def main():
         if links:
             button_w = (11.72 - .12*(len(links)-1))/len(links)
             for i, (caption, url) in enumerate(links):
-                assert url.startswith("https://"), (spec["number"], url)
+                assert url.startswith(("https://", "mailto:")), (spec["number"], url)
                 x, y, h = .65+i*(button_w+.12), 7.035, .40
                 first_shape = len(slide.shapes)
                 rect(x, y, button_w, h, GOLD if dark else accent, rounded=True)

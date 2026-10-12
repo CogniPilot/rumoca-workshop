@@ -217,7 +217,7 @@ generated proof terms from a clean environment.
 
 ## Presentation and external limits
 
-The deck has 27 main slides, no appendices, a contiguous **180-minute** schedule
+The deck has 30 main slides, no appendices, a contiguous **180-minute** schedule
 and **two ten-minute breaks**. One editable Markdown source builds both PPTX
 with speaker notes and PDF. Presenter credits name **James Goppert and Micah
 Condie**. The design uses Purdue gold with deep navy, a light background for
@@ -225,14 +225,14 @@ technical figures, and teal/blue/terracotta accents for the three core phases.
 The opening explains why Rumoca and the broader Lie-group, reachability,
 formal-verification, identification and digital-twin context. A dedicated PURT
 pylon-racing slide links the competition site and its next event's planned
-Rumoca use; it does not repeat old event dates. All 27 PDF pages were rendered and visually reviewed;
+Rumoca use; it does not repeat old event dates. All 30 PDF pages were rendered; revised layouts were visually reviewed;
 commands, QR, screenshots and reference plots are real. Presenter text uses
 large type; small evidence plots/screenshots are backups for live zoomable demos.
 The PDF embeds fonts. Inspect the PPTX in the actual presentation application
 for font substitution/projector differences before class.
 
 The editable PPTX was also rendered by **LibreOffice Impress 26.2.1.2** on Linux.
-All 27 pages retained every authored text item, with extracted text inside page
+All 30 pages retained every authored text item, with extracted text inside page
 bounds. [Presentation receipt](../verification/presentation.json) records the
 artifact hash and scope. This adds an office-renderer check to the PDF review;
 the actual presentation laptop and projector remain preflight items.
@@ -265,8 +265,15 @@ Do not infer Codespace readiness from upstream CI alone. See [FASTDYN.md](FASTDY
 
 The actual configured Linux x64 and ARM64 containers passed fresh CI builds,
 startup, CLI version/help checks and a detached tmux-session check. Codex 0.162.1,
-Claude Code 2.1.296, Node 22, npm and GitHub CLI were installed automatically.
+Claude Code 2.1.296, Copilot CLI 1.0.95, Node 22, npm and GitHub CLI were installed automatically.
 Receipts: [x64](../verification/agent-tools-ci-x86_64.json) and
 [ARM64](../verification/agent-tools-ci-aarch64.json). This verifies installation
 and startup, not authenticated model execution; participants use their own
 accounts. The four native desktop editor qualifications also passed.
+
+The [quadrotor guide rehearsal](../verification/quadrotor-guide.json) covers
+its actual scenario/scene sources, browser start, rendering, keyboard arming
+and stop. Slides 7–10 use that example for TOML and Three.js configuration;
+the planar Session API exercise remains separate. The new frame-conversion
+explanation was checked by exact matrix multiplication. The [settings
+walkthrough](SIMULATION_SETUP.md) links the primary files.

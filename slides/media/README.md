@@ -24,5 +24,5 @@ Facility and aircraft photographs were selected from the supplied
 `PURT-10_22_2025.odp` presentation. Purdue uses its official reverse wordmark from the
 [Purdue brand toolkit](https://www.purdue.edu/brand/visual-identity/logos/).
 Penn State uses the transparent reverse mark from its
-[official university site](https://www.psu.edu/psu-edu-assets/images/shared/psu-mark.svg); the NXP logo was selected from the supplied deck.
+[official university site](https://www.psu.edu/psu-edu-assets/images/shared/psu-mark.svg); NXP uses its transparent [official web mark](https://www.nxp.com/resources/images/nxp-logo.svg).
 Institutional marks identify workshop affiliations and research collaborators.

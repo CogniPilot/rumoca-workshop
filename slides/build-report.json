@@ -11,7 +11,7 @@
     "results/reference/fit_drag.json": "0d67f55cceecbd8d42fde39713bc1d1595687cc7a5481187dfa39035ea162fcb",
     "results/reference/torch_policy.png": "b67366d51acfc5a515419f060eb4efdb283c6501379897cd3d8ecc65352bd8dc",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
-    "scripts/build_slides.py": "f7ecbf4a7ceccf0c0c0054232b3d14c7599e02ced197094738336450f816aaac",
+    "scripts/build_slides.py": "9c300c203f60b6af7667564bc4aae28e89846fa1bbea28c4f57529062558e24d",
     "scripts/slide_assets.py": "92515b5c9cca20298f9ec58deb6ba7b98efcc9f3efd6eb54acfac1b2900ff700",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
     "slides/assets/architecture.png": "264ab4f7e3ec35c65e3bcbb56328d42414409c4739dfb59fee95275293c02bde",
@@ -24,7 +24,7 @@
     "slides/assets/fastdyn-monte-carlo-poster.png": "e41ee252e64083084d8dea5adaa4e1823e8a3fcee1585e6a7b62ca72bf85912b",
     "slides/assets/fit-hero.png": "0ba401f4c7d8994c078b10e9bbff0cd2857825c92329834aa0f95364d0918198",
     "slides/assets/fit-workflow.png": "c54a93202c66c00c1ff76d6a16e280140b2c9dbd70fe6657357ab002174f17a6",
-    "slides/assets/nxp-logo.png": "7eb896b67481ff662d18494ef65659618a87089cb9b8464febaa14ffb2d2dd9f",
+    "slides/assets/nxp-logo.png": "527d35bf78137c57ecc088b30bb1576ffbed1e19b5a8e72e0e7be7e26afab285",
     "slides/assets/penn-state-logo.png": "89335a5f228075d8c4c07d8df185d276ce3fd2ecef5b89d41506356d3516430a",
     "slides/assets/purdue-logo.png": "2a1a122b352c8944f8616dde3c227f11b33a3fd2a7a4d85eab0e52adc844a1cd",
     "slides/assets/purt-facility.png": "4def64123a2312b24fb518842aba66dfa3453ec63ba53558790a742251b61029",
@@ -39,12 +39,12 @@
     "slides/assets/user-guide-naca.png": "cd554217d939e7fabf149829cb6deba75e87cc44c5b8f1c130b6d00ff2dd3d98",
     "slides/media/fastdyn-monte-carlo.mp4": "2a688f567c51d837c23555806250dd5ebd31a34cf16cb14c4d15fe85200f4ab1",
     "slides/media/purt-fpv-chase.mp4": "0cb09e6a72a4f8543ba2e7ad786b1a4e7da1d8580ebf9daccde99c463c37bcef",
-    "slides/workshop.md": "229c4f79d6480e84b85592d473510ab5300464eb4cc5f414a884233b74d46674",
+    "slides/workshop.md": "e8836843c444215236221711465da65dade7f7535f843e40d9cbc1dc3c636668",
     "uv.lock": "9ee98bf337e21af4a4fc616c25e4f3d63f8b16bc6500b375dad975be5a4d9799"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "0615ea91618f47182233037924943e6822b9c83243ceffa08b97ec59f319a7da",
-    "slides/workshop.pdf": "dc40db2f254b99fe461387dcf7d7884c0a7e1ad34216d5e0deac40538d4c1384"
+    "slides/workshop.pptx": "9e03e3b0d6b4e97c1760a48b5af5fbed1d7111c3ae545bf7de175507ab658c59",
+    "slides/workshop.pdf": "addf9135e04be9a30ad9385695f39c033085de6d04c24ae0fc497df61c7ec6a2"
   },
   "rendered_text": [
     {
@@ -319,53 +319,53 @@
     },
     {
       "slide": "02",
-      "text": "Make something",
-      "font_pt": 44,
+      "text": "Make something you care about.",
+      "font_pt": 31,
       "lines": 1,
       "x": 0.65,
       "y": 2.27,
       "width": 8.2,
-      "height": 0.8177777777777777
+      "height": 0.5938888888888889
     },
     {
       "slide": "02",
-      "text": "you care about.",
-      "font_pt": 44,
-      "lines": 1,
-      "x": 0.65,
-      "y": 3.02,
-      "width": 8.2,
-      "height": 0.8177777777777777
-    },
-    {
-      "slide": "02",
-      "text": "Experiment in a model or simulator.",
-      "font_pt": 23,
+      "text": "EXAMPLE AGENT PROMPT",
+      "font_pt": 11,
       "lines": 1,
       "x": 0.7,
-      "y": 4.05,
+      "y": 3.13,
       "width": 8.2,
-      "height": 0.4561111111111111
+      "height": 0.24944444444444444
     },
     {
       "slide": "02",
-      "text": "Core: edit a model, fit data, optimize a trajectory",
+      "text": "\u201cUse Three.js and Rumoca to make an interactive Artemis rocket launch simulation. Let me vary payload or throttle and check one result.\u201d",
+      "font_pt": 23,
+      "lines": 3,
+      "x": 0.7,
+      "y": 3.54,
+      "width": 8.2,
+      "height": 1.2483333333333335
+    },
+    {
+      "slide": "02",
+      "text": "Choose any problem you care about.",
       "font_pt": 20,
       "lines": 1,
       "x": 0.7,
-      "y": 5.05,
+      "y": 5.3,
       "width": 8.2,
       "height": 0.40444444444444444
     },
     {
       "slide": "02",
-      "text": "One change in an existing model or simulator is enough",
-      "font_pt": 18,
+      "text": "Demo: agent/tool + elapsed time + one check",
+      "font_pt": 17,
       "lines": 1,
       "x": 0.7,
-      "y": 5.73,
+      "y": 5.84,
       "width": 8.2,
-      "height": 0.37
+      "height": 0.35277777777777775
     },
     {
       "slide": "02",
@@ -424,7 +424,7 @@
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 5.5600000000000005,
+      "width": 3.586666666666667,
       "height": 0.2838888888888889
     },
     {
@@ -432,9 +432,19 @@
       "text": "Example prompts \u2197",
       "font_pt": 13,
       "lines": 1,
-      "x": 6.690000000000001,
+      "x": 4.716666666666667,
       "y": 7.075,
-      "width": 5.5600000000000005,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "02",
+      "text": "Agent setup \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 8.663333333333332,
+      "y": 7.075,
+      "width": 3.586666666666667,
       "height": 0.2838888888888889
     },
     {
@@ -3602,16 +3612,25 @@
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/CHALLENGE.md",
       "x": 0.65,
       "y": 7.035,
-      "width": 5.800000000000001,
+      "width": 3.8266666666666667,
       "height": 0.4
     },
     {
       "slide": "02",
       "label": "Example prompts",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/APP_PROMPT.md",
-      "x": 6.570000000000001,
+      "x": 4.596666666666667,
       "y": 7.035,
-      "width": 5.800000000000001,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "02",
+      "label": "Agent setup",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/AGENT_SETUP.md",
+      "x": 8.543333333333333,
+      "y": 7.035,
+      "width": 3.8266666666666667,
       "height": 0.4
     },
     {

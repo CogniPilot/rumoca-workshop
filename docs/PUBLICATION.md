@@ -100,3 +100,28 @@ Linux/Windows retain upstream release wheels. See [NOTICE.md](NOTICE.md).
 No Nix, Rust compiler or manual binary repair is required for attendees. The
 released VS Code extension was separately qualified on all four OS/architecture
 targets; Python and editor receipts are recorded in [VERIFICATION.md](VERIFICATION.md).
+
+## Codespaces prebuild for the workshop
+
+Repository administrators can prepare the **main** branch's core configuration
+from [Settings → Codespaces](https://github.com/CogniPilot/rumoca_workshop_amc2026/settings/codespaces).
+Choose **Set up prebuild**, branch **main**, configuration
+`.devcontainer/devcontainer.json`, trigger **Every push**, region **US East**,
+and retain **1** version. Create the prebuild and wait for its managed workflow
+to succeed. CogniPilot is on GitHub Team; GitHub also requires an organization
+payment method and Codespaces budget for this feature. Do not change billing
+settings as part of the participant instructions.
+
+Dependency installation, extension setup and the core smoke check are in
+`updateContentCommand`, so they run during prebuild. `postCreateCommand` only
+checks the installed agent tools. The editor opens the README on first launch.
+Prebuilds include no participant AI login or personal secrets. The larger
+FastDyn environment is separate; its Docker-in-Docker study preparation is not
+a promise of immediate core startup.
+
+Before inviting participants, create a **new** two-core Codespace in the same
+region: the machine picker should say **Prebuild ready**, and the API field
+`prebuild` must be `true`. Record actual creation time and rerun the core task.
+A previously created rehearsal Codespace does not establish shared prebuild
+availability. Machine allocation and editor connection still take some time.
+See [GitHub prebuild configuration](https://docs.github.com/en/codespaces/prebuilding-your-codespaces/configuring-prebuilds).

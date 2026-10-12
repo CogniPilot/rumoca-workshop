@@ -66,16 +66,18 @@
           "slides/PRESENTERS.md": true,
           "slides/REHEARSAL.md": true,
           "slides/media": true
-        }
+        },
+        "workbench.startupEditor": "readme"
       }
     }
   },
-  "postCreateCommand": "uv sync --frozen && uv run --frozen python scripts/install_agent_tools.py --check && uv run --frozen python scripts/ensure_codespace_extension.py && uv run --frozen python scripts/smoke_test.py",
+  "postCreateCommand": "uv run --frozen python scripts/install_agent_tools.py --check",
   "hostRequirements": {
     "cpus": 2,
     "memory": "4gb",
     "storage": "32gb"
   },
-  "waitFor": "postCreateCommand",
-  "shutdownAction": "stopContainer"
+  "waitFor": "updateContentCommand",
+  "shutdownAction": "stopContainer",
+  "updateContentCommand": "uv sync --frozen && uv run --frozen python scripts/install_agent_tools.py --check && uv run --frozen python scripts/ensure_codespace_extension.py && uv run --frozen python scripts/smoke_test.py"
 }

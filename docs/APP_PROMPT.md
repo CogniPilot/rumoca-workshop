@@ -29,6 +29,19 @@ An interactive rocket landing can inspire the presentation, like a Falcon 9-styl
 simulator; no qualified rocket starter is supplied. Choose another domain if it
 fits your interests better. The following full-app prompts are optional stretches.
 
+## Slide example: Artemis launch
+
+```text
+Use Three.js and Rumoca to make an interactive Artemis rocket launch simulation.
+Let me vary payload or throttle and check one result. Start with a small Modelica
+vertical-ascent model, drive the visuals from its simulated state, and document
+its illustrative parameters and assumptions. Record the agent used and elapsed
+time. Prepare a 45-second demo.
+```
+
+This is creative inspiration; choose any problem you care about. The longer
+prompt below adds browser deployment and a three-hour stretch specification.
+
 ## Creative example: an Artemis-inspired launch lab
 
 ```text

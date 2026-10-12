@@ -139,7 +139,7 @@ def main():
             aw, ah = iw*scale, ih*scale
             xx, yy = x+(w-aw)/2, y+(h-ah)/2
             slide.shapes.add_picture(str(path), Inches(xx), Inches(yy), width=Inches(aw), height=Inches(ah))
-            pdf.drawImage(str(path), xx*72, (H-yy-ah)*72, aw*72, ah*72)
+            pdf.drawImage(str(path), xx*72, (H-yy-ah)*72, aw*72, ah*72, mask="auto")
         def movie(path, poster, x, y, w, h):
             # Embedded MP4 in PPTX; the same poster remains readable in PDF.
             with Image.open(out/poster) as im:
@@ -150,7 +150,7 @@ def main():
             slide.shapes.add_movie(str(out/path), Inches(xx), Inches(yy),
                                    Inches(aw), Inches(ah),
                                    poster_frame_image=str(out/poster), mime_type="video/mp4")
-            pdf.drawImage(str(out/poster), xx*72, (H-yy-ah)*72, aw*72, ah*72)
+            pdf.drawImage(str(out/poster), xx*72, (H-yy-ah)*72, aw*72, ah*72, mask="auto")
             pdf.linkURL(spec["video link"], (xx*72, (H-yy-ah)*72,
                         (xx+aw)*72, (H-yy)*72), relative=0, thickness=0)
         # Each phase has one accent, reused in navigation, prompts and plots.
@@ -251,11 +251,11 @@ def main():
             heading()
             if num == 2:
                 label("YOUR QUESTION. YOUR EXPERIMENT.", .7, 1.8, 8.6, GOLD)
-                text("Make something", .65, 2.27, 8.2, 44, WHITE, bold=True, max_lines=1)
-                text("you care about.", .65, 3.02, 8.2, 44, GOLD, bold=True, max_lines=1)
-                text("Experiment in a model or simulator.", .7, 4.05, 8.2, 23, WHITE, max_lines=2)
-                text(spec["bullets"][0], .7, 5.05, 8.2, 20, "D1D7DF", max_lines=2)
-                text(spec["bullets"][2], .7, 5.73, 8.2, 18, "D1D7DF", max_lines=1)
+                text("Make something you care about.", .65, 2.27, 8.2, 31, WHITE, bold=True, max_lines=1)
+                label("EXAMPLE AGENT PROMPT", .7, 3.13, 8.2, GOLD)
+                text(spec["prompt"], .7, 3.54, 8.2, 23, WHITE, max_lines=5)
+                text("Choose any problem you care about.", .7, 5.3, 8.2, 20, GOLD, max_lines=1)
+                text("Demo: agent/tool + elapsed time + one check", .7, 5.84, 8.2, 17, "D1D7DF", max_lines=1)
                 rect(9.15, 1.78, 3.55, 4.57, "203044", rounded=True)
                 label("THE PRIZE", 9.43, 2.08, 3, GOLD)
                 text("FREE", 9.43, 2.66, 3, 41, GOLD, bold=True, max_lines=1)

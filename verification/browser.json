@@ -1,21 +1,22 @@
 {
-  "tested_at": "2026-10-11T20:08:23.590Z",
-  "url": "https://rumoca.cognipilot.org/playground/",
-  "frame_url": "https://rumoca.cognipilot.org/playground/app/index.html",
-  "browser": "Chromium",
+  "tested_at": "2026-10-12T12:29:35.213Z",
+  "url": "https://cognipilot.github.io/rumoca/",
+  "browser": "Chromium 154",
   "source": "browser/Quadrotor_browser.mo",
   "runs": [
     {
       "k_quad": 0,
-      "elapsed_seconds": 1.368,
-      "summary": "501 pts, 8 vars (48ms)",
-      "runtime": "Rumoca v0.8.13 - Modelica Compiler"
+      "elapsed_seconds": 1.485,
+      "summary": "501 points, 8 variables (62ms)",
+      "model": "BrowserFlight",
+      "t_end": 8
     },
     {
       "k_quad": 0.08,
-      "elapsed_seconds": 1.297,
-      "summary": "501 pts, 8 vars (10ms)",
-      "runtime": "Rumoca v0.8.13 - Modelica Compiler"
+      "elapsed_seconds": 1.353,
+      "summary": "501 points, 8 variables (3ms)",
+      "model": "BrowserFlight",
+      "t_end": 8
     }
   ],
   "syntax_error_markers": [
@@ -28,5 +29,6 @@
       "startLineNumber": 3
     }
   ],
-  "scope": "Actual public playground UI; pasted model, used visible gear/settings model selector, selected BrowserFlight, clicked Play at both drag settings; screenshot and plot produced. Python backends execute separately."
+  "page_errors": [],
+  "scope": "Actual public editor UI: waited for Runtime Ready, pasted bundle, clicked lightning-bolt Create Scenario, set Model name BrowserFlight and Batch end time 8 s, saved and ran both drag settings. Produced result plots and tested syntax diagnostics. Python backends execute separately."
 }

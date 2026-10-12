@@ -1,6 +1,6 @@
 // GENERATED bundle; physics source: models/Quadrotor.mo
 // Source SHA256: 3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a
-// Paste all text in the playground. Select BrowserFlight; press Play.
+// Paste all text in the playground. Create Scenario; set Model name BrowserFlight, end time 8 s; Run Simulation.
 model Quadrotor "Planar quadrotor: one physics source for JAX and CasADi"
   // World x is right, z is up. Positive theta tilts thrust toward +x.
   // Aggregate thrust/torque omit rotor dynamics, yaw, roll, and ground contact.

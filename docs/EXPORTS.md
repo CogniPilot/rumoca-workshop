@@ -80,7 +80,10 @@ derives hover thrust from the actual model parameters. It checks hover,
 analytic linear coast, nonlinear drag and coupled pitch excitation, comparing
 **all six states** with Rumoca's Session-generated JAX dynamics. On Linux x64
 it tests both Model Exchange and Co-Simulation; the ARM64 route uses
-Co-Simulation because FMPy's bundled Linux CVode library is x64. Open
+Co-Simulation because FMPy's bundled Linux CVode library is x64.
+For FMI 3 on ARM64, the script uses FMPy's public pre-instantiation API
+with the native `aarch64-linux` library; this avoids FMPy 0.3.30's x86-only
+archive-platform detection while retaining XML, ABI and numerical checks. Open
 `results/live/fmi3/fmu.png`, `fmu.json` and the CSVs after running.
 
 Use `--target fmi2` for an FMI 2 package; the same FMPy workflow applies.

@@ -1,6 +1,6 @@
 {
   "name": "Rumoca workshop (CPU JAX + CasADi)",
-  "image": "ghcr.io/cognipilot/rumoca_workshop_amc2026@sha256:ee7277d1f9e1bf41dac2cc52d4d35c32e20aab2e9f3d7c968a0b3c4f79467c80",
+  "image": "ghcr.io/cognipilot/rumoca_workshop_amc2026@sha256:4b80a38a77e2e625dd54cdc9bac89fe18fc1b87f181df742033692376a3059ff",
   "remoteUser": "vscode",
   "containerEnv": {
     "JAX_PLATFORMS": "cpu",
@@ -66,7 +66,7 @@
       }
     }
   },
-  "postCreateCommand": "uv run --frozen python scripts/install_agent_tools.py --check",
+  "postCreateCommand": "uv run --frozen python scripts/install_agent_tools.py --check && uv run --frozen python scripts/install_rumoca_cli.py --check",
   "hostRequirements": {
     "cpus": 2,
     "memory": "4gb",
@@ -74,5 +74,5 @@
   },
   "waitFor": "updateContentCommand",
   "shutdownAction": "stopContainer",
-  "updateContentCommand": "uv sync --frozen --group torch && uv run --frozen python scripts/install_agent_tools.py --check && uv run --frozen python scripts/ensure_codespace_extension.py && uv run --frozen python scripts/smoke_test.py"
+  "updateContentCommand": "uv sync --frozen --group torch && uv run --frozen python scripts/install_agent_tools.py --check && uv run --frozen python scripts/install_rumoca_cli.py --check && uv run --frozen python scripts/ensure_codespace_extension.py && uv run --frozen python scripts/smoke_test.py"
 }

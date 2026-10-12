@@ -41,9 +41,9 @@ reference figures on your laptop. Participant entry:
 | 12:00–12:10 | 24 | **Break 2**, ten full minutes. |
 | 12:10–12:40 | 25–26 | Constraints, CasADi solve and plots. |
 | 12:40–12:45 | 27–28 | PURT pylon racing and FastDyn Monte Carlo: embedded movies, links and run command. Announce challenge presenters. |
-| 12:45–12:50 | 29–32 | Fixed-wing and mocap apps; SLAM as one declared ROS computation graph, ~12M-variable tensor Solve stress test, whole-vision AD, CPU/GPU and precision research vision; recognize LunCoSim and Taskyon's browser-native Modelica/Rumoca design recipes in 30 seconds; finish challenge demos. |
-| 12:50–12:55 | 33 | Participant demos, audience vote and stocking-cap award. |
-| 12:55–13:00 | 34 | Research community invitation, jgoppert@purdue.edu and questions. |
+| 12:45–12:50 | 29–33 | Fixed-wing and mocap apps; SLAM as one declared ROS computation graph, ~12M-variable tensor Solve stress test, whole-vision AD, CPU/GPU and precision research vision; recognize LunCoSim/Taskyon recipes and ForgeLab/Joulios tools in brief community cards; finish challenge demos. |
+| 12:50–12:55 | 34 | Participant demos, audience vote and stocking-cap award. |
+| 12:55–13:00 | 35 | Research community invitation, jgoppert@purdue.edu and questions. |
 
 Total **180 minutes**, including **20 minutes of breaks**. All clock cues
 use five- or ten-minute boundaries (for example, 10:05 and 10:10). The slide
@@ -149,7 +149,7 @@ explicit proof obligations. Today's planar exercise does not compute a reachable
 tube or certify generated machine code. [Math context](../docs/MATH_REVIEW.md) links
 primary sources for the broader ideas.
 
-Slide 24 promotes the next **PURT pylon racing competition**, which will leverage
+Slide 27 promotes the next **PURT pylon racing competition**, which will leverage
 Rumoca. Share the [competition site](https://pylon-racing.geddes.rcac.purdue.edu/)
 and the slide's QR code. The public site explains the digital-twin-to-flight-test
 format; its currently listed dates are for April 2026. Refer attendees to future
@@ -227,7 +227,7 @@ question and continue to the close.
 
 ## Rehearse the guide and extensibility showcases
 
-Slide 8 uses the [user guide](https://cognipilot.github.io/rumoca/user-guide/),
+Slide 12 uses the [user guide](https://cognipilot.github.io/rumoca/user-guide/),
 with embedded editors and examples. Use the exact NACA link and short two-second
 sequence in [WORKSHOP.md](../docs/WORKSHOP.md). Warm the successful WebGPU tab before
 class; use the labeled saved capture for graphics/network recovery. Describe
@@ -235,7 +235,7 @@ artificial-compressibility and penalization as a coarse qualitative teaching
 model. Do not claim aerodynamic prediction, lift/drag accuracy or GPU speedup
 from the UI rehearsal. Other guide examples include turkey heating and a membrane.
 
-Slide 17 makes extensibility concrete. Preinstall the optional CPU Torch group
+Slide 21 makes extensibility concrete. Preinstall the optional CPU Torch group
 in the presenters’ Linux x64 Codespace. Open `templates/torch-ode/target.toml`,
 then the generated RHS, run its check, and show the hover-policy result. The
 [backend guide](../docs/BACKENDS.md) gives commands, assumptions and a small extension

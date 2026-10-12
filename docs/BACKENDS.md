@@ -120,7 +120,7 @@ checked representation before the target renders it.
 
 ## Walk through the Lean target
 
-Slide 19 uses these actual files. Start with
+Slide 20 uses these actual files. Start with
 [target.toml](../templates/lean-proof/target.toml): `version = 1` is the manifest
 version and `ir = "solve"` selects its input representation. `[capabilities]`
 declares supported features. Each `[[files]]` block names an output and its

@@ -22,6 +22,27 @@
       "integration_source": "https://github.com/Xyntopia/taskyon/blob/b409d3052238ab08f098b6cc6b18e7f0805a12b6/packages/modelica/modelicaWorker.worker.ts",
       "integration": "Imports rumoca-full-web; calls compiler/template renderer and simulate_model",
       "preview": "slides/assets/community-taskyon.png"
+    },
+    {
+      "name": "forgelab",
+      "url": "https://app.forgelab.space/#/forgelab",
+      "http_status": 200,
+      "video": "https://drive.google.com/file/d/1SZtXUm0E-ZaeyDW25z-vM8Mgn_Gv0iMc/view",
+      "integration": "Public welcome screen states models compile with Rumoca; no template executed",
+      "preview": "slides/assets/community-forgelab.png",
+      "reviewed_at": "2026-10-12"
+    },
+    {
+      "name": "joulios",
+      "url": "https://www.youtube.com/watch?v=VsuDOLvGzg8",
+      "http_status": 200,
+      "integration": "Public demo video: Modelica Joulios Power Analysis Demo (PowerSystems power-plant model); not run by the workshop",
+      "preview": "slides/assets/community-joulios.jpg",
+      "reviewed_at": "2026-10-12",
+      "videos": [
+        "https://www.youtube.com/watch?v=VsuDOLvGzg8",
+        "https://www.youtube.com/watch?v=n3sboXcDEwk"
+      ]
     }
   ]
 }

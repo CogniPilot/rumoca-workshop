@@ -45,7 +45,7 @@ def parse():
             breaks.append(minutes(b) - minutes(a))
         previous = minutes(b)
         previous_slot = slot
-    assert previous == 780 and len(main_slides) == 34 and len(slides) == 34
+    assert previous == 780 and len(main_slides) == 35 and len(slides) == 35
     assert breaks == [10, 10], "Keep two full ten-minute breaks"
     return slides
 
@@ -163,7 +163,7 @@ def main():
         phase = "MODEL" if num <= 15 else "FIT" if num <= 24 else "OPTIMIZE" if num <= 26 else "EXPLORE"
         accent = {"MODEL": TEAL, "FIT": BLUE, "OPTIMIZE": ORANGE, "EXPLORE": TEAL}[phase]
         layout = spec["layout"]
-        dark = layout in {"title", "break", "race"} or num in {2, 33}
+        dark = layout in {"title", "break", "race"} or num in {2, 34}
         bg, fg = (INK, WHITE) if dark else (PAPER, INK)
         rect(0, 0, W, H, bg)
         rect(0, 0, W, .065, GOLD)
@@ -258,7 +258,7 @@ def main():
             text("Cerebri RDD2: Modelica → eFMI C → Zephyr RTOS → real drone",
                  .7, 5.88, 11.9, 19, TEAL, bold=True, max_lines=1)
             text(spec["directions"], .7, 6.32, 11.9, 14, MUTED, max_lines=1)
-        elif num in {2, 33}:
+        elif num in {2, 34}:
             heading()
             if num == 2:
                 label("YOUR QUESTION. YOUR EXPERIMENT.", .7, 1.8, 8.6, GOLD)
@@ -372,7 +372,7 @@ def main():
                     text(spec[f"use {index}"], x+.21, 2.57, 5.44, 20, INK, max_lines=1)
                     picture(spec[key], x+.21, 3.05, 5.44, 2.45)
                     text(spec[f"integration {index}"], x+.21, 5.67, 5.44, 18, color, bold=True, max_lines=1)
-                    text("Public project-page preview", x+.21, 6.10, 5.44, 10, MUTED, max_lines=1)
+                    text(spec.get(f"caption {index}", "Public project-page preview"), x+.21, 6.10, 5.44, 10, MUTED, max_lines=1)
             elif layout == "cards":
                 for i, bullet in enumerate(spec["bullets"]):
                     x, y = .65+(i%2)*6.17, 1.75+(i//2)*2.15
@@ -386,7 +386,7 @@ def main():
                 rect(4.82, 1.7, 7.86, image_h, WHITE, rounded=True)
                 picture(spec["visual"], 4.94, 1.83, 7.62, image_h-.26)
                 label("TRY THIS" if num in {6,8,12,29,30,31} else "READ THE MODEL" if num == 13 else "THE IDEA", .7, 1.86, 4)
-                steps(spec["bullets"], .7, 2.35, 3.83, size=22, gap=.38)
+                steps(spec["bullets"], .7, 2.35, 3.83, size=20 if num == 6 else 22, gap=.25 if num == 6 else .38)
             elif layout == "fmu-export":
                 rect(.65, 1.73, 7.2, 4.7, INK, rounded=True)
                 text(spec["code title"], .9, 1.95, 6.7, 14, GOLD, bold=True, max_lines=1)

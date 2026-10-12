@@ -2,6 +2,7 @@
 from __future__ import annotations
 import argparse
 import hashlib
+import tempfile
 from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/"scripts"))
@@ -10,6 +11,30 @@ import numpy as np
 import rumoca as rum
 from fmpy import read_model_description, simulate_fmu, __version__ as fmpy_version
 from fmpy.validation import validate_fmu
+
+
+def simulate_native(filename, description, **options):
+    import fmpy
+    if fmpy.architecture != "aarch64" or not description.fmiVersion.startswith("3."):
+        return simulate_fmu(str(filename), **options)
+    # FMPy 0.3.30's supported_platforms() recognizes x86 Linux FMI 3 paths,
+    # but not binaries/aarch64-linux. Use its public pre-instantiation API
+    # with the actual native library; retain schema/ABI/numerical validation.
+    from fmpy.simulation import instantiate_fmu
+    scratch = Path.home()/"scratch/rumoca-workshop/fmi-build"
+    scratch.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(dir=scratch) as temporary:
+        fmpy.extract(str(filename), unzipdir=temporary)
+        profile = options["fmi_type"]
+        interface = description.coSimulation if profile == "CoSimulation" else description.modelExchange
+        library = Path(temporary)/"binaries"/fmpy.platform_tuple/(interface.modelIdentifier+fmpy.sharedLibraryExtension)
+        if not library.is_file():
+            raise RuntimeError(f"Native ARM64 FMU binary missing: {library}")
+        instance = instantiate_fmu(temporary, description, fmi_type=profile, library_path=str(library))
+        try:
+            return simulate_fmu(temporary, model_description=description, fmu_instance=instance, **options)
+        finally:
+            instance.freeInstance()
 
 
 def verify_fmu(filename: Path, output: Path):
@@ -53,8 +78,8 @@ def verify_fmu(filename: Path, output: Path):
             cvode = Path(fmpy.__file__).parent/"sundials"/fmpy.platform_tuple/("sundials_cvode"+fmpy.sharedLibraryExtension)
             if profile == "ModelExchange" and not cvode.exists():
                 continue
-            trace = simulate_fmu(
-                str(filename), fmi_type=profile, stop_time=2.0,
+            trace = simulate_native(
+                filename, description, fmi_type=profile, stop_time=2.0,
                 output_interval=.02, relative_tolerance=1e-9,
                 start_values={"vx": vx0, "T": thrust, "tau": torque, "k_quad": k_quad},
                 output=STATE_NAMES, validate=True,

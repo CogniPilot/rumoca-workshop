@@ -85,7 +85,7 @@ Both raw code-generation targets `jax-ode` and `casadi-ode` were executed.
 
 ## Lean and primary literature
 
-Slides 4 and 19 now connect the compiler representations with the actual Lean
+Slides 5 and 20 now connect the compiler representations with the actual Lean
 target: AST/Flat/DAE/Solve, the separate GaLEC embedded-control projection,
 manifest IR/capabilities/files, Jinja iteration/substitution and a scoped hover
 theorem. The [template exercise receipt](../verification/lean-target-walkthrough.json)
@@ -111,13 +111,14 @@ identifiability, global optimum, all-time state constraints or safe flight.
 
 ## Browser and editor
 
-The actual public [playground](https://rumoca.cognipilot.org/playground/) was
-tested in Chromium, with the complete browser bundle, visible gear/settings
-model selector, **BrowserFlight** selected, and Play at quadratic values 0 and
-0.08. Both compiled balanced and produced **501 points, 8 variables** and a
-plot. Browser-reported simulation times approximately 48 ms and 10 ms;
-automation waited longer for rendering. Runtime **0.8.13**, distinct from the
-Python release. Intentional syntax errors produced browser LSP markers.
+The actual public [browser editor](https://cognipilot.github.io/rumoca/) was
+retested in Chromium 154 after the link change. Wait for **Runtime: Ready**,
+paste the complete browser bundle into Main.mo, click the lightning bolt
+**Create Scenario**, set **Model name = BrowserFlight** and **Batch end time = 8 s**,
+then Save and Run Simulation. Both quadratic values 0 and 0.08 compiled balanced
+and produced **501 points, 8 variables** and plots. Intentional syntax errors
+produced browser LSP markers; no page errors were observed. This public browser
+build is deployed independently of the pinned Python/CLI release.
 Evidence: [browser.json](../verification/browser.json), actual screenshots in
 `slides/assets/`, reproducible [UI test](../verification/browser-proof.mjs).
 
@@ -263,7 +264,7 @@ is identified as planned for Rumoca **0.11**, separate from this native-FMU test
 
 ## Presentation and external limits
 
-The deck has 34 main slides, no appendices, a contiguous **180-minute** schedule
+The deck has 35 main slides, no appendices, a contiguous **180-minute** schedule
 and **two ten-minute breaks**. One editable Markdown source builds both PPTX
 with speaker notes and PDF. Presenter credits name **James Goppert and Micah
 Condie**. The design uses Purdue gold with deep navy, a light background for
@@ -271,14 +272,14 @@ technical figures, and teal/blue/terracotta accents for the three core phases.
 The opening explains why Rumoca and the broader Lie-group, reachability,
 formal-verification, identification and digital-twin context. A dedicated PURT
 pylon-racing slide links the competition site and its next event's planned
-Rumoca use; it does not repeat old event dates. All 34 PDF pages were rendered; revised layouts were visually reviewed;
+Rumoca use; it does not repeat old event dates. All 35 PDF pages were rendered; revised layouts were visually reviewed;
 commands, QR, screenshots and reference plots are real. Presenter text uses
 large type; small evidence plots/screenshots are backups for live zoomable demos.
 The PDF embeds fonts. Inspect the PPTX in the actual presentation application
 for font substitution/projector differences before class.
 
 The editable PPTX was also rendered by **LibreOffice Impress 26.2.1.2** on Linux.
-All 34 pages retained every authored text item, with extracted text inside page
+All 35 pages retained every authored text item, with extracted text inside page
 bounds. [Presentation receipt](../verification/presentation.json) records the
 artifact hash and scope. This adds an office-renderer check to the PDF review;
 the actual presentation laptop and projector remain preflight items.
@@ -359,7 +360,7 @@ remain untested.
 
 The [quadrotor guide rehearsal](../verification/quadrotor-guide.json) covers
 its actual scenario/scene sources, browser start, rendering, keyboard arming
-and stop. Slides 7–10 use that example for TOML and Three.js configuration;
+and stop. Slides 8–11 use that example for TOML and Three.js configuration;
 the planar Session API exercise remains separate. The new frame-conversion
 explanation was checked by exact matrix multiplication. The [settings
 walkthrough](SIMULATION_SETUP.md) links the primary files.

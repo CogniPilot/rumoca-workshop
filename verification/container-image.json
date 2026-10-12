@@ -1,27 +1,32 @@
 {
   "status": "PASS",
-  "build_commit": "45618a0463bd1b54627e9ca9cb24319485119434",
-  "workflow_url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38209256409",
-  "image": "ghcr.io/cognipilot/rumoca_workshop_amc2026@sha256:ee7277d1f9e1bf41dac2cc52d4d35c32e20aab2e9f3d7c968a0b3c4f79467c80",
+  "build_commit": "9d9f01edfab352bb624d86d11f821cfeb11f01f4",
+  "workflow_url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38249620148",
+  "image": "ghcr.io/cognipilot/rumoca_workshop_amc2026@sha256:4b80a38a77e2e625dd54cdc9bac89fe18fc1b87f181df742033692376a3059ff",
   "architectures": [
     {
       "architecture": "amd64",
-      "manifest_digest": "sha256:2b3ea00510c4a9be1387af13cfb09b014b342bb616f57489bee9d81059668ed3",
-      "compressed_layer_bytes": 2260515523,
-      "anonymous_manifest_and_config": "PASS"
+      "manifest_digest": "sha256:c7ebaf626c42defd59fece5b9f959197bf0f5af343cc769ff4bc0fe206ab69b4",
+      "compressed_layer_bytes": 2330252553,
+      "anonymous_manifest_and_config": "PASS",
+      "fmu_profile_cases": 16,
+      "efmu_controller_checks": 515
     },
     {
       "architecture": "arm64",
-      "manifest_digest": "sha256:9910e8f02c2c42d80f8ac4ba889c9215d9ff86ac4708068f0bedcbfa7933f679",
-      "compressed_layer_bytes": 1990389574,
-      "anonymous_manifest_and_config": "PASS"
+      "manifest_digest": "sha256:7cb146f5e6ddfab8aeecd807b9fa84c79407c8e5db2c8b255c6b9d40dccfb6a4",
+      "compressed_layer_bytes": 2058245179,
+      "anonymous_manifest_and_config": "PASS",
+      "fmu_profile_cases": 8,
+      "efmu_controller_checks": 515
     }
   ],
   "checks": [
     "Exact published image runs all three initial agent screens through attached tmux terminals on Linux x64 and ARM64, using fresh private homes and no credentials",
     "Complete official Codex package, CLI versions/help, Node/npm, GitHub CLI and tmux",
     "Complete core JAX/CasADi smoke on both architectures; Torch export/AD checks on x64",
-    "Anonymous registry access verified for image index, architecture manifests and configuration"
+    "Anonymous registry access verified for image index, architecture manifests and configuration",
+    "Rumoca CLI 0.10.2: FMI 2/3 FMUs validated, compiled and compared with Session/JAX; eFMU manifests validated and generated C executed on both architectures"
   ],
   "scope": "Public prebuilt Docker image. Account authentication and model execution are separate rehearsals. VM startup, image pull, editor activation and class capacity remain separate checks."
 }

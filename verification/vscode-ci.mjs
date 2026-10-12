@@ -4,6 +4,7 @@ import path from 'node:path';
 import os from 'node:os';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
+import {downloadRelease} from './download-release.mjs';
 const root=path.resolve(fileURLToPath(new URL('..',import.meta.url)));
 const scratch=path.join(os.homedir(),'scratch','rumoca-workshop');
 const require=createRequire(path.join(process.env.WORKSHOP_UI_TOOLS || path.join(scratch,'ui-tools'),'package.json'));
@@ -19,9 +20,8 @@ fs.copyFileSync(path.join(root,'models/Quadrotor.mo'),model);
 const name=`rumoca-modelica-${target}-0.10.2.vsix`;
 const vsix=path.join(dir,'downloads',name);
 if(!fs.existsSync(vsix)){
- const response=await fetch(`https://github.com/CogniPilot/rumoca/releases/download/v0.10.2/${name}`);
- if(!response.ok)throw Error(`VSIX download failed: ${response.status}`);
- fs.writeFileSync(vsix,Buffer.from(await response.arrayBuffer()));
+ const contents=await downloadRelease(`https://github.com/CogniPilot/rumoca/releases/download/v0.10.2/${name}`);
+ fs.writeFileSync(vsix,contents);
 }
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'verification/vsix-sha256.json'),'utf8'));
 const vsixHash=createHash('sha256').update(fs.readFileSync(vsix)).digest('hex');

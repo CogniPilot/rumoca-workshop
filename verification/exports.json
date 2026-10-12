@@ -12,8 +12,8 @@
         "tau": "N.m"
       },
       "unit_metadata_note": "Rumoca 0.10.2 omits non-time units in FMU XML; use the Modelica SI contract.",
-      "script_sha256": "030f1eb47ac77a17974e55923027259921cd029ca38165836e4164714808c3f5",
-      "fmu_sha256": "1626b2d02494d8f0f86e7aa8ea59d00e0d9b8e2e8b93794db99f8367566035e1",
+      "script_sha256": "2e7100b510ed55d2042fd51fa52adfd666caa5119fd3d9d4bb39636a902c52b6",
+      "fmu_sha256": "99761d690ecfee04df3c0b7dfed88ff1945ae3d05a265b31c47fa2ea2c4838c9",
       "checks": [
         {
           "case": "hover",
@@ -141,8 +141,8 @@
         "tau": "N.m"
       },
       "unit_metadata_note": "Rumoca 0.10.2 omits non-time units in FMU XML; use the Modelica SI contract.",
-      "script_sha256": "030f1eb47ac77a17974e55923027259921cd029ca38165836e4164714808c3f5",
-      "fmu_sha256": "d980ddcf50dd8e5843672cf5b5c4eac054cf5e15b959fb12a0edd326d99fab5b",
+      "script_sha256": "2e7100b510ed55d2042fd51fa52adfd666caa5119fd3d9d4bb39636a902c52b6",
+      "fmu_sha256": "bf33976d5cd550b1575ed962945328f630272e70a889516008092b880076ef70",
       "checks": [
         {
           "case": "hover",
@@ -263,7 +263,7 @@
   "efmu": {
     "status": "PASS",
     "source_sha256": "960e4ebd6ecbe60671bc3d5e086e6be1dc568af5fb9126066a24080052c8a6d3",
-    "efmu_sha256": "6a4c3fd934e2bfd2a6028ae1dd0c49cbcd522dbd7d6e272234d8ba674e0a64fe",
+    "efmu_sha256": "5e3200e3d5b91214160d07174978f64e16526d735f13669c864c05d8b0c6a110",
     "script_sha256": "803bf94aecbdd20f767cb84e464951f21703f7dcdac9cd4b6a94ae2b8f82b95e",
     "harness_sha256": "d1ae0de339798fed74d26966498e296dc30858ca8fbc22112f22a2e9c1e5930a",
     "schemas": [

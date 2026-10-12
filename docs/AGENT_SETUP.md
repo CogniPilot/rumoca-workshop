@@ -12,8 +12,37 @@ Open the Codex, Claude or Copilot panel in VS Code and follow its sign-in flow.
 Alternatively, run `codex`, `claude` or `copilot` in the terminal and follow the login
 instructions. Subscription access and usage limits belong to your account.
 Your GitHub Codespace login does not automatically sign you into either AI
-provider. See the official [Codex CLI guide](https://learn.chatgpt.com/docs/codex/cli)
-and [Claude setup](https://code.claude.com/docs/en/setup).
+provider. The first terminal launch may ask you to choose a theme or trust the
+workspace before showing the login options.
+
+| Agent | Terminal login in Codespaces |
+|---|---|
+| Codex | `codex login --device-auth`, open its browser link, enter the displayed code, then run `codex`. Device login must be enabled in your ChatGPT security settings or workspace permissions. |
+| Claude Code | Run `claude`, choose a theme and follow its sign-in instructions; use `/login` to sign in again. |
+| Copilot | Run `copilot login` and follow its browser/device-code instructions, then run `copilot`. |
+
+Official instructions: [Codex authentication](https://learn.chatgpt.com/docs/auth),
+[Claude authentication](https://code.claude.com/docs/en/authentication),
+[Copilot authentication](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli).
+
+## First experiment: edit, run and inspect
+
+Paste this after signing in:
+
+```text
+Read docs/WORKSHOP.md and examples/simulate.py. Use the existing Rumoca Python
+Session API, importing rumoca as rum, to compare the planar quadrotor at three
+quadratic drag coefficients. Keep the workshop model and original examples
+unchanged. Put your script in examples/agent_experiment/ and your results in
+results/live/agent_experiment/ so I can see them in the VS Code Explorer.
+Run with uv run --frozen python, plot the response with units, and check that
+increasing positive drag reduces travel in the same coast experiment. Explain
+the actual measured result. Do not install packages or publish anything.
+```
+
+Review its changes in **Source Control**, open the generated plot, and ask for
+one improvement at a time. Keep normal permission prompts and check the agent's
+reported result against its terminal output.
 
 Do not paste credentials into a model, prompt, slide or tracked file. For API
 billing, use your own account-level [Codespaces secrets](https://docs.github.com/en/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)
@@ -26,7 +55,8 @@ Choose **Terminal → Run Task → Workshop: Codex terminal (tmux)** or
 **Workshop: Claude terminal (tmux)** or **Workshop: Copilot terminal (tmux)**. Authenticate, paste your experiment prompt,
 and allow the initial workspace permissions. Keep normal permission prompts;
 return to the terminal if the agent needs an answer. Ask it to work in
-`extras/agent_experiment/` so your live core example stays easy to follow.
+`examples/agent_experiment/` and save plots under `results/live/agent_experiment/`
+so the experiment stays visible beside the core examples.
 
 Detach with **Ctrl+B**, then **D**. Return with:
 

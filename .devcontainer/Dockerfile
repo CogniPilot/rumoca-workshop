@@ -14,5 +14,5 @@ COPY --from=ghcr.io/astral-sh/uv:0.11.21 /uv /uvx /usr/local/bin/
 COPY pyproject.toml uv.lock /opt/workshop-deps/
 RUN chown -R vscode:vscode /opt/workshop-deps
 USER vscode
-RUN cd /opt/workshop-deps && uv sync --frozen --no-dev && rm -rf .venv
+RUN cd /opt/workshop-deps && uv sync --frozen --no-dev --group torch && rm -rf .venv
 USER root

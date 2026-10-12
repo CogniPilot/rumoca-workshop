@@ -33,7 +33,7 @@ jobs:
         run: |
           mkdir -p results/live
           chmod 0777 results/live
-          docker run --rm --user vscode -e HOME=/home/vscode -e UV_PROJECT_ENVIRONMENT=/home/vscode/scratch/rumoca-workshop/venv --entrypoint bash -v "$PWD:/workspace" -w /workspace "$WORKSHOP_IMAGE" -c 'uv sync --frozen && uv run --frozen python scripts/install_agent_tools.py --check && uv run --frozen python scripts/smoke_test.py'
+          docker run --rm --user vscode -e HOME=/home/vscode -e UV_PROJECT_ENVIRONMENT=/home/vscode/scratch/rumoca-workshop/venv --entrypoint bash -v "$PWD:/workspace" -w /workspace "$WORKSHOP_IMAGE" -c 'uv sync --frozen --group torch && uv run --frozen python scripts/install_agent_tools.py --check && uv run --frozen python scripts/smoke_test.py && if [ "$(uname -m)" = x86_64 ]; then uv run --frozen --group torch python scripts/check_torch_backend.py; fi'
       - name: Publish qualified architecture
         run: |
           docker push "$WORKSHOP_IMAGE"

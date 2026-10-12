@@ -128,7 +128,8 @@ are available too. These tasks work locally and in Codespaces. Reference
 results stay in `results/reference`; new results go to ignored `results/live`.
 
 The optional Torch tasks are qualified on **Linux x64 CPU**, including the
-Codespace. They download an extra CPU-only package; see [BACKENDS.md](BACKENDS.md).
+Codespace. The container prepares its CPU-only packages; native installations
+download them when first running a Torch task. See [BACKENDS.md](BACKENDS.md).
 Lean checks run in the repository's CI; attendees need not install Mathlib.
 
 ## Optional maintainer flake

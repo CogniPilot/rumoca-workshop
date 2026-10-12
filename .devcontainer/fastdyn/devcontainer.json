@@ -71,7 +71,7 @@
       }
     }
   },
-  "postCreateCommand": "uv sync --frozen && uv run --frozen python scripts/install_agent_tools.py --check && uv run --frozen python scripts/ensure_codespace_extension.py && uv run --frozen python scripts/smoke_test.py && uv run --frozen python scripts/fastdyn_demo.py --prepare",
+  "postCreateCommand": "uv sync --frozen --group torch && uv run --frozen python scripts/install_agent_tools.py --check && uv run --frozen python scripts/ensure_codespace_extension.py && uv run --frozen python scripts/smoke_test.py && uv run --frozen python scripts/fastdyn_demo.py --prepare",
   "hostRequirements": {
     "cpus": 2,
     "memory": "8gb",

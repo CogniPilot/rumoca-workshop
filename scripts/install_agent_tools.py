@@ -17,6 +17,19 @@ def digest(path):
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
+def codex_package(executable, version):
+    """The interactive CLI needs its complete official package, not just bin/codex."""
+    root = Path(executable).resolve().parent.parent
+    metadata = root / "codex-package.json"
+    if not metadata.is_file():
+        return False
+    package = json.loads(metadata.read_text())
+    return package.get("version") == version and all(
+        (root / name).is_file()
+        for name in ["bin/codex-code-mode-host", "codex-path/rg", "codex-resources/bwrap"]
+    )
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--prefix", type=Path, default=Path.home()/".local")
@@ -35,7 +48,8 @@ def main():
             existing = dest/name
             if existing.is_file():
                 version = subprocess.check_output([str(existing), "--version"], text=True).strip()
-                if pin["version"] in re.findall(r"\d+\.\d+\.\d+(?:[-+][\w.-]+)?", version):
+                complete = not artifact.get("package") or codex_package(existing, pin["version"])
+                if complete and pin["version"] in re.findall(r"\d+\.\d+\.\d+(?:[-+][\w.-]+)?", version):
                     print(f"Already installed: {version}")
                     continue
             with tempfile.TemporaryDirectory(dir=cache) as tmp:
@@ -45,7 +59,19 @@ def main():
                     shutil.copyfileobj(response, output)
                 if digest(download) != artifact["sha256"]:
                     raise RuntimeError(f"Checksum mismatch: {name}")
-                if "member" in artifact:
+                if artifact.get("package"):
+                    package_dir = args.prefix / "lib" / name / f'{pin["version"]}-{platform.machine()}'
+                    package_dir.parent.mkdir(parents=True, exist_ok=True)
+                    # Preserve the official relative layout used to discover daemon resources.
+                    # Extraction is checksum checked and rejects escaping links/paths.
+                    with tarfile.open(download, "r:gz") as archive:
+                        archive.extractall(package_dir, filter="data")
+                    assert codex_package(package_dir / "bin/codex", pin["version"]), "Incomplete Codex package"
+                    link = dest / f".{name}-new"
+                    link.unlink(missing_ok=True)
+                    link.symlink_to(package_dir.resolve() / "bin/codex")
+                    link.replace(existing)
+                elif "member" in artifact:
                     with tarfile.open(download, "r:gz") as archive:
                         member = archive.getmember(artifact["member"])
                         assert member.isfile(), "Expected a regular executable"
@@ -61,6 +87,10 @@ def main():
             versions[name] = subprocess.check_output([name, "--version"], text=True).strip()
             assert manifest[name]["version"] in re.findall(r"\d+\.\d+\.\d+(?:[-+][\w.-]+)?", versions[name]), versions[name]
             subprocess.run([name, "--help"], check=True, stdout=subprocess.DEVNULL)
+        assert codex_package(shutil.which("codex"), manifest["codex"]["version"]), (
+            "Codex interactive startup requires its complete official package; rebuild the container. "
+            "For an existing older container, codex --no-daemon is a temporary fallback."
+        )
         for name, flag in [("node", "--version"), ("npm", "--version"), ("gh", "--version"), ("tmux", "-V")]:
             versions[name] = subprocess.check_output([name, flag], text=True).strip()
         socket = "rumoca-workshop-verification"
@@ -73,8 +103,9 @@ def main():
         output = root/"results/live/agent-tools.json"
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps({"status": "PASS", "platform": platform.machine(), "versions": versions,
-            "detached_tmux_session": "PASS", "manifest_sha256": digest(Path(__file__).with_name("agent_tools.json")),
-            "scope": "CLI version/help, Node/npm and detached tmux execution. No account login or billed model request."}, indent=2)+"\n")
+            "detached_tmux_session": "PASS", "codex_complete_package": "PASS",
+            "manifest_sha256": digest(Path(__file__).with_name("agent_tools.json")),
+            "scope": "CLI version/help, complete Codex package, Node/npm and detached tmux execution. No account login or billed model request."}, indent=2)+"\n")
         print("AGENT TOOLS PASS: "+json.dumps(versions))
 
 

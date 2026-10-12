@@ -383,3 +383,12 @@ terminal screens then passed without accounts or model requests. Initial VM
 allocation and the approximately 2.3 GB x64 image pull take
 additional time; there is no shared Codespaces snapshot prebuild. This receipt
 distinguishes installed extensions from separately qualified editor behavior.
+
+The updated [CLI export Codespace check](../verification/codespace-exports.json)
+uses the new digest-pinned core image with **Rumoca CLI 0.10.2**, a C compiler
+and FMPy. In the actual cloud terminal, FMI 2 and FMI 3 each passed eight
+Model Exchange/Co-Simulation runs against the Session/JAX reference. The eFMU
+passed three XML schema checks, nine checksum checks and 515 generated-C cases.
+The [image qualification](../verification/container-image.json) additionally
+executed both exports on ARM64 using Co-Simulation. Commands and the missing
+non-time FMI unit annotations are documented in [EXPORTS.md](EXPORTS.md).

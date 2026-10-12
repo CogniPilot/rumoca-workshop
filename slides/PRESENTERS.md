@@ -41,9 +41,9 @@ reference figures on your laptop. Participant entry:
 | 12:00–12:10 | 21 | **Break 2**, ten full minutes. |
 | 12:10–12:40 | 22–23 | Constraints, CasADi solve and plots. |
 | 12:40–12:45 | 24–25 | PURT pylon racing and FastDyn Monte Carlo: embedded movies, links and run command. Announce challenge presenters. |
-| 12:45–12:50 | 26–28 | Fixed-wing, mocap and SLAM app showcase; finish challenge demos. |
-| 12:50–12:55 | 29 | Participant demos, audience vote and stocking-cap award. |
-| 12:55–13:00 | 30 | Research community invitation, jgoppert@purdue.edu and questions. |
+| 12:45–12:50 | 26–29 | Fixed-wing, mocap and SLAM app showcase; recognize LunCoSim and Taskyon community users in 30 seconds; finish challenge demos. |
+| 12:50–12:55 | 30 | Participant demos, audience vote and stocking-cap award. |
+| 12:55–13:00 | 31 | Research community invitation, jgoppert@purdue.edu and questions. |
 
 Total **180 minutes**, including **20 minutes of breaks**. All clock cues
 use five- or ten-minute boundaries (for example, 10:05 and 10:10). The slide

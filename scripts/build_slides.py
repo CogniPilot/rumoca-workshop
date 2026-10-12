@@ -45,7 +45,7 @@ def parse():
             breaks.append(minutes(b) - minutes(a))
         previous = minutes(b)
         previous_slot = slot
-    assert previous == 780 and len(main_slides) == 30 and len(slides) == 30
+    assert previous == 780 and len(main_slides) == 31 and len(slides) == 31
     assert breaks == [10, 10], "Keep two full ten-minute breaks"
     return slides
 
@@ -163,7 +163,7 @@ def main():
         phase = "MODEL" if num <= 14 else "FIT" if num <= 21 else "OPTIMIZE" if num <= 23 else "EXPLORE"
         accent = {"MODEL": TEAL, "FIT": BLUE, "OPTIMIZE": ORANGE, "EXPLORE": TEAL}[phase]
         layout = spec["layout"]
-        dark = layout in {"title", "break", "race"} or num in {2, 29}
+        dark = layout in {"title", "break", "race"} or num in {2, 30}
         bg, fg = (INK, WHITE) if dark else (PAPER, INK)
         rect(0, 0, W, H, bg)
         rect(0, 0, W, .065, GOLD)
@@ -257,7 +257,7 @@ def main():
                 text(explanation, x+.27, y+.8, 5.22, 18, INK, max_lines=2)
             text("Cerebri RDD2: Modelica → eFMI C → Zephyr RTOS → real drone",
                  .7, 6.1, 11.9, 19, TEAL, bold=True, max_lines=1)
-        elif num in {2, 29}:
+        elif num in {2, 30}:
             heading()
             if num == 2:
                 label("YOUR QUESTION. YOUR EXPERIMENT.", .7, 1.8, 8.6, GOLD)
@@ -332,6 +332,16 @@ def main():
                 label("3  INVOKE WITH THE SAME SESSION MODEL", .85, 4.74, 11.6, BLUE)
                 text('model.codegen("templates/lean-proof").save_all("formal")', .85, 5.08, 11.6, 19, INK, mono=True, max_lines=1)
                 text("Check hover: level + still, T = m·g, zero torque → zero derivatives", .85, 5.64, 11.6, 19, TEAL, bold=True, max_lines=1)
+            elif layout == "community-users":
+                for index, key in enumerate(["visual", "photo"], 1):
+                    x = .65+(index-1)*6.17
+                    color = TEAL if index == 1 else BLUE
+                    rect(x, 1.75, 5.86, 4.51, WHITE, rounded=True)
+                    text(spec[f"project {index}"], x+.21, 1.98, 5.44, 30, color, bold=True, max_lines=1)
+                    text(spec[f"use {index}"], x+.21, 2.57, 5.44, 20, INK, max_lines=1)
+                    picture(spec[key], x+.21, 3.05, 5.44, 2.45)
+                    text(spec[f"integration {index}"], x+.21, 5.67, 5.44, 18, color, bold=True, max_lines=1)
+                    text("Public project-page preview", x+.21, 6.10, 5.44, 10, MUTED, max_lines=1)
             elif layout == "cards":
                 for i, bullet in enumerate(spec["bullets"]):
                     x, y = .65+(i%2)*6.17, 1.75+(i//2)*2.15

@@ -26,3 +26,8 @@ Facility and aircraft photographs were selected from the supplied
 Penn State uses the transparent reverse mark from its
 [official university site](https://www.psu.edu/psu-edu-assets/images/shared/psu-mark.svg); NXP uses its transparent [official web mark](https://www.nxp.com/resources/images/nxp-logo.svg).
 Institutional marks identify workshop affiliations and research collaborators.
+
+The community-user slide credits [LunCoSim](https://lunco.space/luncosim)
+and [Taskyon](https://taskyon.space/). Its previews are captures of their public
+project pages taken October 12, 2026, with the project names and links retained.
+They illustrate the project interfaces; no mission or agent execution is claimed.

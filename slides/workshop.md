@@ -430,7 +430,26 @@ Checkpoint: Start with the tested inertial baseline.
 Notes:
 Show the tested InertialOnly or ResponsiveInertial model. This is an additional app in development, with a browser WASM path; the full visual-SLAM pipeline was not qualified. Point out the declared estimator model. Invite users to explore the supported baseline or continue their challenge. Together with the neighboring app slides, share the five-minute showcase slot.
 
-## 29 · Show your experiment. Vote for the cap.
+## 29 · A growing community builds with Rumoca
+Links: LunCoSim simulator | https://lunco.space/luncosim ; LunCoSim source | https://github.com/LunCoSim/lunco-sim ; Taskyon app | https://taskyon.space/ ; Taskyon source | https://github.com/Xyntopia/taskyon
+Time: 12:45–12:50
+Time group: App showcase
+Layout: community-users
+Visual: assets/community-luncosim.png
+Photo: assets/community-taskyon.png
+Project 1: LunCoSim
+Use 1: Space-mission co-simulation
+Integration 1: Rumoca-powered Modelica runtime
+Project 2: Taskyon
+Use 2: AI-assisted engineering workflows
+Integration 2: Rumoca WASM Modelica tools
+Badge: COMMUNITY USERS · different domains, shared declarative models
+
+Checkpoint: Where could declarative models fit in your tools?
+Notes:
+Spend about 30 seconds recognizing community users beyond the Purdue workshop applications. LunCoSim is an open-source multiphysics mission simulator connecting Modelica, rigid-body physics, terrain and mission operations; its native workspace consumes Rumoca's compiler, Solve and simulation crates. The project website links to downloadable simulator releases; use https://github.com/LunCoSim/lunco-sim/releases/latest for the actual installer. Do not describe this website preview as a live browser mission simulation. Taskyon is an open-source system for AI-assisted research/design workflows; its Modelica worker imports rumoca-full-web and calls the WASM compiler, template renderer and simulate_model API. The Taskyon app and both project source repositories are directly clickable. The images are actual public website/app-entry captures, not workshop simulations. Source integration and public-page loading were checked; we did not install/run a LunCoSim mission or execute a Taskyon agent workflow, and the planar workshop proofs do not cover these projects. Optional Taskyon agent features may require provider access; no login or model calls were made during the preview check. Credit each independent project's contributors; this is a community acknowledgement, not a claim of endorsement. Primary integration sources pinned at review: https://github.com/LunCoSim/lunco-sim/blob/851b45191130baf537d51e9a68e37fd0e881e241/Cargo.toml and https://github.com/Xyntopia/taskyon/blob/b409d3052238ab08f098b6cc6b18e7f0805a12b6/packages/modelica/modelicaWorker.worker.ts. Share the existing 12:45–12:50 showcase slot with the three preceding app slides, leaving participants time to finish an experiment. Begin demos at 12:50.
+
+## 30 · Show your experiment. Vote for the cap.
 Links: Challenge rules | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/CHALLENGE.md ; Optional gallery | https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/1
 Time: 12:50–12:55
 Layout: statement
@@ -444,7 +463,7 @@ Checkpoint: Random draw if more than 5 ready entries → audience hand vote
 Notes:
 Use up to five 45-second demos, selected by the announced readiness check and random draw if needed. Draw order and a backup in advance. Each entrant shows a question Rumoca helps explore, their original change, a working interaction or before/after comparison, one checked result, tool used and elapsed work time. Local files, browser tabs and screenshares are acceptable; public source links are optional. Manual experiments are welcome; name the agent if used and label estimated times. Have tabs/files ready and use the same limit for everyone. Five demos leave 75 seconds for a hand vote and award. Each attendee votes for one entry; count visibly. If tied, run a quick vote between the tied entries; if still tied, draw among them. Award one stocking cap; a team chooses its recipient. Share voluntary links from all entries, including those not drawn. If no entries are ready, take a brief question and continue. CHALLENGE.md carries the same rules. Keep the core exercise as the workshop's main focus.
 
-## 30 · Join the Rumoca research community
+## 31 · Join the Rumoca research community
 Links: Email James | mailto:jgoppert@purdue.edu ; Rumoca compiler | https://github.com/CogniPilot/rumoca ; Model library | https://github.com/CogniPilot/modelica_models
 Time: 12:55–13:00
 Layout: title

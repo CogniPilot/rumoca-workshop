@@ -1,17 +1,17 @@
 {
   "status": "PASS",
   "renderer": "LibreOffice Impress 26.2.1.2, Linux x64",
-  "slides": 30,
+  "slides": 31,
   "checks": [
     "All authored slide text survives actual PPTX rendering within its intended text panel",
     "All extracted text lies within page bounds",
-    "Visual review of compiler pipeline and Lean/Jinja target layouts; automatic text retention and bounds checks on all 30 slides"
+    "Visual review of compiler pipeline, Lean/Jinja target and community-user layouts; automatic text retention and bounds checks on all 31 slides"
   ],
   "presenters": [
     "James Goppert",
     "Micah Condie"
   ],
   "design": "Purdue gold and deep navy; teal, blue and terracotta phase accents; editable native layout shapes",
-  "pptx_sha256": "4f1361eb71889a9e2c4e63f5b64019dde20f07b44394de230a4441a4681fa005",
+  "pptx_sha256": "89407172b24e6d33485bda44a75e8b658ab3d5c21deb0028067b9857f95c9555",
   "scope": "Actual LibreOffice rendering. PowerPoint and the venue projector require presenter preflight."
 }

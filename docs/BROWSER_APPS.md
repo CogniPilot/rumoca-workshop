@@ -13,7 +13,8 @@ Try the controller-rate interaction below and inspect its Modelica source.
 works, while the full visual-SLAM pipeline is still being developed.
 **mocap_sysid** illustrates a stored-data and benchmark-results viewer.
 
-Allow one minute for the introduction and four minutes to explore. Open one
+Allow one minute for the introduction, 30 seconds to acknowledge community
+users, and three and a half minutes to explore. Open one
 app at a time on a modest laptop. If you are entering the
 [open experiment challenge](CHALLENGE.md), you can use this time to finish your own
 demo instead. Participant demos and the audience hand vote begin at **12:50**.
@@ -105,3 +106,21 @@ Inspect the Modelica and scenario TOML tabs, run it, focus the scene and press
 The [copied upstream source](../extras/reusable_booster/README.md) is available
 for inspection. Native execution of that snapshot needs the upstream pinned
 library and has not been qualified here. It is not a validated SpaceX model.
+
+## Community users: LunCoSim and Taskyon
+
+Beyond our workshop apps, other open-source projects integrate Rumoca:
+
+| Project | Simulator / app | Source | Rumoca integration |
+|---|---|---|---|
+| LunCoSim | [Mission simulator](https://lunco.space/luncosim) · [Download simulator](https://github.com/LunCoSim/lunco-sim/releases/latest) | [LunCoSim/lunco-sim](https://github.com/LunCoSim/lunco-sim) | Native Modelica compiler/runtime in a multiphysics space-mission simulator. |
+| Taskyon | [Open Taskyon](https://taskyon.space/) | [Xyntopia/taskyon](https://github.com/Xyntopia/taskyon) | Rumoca WASM compilation, template rendering and simulation within AI-assisted engineering tools. |
+
+The integration descriptions were checked against the projects'
+[LunCoSim dependency manifest](https://github.com/LunCoSim/lunco-sim/blob/851b45191130baf537d51e9a68e37fd0e881e241/Cargo.toml)
+and [Taskyon Modelica worker](https://github.com/Xyntopia/taskyon/blob/b409d3052238ab08f098b6cc6b18e7f0805a12b6/packages/modelica/modelicaWorker.worker.ts).
+The slide previews are captures of public project pages. We checked page loading
+and source integration; no LunCoSim mission or Taskyon agent workflow was run.
+LunCoSim's page links to a downloadable native simulator. Taskyon's agent
+features may require a provider account. These independent projects are outside
+the workshop's proof and numerical-check scope.

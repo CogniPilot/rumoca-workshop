@@ -235,7 +235,7 @@ generated proof terms from a clean environment.
 
 ## Presentation and external limits
 
-The deck has 30 main slides, no appendices, a contiguous **180-minute** schedule
+The deck has 31 main slides, no appendices, a contiguous **180-minute** schedule
 and **two ten-minute breaks**. One editable Markdown source builds both PPTX
 with speaker notes and PDF. Presenter credits name **James Goppert and Micah
 Condie**. The design uses Purdue gold with deep navy, a light background for
@@ -243,17 +243,24 @@ technical figures, and teal/blue/terracotta accents for the three core phases.
 The opening explains why Rumoca and the broader Lie-group, reachability,
 formal-verification, identification and digital-twin context. A dedicated PURT
 pylon-racing slide links the competition site and its next event's planned
-Rumoca use; it does not repeat old event dates. All 30 PDF pages were rendered; revised layouts were visually reviewed;
+Rumoca use; it does not repeat old event dates. All 31 PDF pages were rendered; revised layouts were visually reviewed;
 commands, QR, screenshots and reference plots are real. Presenter text uses
 large type; small evidence plots/screenshots are backups for live zoomable demos.
 The PDF embeds fonts. Inspect the PPTX in the actual presentation application
 for font substitution/projector differences before class.
 
 The editable PPTX was also rendered by **LibreOffice Impress 26.2.1.2** on Linux.
-All 30 pages retained every authored text item, with extracted text inside page
+All 31 pages retained every authored text item, with extracted text inside page
 bounds. [Presentation receipt](../verification/presentation.json) records the
 artifact hash and scope. This adds an office-renderer check to the PDF review;
 the actual presentation laptop and projector remain preflight items.
+
+A dedicated community-user slide acknowledges LunCoSim and Taskyon, with actual
+public-page previews and simulator/app/source links. Their source integrations
+were reviewed at recorded commits; both public pages loaded with HTTP 200.
+[Community-user receipt](../verification/community-users.json) records that scope.
+No third-party mission or agent workflow was executed, and these projects are
+outside the workshop mathematical proof scope.
 
 An actual two-core Codespace built the devcontainer and passed the core, audit,
 optional Torch and native remote-LSP checks. The [cloud receipt](../verification/codespace.json)

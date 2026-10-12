@@ -93,7 +93,7 @@ def main():
             assert a <= s < e <= b, f"Slide {number} disagrees with presenter schedule"
         schedule.append((a, b, ids))
     assert schedule[-1][1] == 780
-    assert [number for _, _, ids in schedule for number in ids] == list(range(1, 31))
+    assert [number for _, _, ids in schedule for number in ids] == list(range(1, len(slides)+1))
     assert build["schedule_minutes"] == 180 and build["break_minutes"] == 20
     for name, expected in {**build["input_sha256"], **build["artifact_sha256"]}.items():
         assert digest(name) == expected, f"Deck needs rebuilding: {name}"
@@ -104,10 +104,10 @@ def main():
     with zipfile.ZipFile(ROOT/"slides/workshop.pptx") as deck:
         slides = [n for n in deck.namelist() if re.fullmatch(r"ppt/slides/slide\d+\.xml", n)]
         notes = [n for n in deck.namelist() if re.fullmatch(r"ppt/notesSlides/notesSlide\d+\.xml", n)]
-        assert len(slides) == build["slides"] == len(notes) == 30
+        assert len(slides) == build["slides"] == len(notes) == 31
         presentation = ET.fromstring(deck.read("ppt/presentation.xml"))
-        assert len(presentation.find("p:sldIdLst", ns)) == 30
-        for index in range(1, 31):
+        assert len(presentation.find("p:sldIdLst", ns)) == len(slides)
+        for index in range(1, len(slides)+1):
             number = f"{index:02}" if index <= build["main_slides"] else f"A{index-build['main_slides']}"
             expected = {link["url"] for link in build["hyperlinks"] if link["slide"] == number}
             relations = ET.fromstring(deck.read(f"ppt/slides/_rels/slide{index}.xml.rels"))
@@ -132,17 +132,22 @@ def main():
         for target, expected in receipt["target_sha256"].items():
             assert digest(f"templates/torch-ode/{target}") == expected
     assert read("verification/user-guide.json")["status"] == "PASS"
+    community = read("verification/community-users.json")
+    assert community["status"] == "PASS"
+    for project in community["projects"]:
+        assert project["http_status"] == 200 and (ROOT/project["preview"]).is_file()
     report = {"status":"PASS", "local_markdown_links":links, "slide_source_links":source_links,
               "explorer_hidden_paths":sorted(cache_exclusions), "presenter_schedule_blocks":len(schedule),
-              "clock_boundary_minutes":5, "slides":30, "schedule_minutes":180,
+              "clock_boundary_minutes":5, "slides":len(slides), "schedule_minutes":180,
               "break_minutes":20, "model_sha256":source,
               "checks":["local links", "workshop sources and generated outputs visible in all Explorer configurations",
                         "rounded slide and presenter schedules agree", "shared model/result/CSV/formal/browser provenance", "deck input/artifact hashes",
                         "PPTX slides, notes, clickable links and office-renderer provenance", "app rehearsal receipts",
-                        "Torch target and policy source/template provenance", "embedded user-guide rehearsal receipt"],
+                        "Torch target and policy source/template provenance", "embedded user-guide rehearsal receipt",
+                        "LunCoSim and Taskyon public-page/source integration review"],
               "scope":"Packaging consistency. Mathematical, numerical and UI checks have separate receipts."}
     (ROOT/"verification/materials.json").write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8", newline="\n")
-    print(f"MATERIALS PASS: {links} local links, 30 slides with notes and 2 embedded movies, 180 minutes, matching provenance")
+    print(f"MATERIALS PASS: {links} local links, {len(slides)} slides with notes and 2 embedded movies, 180 minutes, matching provenance")
 
 if __name__ == "__main__":
     main()

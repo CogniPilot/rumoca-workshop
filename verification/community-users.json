@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "reviewed_at": "2026-10-12T11:08:32.464052+00:00",
+  "scope": "Public-page loading and source integration review only; no third-party mission or agent workflow executed. Workshop mathematical proofs do not cover these projects.",
+  "projects": [
+    {
+      "name": "luncosim",
+      "url": "https://lunco.space/luncosim",
+      "http_status": 200,
+      "repository": "https://github.com/LunCoSim/lunco-sim",
+      "source_commit": "851b45191130baf537d51e9a68e37fd0e881e241",
+      "integration_source": "https://github.com/LunCoSim/lunco-sim/blob/851b45191130baf537d51e9a68e37fd0e881e241/Cargo.toml",
+      "integration": "Pinned native Rumoca compiler, Solve and simulation crate dependencies",
+      "preview": "slides/assets/community-luncosim.png"
+    },
+    {
+      "name": "taskyon",
+      "url": "https://taskyon.space/",
+      "http_status": 200,
+      "repository": "https://github.com/Xyntopia/taskyon",
+      "source_commit": "b409d3052238ab08f098b6cc6b18e7f0805a12b6",
+      "integration_source": "https://github.com/Xyntopia/taskyon/blob/b409d3052238ab08f098b6cc6b18e7f0805a12b6/packages/modelica/modelicaWorker.worker.ts",
+      "integration": "Imports rumoca-full-web; calls compiler/template renderer and simulate_model",
+      "preview": "slides/assets/community-taskyon.png"
+    }
+  ]
+}

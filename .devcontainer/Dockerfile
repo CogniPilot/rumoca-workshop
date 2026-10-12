@@ -4,8 +4,9 @@ FROM mcr.microsoft.com/devcontainers/python:1-3.12-bookworm
 RUN rm -f /etc/apt/sources.list.d/yarn.list
 RUN apt-get update && apt-get install -y --no-install-recommends tmux bubblewrap \
     && rm -rf /var/lib/apt/lists/*
-COPY scripts/install_agent_tools.py scripts/agent_tools.json /opt/workshop-agent-tools/
+COPY scripts/install_agent_tools.py scripts/cache_editor_extensions.py scripts/agent_tools.json /opt/workshop-agent-tools/
 RUN python /opt/workshop-agent-tools/install_agent_tools.py --prefix /usr/local
+RUN python /opt/workshop-agent-tools/cache_editor_extensions.py
 COPY --from=ghcr.io/astral-sh/uv:0.11.21 /uv /uvx /usr/local/bin/
 # Cache downloads under the container user's home, which the devcontainer CLI
 # adjusts when mapping that user's UID to the host. postCreate installs into

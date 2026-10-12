@@ -41,7 +41,7 @@ reference figures on your laptop. Participant entry:
 | 12:00–12:10 | 21 | **Break 2**, ten full minutes. |
 | 12:10–12:40 | 22–23 | Constraints, CasADi solve and plots. |
 | 12:40–12:45 | 24–25 | PURT pylon racing and FastDyn Monte Carlo: embedded movies, links and run command. Announce challenge presenters. |
-| 12:45–12:50 | 26–29 | Fixed-wing, mocap and SLAM app showcase; recognize LunCoSim and Taskyon community users in 30 seconds; finish challenge demos. |
+| 12:45–12:50 | 26–29 | Fixed-wing and mocap apps; SLAM as one declared ROS computation graph, ~12M-variable tensor Solve stress test, whole-vision AD, CPU/GPU and precision research vision; recognize LunCoSim and Taskyon's browser-native Modelica/Rumoca design recipes in 30 seconds; finish challenge demos. |
 | 12:50–12:55 | 30 | Participant demos, audience vote and stocking-cap award. |
 | 12:55–13:00 | 31 | Research community invitation, jgoppert@purdue.edu and questions. |
 

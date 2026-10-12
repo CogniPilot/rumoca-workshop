@@ -256,7 +256,8 @@ def main():
                 text(name, x+.27, y+.2, 5.22, name_size, color, bold=True, max_lines=1)
                 text(explanation, x+.27, y+.8, 5.22, 18, INK, max_lines=2)
             text("Cerebri RDD2: Modelica → eFMI C → Zephyr RTOS → real drone",
-                 .7, 6.1, 11.9, 19, TEAL, bold=True, max_lines=1)
+                 .7, 5.88, 11.9, 19, TEAL, bold=True, max_lines=1)
+            text(spec["directions"], .7, 6.32, 11.9, 14, MUTED, max_lines=1)
         elif num in {2, 30}:
             heading()
             if num == 2:
@@ -332,6 +333,25 @@ def main():
                 label("3  INVOKE WITH THE SAME SESSION MODEL", .85, 4.74, 11.6, BLUE)
                 text('model.codegen("templates/lean-proof").save_all("formal")', .85, 5.08, 11.6, 19, INK, mono=True, max_lines=1)
                 text("Check hover: level + still, T = m·g, zero torque → zero derivatives", .85, 5.64, 11.6, 19, TEAL, bold=True, max_lines=1)
+            elif layout == "slam-vision":
+                label("WHY DECLARE THE SYSTEM?", .7, 1.84, 3.83)
+                text(spec["bullets"][0].replace(" → ", "\n→ "), .7, 2.23, 3.83, 22, INK, bold=True, max_lines=3)
+                text(spec["variable scale"], .7, 3.65, 3.83, 46, TEAL, bold=True, max_lines=1)
+                text("scalar-variable estimate", .7, 4.51, 3.83, 12, MUTED, max_lines=1)
+                text(spec["bullets"][1], .7, 4.89, 3.83, 18, INK, max_lines=2)
+                text(spec["bullets"][2], .7, 5.68, 3.83, 20, TEAL, bold=True, max_lines=2)
+                rect(4.82, 1.7, 7.86, 2.99, WHITE, rounded=True)
+                picture(spec["visual"], 4.94, 1.83, 7.62, 2.73)
+                label("RESEARCH GOALS · ONE CONNECTED COMPUTATION", 4.94, 4.84, 7.62, BLUE)
+                for i, (name, detail, color) in enumerate([
+                    ("CPU", "kernels", TEAL), ("GPU", "tensors", BLUE),
+                    ("Mixed", "placement", ORANGE), ("AD", "gradients", TEAL),
+                ]):
+                    x = 4.94+i*1.95
+                    rect(x, 5.16, 1.77, .91, color, rounded=True)
+                    text(name, x+.15, 5.28, 1.47, 19, WHITE, bold=True, max_lines=1)
+                    text(detail, x+.15, 5.76, 1.47, 12, WHITE, max_lines=1)
+                text("Choose bit width to meet the error budget.", 4.94, 6.25, 7.62, 17, INK, max_lines=1)
             elif layout == "community-users":
                 for index, key in enumerate(["visual", "photo"], 1):
                     x = .65+(index-1)*6.17

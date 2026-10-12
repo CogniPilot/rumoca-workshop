@@ -260,7 +260,19 @@ public-page previews and simulator/app/source links. Their source integrations
 were reviewed at recorded commits; both public pages loaded with HTTP 200.
 [Community-user receipt](../verification/community-users.json) records that scope.
 No third-party mission or agent workflow was executed, and these projects are
-outside the workshop mathematical proof scope.
+outside the workshop mathematical proof scope. Taskyon is presented as
+browser-native Modelica/Rumoca tooling for reusable AI-friendly system-design
+recipes; full recipe replay/agent orchestration was not rehearsed.
+
+The SLAM slide explains whole-system mathematical representation, AD across
+smooth vision kernels, tensor-native Solve IR, heterogeneous CPU/GPU placement
+and precision planning as research directions. Its roughly 12-million-variable
+scale is the maintainer's estimate, not an independently recounted workshop
+statistic. Only the inertial browser subset was rehearsed. The NACA/PDE slide
+connects array-native modeling to our differentiable vortex-lattice experiments;
+no vortex-lattice optimizer or differentiated XFOIL implementation is supplied
+or numerically qualified by this workshop. Method differences and derivative
+obligations remain explicit in notes and linked guides.
 
 An actual two-core Codespace built the devcontainer and passed the core, audit,
 optional Torch and native remote-LSP checks. The [cloud receipt](../verification/codespace.json)

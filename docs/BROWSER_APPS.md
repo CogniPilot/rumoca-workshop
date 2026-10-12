@@ -43,7 +43,35 @@ does not run the workshop’s planar quadrotor or CasADi optimizer. Playback is
 recorded flight data; an autopilot simulation is a different mode. Keep those
 sources distinct when discussing what you see.
 
-## SLAM Lab: inertial propagation and sensors
+## SLAM Lab: one mathematical system, many compute targets
+
+ROS 2 applications can require substantial configuration across nodes, topics,
+clocks and executors. The research idea is to compose their mathematical
+computations into one declared Modelica system: vision, feature matching, estimation,
+mapping and loop closure. Keep interfaces, state, clocks and dependencies
+explicit so the compiler can see and optimize the connected computation. ROS 2
+can still supply hardware/message interfaces. Exposing the connected math also
+opens the way to AD across vision kernels: downstream objectives can depend on
+upstream model parameters. Feature selection, matching, occlusion and
+loop-closure decisions require explicit derivative treatment; end-to-end AD of
+the complete SLAM pipeline was not demonstrated here.
+
+The full model has roughly **12 million scalar variables** according to the
+project maintainer's current estimate. This scale stresses Rumoca's **tensor-native
+Solve IR**: preserving tensor shapes and operations gives the compiler structure
+to work with. The variable estimate was not independently recounted in this
+workshop; it is not an ODE-state count or a throughput claim.
+
+Our research goal is to choose CPU/GPU kernels, partition execution across
+heterogeneous hardware, and select numeric bit widths where error budgets allow.
+The computation stays declared while target planning changes. Precision changes
+need error, range and stability checks; message timing and state semantics also
+need to be preserved. General automatic ROS conversion, placement and precision
+planning are future directions. Architectural context:
+[MLIR](https://arxiv.org/abs/2002.11054) and
+[Higham and Mary's mixed-precision survey](https://doi.org/10.1017/S0962492922000022).
+
+### Try the rehearsed inertial subset
 
 1. Wait until **Run** is available, keep **SLAM.Examples.InertialOnly**, then
    click **Run**. Inspect the world, RGB/depth views and trajectory display.
@@ -114,7 +142,13 @@ Beyond our workshop apps, other open-source projects integrate Rumoca:
 | Project | Simulator / app | Source | Rumoca integration |
 |---|---|---|---|
 | LunCoSim | [Mission simulator](https://lunco.space/luncosim) · [Download simulator](https://github.com/LunCoSim/lunco-sim/releases/latest) | [LunCoSim/lunco-sim](https://github.com/LunCoSim/lunco-sim) | Native Modelica compiler/runtime in a multiphysics space-mission simulator. |
-| Taskyon | [Open Taskyon](https://taskyon.space/) | [Xyntopia/taskyon](https://github.com/Xyntopia/taskyon) | Rumoca WASM compilation, template rendering and simulation within AI-assisted engineering tools. |
+| Taskyon | [Open Taskyon](https://taskyon.space/) | [Xyntopia/taskyon](https://github.com/Xyntopia/taskyon) | Browser-native Modelica + Rumoca tools for AI-friendly, reusable system-design recipes. |
+
+A Taskyon recipe can keep a Modelica model, design parameters, assumptions,
+tool steps and checks together. An agent can use Rumoca's browser-native
+compiler/simulation tools to explore variants while retaining the declared
+mathematics and evidence. This is the system-design recipe idea; a complete
+agent-driven replay workflow was not rehearsed here.
 
 The integration descriptions were checked against the projects'
 [LunCoSim dependency manifest](https://github.com/LunCoSim/lunco-sim/blob/851b45191130baf537d51e9a68e37fd0e881e241/Cargo.toml)

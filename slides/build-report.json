@@ -11,7 +11,7 @@
     "results/reference/fit_drag.json": "0d67f55cceecbd8d42fde39713bc1d1595687cc7a5481187dfa39035ea162fcb",
     "results/reference/torch_policy.png": "b67366d51acfc5a515419f060eb4efdb283c6501379897cd3d8ecc65352bd8dc",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
-    "scripts/build_slides.py": "4d98b39cf4b3a77a6b685e520f9bb2d8b30332ec71104092da5a76b72c1da4e9",
+    "scripts/build_slides.py": "074d5735af526d8b4eb81d23c0490293941868f6bcb8bf7d0082088ff43be936",
     "scripts/slide_assets.py": "92d9cdba091574331dbf3a4c61257a2757a47367e022ff358aa27ea5966d7149",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
     "slides/assets/browser-drag-linear.png": "641732c3c7ceaab4eb393cd290446cbb977172d5a67ee7614b2282c3ce1cd747",
@@ -39,14 +39,14 @@
     "slides/assets/user-guide-quadrotor.png": "6a66a7c8198da6ed1dd82f1ad9f936a805851fa30243c3ea5cfee6d4cd8b3191",
     "slides/media/fastdyn-monte-carlo.mp4": "2a688f567c51d837c23555806250dd5ebd31a34cf16cb14c4d15fe85200f4ab1",
     "slides/media/purt-fpv-chase.mp4": "0cb09e6a72a4f8543ba2e7ad786b1a4e7da1d8580ebf9daccde99c463c37bcef",
-    "slides/workshop.md": "6c3743878285e3bb4373ea01d6ae4096bc45be7055084ebb3bc400771928f757",
+    "slides/workshop.md": "9aadc0740c4d75292c74cc176a9d456fba09e8c88e78cd5c9970541d1ce409ef",
     "templates/lean-proof/rhs.lean.jinja": "89ed252b731b68f2b766b3f9ffe0179b61bdd068667f5d257ccf0d80a7e51e24",
     "templates/lean-proof/target.toml": "b6278e81cbda221c41f144174c359e52239ca24b4bc2c14914d065a119073fb8",
     "uv.lock": "9ee98bf337e21af4a4fc616c25e4f3d63f8b16bc6500b375dad975be5a4d9799"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "89407172b24e6d33485bda44a75e8b658ab3d5c21deb0028067b9857f95c9555",
-    "slides/workshop.pdf": "df3c59edd1a7ae94aff86ed00a7abbf52b26262eb598bf80f1608595b0825153"
+    "slides/workshop.pptx": "27d92dac7afe166100138175e05d48a8992149552ca5ef9f8938288cbcb814ba",
+    "slides/workshop.pdf": "ba3bd02317dabcd13bfc2f57fb744ee25f3562150d14737d406c64ee019459ab"
   },
   "rendered_text": [
     {
@@ -585,9 +585,19 @@
       "font_pt": 19,
       "lines": 1,
       "x": 0.7,
-      "y": 6.1,
+      "y": 5.88,
       "width": 11.9,
       "height": 0.3872222222222222
+    },
+    {
+      "slide": "03",
+      "text": "Array-native research: vision, PDEs and differentiable aerodynamic design",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.7,
+      "y": 6.32,
+      "width": 11.9,
+      "height": 0.3011111111111111
     },
     {
       "slide": "03",
@@ -2161,7 +2171,7 @@
     },
     {
       "slide": "11",
-      "text": "LIVE DEMO \u00b7 NACA 2412 \u00b7 EMBEDDED EDITOR + WEBGPU",
+      "text": "ARRAY-NATIVE PDES \u00b7 NACA 2412 \u00b7 EDITOR + WEBGPU",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -2261,7 +2271,7 @@
     },
     {
       "slide": "11",
-      "text": "User-guide link and recovery: WORKSHOP.md \u00b7 no install needed",
+      "text": "Research direction: differentiable vortex-lattice / XFOIL-like design workflows",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -4211,7 +4221,7 @@
     },
     {
       "slide": "28",
-      "text": "AGENT-BUILT APPS \u00b7 EXPLORE YOUR OWN SCIENTIFIC QUESTION",
+      "text": "RESEARCH VISION \u00b7 ROS 2 MATH \u2192 AD + HARDWARE PLANNING",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -4231,87 +4241,177 @@
     },
     {
       "slide": "28",
-      "text": "Explore SLAM Lab \u00b7 in development",
-      "font_pt": 34,
+      "text": "SLAM Lab: one mathematical system, many targets",
+      "font_pt": 29.9717386191836,
       "lines": 1,
       "x": 0.6,
       "y": 0.82,
       "width": 12.1,
-      "height": 0.6455555555555554
+      "height": 0.5761799428859398
     },
     {
       "slide": "28",
-      "text": "TRY THIS",
+      "text": "WHY DECLARE THE SYSTEM?",
       "font_pt": 11,
       "lines": 1,
       "x": 0.7,
-      "y": 1.86,
-      "width": 4,
+      "y": 1.84,
+      "width": 3.83,
       "height": 0.24944444444444444
     },
     {
       "slide": "28",
-      "text": "1",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 2.4050000000000002,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "28",
-      "text": "Try the inertial estimation baseline",
-      "font_pt": 22,
-      "lines": 2,
-      "x": 1.25,
-      "y": 2.35,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
-    },
-    {
-      "slide": "28",
-      "text": "2",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 3.602777777777778,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "28",
-      "text": "Inspect RGB, depth and trajectories",
-      "font_pt": 22,
-      "lines": 2,
-      "x": 1.25,
-      "y": 3.5477777777777777,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
-    },
-    {
-      "slide": "28",
-      "text": "3",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 4.800555555555555,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "28",
-      "text": "Visual SLAM and loop closure are in development",
+      "text": "ROS 2 computations\n\u2192 one mathematical system",
       "font_pt": 22,
       "lines": 3,
-      "x": 1.25,
-      "y": 4.745555555555555,
-      "width": 3.2800000000000002,
+      "x": 0.7,
+      "y": 2.23,
+      "width": 3.83,
       "height": 1.1966666666666668
     },
     {
       "slide": "28",
-      "text": "Start with the tested inertial baseline.",
+      "text": "\u224812M",
+      "font_pt": 46,
+      "lines": 1,
+      "x": 0.7,
+      "y": 3.65,
+      "width": 3.83,
+      "height": 0.8522222222222222
+    },
+    {
+      "slide": "28",
+      "text": "scalar-variable estimate",
+      "font_pt": 12,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.51,
+      "width": 3.83,
+      "height": 0.26666666666666666
+    },
+    {
+      "slide": "28",
+      "text": "Full vision, mapping and loop closure",
+      "font_pt": 18,
+      "lines": 2,
+      "x": 0.7,
+      "y": 4.89,
+      "width": 3.83,
+      "height": 0.6799999999999999
+    },
+    {
+      "slide": "28",
+      "text": "Stress-test tensor-native Solve IR",
+      "font_pt": 20,
+      "lines": 2,
+      "x": 0.7,
+      "y": 5.68,
+      "width": 3.83,
+      "height": 0.7488888888888889
+    },
+    {
+      "slide": "28",
+      "text": "RESEARCH GOALS \u00b7 ONE CONNECTED COMPUTATION",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 4.94,
+      "y": 4.84,
+      "width": 7.62,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "28",
+      "text": "CPU",
+      "font_pt": 19,
+      "lines": 1,
+      "x": 5.090000000000001,
+      "y": 5.28,
+      "width": 1.47,
+      "height": 0.3872222222222222
+    },
+    {
+      "slide": "28",
+      "text": "kernels",
+      "font_pt": 12,
+      "lines": 1,
+      "x": 5.090000000000001,
+      "y": 5.76,
+      "width": 1.47,
+      "height": 0.26666666666666666
+    },
+    {
+      "slide": "28",
+      "text": "GPU",
+      "font_pt": 19,
+      "lines": 1,
+      "x": 7.040000000000001,
+      "y": 5.28,
+      "width": 1.47,
+      "height": 0.3872222222222222
+    },
+    {
+      "slide": "28",
+      "text": "tensors",
+      "font_pt": 12,
+      "lines": 1,
+      "x": 7.040000000000001,
+      "y": 5.76,
+      "width": 1.47,
+      "height": 0.26666666666666666
+    },
+    {
+      "slide": "28",
+      "text": "Mixed",
+      "font_pt": 19,
+      "lines": 1,
+      "x": 8.99,
+      "y": 5.28,
+      "width": 1.47,
+      "height": 0.3872222222222222
+    },
+    {
+      "slide": "28",
+      "text": "placement",
+      "font_pt": 12,
+      "lines": 1,
+      "x": 8.99,
+      "y": 5.76,
+      "width": 1.47,
+      "height": 0.26666666666666666
+    },
+    {
+      "slide": "28",
+      "text": "AD",
+      "font_pt": 19,
+      "lines": 1,
+      "x": 10.94,
+      "y": 5.28,
+      "width": 1.47,
+      "height": 0.3872222222222222
+    },
+    {
+      "slide": "28",
+      "text": "gradients",
+      "font_pt": 12,
+      "lines": 1,
+      "x": 10.94,
+      "y": 5.76,
+      "width": 1.47,
+      "height": 0.26666666666666666
+    },
+    {
+      "slide": "28",
+      "text": "Choose bit width to meet the error budget.",
+      "font_pt": 17,
+      "lines": 1,
+      "x": 4.94,
+      "y": 6.25,
+      "width": 7.62,
+      "height": 0.35277777777777775
+    },
+    {
+      "slide": "28",
+      "text": "Try the inertial demo. Help make full-system compilation practical.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -4441,7 +4541,7 @@
     },
     {
       "slide": "29",
-      "text": "AI-assisted engineering workflows",
+      "text": "AI-friendly system-design recipes",
       "font_pt": 20,
       "lines": 1,
       "x": 7.03,
@@ -4451,7 +4551,7 @@
     },
     {
       "slide": "29",
-      "text": "Rumoca WASM Modelica tools",
+      "text": "Browser-native Modelica + Rumoca",
       "font_pt": 18,
       "lines": 1,
       "x": 7.03,

@@ -349,7 +349,7 @@ Links: Try the app | https://cognipilot.github.io/mocap_sysid/ ; Source code | h
 Time: 12:45–12:50
 Time group: App showcase
 Layout: image
-Visual: assets/app-mocap_sysid.png
+Visual: assets/showcase-mocap_sysid.png
 Badge: AGENT-BUILT APPS · explore your own scientific question
 
 - Visualize vehicle data and model structure
@@ -365,7 +365,7 @@ Links: Try the app | https://cognipilot.github.io/slam_web/ ; Source code | http
 Time: 12:45–12:50
 Time group: App showcase
 Layout: image
-Visual: assets/app-slam_web.png
+Visual: assets/showcase-slam_web.png
 Badge: AGENT-BUILT APPS · explore your own scientific question
 
 - Try the inertial estimation baseline

@@ -13,9 +13,7 @@
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
     "scripts/build_slides.py": "3e8b98bb408ca143f38f204391d70464e16ba67d7aba86474cbbfd2304638fb9",
     "scripts/slide_assets.py": "92515b5c9cca20298f9ec58deb6ba7b98efcc9f3efd6eb54acfac1b2900ff700",
-    "slides/assets/app-mocap_sysid.png": "a67b1b1dbee833d2b09499266b00f734a788e700f4b43b6359b307e38c5e6d54",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
-    "slides/assets/app-slam_web.png": "13f930634636a0b00b63bfe3dcd1079750a3dd557bde8c6453dfac4a10ab4b6d",
     "slides/assets/architecture.png": "264ab4f7e3ec35c65e3bcbb56328d42414409c4739dfb59fee95275293c02bde",
     "slides/assets/browser-drag-linear.png": "641732c3c7ceaab4eb393cd290446cbb977172d5a67ee7614b2282c3ce1cd747",
     "slides/assets/community-qr.png": "cf54e4a69d44feaa161000fc8ae5019db706b4c2c54eaad2c8f1c9663279a91f",
@@ -35,16 +33,18 @@
     "slides/assets/pylon-qr.png": "7328a84a4db146ed49df5e748f9dcfd136d4bd420145c6e7266eb2ba42a3345f",
     "slides/assets/quadrotor.png": "a128ef82b974bec61e3f2beb6a126f29d166f8fa8214e7e34e80c15b2e550ef7",
     "slides/assets/repo-qr.png": "ef44b4901360f440e8ed6c2c3a114f969c9f795b494ea69fd3a0f8098395b1e5",
+    "slides/assets/showcase-mocap_sysid.png": "b92f04609a7e38d1b40786a321129880402b8ac474b46e082b1083d45bd5a325",
+    "slides/assets/showcase-slam_web.png": "bc1fb433b33ea9c541610bb5923b3c14b0ce55295ed97cff809aec22c2bf2179",
     "slides/assets/simulation-hero.png": "30e4af0a1707e14ff7c1aafbdf71813f2421cfb64d06f281590a29c26a7f24c9",
     "slides/assets/user-guide-naca.png": "cd554217d939e7fabf149829cb6deba75e87cc44c5b8f1c130b6d00ff2dd3d98",
     "slides/media/fastdyn-monte-carlo.mp4": "2a688f567c51d837c23555806250dd5ebd31a34cf16cb14c4d15fe85200f4ab1",
     "slides/media/purt-fpv-chase.mp4": "0cb09e6a72a4f8543ba2e7ad786b1a4e7da1d8580ebf9daccde99c463c37bcef",
-    "slides/workshop.md": "702eaf59460ca1ddb388dbccf49ec56fa044e3c7a86471f0b91beb71228e21fd",
+    "slides/workshop.md": "0caf4841343d553fbe468b0120ec8f22e76c7226bdc3fdc57413f9d49edd53cc",
     "uv.lock": "9ee98bf337e21af4a4fc616c25e4f3d63f8b16bc6500b375dad975be5a4d9799"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "1046766cdb5cc3d061e2d468c3bea9317001cb82e0ea07835c420a84b699ba77",
-    "slides/workshop.pdf": "d319e64558d181999ac4569af32475be7d1a637118c4b6a90dadd33e275fe723"
+    "slides/workshop.pptx": "90a8e3e84d721c99443010c190e9266817a0d90cce76277f35ab6fced1fdef78",
+    "slides/workshop.pdf": "e87b9a9b0c02660350f6dcdbcee5f71c3ee2bbaa5f97629e1beb7e26e7d8ef9c"
   },
   "rendered_text": [
     {

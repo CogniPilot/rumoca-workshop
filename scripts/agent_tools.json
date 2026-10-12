@@ -31,5 +31,20 @@
     "openai.chatgpt": "26.1007.21434",
     "anthropic.claude-code": "2.1.296",
     "GitHub.copilot-chat": null
+  },
+  "copilot": {
+    "version": "1.0.95",
+    "platforms": {
+      "x86_64": {
+        "url": "https://github.com/github/copilot-cli/releases/download/v1.0.95/copilot-linux-x64.tar.gz",
+        "sha256": "c91a8874f3b2bdc905c2452f9d9fc923013924feb431e256eb769ff792719d7f",
+        "member": "copilot"
+      },
+      "aarch64": {
+        "url": "https://github.com/github/copilot-cli/releases/download/v1.0.95/copilot-linux-arm64.tar.gz",
+        "sha256": "4cae94d3abd15699d6a479103a9a39fb3c1dcd85a6ce191882f1902340f10f44",
+        "member": "copilot"
+      }
+    }
   }
 }

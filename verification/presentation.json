@@ -5,13 +5,13 @@
   "checks": [
     "All authored slide text survives actual PPTX rendering within its intended text panel",
     "All extracted text lies within page bounds",
-    "Visual review of revised opening, racing and FastDyn layouts; automatic text retention and bounds checks on all 27 slides"
+    "Visual review of revised opening, racing, FastDyn and app layouts; automatic text retention and bounds checks on all 27 slides"
   ],
   "presenters": [
     "James Goppert",
     "Micah Condie"
   ],
   "design": "Purdue gold and deep navy; teal, blue and terracotta phase accents; editable native layout shapes",
-  "pptx_sha256": "1046766cdb5cc3d061e2d468c3bea9317001cb82e0ea07835c420a84b699ba77",
+  "pptx_sha256": "90a8e3e84d721c99443010c190e9266817a0d90cce76277f35ab6fced1fdef78",
   "scope": "Actual LibreOffice rendering. PowerPoint and the venue projector require presenter preflight."
 }

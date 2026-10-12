@@ -153,6 +153,27 @@
         "focus": true
       },
       "problemMatcher": []
+    },
+    {
+      "label": "Workshop: Copilot terminal (tmux)",
+      "type": "process",
+      "command": "tmux",
+      "args": [
+        "new-session",
+        "-A",
+        "-s",
+        "workshop-copilot",
+        "copilot"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": true
+      },
+      "problemMatcher": []
     }
   ]
 }

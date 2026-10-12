@@ -28,7 +28,7 @@ def main():
         cache.mkdir(parents=True, exist_ok=True)
         dest = args.prefix/"bin"
         dest.mkdir(parents=True, exist_ok=True)
-        for name in ["codex", "claude"]:
+        for name in ["codex", "claude", "copilot"]:
             pin = manifest[name]
             artifact = pin["platforms"][platform.machine()]
             existing = dest/name
@@ -56,7 +56,7 @@ def main():
             print(subprocess.check_output([str(existing), "--version"], text=True).strip())
     else:
         versions = {}
-        for name in ["codex", "claude"]:
+        for name in ["codex", "claude", "copilot"]:
             versions[name] = subprocess.check_output([name, "--version"], text=True).strip()
             assert manifest[name]["version"] in versions[name].split(), versions[name]
             subprocess.run([name, "--help"], check=True, stdout=subprocess.DEVNULL)

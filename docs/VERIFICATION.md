@@ -260,3 +260,13 @@ all three flights reached the final mission item and confirmed landing.
 [Execution receipt](../verification/fastdyn-codespace.json) and
 [trajectory plot](../slides/assets/fastdyn-trajectories.png) retain the results.
 Do not infer Codespace readiness from upstream CI alone. See [FASTDYN.md](FASTDYN.md).
+
+## Optional agent tooling
+
+The actual configured Linux x64 and ARM64 containers passed fresh CI builds,
+startup, CLI version/help checks and a detached tmux-session check. Codex 0.162.1,
+Claude Code 2.1.296, Node 22, npm and GitHub CLI were installed automatically.
+Receipts: [x64](../verification/agent-tools-ci-x86_64.json) and
+[ARM64](../verification/agent-tools-ci-aarch64.json). This verifies installation
+and startup, not authenticated model execution; participants use their own
+accounts. The four native desktop editor qualifications also passed.

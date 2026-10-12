@@ -1,17 +1,7 @@
 {
   "name": "Rumoca workshop (CPU JAX + CasADi)",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
-  },
+  "image": "ghcr.io/cognipilot/rumoca_workshop_amc2026@sha256:7f8454046ae9b1811d77c4913f3e9d203c32364bf2604d8e99b915ca52680751",
   "remoteUser": "vscode",
-  "features": {
-    "ghcr.io/devcontainers/features/sshd:1": {},
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "22"
-    },
-    "ghcr.io/devcontainers/features/github-cli:1": {}
-  },
   "containerEnv": {
     "JAX_PLATFORMS": "cpu",
     "OMP_NUM_THREADS": "1",

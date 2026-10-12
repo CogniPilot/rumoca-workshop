@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "build_commit": "8e01c22aac5357bfbbd1cb85ae82390a6119c396",
+  "workflow_url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38197248187",
+  "image": "ghcr.io/cognipilot/rumoca_workshop_amc2026@sha256:7f8454046ae9b1811d77c4913f3e9d203c32364bf2604d8e99b915ca52680751",
+  "architectures": [
+    {
+      "architecture": "amd64",
+      "manifest_digest": "sha256:701fd080ae183708055a1d11757db2cfe9c9aa26692d4ba0397f565d833fc8b1",
+      "compressed_layer_bytes": 2012530734,
+      "anonymous_manifest_and_config": "PASS"
+    },
+    {
+      "architecture": "arm64",
+      "manifest_digest": "sha256:16b5cb4a63b796b7fdb3e298f9dc2031daa85ea15cf65f427a6540235d08d208",
+      "compressed_layer_bytes": 1938985326,
+      "anonymous_manifest_and_config": "PASS"
+    }
+  ],
+  "checks": [
+    "Exact published image runs the agent CLI version/help checks and the complete JAX/CasADi smoke test on both Linux architectures",
+    "Anonymous registry access verified for image index, architecture manifests and configuration"
+  ],
+  "scope": "Public prebuilt Docker image. Codespaces VM startup, cloud image pull and editor activation are checked separately."
+}

@@ -4,12 +4,13 @@
   "versions": {
     "codex": "codex-cli 0.162.1",
     "claude": "2.1.296 (Claude Code)",
+    "copilot": "GitHub Copilot CLI 1.0.95.\nRun 'copilot update' to check for updates.",
     "node": "v22.23.3",
     "npm": "10.9.9",
     "gh": "gh version 2.102.0 (2026-09-30)\nhttps://github.com/cli/cli/releases/tag/v2.102.0",
     "tmux": "tmux 3.3a"
   },
   "detached_tmux_session": "PASS",
-  "manifest_sha256": "6a761c11c2f1303deb66df78067c86712022d89a8677bc4a779bc945279a2f6a",
+  "manifest_sha256": "4709bde158b66b468c167e0ce63be08cb53693f92a1ba2dc596624d48ff638f1",
   "scope": "CLI version/help, Node/npm and detached tmux execution. No account login or billed model request."
 }

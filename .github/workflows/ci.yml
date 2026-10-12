@@ -71,8 +71,12 @@ jobs:
       - run: git diff --exit-code -- formal/Generated.lean formal/solve_program.json formal/provenance.json
       - name: Install pinned Lean toolchain manager
         run: |
-          curl -sSf https://raw.githubusercontent.com/leanprover/elan/v4.2.0/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
-          sh "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none
+          mkdir -p "$HOME/scratch/rumoca-workshop/elan-installer"
+          cd "$HOME/scratch/rumoca-workshop/elan-installer"
+          curl -fsSL --retry 6 --retry-delay 2 --retry-max-time 120 https://github.com/leanprover/elan/releases/download/v4.2.0/elan-x86_64-unknown-linux-gnu.tar.gz -o elan.tar.gz
+          echo '620db834935d0da55ac9cda207b2e370e8034061cbb0228af5eb6c14b02f0c0c  elan.tar.gz' | sha256sum --check --strict
+          tar -xzf elan.tar.gz
+          ./elan-init -y --default-toolchain none
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Build and recheck proof terms
         run: |
@@ -87,14 +91,14 @@ jobs:
         run: |
           set -o pipefail
           cd formal
-          lake env lean Workshop.lean | tee ../verification/lean-ci.txt
-          if rg 'sorryAx' ../verification/lean-ci.txt; then exit 1; fi
+          lake env lean Workshop.lean | tee "$RUNNER_TEMP/lean-ci.txt"
+          if rg 'sorryAx' "$RUNNER_TEMP/lean-ci.txt"; then exit 1; fi
           if rg '^\s*(axiom|opaque).*|\b(sorry|admit|native_decide)\b' Generated.lean Workshop.lean; then exit 1; fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: lean-verification
-          path: verification/lean-ci.txt
+          path: ${{ runner.temp }}/lean-ci.txt
   container:
     name: Devcontainer configuration, features and startup (${{ matrix.os }})
     strategy:

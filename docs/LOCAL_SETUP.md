@@ -11,6 +11,30 @@ environment works. Cloud compute keeps package downloads off your laptop; a
 usable internet connection and GitHub allowance/billing are still required.
 For outages, use the provided reference figures and presenter screenshare.
 
+## Local Dev Container (recommended)
+
+Install [VS Code](https://code.visualstudio.com/download), its
+[Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers),
+and [Docker Desktop](https://www.docker.com/products/docker-desktop/) on macOS or
+Windows. On Windows, enable its WSL 2 backend and Linux containers. On Linux,
+Docker Engine or Docker Desktop works.
+
+Download and extract the workshop ZIP or clone this repository, open its folder
+in VS Code, then run **Dev Containers: Reopen in Container** from the Command
+Palette. Choose **Rumoca workshop (CPU JAX + CasADi)**. Wait for setup to finish
+and **WORKSHOP PASS**. This uses the same configuration as the core Codespace;
+you do not install Python, uv or Nix on the host. Downloads and Docker disk space
+are needed for the first build. Then use **Terminal → Run Task → Workshop:
+simulate**, or follow the participant guide.
+
+To apply changes to `.devcontainer`, run **Dev Containers: Rebuild Container**.
+Keep edits in the opened repository; packages installed manually inside the
+container must be reinstalled after a rebuild. Declare persistent tools in the
+Dockerfile or container features. See [agent setup](AGENT_SETUP.md) for optional
+AI tools and credentials.
+
+## Native installation (optional)
+
 ## 1. Install VS Code and uv
 
 Install [VS Code for your operating system](https://code.visualstudio.com/download).

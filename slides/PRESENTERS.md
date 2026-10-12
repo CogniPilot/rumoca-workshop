@@ -1,6 +1,7 @@
 # Presenters guide
 
-**James Goppert · Micah Condie**
+**James Goppert** — Managing Director of PURT; Research Assistant Professor
+**Micah Condie** — James’s PhD student
 Purdue University, School of Aeronautics and Astronautics
 American Modelica Conference · Georgia Tech · October 12, 2026 · 10:00–13:00
 
@@ -38,14 +39,14 @@ reference figures on your laptop. Participant entry:
 | 11:55–12:00 | 17 | External target.toml → Torch dynamics → small differentiable hover policy. Presenter demo; optional package preinstalled. |
 | 12:00–12:10 | 18 | **Break 2**, ten full minutes. Leave next command visible. |
 | 12:10–12:40 | 19–20 | Constraints, CasADi solve and plots. Optional target variant or continued app development. |
-| 12:40–12:45 | 21 | Advertise the next PURT pylon racing competition and its planned Rumoca use. Share the site/QR; announce challenge presenters by 12:45. |
-| 12:45–12:50 | 22 | Explore **rumoca_fixed_wing** or finish challenge demos. Show SLAM as another example in development. |
-| 12:50–12:55 | 23 | Short participant demos, then **audience show-of-hands vote** and stocking-cap award. |
-| 12:55–13:00 | 24 | Questions, research invitation and take-home links. |
+| 12:40–12:45 | 21–22 | Advertise the next PURT pylon racing competition and its planned Rumoca use. Play 20–30 seconds of the embedded PURT FPV chase movie, then show the FastDyn Monte Carlo poster and 30-second movie. Share the container run command and announce challenge presenters by 12:45. |
+| 12:45–12:50 | 23–25 | Explore **rumoca_fixed_wing** or finish challenge demos. Show SLAM as another example in development. |
+| 12:50–12:55 | 26 | Short participant demos, then **audience show-of-hands vote** and stocking-cap award. |
+| 12:55–13:00 | 27 | Questions, research invitation and take-home links. |
 
 Total **180 minutes**, including **20 minutes of breaks**. Aim for roughly
 40–45 minutes of explanation; the remaining teaching time is guided work,
-individual app development, questions and interpreting results. Avoid reading every slide. Appendix slides
+individual app development, questions and interpreting results. Avoid reading every slide. Linked guides
 have no extra scheduled time; open only when an audience question requires them.
 
 ## Explain the single-model choice
@@ -177,7 +178,7 @@ short SLAM Lab exercise. Stored mocap benchmark metrics were not regenerated
 or independently validated by this workshop. Gallery models are outside the
 planar quadrotor’s proof scope.
 
-Future roadmap in Appendix A3: unified vision/SLAM/estimation and physics; compiler-scale
+Future roadmap in Main slide 22: unified vision/SLAM/estimation and physics; compiler-scale
 differentiation; richer browser/FMI/WASM workflows; CPU/GPU/embedded partitioning.
 Label these **research directions**. The current browser demonstration is real,
 but it does not establish these larger future workflows or million-variable
@@ -248,7 +249,7 @@ starting points; broad hardware partitioning and scaling remain research work.
 
 ## Optional firmware demonstration
 
-Appendix A3 gives the FastDyn container choice, terminal command and plot path.
+Main slide 22 gives the FastDyn container choice, terminal command and plot path.
 Prepare a separate **FastDyn + Rumoca: optional firmware Monte Carlo** Codespace
 before the session. Run `uv run --frozen python scripts/fastdyn_demo.py` and open
 `results/live/fastdyn/trajectories.png`. The three flights completed in the actual

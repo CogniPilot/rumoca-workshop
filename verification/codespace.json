@@ -513,5 +513,36 @@
   "native_editor_receipt": "verification/codespace-editor.json",
   "scope": "Individual Codespace rebuild, startup, same CI commands and native remote VS Code LSP. Browser frontend, quotas, billing, prebuilds, region availability, venue network and simultaneous class capacity require presenter preflight.",
   "tested_date_utc": "2026-10-12",
-  "extension_receipt": "verification/codespace-extensions.json"
+  "extension_receipt": "verification/codespace-extensions.json",
+  "latest_core_refresh": {
+    "status": "PASS",
+    "source_commit": "299ec0ff24636421d4027d94f99ce4c38ee6629d",
+    "smoke": {
+      "status": "PASS",
+      "platform": "Linux-6.8.0-1064-azure-x86_64-with-glibc2.36",
+      "python": "3.12.11",
+      "processor": "",
+      "rumoca_version": "0.10.2",
+      "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+      "command_wall_seconds": {
+        "simulate": 2.486396080999839,
+        "fit_drag_jax": 7.960928217999935,
+        "optimize_casadi": 2.1235655050004425
+      },
+      "checks": {
+        "max_rhs_parity_error": 0,
+        "jax_gradient": -10.379535595670434,
+        "finite_difference": -10.379535595905764
+      },
+      "total_seconds": 17.70447344600052
+    },
+    "materials": "PASS: 131 local links, 28 slides, matching source/artifact hashes",
+    "scope": "Final Session examples, rum alias and simplified workspace were refreshed in the existing actual core Codespace; no fresh rebuild at this commit. Original deeper math and Torch checks below retain their original source commit."
+  },
+  "latest_fresh_rebuild": {
+    "status": "PASS",
+    "source_commit": "36da9b311ed46e55b2e0a8e9e97e48f0c784f0d2",
+    "completed_at_utc": "2026-10-12T01:31:57Z",
+    "extensions_receipt": "codespace-extensions.json"
+  }
 }

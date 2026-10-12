@@ -32,7 +32,8 @@
     "slides/workshop.md": true,
     "slides/*.pptx": true,
     "slides/PRESENTERS.md": true,
-    "slides/REHEARSAL.md": true
+    "slides/REHEARSAL.md": true,
+    "slides/media": true
   },
   "workbench.startupEditor": "readme"
 }

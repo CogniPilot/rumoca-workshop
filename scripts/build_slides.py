@@ -28,18 +28,23 @@ def parse():
         slides.append({"number": number, "title": title, "bullets": bullets,
                        "notes": notes.strip(), **meta})
     previous = 600
+    previous_slot = None
     main_slides = [s for s in slides if s["number"].isdigit()]
     breaks = []
     for slide in main_slides:
         a, b = slide["time"].split("–")
         minutes = lambda x: int(x.split(":")[0])*60+int(x.split(":")[1])
+        slot = (a, b, slide.get("time group"))
+        if slide.get("time group") and slot == previous_slot:
+            continue  # Several app slides share one five-minute showcase slot.
         assert minutes(a) == previous, slide
         assert minutes(a) % 5 == 0 and minutes(b) % 5 == 0, slide
         assert minutes(b) > minutes(a), slide
         if slide["layout"] == "break":
             breaks.append(minutes(b) - minutes(a))
         previous = minutes(b)
-    assert previous == 780 and len(main_slides) == 24 and len(slides) == 28
+        previous_slot = slot
+    assert previous == 780 and len(main_slides) == 27 and len(slides) == 27
     assert breaks == [10, 10], "Keep two full ten-minute breaks"
     return slides
 
@@ -135,12 +140,25 @@ def main():
             xx, yy = x+(w-aw)/2, y+(h-ah)/2
             slide.shapes.add_picture(str(path), Inches(xx), Inches(yy), width=Inches(aw), height=Inches(ah))
             pdf.drawImage(str(path), xx*72, (H-yy-ah)*72, aw*72, ah*72)
+        def movie(path, poster, x, y, w, h):
+            # Embedded MP4 in PPTX; the same poster remains readable in PDF.
+            with Image.open(out/poster) as im:
+                iw, ih = im.size
+            scale = min(w/iw, h/ih)
+            aw, ah = iw*scale, ih*scale
+            xx, yy = x+(w-aw)/2, y+(h-ah)/2
+            slide.shapes.add_movie(str(out/path), Inches(xx), Inches(yy),
+                                   Inches(aw), Inches(ah),
+                                   poster_frame_image=str(out/poster), mime_type="video/mp4")
+            pdf.drawImage(str(out/poster), xx*72, (H-yy-ah)*72, aw*72, ah*72)
+            pdf.linkURL(spec["video link"], (xx*72, (H-yy-ah)*72,
+                        (xx+aw)*72, (H-yy)*72), relative=0, thickness=0)
         # Each phase has one accent, reused in navigation, prompts and plots.
         num = int(spec["number"]) if spec["number"].isdigit() else 99
         phase = "MODEL" if num <= 11 else "FIT" if num <= 18 else "OPTIMIZE" if num <= 20 else "EXPLORE"
         accent = {"MODEL": TEAL, "FIT": BLUE, "OPTIMIZE": ORANGE, "EXPLORE": TEAL}[phase]
         layout = spec["layout"]
-        dark = layout in {"title", "break", "race"} or num in {2, 23}
+        dark = layout in {"title", "break", "race"} or num in {2, 26}
         bg, fg = (INK, WHITE) if dark else (PAPER, INK)
         rect(0, 0, W, H, bg)
         rect(0, 0, W, .065, GOLD)
@@ -171,15 +189,22 @@ def main():
                 label("ONE MODEL. SIMULATE. FIT. OPTIMIZE.", .7, 1.1, 9, GOLD)
                 text("Hands-On", .65, 1.6, 9.3, 59, WHITE, bold=True, max_lines=1)
                 text("with Rumoca", .65, 2.52, 9.8, 64, GOLD, bold=True, max_lines=1)
-                text(spec["bullets"][0], .7, 3.87, 9.6, 25, WHITE, bold=True, max_lines=1)
-                text(spec["bullets"][1], .7, 4.4, 9.45, 18, "D1D7DF", max_lines=2)
-                text(spec["bullets"][2], .7, 4.85, 9.4, 18, "D1D7DF", max_lines=1)
-                text(spec["bullets"][3], .7, 5.21, 9.4, 12, GOLD, max_lines=1)
+                text(spec["presenter 1"], .7, 3.73, 9.6, 23, WHITE, bold=True, max_lines=1)
+                text(spec["role 1"], .7, 4.13, 9.45, 17, "D1D7DF", max_lines=1)
+                text(spec["presenter 2"], .7, 4.53, 9.6, 23, WHITE, bold=True, max_lines=1)
+                text(spec["role 2"], .7, 4.93, 9.45, 17, "D1D7DF", max_lines=1)
+                text("Purdue University · Georgia Tech · 10:00–13:00", .7, 5.33, 9.45, 15, GOLD, max_lines=1)
                 for i, (name, sub, color) in enumerate([("MODEL", "Declare the physics", TEAL), ("FIT", "Learn from data", BLUE), ("OPTIMIZE", "Plan the motion", ORANGE)]):
                     x = .7+i*3.12
-                    rect(x, 5.5, 2.9, .88, color, rounded=True)
-                    text(name, x+.16, 5.63, 2.5, 15, WHITE, bold=True, max_lines=1)
-                    text(sub, x+.16, 5.98, 2.55, 11, WHITE, max_lines=1)
+                    rect(x, 5.68, 2.9, .7, color, rounded=True)
+                    text(name, x+.16, 5.78, 2.5, 15, WHITE, bold=True, max_lines=1)
+                    text(sub, x+.16, 6.09, 2.55, 10, WHITE, max_lines=1)
+                text(spec["bullets"][3], .7, 6.45, 9.4, 10, GOLD, max_lines=1)
+                rect(10.2, 1.09, 2.45, .96, WHITE, rounded=True)
+                picture(spec["purdue logo"], 10.43, 1.19, 1.99, .33)
+                picture(spec["penn state logo"], 10.38, 1.64, 1.14, .29)
+                picture(spec["nxp logo"], 11.81, 1.65, .62, .26)
+                picture(spec["photo"], 10.2, 2.2, 2.45, 1.27)
                 rect(10.2, 3.65, 2.45, 2.65, WHITE, rounded=True)
                 picture(spec["visual"], 10.37, 3.82, 2.11, 2.11)
                 text("CREATE CORE CODESPACE", 10.38, 6.02, 2.1, 8.5, INK, bold=True, max_lines=1)
@@ -203,18 +228,9 @@ def main():
             text("Stretch. Ask a question. Keep your editor open.", .7, 4.98, 8, 21, "D1D7DF", max_lines=2)
         elif layout == "race":
             heading()
-            label("FROM DIGITAL TWIN TO THE RACE COURSE", .7, 1.76, 9, GOLD)
-            text("Build. Fly. Race.", .65, 2.26, 9.35, 49, WHITE, bold=True, max_lines=1)
-            text(spec["bullets"][1], .7, 3.24, 9.05, 26, GOLD, bold=True, max_lines=2)
-            text(spec["bullets"][0], .7, 4.15, 9.05, 23, WHITE, max_lines=2)
-            text(spec["bullets"][2], .7, 4.72, 9.05, 22, "D1D7DF", max_lines=1)
-            # An illustrative circuit, drawn natively and explicitly labeled.
-            rect(.75, 5.55, 8.1, .032, TEAL)
-            for i in range(3):
-                x=1.2+i*3.2
-                rect(x, 5.28, .1, .62, GOLD)
-                text(f"0{i+1}", x+.2, 5.52, .5, 12, GOLD, bold=True, max_lines=1)
-            text("ILLUSTRATIVE COURSE · EVENT DETAILS ON THE SITE", .75, 6.06, 8.5, 10, "D1D7DF", max_lines=1)
+            text(spec["bullets"][1], .7, 1.73, 9.05, 24, GOLD, bold=True, max_lines=1)
+            movie(spec["movie"], spec["poster"], .7, 2.31, 9.05, 3.89)
+            text("PURT FPV chase · September 2025 · click video to play", .7, 6.29, 9.05, 14, "D1D7DF", max_lines=1)
             rect(10.14, 2.39, 2.54, 3.54, WHITE, rounded=True)
             picture(spec["visual"], 10.33, 2.6, 2.16, 2.16)
             text("FOLLOW THE\nNEXT COMPETITION", 10.36, 5.05, 2.05, 12, INK, bold=True, max_lines=2)
@@ -232,7 +248,7 @@ def main():
                 text(explanation, x+.27, y+.8, 5.22, 18, INK, max_lines=2)
             text("Cerebri RDD2: Modelica → eFMI C → Zephyr RTOS → real drone",
                  .7, 6.1, 11.9, 19, TEAL, bold=True, max_lines=1)
-        elif num in {2, 23}:
+        elif num in {2, 26}:
             heading()
             if num == 2:
                 label("YOUR QUESTION. YOUR EXPERIMENT.", .7, 1.8, 8.6, GOLD)
@@ -270,7 +286,7 @@ def main():
                 image_h = 4.22 if "command" in spec else 4.45
                 rect(4.82, 1.7, 7.86, image_h, WHITE, rounded=True)
                 picture(spec["visual"], 4.94, 1.83, 7.62, image_h-.26)
-                label("TRY THIS" if num in {5,7,8,22} else "READ THE MODEL" if num == 9 else "THE IDEA", .7, 1.86, 4)
+                label("TRY THIS" if num in {5,7,8,23,24,25} else "READ THE MODEL" if num == 9 else "THE IDEA", .7, 1.86, 4)
                 steps(spec["bullets"], .7, 2.35, 3.83, size=22, gap=.38)
             elif layout == "wide":
                 if spec["bullets"]:
@@ -280,6 +296,18 @@ def main():
                 ph = (5.86 if "command" in spec else 6.21)-py
                 rect(.65, py, 12.03, ph, WHITE, rounded=True)
                 picture(spec["visual"], .81, py+.08, 11.71, ph-.16)
+            elif layout == "firmware":
+                label("PHYSICS + ACTUAL FIRMWARE", .7, 1.79, 4)
+                steps(spec["bullets"], .7, 2.2, 3.83, size=19, gap=.28)
+                rect(4.82, 1.7, 7.86, 4.22, WHITE, rounded=True)
+                movie(spec["movie"], spec["visual"], 4.94, 1.85, 7.62, 3.82)
+                text("Recorded research demo · separate from today’s 3 trials", 4.98, 5.75, 7.53, 12, MUTED, max_lines=1)
+            elif layout == "bridge":
+                text(spec["bullets"][0], .7, 1.75, 11.95, 22, INK, bold=True, max_lines=1)
+                rect(.65, 2.41, 7.83, 3.78, WHITE, rounded=True)
+                picture(spec["visual"], .8, 2.58, 7.53, 3.44)
+                picture(spec["photo"], 8.77, 2.41, 3.91, 2.48)
+                text("Digital twins →\nmeasured flight at PURT", 8.77, 5.16, 3.91, 20, TEAL, bold=True, max_lines=2)
             elif layout == "statement":
                 if num == 3:
                     text(spec["bullets"][0], .7, 1.85, 11.9, 32, INK, bold=True, max_lines=2)
@@ -333,14 +361,17 @@ def main():
     inputs = {"slides/workshop.md", "models/Quadrotor.mo", "data/noisy_flight.csv",
               "results/reference/fit_drag.json", "results/reference/trajectory.npz",
               "scripts/build_slides.py", "scripts/slide_assets.py", "pyproject.toml", "uv.lock"}
-    inputs.update(str((out/s["visual"]).resolve().relative_to(ROOT))
-                  for s in slides if "visual" in s)
+    media_keys = ["visual", "movie", "poster", "photo", "purdue logo", "penn state logo", "nxp logo"]
+    inputs.update(str((out/s[key]).resolve().relative_to(ROOT))
+                  for s in slides for key in media_keys if key in s)
     digest = lambda path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-    write_json(out/"build-report.json", {"slides": len(slides), "main_slides": 24,
+    write_json(out/"build-report.json", {"slides": len(slides), "main_slides": len([s for s in slides if s["number"].isdigit()]),
                "schedule_minutes": 180, "break_minutes": 20, "source": "slides/workshop.md",
                "input_sha256": {p: digest(p) for p in sorted(inputs)},
                "artifact_sha256": {p: digest(p) for p in ["slides/workshop.pptx", "slides/workshop.pdf"]},
-               "rendered_text": audit, "hyperlinks": hyperlinks, "notes_in_pptx": True})
+               "rendered_text": audit, "hyperlinks": hyperlinks, "notes_in_pptx": True,
+               "embedded_movies": [{"slide":s["number"], "source":"slides/"+s["movie"],
+                                    "sha256":digest("slides/"+s["movie"])} for s in slides if "movie" in s]})
     print(f"Built {len(slides)} slides, PPTX + PDF, 180-minute schedule, speaker notes")
 
 

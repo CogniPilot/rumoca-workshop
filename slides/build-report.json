@@ -1,6 +1,6 @@
 {
-  "slides": 28,
-  "main_slides": 24,
+  "slides": 27,
+  "main_slides": 27,
   "schedule_minutes": 180,
   "break_minutes": 20,
   "source": "slides/workshop.md",
@@ -9,13 +9,13 @@
     "models/Quadrotor.mo": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
     "pyproject.toml": "8ce881da0813eeca34d26f627f8c88a99ef9fcbaf0bdb2fc05a9d0dbc9c9a29c",
     "results/reference/fit_drag.json": "0d67f55cceecbd8d42fde39713bc1d1595687cc7a5481187dfa39035ea162fcb",
-    "results/reference/math_audit.png": "e5cd008036cb9f2e810e0526a80839c1887ff8d6dc326d22be8b3e8fbd55ba4c",
-    "results/reference/optimization.png": "8d3faf3355dac7c3bf1f081e19161dc04360766e299388be53457c36327458c7",
     "results/reference/torch_policy.png": "b67366d51acfc5a515419f060eb4efdb283c6501379897cd3d8ecc65352bd8dc",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
-    "scripts/build_slides.py": "e2ea71e6c8ef01c857c3b1104c0f711ec0aa4304c62f2eccdb3af86fc70d3439",
+    "scripts/build_slides.py": "3e8b98bb408ca143f38f204391d70464e16ba67d7aba86474cbbfd2304638fb9",
     "scripts/slide_assets.py": "92515b5c9cca20298f9ec58deb6ba7b98efcc9f3efd6eb54acfac1b2900ff700",
+    "slides/assets/app-mocap_sysid.png": "a67b1b1dbee833d2b09499266b00f734a788e700f4b43b6359b307e38c5e6d54",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
+    "slides/assets/app-slam_web.png": "13f930634636a0b00b63bfe3dcd1079750a3dd557bde8c6453dfac4a10ab4b6d",
     "slides/assets/architecture.png": "264ab4f7e3ec35c65e3bcbb56328d42414409c4739dfb59fee95275293c02bde",
     "slides/assets/browser-drag-linear.png": "641732c3c7ceaab4eb393cd290446cbb977172d5a67ee7614b2282c3ce1cd747",
     "slides/assets/community-qr.png": "cf54e4a69d44feaa161000fc8ae5019db706b4c2c54eaad2c8f1c9663279a91f",
@@ -23,19 +23,28 @@
     "slides/assets/control-problem.png": "13b9ff50e114c3c545efecb65b1e434f472d9ae8f64d5028066ee62688937f5e",
     "slides/assets/data-hero.png": "ed6331a2d01bd404630954c92e46e1febefd0c42d5b85bc630d86b13edff0f83",
     "slides/assets/drag-law.png": "2ca77ffe0099f329c952f3745a1d1711a3a79b5dd973ef7eae497ac5b4a8c2e8",
+    "slides/assets/fastdyn-monte-carlo-poster.png": "e41ee252e64083084d8dea5adaa4e1823e8a3fcee1585e6a7b62ca72bf85912b",
     "slides/assets/fit-hero.png": "0ba401f4c7d8994c078b10e9bbff0cd2857825c92329834aa0f95364d0918198",
     "slides/assets/fit-workflow.png": "c54a93202c66c00c1ff76d6a16e280140b2c9dbd70fe6657357ab002174f17a6",
+    "slides/assets/nxp-logo.png": "7eb896b67481ff662d18494ef65659618a87089cb9b8464febaa14ffb2d2dd9f",
+    "slides/assets/penn-state-logo.png": "4f918c1a4bc5cd667dafb1c230d85d83be974e046b969f5beea1c8b83e3715d8",
+    "slides/assets/purdue-logo.png": "c06cd20e6d0e6fdf5d5e7359898104669774914bbbc5169fe6eb244f8bed6aa8",
+    "slides/assets/purt-facility.png": "4def64123a2312b24fb518842aba66dfa3453ec63ba53558790a742251b61029",
+    "slides/assets/purt-fixed-wing.jpg": "8b7404f5deaa22bb60047a74b39452457d22e8b3c092231b1c3833e7dba61f51",
+    "slides/assets/purt-fpv-chase-poster.jpg": "24aad084a593816c44d3d0b80a6fc33ef4ab32e806d422e34c9cfcc5327d914c",
     "slides/assets/pylon-qr.png": "7328a84a4db146ed49df5e748f9dcfd136d4bd420145c6e7266eb2ba42a3345f",
     "slides/assets/quadrotor.png": "a128ef82b974bec61e3f2beb6a126f29d166f8fa8214e7e34e80c15b2e550ef7",
     "slides/assets/repo-qr.png": "ef44b4901360f440e8ed6c2c3a114f969c9f795b494ea69fd3a0f8098395b1e5",
     "slides/assets/simulation-hero.png": "30e4af0a1707e14ff7c1aafbdf71813f2421cfb64d06f281590a29c26a7f24c9",
     "slides/assets/user-guide-naca.png": "cd554217d939e7fabf149829cb6deba75e87cc44c5b8f1c130b6d00ff2dd3d98",
-    "slides/workshop.md": "647d5f2572100701c5b38ca5dfcb64b845d24d94c00f3f874015a964ea1b29e8",
+    "slides/media/fastdyn-monte-carlo.mp4": "2a688f567c51d837c23555806250dd5ebd31a34cf16cb14c4d15fe85200f4ab1",
+    "slides/media/purt-fpv-chase.mp4": "0cb09e6a72a4f8543ba2e7ad786b1a4e7da1d8580ebf9daccde99c463c37bcef",
+    "slides/workshop.md": "702eaf59460ca1ddb388dbccf49ec56fa044e3c7a86471f0b91beb71228e21fd",
     "uv.lock": "9ee98bf337e21af4a4fc616c25e4f3d63f8b16bc6500b375dad975be5a4d9799"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "33df7de3a7fd522481905d3f3e52631e05976c36cba9b60a09c654805291e86f",
-    "slides/workshop.pdf": "6fd160c03d5030acb0235e1906aa224d14512ecbc07c5150ae070e8bcf4aff8e"
+    "slides/workshop.pptx": "1046766cdb5cc3d061e2d468c3bea9317001cb82e0ea07835c420a84b699ba77",
+    "slides/workshop.pdf": "d319e64558d181999ac4569af32475be7d1a637118c4b6a90dadd33e275fe723"
   },
   "rendered_text": [
     {
@@ -90,43 +99,53 @@
     },
     {
       "slide": "01",
-      "text": "James Goppert \u00b7 Micah Condie",
-      "font_pt": 25,
+      "text": "James Goppert",
+      "font_pt": 23,
       "lines": 1,
       "x": 0.7,
-      "y": 3.87,
+      "y": 3.73,
       "width": 9.6,
-      "height": 0.4905555555555556
+      "height": 0.4561111111111111
     },
     {
       "slide": "01",
-      "text": "Purdue University \u00b7 School of Aeronautics and Astronautics",
-      "font_pt": 18,
+      "text": "Managing Director, PURT \u00b7 Research Assistant Professor",
+      "font_pt": 17,
       "lines": 1,
       "x": 0.7,
-      "y": 4.4,
+      "y": 4.13,
       "width": 9.45,
-      "height": 0.37
+      "height": 0.35277777777777775
     },
     {
       "slide": "01",
-      "text": "Georgia Tech \u00b7 10:00\u201313:00",
-      "font_pt": 18,
+      "text": "Micah Condie",
+      "font_pt": 23,
       "lines": 1,
       "x": 0.7,
-      "y": 4.85,
-      "width": 9.4,
-      "height": 0.37
+      "y": 4.53,
+      "width": 9.6,
+      "height": 0.4561111111111111
     },
     {
       "slide": "01",
-      "text": "Any modeling domain welcome \u00b7 no aerospace background needed",
-      "font_pt": 12,
+      "text": "PhD student \u00b7 School of Aeronautics and Astronautics",
+      "font_pt": 17,
       "lines": 1,
       "x": 0.7,
-      "y": 5.21,
-      "width": 9.4,
-      "height": 0.26666666666666666
+      "y": 4.93,
+      "width": 9.45,
+      "height": 0.35277777777777775
+    },
+    {
+      "slide": "01",
+      "text": "Purdue University \u00b7 Georgia Tech \u00b7 10:00\u201313:00",
+      "font_pt": 15,
+      "lines": 1,
+      "x": 0.7,
+      "y": 5.33,
+      "width": 9.45,
+      "height": 0.31833333333333336
     },
     {
       "slide": "01",
@@ -134,19 +153,19 @@
       "font_pt": 15,
       "lines": 1,
       "x": 0.86,
-      "y": 5.63,
+      "y": 5.78,
       "width": 2.5,
       "height": 0.31833333333333336
     },
     {
       "slide": "01",
       "text": "Declare the physics",
-      "font_pt": 11,
+      "font_pt": 10,
       "lines": 1,
       "x": 0.86,
-      "y": 5.98,
+      "y": 6.09,
       "width": 2.55,
-      "height": 0.24944444444444444
+      "height": 0.23222222222222222
     },
     {
       "slide": "01",
@@ -154,19 +173,19 @@
       "font_pt": 15,
       "lines": 1,
       "x": 3.9800000000000004,
-      "y": 5.63,
+      "y": 5.78,
       "width": 2.5,
       "height": 0.31833333333333336
     },
     {
       "slide": "01",
       "text": "Learn from data",
-      "font_pt": 11,
+      "font_pt": 10,
       "lines": 1,
       "x": 3.9800000000000004,
-      "y": 5.98,
+      "y": 6.09,
       "width": 2.55,
-      "height": 0.24944444444444444
+      "height": 0.23222222222222222
     },
     {
       "slide": "01",
@@ -174,19 +193,29 @@
       "font_pt": 15,
       "lines": 1,
       "x": 7.1000000000000005,
-      "y": 5.63,
+      "y": 5.78,
       "width": 2.5,
       "height": 0.31833333333333336
     },
     {
       "slide": "01",
       "text": "Plan the motion",
-      "font_pt": 11,
+      "font_pt": 10,
       "lines": 1,
       "x": 7.1000000000000005,
-      "y": 5.98,
+      "y": 6.09,
       "width": 2.55,
-      "height": 0.24944444444444444
+      "height": 0.23222222222222222
+    },
+    {
+      "slide": "01",
+      "text": "Any modeling domain welcome \u00b7 no aerospace background needed",
+      "font_pt": 10,
+      "lines": 1,
+      "x": 0.7,
+      "y": 6.45,
+      "width": 9.4,
+      "height": 0.23222222222222222
     },
     {
       "slide": "01",
@@ -200,7 +229,7 @@
     },
     {
       "slide": "01",
-      "text": "Scan to create the core Codespace \u00b7 repository link above",
+      "text": "Scan to create the core Codespace \u00b7 materials linked below",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -631,12 +660,22 @@
     {
       "slide": "04",
       "text": "Quadrotor.mo \u2192 JAX + CasADi \u00b7 the same declared equations",
-      "font_pt": 21,
+      "font_pt": 22,
       "lines": 1,
-      "x": 0.85,
-      "y": 1.71,
-      "width": 11.6,
-      "height": 0.42166666666666663
+      "x": 0.7,
+      "y": 1.75,
+      "width": 11.95,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "04",
+      "text": "Digital twins \u2192\nmeasured flight at PURT",
+      "font_pt": 20,
+      "lines": 2,
+      "x": 8.77,
+      "y": 5.16,
+      "width": 3.91,
+      "height": 0.7488888888888889
     },
     {
       "slide": "04",
@@ -850,7 +889,7 @@
     },
     {
       "slide": "06",
-      "text": "Browser: modeling and predictions; no account",
+      "text": "Local container: Docker + Reopen in Container",
       "font_pt": 24,
       "lines": 2,
       "x": 1.7799999999999998,
@@ -870,13 +909,13 @@
     },
     {
       "slide": "06",
-      "text": "Codespaces: Python + VS Code; login and allowance",
+      "text": "Codespaces: same container; login and allowance",
       "font_pt": 24,
-      "lines": 2,
+      "lines": 3,
       "x": 7.95,
       "y": 2.05,
       "width": 4.4,
-      "height": 0.8866666666666667
+      "height": 1.3
     },
     {
       "slide": "06",
@@ -890,13 +929,13 @@
     },
     {
       "slide": "06",
-      "text": "Local uv: Python + VS Code; pinned CPU packages",
+      "text": "Local uv: optional native installation",
       "font_pt": 24,
-      "lines": 3,
+      "lines": 2,
       "x": 1.7799999999999998,
       "y": 4.2,
       "width": 4.4,
-      "height": 1.3
+      "height": 0.8866666666666667
     },
     {
       "slide": "06",
@@ -910,7 +949,7 @@
     },
     {
       "slide": "06",
-      "text": "Pair or screenshare: keep working if setup fails",
+      "text": "Browser or pair: keep working during setup",
       "font_pt": 24,
       "lines": 2,
       "x": 7.95,
@@ -2480,93 +2519,23 @@
     },
     {
       "slide": "21",
-      "text": "FROM DIGITAL TWIN TO THE RACE COURSE",
-      "font_pt": 11,
-      "lines": 1,
-      "x": 0.7,
-      "y": 1.76,
-      "width": 9,
-      "height": 0.24944444444444444
-    },
-    {
-      "slide": "21",
-      "text": "Build. Fly. Race.",
-      "font_pt": 49,
-      "lines": 1,
-      "x": 0.65,
-      "y": 2.26,
-      "width": 9.35,
-      "height": 0.903888888888889
-    },
-    {
-      "slide": "21",
       "text": "The next competition will leverage Rumoca",
-      "font_pt": 26,
+      "font_pt": 24,
       "lines": 1,
       "x": 0.7,
-      "y": 3.24,
+      "y": 1.73,
       "width": 9.05,
-      "height": 0.5077777777777779
+      "height": 0.47333333333333333
     },
     {
       "slide": "21",
-      "text": "Design, simulate, then flight-test your autonomy",
-      "font_pt": 23,
+      "text": "PURT FPV chase \u00b7 September 2025 \u00b7 click video to play",
+      "font_pt": 14,
       "lines": 1,
       "x": 0.7,
-      "y": 4.15,
+      "y": 6.29,
       "width": 9.05,
-      "height": 0.4561111111111111
-    },
-    {
-      "slide": "21",
-      "text": "Digital twin \u2192 real aircraft at PURT",
-      "font_pt": 22,
-      "lines": 1,
-      "x": 0.7,
-      "y": 4.72,
-      "width": 9.05,
-      "height": 0.4388888888888889
-    },
-    {
-      "slide": "21",
-      "text": "01",
-      "font_pt": 12,
-      "lines": 1,
-      "x": 1.4,
-      "y": 5.52,
-      "width": 0.5,
-      "height": 0.26666666666666666
-    },
-    {
-      "slide": "21",
-      "text": "02",
-      "font_pt": 12,
-      "lines": 1,
-      "x": 4.6000000000000005,
-      "y": 5.52,
-      "width": 0.5,
-      "height": 0.26666666666666666
-    },
-    {
-      "slide": "21",
-      "text": "03",
-      "font_pt": 12,
-      "lines": 1,
-      "x": 7.800000000000001,
-      "y": 5.52,
-      "width": 0.5,
-      "height": 0.26666666666666666
-    },
-    {
-      "slide": "21",
-      "text": "ILLUSTRATIVE COURSE \u00b7 EVENT DETAILS ON THE SITE",
-      "font_pt": 10,
-      "lines": 1,
-      "x": 0.75,
-      "y": 6.06,
-      "width": 8.5,
-      "height": 0.23222222222222222
+      "height": 0.3011111111111111
     },
     {
       "slide": "21",
@@ -2595,7 +2564,17 @@
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 5.5600000000000005,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "21",
+      "text": "Watch race video \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 4.716666666666667,
+      "y": 7.075,
+      "width": 3.586666666666667,
       "height": 0.2838888888888889
     },
     {
@@ -2603,9 +2582,9 @@
       "text": "Challenge rules \u2197",
       "font_pt": 13,
       "lines": 1,
-      "x": 6.690000000000001,
+      "x": 8.663333333333332,
       "y": 7.075,
-      "width": 5.5600000000000005,
+      "width": 3.586666666666667,
       "height": 0.2838888888888889
     },
     {
@@ -2620,7 +2599,7 @@
     },
     {
       "slide": "22",
-      "text": "AGENT-BUILT APPS \u00b7 TRY FIXED-WING OR FINISH YOUR OWN DEMO",
+      "text": "ARSLAN KHAN\u2019S GROUP \u00b7 PENN STATE + PURDUE \u00b7 BOARDRUNNER, CCS \u201926",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -2630,7 +2609,7 @@
     },
     {
       "slide": "22",
-      "text": "12:45\u201312:50",
+      "text": "12:40\u201312:45",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -2640,21 +2619,21 @@
     },
     {
       "slide": "22",
-      "text": "Explore the fixed-wing workbench",
-      "font_pt": 34,
+      "text": "FastDyn: fly the firmware against declared physics",
+      "font_pt": 30.265599131496806,
       "lines": 1,
       "x": 0.6,
       "y": 0.82,
       "width": 12.1,
-      "height": 0.6455555555555554
+      "height": 0.581240873931334
     },
     {
       "slide": "22",
-      "text": "TRY THIS",
+      "text": "PHYSICS + ACTUAL FIRMWARE",
       "font_pt": 11,
       "lines": 1,
       "x": 0.7,
-      "y": 1.86,
+      "y": 1.79,
       "width": 4,
       "height": 0.24944444444444444
     },
@@ -2664,19 +2643,19 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 2.4050000000000002,
+      "y": 2.2550000000000003,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "22",
-      "text": "Modelica flight simulation + autopilot",
-      "font_pt": 22,
-      "lines": 3,
+      "text": "Modelica \u2192 Rumoca FMI 3 plant",
+      "font_pt": 19,
+      "lines": 2,
       "x": 1.25,
-      "y": 2.35,
+      "y": 2.2,
       "width": 3.2800000000000002,
-      "height": 1.1966666666666668
+      "height": 0.7144444444444444
     },
     {
       "slide": "22",
@@ -2684,19 +2663,19 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 3.981666666666667,
+      "y": 3.249444444444445,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "22",
-      "text": "Try 50 Hz \u2192 20 Hz, restart, then observe",
-      "font_pt": 22,
+      "text": "ArduPilot firmware \u2192 FastDyn / QEMU",
+      "font_pt": 19,
       "lines": 2,
       "x": 1.25,
-      "y": 3.9266666666666667,
+      "y": 3.1944444444444446,
       "width": 3.2800000000000002,
-      "height": 0.8177777777777777
+      "height": 0.7144444444444444
     },
     {
       "slide": "22",
@@ -2704,23 +2683,63 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 5.179444444444444,
+      "y": 4.243888888888889,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "22",
-      "text": "Also: slam_web (in development), mocap_sysid",
-      "font_pt": 22,
-      "lines": 3,
+      "text": "Recorded: 100 paired wind scenarios",
+      "font_pt": 19,
+      "lines": 2,
       "x": 1.25,
-      "y": 5.124444444444444,
+      "y": 4.188888888888889,
       "width": 3.2800000000000002,
-      "height": 1.1966666666666668
+      "height": 0.7144444444444444
     },
     {
       "slide": "22",
-      "text": "Live links + short experiments: BROWSER_APPS.md",
+      "text": "4",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 5.238333333333333,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "22",
+      "text": "Try: 3 load trials in a FastDyn Codespace",
+      "font_pt": 19,
+      "lines": 2,
+      "x": 1.25,
+      "y": 5.183333333333334,
+      "width": 3.2800000000000002,
+      "height": 0.7144444444444444
+    },
+    {
+      "slide": "22",
+      "text": "Recorded research demo \u00b7 separate from today\u2019s 3 trials",
+      "font_pt": 12,
+      "lines": 1,
+      "x": 4.98,
+      "y": 5.75,
+      "width": 7.53,
+      "height": 0.26666666666666666
+    },
+    {
+      "slide": "22",
+      "text": "$ uv run --frozen python scripts/fastdyn_demo.py",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.18,
+      "width": 11.7,
+      "height": 0.37
+    },
+    {
+      "slide": "22",
+      "text": "Choose the FastDyn container \u00b7 open results/live/fastdyn/trajectories.png",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -2730,62 +2749,42 @@
     },
     {
       "slide": "22",
-      "text": "Fixed-wing demo \u2197",
-      "font_pt": 10.724233872785467,
+      "text": "FastDyn demo guide \u2197",
+      "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 1.6133333333333335,
-      "height": 0.24469513892019415
-    },
-    {
-      "slide": "22",
-      "text": "Fixed-wing code \u2197",
-      "font_pt": 11.188246249353337,
-      "lines": 1,
-      "x": 2.7433333333333336,
-      "y": 7.075,
-      "width": 1.6133333333333335,
-      "height": 0.25268646318330745
-    },
-    {
-      "slide": "22",
-      "text": "Mocap demo \u2197",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 4.716666666666668,
-      "y": 7.075,
-      "width": 1.6133333333333335,
+      "width": 2.6000000000000005,
       "height": 0.2838888888888889
     },
     {
       "slide": "22",
-      "text": "Mocap code \u2197",
+      "text": "BoardRunner paper \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 3.7300000000000004,
+      "y": 7.075,
+      "width": 2.6000000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "22",
+      "text": "FastDyn source \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 6.690000000000001,
       "y": 7.075,
-      "width": 1.6133333333333335,
+      "width": 2.6000000000000005,
       "height": 0.2838888888888889
     },
     {
       "slide": "22",
-      "text": "SLAM (in dev) \u2197",
-      "font_pt": 12.873142857142856,
-      "lines": 1,
-      "x": 8.663333333333334,
-      "y": 7.075,
-      "width": 1.6133333333333335,
-      "height": 0.28170412698412695
-    },
-    {
-      "slide": "22",
-      "text": "SLAM code \u2197",
+      "text": "Recorded Monte Carlo \u2197",
       "font_pt": 13,
       "lines": 1,
-      "x": 10.636666666666667,
+      "x": 9.65,
       "y": 7.075,
-      "width": 1.6133333333333335,
+      "width": 2.6000000000000005,
       "height": 0.2838888888888889
     },
     {
@@ -2800,7 +2799,7 @@
     },
     {
       "slide": "23",
-      "text": "OPEN CHALLENGE \u00b7 SHORT DEMOS \u00b7 AUDIENCE SHOW OF HANDS",
+      "text": "AGENT-BUILT APPS \u00b7 TRY FIXED-WING OR FINISH YOUR OWN DEMO",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -2810,7 +2809,7 @@
     },
     {
       "slide": "23",
-      "text": "12:50\u201312:55",
+      "text": "12:45\u201312:50",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -2820,7 +2819,7 @@
     },
     {
       "slide": "23",
-      "text": "Show your experiment. Vote for the cap.",
+      "text": "Explore the fixed-wing workbench",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -2830,97 +2829,77 @@
     },
     {
       "slide": "23",
-      "text": "5",
-      "font_pt": 60,
+      "text": "TRY THIS",
+      "font_pt": 11,
       "lines": 1,
-      "x": 0.9,
-      "y": 1.94,
-      "width": 3.45,
-      "height": 1.0933333333333335
-    },
-    {
-      "slide": "23",
-      "text": "MAX. PRESENTERS",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 0.9,
-      "y": 3.43,
-      "width": 3.45,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "23",
-      "text": "45 s",
-      "font_pt": 60,
-      "lines": 1,
-      "x": 5.090000000000001,
-      "y": 1.94,
-      "width": 3.45,
-      "height": 1.0933333333333335
-    },
-    {
-      "slide": "23",
-      "text": "EACH DEMO",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 5.090000000000001,
-      "y": 3.43,
-      "width": 3.45,
-      "height": 0.2838888888888889
+      "x": 0.7,
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
     },
     {
       "slide": "23",
       "text": "1",
-      "font_pt": 60,
+      "font_pt": 14,
       "lines": 1,
-      "x": 9.280000000000001,
-      "y": 1.94,
-      "width": 3.45,
-      "height": 1.0933333333333335
+      "x": 0.8049999999999999,
+      "y": 2.4050000000000002,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "23",
-      "text": "VOTE PER PERSON",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 9.280000000000001,
-      "y": 3.43,
-      "width": 3.45,
-      "height": 0.2838888888888889
+      "text": "Modelica flight simulation + autopilot",
+      "font_pt": 22,
+      "lines": 3,
+      "x": 1.25,
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
     },
     {
       "slide": "23",
-      "text": "Show your change + one checked result",
-      "font_pt": 29,
+      "text": "2",
+      "font_pt": 14,
       "lines": 1,
-      "x": 0.7,
-      "y": 4.5,
-      "width": 11.9,
-      "height": 0.5594444444444444
+      "x": 0.8049999999999999,
+      "y": 3.981666666666667,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "23",
-      "text": "Name your tool. Share elapsed work time.",
-      "font_pt": 23,
-      "lines": 1,
-      "x": 0.7,
-      "y": 5.14,
-      "width": 11.9,
-      "height": 0.4561111111111111
+      "text": "Try 50 Hz \u2192 20 Hz, restart, then observe",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 3.9266666666666667,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
     },
     {
       "slide": "23",
-      "text": "Audience favorite wins a free CogniPilot stocking cap",
-      "font_pt": 23,
+      "text": "3",
+      "font_pt": 14,
       "lines": 1,
-      "x": 0.7,
-      "y": 5.77,
-      "width": 11.9,
-      "height": 0.4561111111111111
+      "x": 0.8049999999999999,
+      "y": 5.179444444444444,
+      "width": 0.2,
+      "height": 0.3011111111111111
     },
     {
       "slide": "23",
-      "text": "Random draw if more than 5 ready entries \u2192 audience hand vote",
+      "text": "Change a setting. Check what changes.",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 5.124444444444444,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "23",
+      "text": "Live links + short experiments: BROWSER_APPS.md",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -2930,22 +2909,32 @@
     },
     {
       "slide": "23",
-      "text": "Challenge rules \u2197",
+      "text": "Try fixed-wing \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 5.5600000000000005,
+      "width": 3.586666666666667,
       "height": 0.2838888888888889
     },
     {
       "slide": "23",
-      "text": "Optional gallery \u2197",
+      "text": "Source code \u2197",
       "font_pt": 13,
       "lines": 1,
-      "x": 6.690000000000001,
+      "x": 4.716666666666667,
       "y": 7.075,
-      "width": 5.5600000000000005,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "23",
+      "text": "Experiment guide \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 8.663333333333332,
+      "y": 7.075,
+      "width": 3.586666666666667,
       "height": 0.2838888888888889
     },
     {
@@ -2960,43 +2949,43 @@
     },
     {
       "slide": "24",
-      "text": "YOUR MODELICA EXPERTISE CAN MOVE THIS RESEARCH FORWARD",
+      "text": "AGENT-BUILT APPS \u00b7 EXPLORE YOUR OWN SCIENTIFIC QUESTION",
       "font_pt": 11,
       "lines": 1,
-      "x": 0.65,
-      "y": 0.35,
-      "width": 11,
+      "x": 0.6,
+      "y": 0.28,
+      "width": 11.1,
       "height": 0.24944444444444444
     },
     {
       "slide": "24",
-      "text": "12:55\u201313:00",
+      "text": "12:45\u201312:50",
       "font_pt": 11,
       "lines": 1,
-      "x": 11.35,
-      "y": 0.35,
-      "width": 1.35,
+      "x": 11.5,
+      "y": 0.28,
+      "width": 1.25,
       "height": 0.24944444444444444
     },
     {
       "slide": "24",
-      "text": "Bring your model.",
-      "font_pt": 48,
+      "text": "Explore motion-capture identification",
+      "font_pt": 34,
       "lines": 1,
-      "x": 0.65,
-      "y": 1.6,
-      "width": 9.5,
-      "height": 0.8866666666666667
+      "x": 0.6,
+      "y": 0.82,
+      "width": 12.1,
+      "height": 0.6455555555555554
     },
     {
       "slide": "24",
-      "text": "Join the work.",
-      "font_pt": 42,
+      "text": "TRY THIS",
+      "font_pt": 11,
       "lines": 1,
-      "x": 0.65,
-      "y": 2.42,
-      "width": 9.5,
-      "height": 0.7833333333333332
+      "x": 0.7,
+      "y": 1.86,
+      "width": 4,
+      "height": 0.24944444444444444
     },
     {
       "slide": "24",
@@ -3004,19 +2993,19 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 3.605,
+      "y": 2.4050000000000002,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "24",
-      "text": "Bring a model or a question from your own domain",
+      "text": "Visualize vehicle data and model structure",
       "font_pt": 22,
-      "lines": 1,
+      "lines": 3,
       "x": 1.25,
-      "y": 3.55,
-      "width": 8.549999999999999,
-      "height": 0.4388888888888889
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
     },
     {
       "slide": "24",
@@ -3024,19 +3013,19 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 4.273888888888888,
+      "y": 3.981666666666667,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "24",
-      "text": "Add a validation case, model library or compiler fix",
+      "text": "Compare experiments and data splits",
       "font_pt": 22,
-      "lines": 1,
+      "lines": 3,
       "x": 1.25,
-      "y": 4.2188888888888885,
-      "width": 8.549999999999999,
-      "height": 0.4388888888888889
+      "y": 3.9266666666666667,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
     },
     {
       "slide": "24",
@@ -3044,33 +3033,23 @@
       "font_pt": 14,
       "lines": 1,
       "x": 0.8049999999999999,
-      "y": 4.942777777777777,
+      "y": 5.558333333333334,
       "width": 0.2,
       "height": 0.3011111111111111
     },
     {
       "slide": "24",
-      "text": "Start a conversation: problem + model + one check",
+      "text": "A viewer for exported benchmark results",
       "font_pt": 22,
-      "lines": 1,
+      "lines": 3,
       "x": 1.25,
-      "y": 4.887777777777777,
-      "width": 8.549999999999999,
-      "height": 0.4388888888888889
+      "y": 5.503333333333334,
+      "width": 3.2800000000000002,
+      "height": 1.1966666666666668
     },
     {
       "slide": "24",
-      "text": "James Goppert \u00b7 Micah Condie",
-      "font_pt": 17,
-      "lines": 1,
-      "x": 0.7,
-      "y": 6.29,
-      "width": 9.5,
-      "height": 0.35277777777777775
-    },
-    {
-      "slide": "24",
-      "text": "Scan to join the work \u00b7 COMMUNITY.md \u00b7 questions welcome",
+      "text": "Explore exported identification results.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -3080,7 +3059,7 @@
     },
     {
       "slide": "24",
-      "text": "Join the community \u2197",
+      "text": "Try the app \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
@@ -3090,7 +3069,7 @@
     },
     {
       "slide": "24",
-      "text": "Rumoca compiler \u2197",
+      "text": "Source code \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 4.716666666666667,
@@ -3100,7 +3079,7 @@
     },
     {
       "slide": "24",
-      "text": "Model library \u2197",
+      "text": "Experiment guide \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 8.663333333333332,
@@ -3119,8 +3098,8 @@
       "height": 0.23222222222222222
     },
     {
-      "slide": "A1",
-      "text": "SCOPE MATTERS \u00b7 MATH_REVIEW.MD",
+      "slide": "25",
+      "text": "AGENT-BUILT APPS \u00b7 EXPLORE YOUR OWN SCIENTIFIC QUESTION",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -3129,8 +3108,8 @@
       "height": 0.24944444444444444
     },
     {
-      "slide": "A1",
-      "text": "Appendix",
+      "slide": "25",
+      "text": "12:45\u201312:50",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -3139,8 +3118,8 @@
       "height": 0.24944444444444444
     },
     {
-      "slide": "A1",
-      "text": "Exact-real proofs and numerical evidence",
+      "slide": "25",
+      "text": "Explore SLAM Lab \u00b7 in development",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -3149,8 +3128,8 @@
       "height": 0.6455555555555554
     },
     {
-      "slide": "A1",
-      "text": "THE IDEA",
+      "slide": "25",
+      "text": "TRY THIS",
       "font_pt": 11,
       "lines": 1,
       "x": 0.7,
@@ -3159,7 +3138,7 @@
       "height": 0.24944444444444444
     },
     {
-      "slide": "A1",
+      "slide": "25",
       "text": "1",
       "font_pt": 14,
       "lines": 1,
@@ -3169,58 +3148,58 @@
       "height": 0.3011111111111111
     },
     {
-      "slide": "A1",
-      "text": "Lean: equation equality and invariants",
+      "slide": "25",
+      "text": "Try the inertial estimation baseline",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 2.35,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "25",
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.602777777777778,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "25",
+      "text": "Inspect RGB, depth and trajectories",
+      "font_pt": 22,
+      "lines": 2,
+      "x": 1.25,
+      "y": 3.5477777777777777,
+      "width": 3.2800000000000002,
+      "height": 0.8177777777777777
+    },
+    {
+      "slide": "25",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.800555555555555,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "25",
+      "text": "Visual SLAM and loop closure are in development",
       "font_pt": 22,
       "lines": 3,
       "x": 1.25,
-      "y": 2.35,
+      "y": 4.745555555555555,
       "width": 3.2800000000000002,
       "height": 1.1966666666666668
     },
     {
-      "slide": "A1",
-      "text": "2",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 3.981666666666667,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "A1",
-      "text": "Audit: gradients, profiles, integration",
-      "font_pt": 22,
-      "lines": 2,
-      "x": 1.25,
-      "y": 3.9266666666666667,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
-    },
-    {
-      "slide": "A1",
-      "text": "3",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 5.179444444444444,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "A1",
-      "text": "Papers: model and method choices",
-      "font_pt": 22,
-      "lines": 2,
-      "x": 1.25,
-      "y": 5.124444444444444,
-      "width": 3.2800000000000002,
-      "height": 0.8177777777777777
-    },
-    {
-      "slide": "A1",
-      "text": "None of these certify arbitrary edits or real flight.",
+      "slide": "25",
+      "text": "Start with the tested inertial baseline.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -3229,288 +3208,8 @@
       "height": 0.37
     },
     {
-      "slide": "A1",
-      "text": "Lean proof source \u2197",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 0.77,
-      "y": 7.075,
-      "width": 5.5600000000000005,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "A1",
-      "text": "Math evidence \u2197",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 6.690000000000001,
-      "y": 7.075,
-      "width": 5.5600000000000005,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "A1",
-      "text": "A1",
-      "font_pt": 10,
-      "lines": 1,
-      "x": 12.5,
-      "y": 7.12,
-      "width": 0.35,
-      "height": 0.23222222222222222
-    },
-    {
-      "slide": "A2",
-      "text": "FULL CITATIONS AND CHECKED EQUATIONS: MATH_REVIEW.MD",
-      "font_pt": 11,
-      "lines": 1,
-      "x": 0.6,
-      "y": 0.28,
-      "width": 11.1,
-      "height": 0.24944444444444444
-    },
-    {
-      "slide": "A2",
-      "text": "Appendix",
-      "font_pt": 11,
-      "lines": 1,
-      "x": 11.5,
-      "y": 0.28,
-      "width": 1.25,
-      "height": 0.24944444444444444
-    },
-    {
-      "slide": "A2",
-      "text": "Primary papers behind the approach",
-      "font_pt": 34,
-      "lines": 1,
-      "x": 0.6,
-      "y": 0.82,
-      "width": 12.1,
-      "height": 0.6455555555555554
-    },
-    {
-      "slide": "A2",
-      "text": "1",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 2.1350000000000002,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "A2",
-      "text": "Faessler et al., RA-L 2018: rotor-drag physics and excitation",
-      "font_pt": 29,
-      "lines": 2,
-      "x": 1.25,
-      "y": 2.08,
-      "width": 11.299999999999999,
-      "height": 1.058888888888889
-    },
-    {
-      "slide": "A2",
-      "text": "2",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 3.7238888888888892,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "A2",
-      "text": "Andersson et al., 2019: CasADi AD and multiple shooting",
-      "font_pt": 29,
-      "lines": 2,
-      "x": 1.25,
-      "y": 3.668888888888889,
-      "width": 11.299999999999999,
-      "height": 1.058888888888889
-    },
-    {
-      "slide": "A2",
-      "text": "3",
-      "font_pt": 14,
-      "lines": 1,
-      "x": 0.8049999999999999,
-      "y": 5.312777777777778,
-      "width": 0.2,
-      "height": 0.3011111111111111
-    },
-    {
-      "slide": "A2",
-      "text": "Raue 2009; Wieland 2021: practical identifiability and profiles",
-      "font_pt": 29,
-      "lines": 2,
-      "x": 1.25,
-      "y": 5.257777777777778,
-      "width": 11.299999999999999,
-      "height": 1.058888888888889
-    },
-    {
-      "slide": "A2",
-      "text": "World-axis teaching drag differs from body-axis rotor aerodynamics.",
-      "font_pt": 18,
-      "lines": 1,
-      "x": 0.85,
-      "y": 6.67,
-      "width": 11.83,
-      "height": 0.37
-    },
-    {
-      "slide": "A2",
-      "text": "Papers & references \u2197",
-      "font_pt": 13,
-      "lines": 1,
-      "x": 0.77,
-      "y": 7.075,
-      "width": 11.48,
-      "height": 0.2838888888888889
-    },
-    {
-      "slide": "A2",
-      "text": "A2",
-      "font_pt": 10,
-      "lines": 1,
-      "x": 12.5,
-      "y": 7.12,
-      "width": 0.35,
-      "height": 0.23222222222222222
-    },
-    {
-      "slide": "A3",
-      "text": "ARSLAN KHAN\u2019S GROUP \u00b7 PENN STATE + PURDUE \u00b7 BOARDRUNNER, CCS \u201926",
-      "font_pt": 11,
-      "lines": 1,
-      "x": 0.6,
-      "y": 0.28,
-      "width": 11.1,
-      "height": 0.24944444444444444
-    },
-    {
-      "slide": "A3",
-      "text": "Appendix",
-      "font_pt": 11,
-      "lines": 1,
-      "x": 11.5,
-      "y": 0.28,
-      "width": 1.25,
-      "height": 0.24944444444444444
-    },
-    {
-      "slide": "A3",
-      "text": "FastDyn: fly the firmware against declared physics",
-      "font_pt": 30.265599131496806,
-      "lines": 1,
-      "x": 0.6,
-      "y": 0.82,
-      "width": 12.1,
-      "height": 0.581240873931334
-    },
-    {
-      "slide": "A3",
-      "text": "01",
-      "font_pt": 28,
-      "lines": 1,
-      "x": 0.9,
-      "y": 1.98,
-      "width": 0.72,
-      "height": 0.5422222222222222
-    },
-    {
-      "slide": "A3",
-      "text": "Rumoca compiles the Modelica plant into an FMI 3 FMU.",
-      "font_pt": 24,
-      "lines": 3,
-      "x": 1.7799999999999998,
-      "y": 2.05,
-      "width": 4.4,
-      "height": 1.3
-    },
-    {
-      "slide": "A3",
-      "text": "02",
-      "font_pt": 28,
-      "lines": 1,
-      "x": 7.07,
-      "y": 1.98,
-      "width": 0.72,
-      "height": 0.5422222222222222
-    },
-    {
-      "slide": "A3",
-      "text": "FastDyn couples sensors and actuators to ArduPilot firmware in QEMU.",
-      "font_pt": 24,
-      "lines": 3,
-      "x": 7.95,
-      "y": 2.05,
-      "width": 4.4,
-      "height": 1.3
-    },
-    {
-      "slide": "A3",
-      "text": "03",
-      "font_pt": 28,
-      "lines": 1,
-      "x": 0.9,
-      "y": 4.13,
-      "width": 0.72,
-      "height": 0.5422222222222222
-    },
-    {
-      "slide": "A3",
-      "text": "Instruction-counted virtual time coordinates firmware and plant steps.",
-      "font_pt": 24,
-      "lines": 3,
-      "x": 1.7799999999999998,
-      "y": 4.2,
-      "width": 4.4,
-      "height": 1.3
-    },
-    {
-      "slide": "A3",
-      "text": "04",
-      "font_pt": 28,
-      "lines": 1,
-      "x": 7.07,
-      "y": 4.13,
-      "width": 0.72,
-      "height": 0.5422222222222222
-    },
-    {
-      "slide": "A3",
-      "text": "New with options \u2192 select FastDyn + Rumoca. Run three load trials.",
-      "font_pt": 24,
-      "lines": 3,
-      "x": 7.95,
-      "y": 4.2,
-      "width": 4.4,
-      "height": 1.3
-    },
-    {
-      "slide": "A3",
-      "text": "$ uv run --frozen python scripts/fastdyn_demo.py",
-      "font_pt": 18,
-      "lines": 1,
-      "x": 0.85,
-      "y": 6.18,
-      "width": 11.7,
-      "height": 0.37
-    },
-    {
-      "slide": "A3",
-      "text": "Choose the FastDyn container \u00b7 open results/live/fastdyn/trajectories.png",
-      "font_pt": 18,
-      "lines": 1,
-      "x": 0.85,
-      "y": 6.67,
-      "width": 11.83,
-      "height": 0.37
-    },
-    {
-      "slide": "A3",
-      "text": "FastDyn demo guide \u2197",
+      "slide": "25",
+      "text": "Try the app \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
@@ -3519,8 +3218,8 @@
       "height": 0.2838888888888889
     },
     {
-      "slide": "A3",
-      "text": "BoardRunner paper \u2197",
+      "slide": "25",
+      "text": "Source code \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 4.716666666666667,
@@ -3529,8 +3228,8 @@
       "height": 0.2838888888888889
     },
     {
-      "slide": "A3",
-      "text": "FastDyn source \u2197",
+      "slide": "25",
+      "text": "Experiment guide \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 8.663333333333332,
@@ -3539,8 +3238,8 @@
       "height": 0.2838888888888889
     },
     {
-      "slide": "A3",
-      "text": "A3",
+      "slide": "25",
+      "text": "25",
       "font_pt": 10,
       "lines": 1,
       "x": 12.5,
@@ -3549,8 +3248,8 @@
       "height": 0.23222222222222222
     },
     {
-      "slide": "A4",
-      "text": "NODE SOLUTION \u2260 EXACT CONTINUOUS-TIME FLIGHT",
+      "slide": "26",
+      "text": "OPEN CHALLENGE \u00b7 SHORT DEMOS \u00b7 AUDIENCE SHOW OF HANDS",
       "font_pt": 11,
       "lines": 1,
       "x": 0.6,
@@ -3559,8 +3258,8 @@
       "height": 0.24944444444444444
     },
     {
-      "slide": "A4",
-      "text": "Appendix",
+      "slide": "26",
+      "text": "12:50\u201312:55",
       "font_pt": 11,
       "lines": 1,
       "x": 11.5,
@@ -3569,8 +3268,8 @@
       "height": 0.24944444444444444
     },
     {
-      "slide": "A4",
-      "text": "Numerical constraints need validation",
+      "slide": "26",
+      "text": "Show your experiment. Vote for the cap.",
       "font_pt": 34,
       "lines": 1,
       "x": 0.6,
@@ -3579,18 +3278,98 @@
       "height": 0.6455555555555554
     },
     {
-      "slide": "A4",
-      "text": "Reintegrate the inputs independently; inspect errors by physical unit.",
-      "font_pt": 21,
+      "slide": "26",
+      "text": "5",
+      "font_pt": 60,
       "lines": 1,
-      "x": 0.85,
-      "y": 1.71,
-      "width": 11.6,
-      "height": 0.42166666666666663
+      "x": 0.9,
+      "y": 1.94,
+      "width": 3.45,
+      "height": 1.0933333333333335
     },
     {
-      "slide": "A4",
-      "text": "Small defects, pitch margin and fine rollout are separate checks.",
+      "slide": "26",
+      "text": "MAX. PRESENTERS",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 0.9,
+      "y": 3.43,
+      "width": 3.45,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "26",
+      "text": "45 s",
+      "font_pt": 60,
+      "lines": 1,
+      "x": 5.090000000000001,
+      "y": 1.94,
+      "width": 3.45,
+      "height": 1.0933333333333335
+    },
+    {
+      "slide": "26",
+      "text": "EACH DEMO",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 5.090000000000001,
+      "y": 3.43,
+      "width": 3.45,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "26",
+      "text": "1",
+      "font_pt": 60,
+      "lines": 1,
+      "x": 9.280000000000001,
+      "y": 1.94,
+      "width": 3.45,
+      "height": 1.0933333333333335
+    },
+    {
+      "slide": "26",
+      "text": "VOTE PER PERSON",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 9.280000000000001,
+      "y": 3.43,
+      "width": 3.45,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "26",
+      "text": "Show your change + one checked result",
+      "font_pt": 29,
+      "lines": 1,
+      "x": 0.7,
+      "y": 4.5,
+      "width": 11.9,
+      "height": 0.5594444444444444
+    },
+    {
+      "slide": "26",
+      "text": "Name your tool. Share elapsed work time.",
+      "font_pt": 23,
+      "lines": 1,
+      "x": 0.7,
+      "y": 5.14,
+      "width": 11.9,
+      "height": 0.4561111111111111
+    },
+    {
+      "slide": "26",
+      "text": "Audience favorite wins a free CogniPilot stocking cap",
+      "font_pt": 23,
+      "lines": 1,
+      "x": 0.7,
+      "y": 5.77,
+      "width": 11.9,
+      "height": 0.4561111111111111
+    },
+    {
+      "slide": "26",
+      "text": "Random draw if more than 5 ready entries \u2192 audience hand vote",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,
@@ -3599,18 +3378,188 @@
       "height": 0.37
     },
     {
-      "slide": "A4",
-      "text": "Numerical evidence \u2197",
+      "slide": "26",
+      "text": "Challenge rules \u2197",
       "font_pt": 13,
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 11.48,
+      "width": 5.5600000000000005,
       "height": 0.2838888888888889
     },
     {
-      "slide": "A4",
-      "text": "A4",
+      "slide": "26",
+      "text": "Optional gallery \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 6.690000000000001,
+      "y": 7.075,
+      "width": 5.5600000000000005,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "26",
+      "text": "26",
+      "font_pt": 10,
+      "lines": 1,
+      "x": 12.5,
+      "y": 7.12,
+      "width": 0.35,
+      "height": 0.23222222222222222
+    },
+    {
+      "slide": "27",
+      "text": "YOUR MODELICA EXPERTISE CAN MOVE THIS RESEARCH FORWARD",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 0.65,
+      "y": 0.35,
+      "width": 11,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "27",
+      "text": "12:55\u201313:00",
+      "font_pt": 11,
+      "lines": 1,
+      "x": 11.35,
+      "y": 0.35,
+      "width": 1.35,
+      "height": 0.24944444444444444
+    },
+    {
+      "slide": "27",
+      "text": "Bring your model.",
+      "font_pt": 48,
+      "lines": 1,
+      "x": 0.65,
+      "y": 1.6,
+      "width": 9.5,
+      "height": 0.8866666666666667
+    },
+    {
+      "slide": "27",
+      "text": "Join the work.",
+      "font_pt": 42,
+      "lines": 1,
+      "x": 0.65,
+      "y": 2.42,
+      "width": 9.5,
+      "height": 0.7833333333333332
+    },
+    {
+      "slide": "27",
+      "text": "1",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 3.605,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "27",
+      "text": "Bring a model or a question from your own domain",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 3.55,
+      "width": 8.549999999999999,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "27",
+      "text": "2",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.273888888888888,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "27",
+      "text": "Add a validation case, model library or compiler fix",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 4.2188888888888885,
+      "width": 8.549999999999999,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "27",
+      "text": "3",
+      "font_pt": 14,
+      "lines": 1,
+      "x": 0.8049999999999999,
+      "y": 4.942777777777777,
+      "width": 0.2,
+      "height": 0.3011111111111111
+    },
+    {
+      "slide": "27",
+      "text": "Start a conversation: problem + model + one check",
+      "font_pt": 22,
+      "lines": 1,
+      "x": 1.25,
+      "y": 4.887777777777777,
+      "width": 8.549999999999999,
+      "height": 0.4388888888888889
+    },
+    {
+      "slide": "27",
+      "text": "James Goppert \u00b7 Micah Condie",
+      "font_pt": 17,
+      "lines": 1,
+      "x": 0.7,
+      "y": 6.29,
+      "width": 9.5,
+      "height": 0.35277777777777775
+    },
+    {
+      "slide": "27",
+      "text": "Scan to join the work \u00b7 COMMUNITY.md \u00b7 questions welcome",
+      "font_pt": 18,
+      "lines": 1,
+      "x": 0.85,
+      "y": 6.67,
+      "width": 11.83,
+      "height": 0.37
+    },
+    {
+      "slide": "27",
+      "text": "Join the community \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 0.77,
+      "y": 7.075,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "27",
+      "text": "Rumoca compiler \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 4.716666666666667,
+      "y": 7.075,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "27",
+      "text": "Model library \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 8.663333333333332,
+      "y": 7.075,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "27",
+      "text": "27",
       "font_pt": 10,
       "lines": 1,
       "x": 12.5,
@@ -3932,74 +3881,146 @@
       "url": "https://pylon-racing.geddes.rcac.purdue.edu/",
       "x": 0.65,
       "y": 7.035,
-      "width": 5.800000000000001,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "21",
+      "label": "Watch race video",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/releases/download/workshop-amc2026-r3/purt-fpv-chase.mp4",
+      "x": 4.596666666666667,
+      "y": 7.035,
+      "width": 3.8266666666666667,
       "height": 0.4
     },
     {
       "slide": "21",
       "label": "Challenge rules",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/CHALLENGE.md",
-      "x": 6.570000000000001,
+      "x": 8.543333333333333,
       "y": 7.035,
-      "width": 5.800000000000001,
+      "width": 3.8266666666666667,
       "height": 0.4
     },
     {
       "slide": "22",
-      "label": "Fixed-wing demo",
-      "url": "https://cognipilot.github.io/rumoca_fixed_wing/",
+      "label": "FastDyn demo guide",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/FASTDYN.md",
       "x": 0.65,
       "y": 7.035,
-      "width": 1.8533333333333335,
+      "width": 2.8400000000000003,
       "height": 0.4
     },
     {
       "slide": "22",
-      "label": "Fixed-wing code",
-      "url": "https://github.com/CogniPilot/rumoca_fixed_wing",
-      "x": 2.6233333333333335,
+      "label": "BoardRunner paper",
+      "url": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+      "x": 3.6100000000000003,
       "y": 7.035,
-      "width": 1.8533333333333335,
+      "width": 2.8400000000000003,
       "height": 0.4
     },
     {
       "slide": "22",
-      "label": "Mocap demo",
-      "url": "https://cognipilot.github.io/mocap_sysid/",
-      "x": 4.596666666666668,
-      "y": 7.035,
-      "width": 1.8533333333333335,
-      "height": 0.4
-    },
-    {
-      "slide": "22",
-      "label": "Mocap code",
-      "url": "https://github.com/CogniPilot/mocap_sysid",
+      "label": "FastDyn source",
+      "url": "https://github.com/jgoppert/FastDyn",
       "x": 6.570000000000001,
       "y": 7.035,
-      "width": 1.8533333333333335,
+      "width": 2.8400000000000003,
       "height": 0.4
     },
     {
       "slide": "22",
-      "label": "SLAM (in dev)",
-      "url": "https://cognipilot.github.io/slam_web/",
-      "x": 8.543333333333335,
+      "label": "Recorded Monte Carlo",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/releases/download/workshop-amc2026-r3/fastdyn-monte-carlo.mp4",
+      "x": 9.530000000000001,
       "y": 7.035,
-      "width": 1.8533333333333335,
-      "height": 0.4
-    },
-    {
-      "slide": "22",
-      "label": "SLAM code",
-      "url": "https://github.com/CogniPilot/slam_web",
-      "x": 10.516666666666667,
-      "y": 7.035,
-      "width": 1.8533333333333335,
+      "width": 2.8400000000000003,
       "height": 0.4
     },
     {
       "slide": "23",
+      "label": "Try fixed-wing",
+      "url": "https://cognipilot.github.io/rumoca_fixed_wing/",
+      "x": 0.65,
+      "y": 7.035,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "23",
+      "label": "Source code",
+      "url": "https://github.com/CogniPilot/rumoca_fixed_wing",
+      "x": 4.596666666666667,
+      "y": 7.035,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "23",
+      "label": "Experiment guide",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BROWSER_APPS.md",
+      "x": 8.543333333333333,
+      "y": 7.035,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "24",
+      "label": "Try the app",
+      "url": "https://cognipilot.github.io/mocap_sysid/",
+      "x": 0.65,
+      "y": 7.035,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "24",
+      "label": "Source code",
+      "url": "https://github.com/CogniPilot/mocap_sysid",
+      "x": 4.596666666666667,
+      "y": 7.035,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "24",
+      "label": "Experiment guide",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BROWSER_APPS.md",
+      "x": 8.543333333333333,
+      "y": 7.035,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "25",
+      "label": "Try the app",
+      "url": "https://cognipilot.github.io/slam_web/",
+      "x": 0.65,
+      "y": 7.035,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "25",
+      "label": "Source code",
+      "url": "https://github.com/CogniPilot/slam_web",
+      "x": 4.596666666666667,
+      "y": 7.035,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "25",
+      "label": "Experiment guide",
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BROWSER_APPS.md",
+      "x": 8.543333333333333,
+      "y": 7.035,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "26",
       "label": "Challenge rules",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/CHALLENGE.md",
       "x": 0.65,
@@ -4008,7 +4029,7 @@
       "height": 0.4
     },
     {
-      "slide": "23",
+      "slide": "26",
       "label": "Optional gallery",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/1",
       "x": 6.570000000000001,
@@ -4017,7 +4038,7 @@
       "height": 0.4
     },
     {
-      "slide": "24",
+      "slide": "27",
       "label": "Join the community",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/COMMUNITY.md",
       "x": 0.65,
@@ -4026,7 +4047,7 @@
       "height": 0.4
     },
     {
-      "slide": "24",
+      "slide": "27",
       "label": "Rumoca compiler",
       "url": "https://github.com/CogniPilot/rumoca",
       "x": 4.596666666666667,
@@ -4035,77 +4056,26 @@
       "height": 0.4
     },
     {
-      "slide": "24",
+      "slide": "27",
       "label": "Model library",
       "url": "https://github.com/CogniPilot/modelica_models",
       "x": 8.543333333333333,
       "y": 7.035,
       "width": 3.8266666666666667,
       "height": 0.4
-    },
-    {
-      "slide": "A1",
-      "label": "Lean proof source",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/formal/Workshop.lean",
-      "x": 0.65,
-      "y": 7.035,
-      "width": 5.800000000000001,
-      "height": 0.4
-    },
-    {
-      "slide": "A1",
-      "label": "Math evidence",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/MATH_REVIEW.md",
-      "x": 6.570000000000001,
-      "y": 7.035,
-      "width": 5.800000000000001,
-      "height": 0.4
-    },
-    {
-      "slide": "A2",
-      "label": "Papers & references",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/MATH_REVIEW.md",
-      "x": 0.65,
-      "y": 7.035,
-      "width": 11.72,
-      "height": 0.4
-    },
-    {
-      "slide": "A3",
-      "label": "FastDyn demo guide",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/FASTDYN.md",
-      "x": 0.65,
-      "y": 7.035,
-      "width": 3.8266666666666667,
-      "height": 0.4
-    },
-    {
-      "slide": "A3",
-      "label": "BoardRunner paper",
-      "url": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
-      "x": 4.596666666666667,
-      "y": 7.035,
-      "width": 3.8266666666666667,
-      "height": 0.4
-    },
-    {
-      "slide": "A3",
-      "label": "FastDyn source",
-      "url": "https://github.com/jgoppert/FastDyn",
-      "x": 8.543333333333333,
-      "y": 7.035,
-      "width": 3.8266666666666667,
-      "height": 0.4
-    },
-    {
-      "slide": "A4",
-      "label": "Numerical evidence",
-      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/VERIFICATION.md",
-      "x": 0.65,
-      "y": 7.035,
-      "width": 11.72,
-      "height": 0.4
     }
   ],
-  "notes_in_pptx": true
+  "notes_in_pptx": true,
+  "embedded_movies": [
+    {
+      "slide": "21",
+      "source": "slides/media/purt-fpv-chase.mp4",
+      "sha256": "0cb09e6a72a4f8543ba2e7ad786b1a4e7da1d8580ebf9daccde99c463c37bcef"
+    },
+    {
+      "slide": "22",
+      "source": "slides/media/fastdyn-monte-carlo.mp4",
+      "sha256": "2a688f567c51d837c23555806250dd5ebd31a34cf16cb14c4d15fe85200f4ab1"
+    }
+  ]
 }

@@ -41,6 +41,12 @@ Linux ARM64 wheel URLs are pinned but not executed in this matrix. macOS ≥14,
 glibc ≥2.28 Linux x64, and Windows x64 are supported wheel assumptions; CI
 qualifies the exact versions above, not every older OS build.
 
+The simplified Session examples and `import rumoca as rum` were subsequently
+refreshed at `299ec0f` in the actual core Codespace: all three commands, numerical
+smoke checks and material provenance passed in **17.7 seconds** for the smoke
+run. [Codespace receipt](../verification/codespace.json) separates this source
+refresh from the fresh container rebuild and original deeper audit.
+
 ## Model, fit and trajectory
 
 Canonical SHA256:
@@ -122,8 +128,8 @@ over Remote SSH; the remote test ran the same activation, hover, completion,
 broken-syntax and restoration checks. [Cloud editor receipt](../verification/codespace-editor.json).
 Startup also installed the pinned, hash-checked VSIX in Codespaces' normal
 remote extension directory and confirmed the second invocation was idempotent.
-The latest full rebuild also installed **PDF Viewer** and **Lean 4** before
-editor attachment; [extension receipt](../verification/codespace-extensions.json).
+The latest full rebuild also installed **PDF Viewer**, **Lean 4**, **Jinja** and
+**Markdown preview styles** before editor attachment; [extension receipt](../verification/codespace-extensions.json).
 The Lean extension supplies editor support; toolchain/Mathlib setup remains
 optional and separate from the CI proof qualification.
 
@@ -211,7 +217,7 @@ generated proof terms from a clean environment.
 
 ## Presentation and external limits
 
-The deck has 24 main slides, four appendices, a contiguous **180-minute** schedule
+The deck has 27 main slides, no appendices, a contiguous **180-minute** schedule
 and **two ten-minute breaks**. One editable Markdown source builds both PPTX
 with speaker notes and PDF. Presenter credits name **James Goppert and Micah
 Condie**. The design uses Purdue gold with deep navy, a light background for
@@ -219,14 +225,14 @@ technical figures, and teal/blue/terracotta accents for the three core phases.
 The opening explains why Rumoca and the broader Lie-group, reachability,
 formal-verification, identification and digital-twin context. A dedicated PURT
 pylon-racing slide links the competition site and its next event's planned
-Rumoca use; it does not repeat old event dates. All 28 PDF pages were rendered and visually reviewed;
+Rumoca use; it does not repeat old event dates. All 27 PDF pages were rendered and visually reviewed;
 commands, QR, screenshots and reference plots are real. Presenter text uses
 large type; small evidence plots/screenshots are backups for live zoomable demos.
 The PDF embeds fonts. Inspect the PPTX in the actual presentation application
 for font substitution/projector differences before class.
 
 The editable PPTX was also rendered by **LibreOffice Impress 26.2.1.2** on Linux.
-All 28 pages retained every authored text item, with extracted text inside page
+All 27 pages retained every authored text item, with extracted text inside page
 bounds. [Presentation receipt](../verification/presentation.json) records the
 artifact hash and scope. This adds an office-renderer check to the PDF review;
 the actual presentation laptop and projector remain preflight items.

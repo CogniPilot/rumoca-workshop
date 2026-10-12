@@ -111,6 +111,48 @@
         "scripts/fastdyn_demo.py"
       ],
       "problemMatcher": []
+    },
+    {
+      "label": "Workshop: Codex terminal (tmux)",
+      "type": "process",
+      "command": "tmux",
+      "args": [
+        "new-session",
+        "-A",
+        "-s",
+        "workshop-codex",
+        "codex"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Workshop: Claude terminal (tmux)",
+      "type": "process",
+      "command": "tmux",
+      "args": [
+        "new-session",
+        "-A",
+        "-s",
+        "workshop-claude",
+        "claude"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": true
+      },
+      "problemMatcher": []
     }
   ]
 }

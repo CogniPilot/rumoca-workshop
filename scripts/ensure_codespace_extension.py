@@ -29,6 +29,20 @@ def main():
     if not servers:
         raise RuntimeError("VS Code Server unavailable; rebuild the Codespace to finish extension setup.")
     # Keep the viewer compatible with both the qualified desktop and cloud editors.
+    agent_extensions = json.loads(Path(__file__).with_name("agent_tools.json").read_text())["extensions"]
+    for identifier, version in agent_extensions.items():
+        # Current VS Code bundles Copilot Chat. Respect it rather than forcing an
+        # older Marketplace dependency over the bundled extension.
+        bundled = [path for server in servers
+                   for path in (server.parents[1]/"extensions").glob("*/package.json")
+                   if (lambda package: (package.get("publisher", "")+"."+package.get("name", "")).lower()
+                       == identifier.lower())(json.loads(path.read_text()))]
+        if bundled:
+            print(f"Agent extension supplied by VS Code: {identifier}")
+            continue
+        extension = identifier+"@"+version if version else identifier
+        subprocess.run([str(servers[0]), "--install-extension", extension,
+                        "--extensions-dir", str(extension_root)], check=True)
     for identifier, version in (("mathematic.vscode-pdf", "0.1.11"),
                                 ("leanprover.lean4", "0.0.240"),
                                 ("samuelcolvin.jinjahtml", "0.20.0"),

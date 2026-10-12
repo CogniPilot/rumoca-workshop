@@ -1,7 +1,9 @@
 # Hands-On with Rumoca
 
 AMC 2026 · Georgia Tech · October 12 · 10:00–13:00
-**James Goppert · Micah Condie** · Purdue Aerospace
+**James Goppert** · Managing Director, PURT; Research Assistant Professor
+**Micah Condie** · PhD student, School of Aeronautics and Astronautics
+Purdue University
 
 **[Open the core Codespace](https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1)** ·
 **[Slides](slides/workshop.pdf)** · **[Participant guide](docs/WORKSHOP.md)**
@@ -30,7 +32,6 @@ these Session calls directly:
 In the VS Code terminal:
 
 ```sh
-uv sync --frozen
 uv run --frozen python examples/simulate.py
 uv run --frozen python examples/fit_drag_jax.py
 uv run --frozen python examples/optimize_casadi.py
@@ -48,7 +49,8 @@ Ctrl+Shift+V (Linux/Windows), Cmd+Shift+V (Mac). Open the PDF for slides.
 
 After the core: [browser experiments](docs/BROWSER_APPS.md),
 [open challenge](docs/CHALLENGE.md), [custom targets](docs/BACKENDS.md),
-[optional FastDyn/QEMU Codespace](docs/FASTDYN.md).
+[optional FastDyn/QEMU Codespace](docs/FASTDYN.md),
+[optional coding agents](docs/AGENT_SETUP.md).
 The upcoming [PURT pylon racing competition](https://pylon-racing.geddes.rcac.purdue.edu/)
 will leverage Rumoca.
 

@@ -64,5 +64,10 @@
       }
     }
   ],
-  "scope": "Actual ArduCopter firmware under patched QEMU, with Rumoca FMI 3 physics. Sequential reference, endpoint and one random load. Per-trial wall times include upstream trial work; no throughput or safety claim. The load changes prescribed weight, not inertial mass. The identical runner was moved from examples/fastdyn to extras/fastdyn after this execution."
+  "scope": "Actual ArduCopter firmware under patched QEMU, with Rumoca FMI 3 physics. Sequential reference, endpoint and one random load. Per-trial wall times include upstream trial work; no throughput or safety claim. The load changes prescribed weight, not inertial mass. The identical runner was moved from examples/fastdyn to extras/fastdyn after this execution.",
+  "packaging_resume_check": {
+    "status": "PASS",
+    "source_commit": "299ec0ff24636421d4027d94f99ce4c38ee6629d",
+    "scope": "Updated launcher executed extras/fastdyn/run_study.py in the actual optional Codespace, verified pinned source/image, resumed unchanged original trial inputs and copied trajectories to results/live/fastdyn. This is a resume check, not three additional flights."
+  }
 }

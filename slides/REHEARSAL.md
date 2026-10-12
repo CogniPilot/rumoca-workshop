@@ -22,7 +22,7 @@ not a promise about network startup.
 | App gallery | Slide 22 → BROWSER_APPS.md → choose one tested app experiment; lead with fixed-wing; let challenge entrants finish demos | Exactly 12:45–12:50: 1 min introduce, 4 min explore or finish an experiment | Real app screenshots; prediction discussion if network/graphics fails |
 | Challenge | Slide 2 announces open Rumoca experiment competition → collect experiment entries by 12:40 → draw up to five ready presenters if needed, plus order and backup → announce by 12:45 → slide 23 demos → hand vote → stocking-cap award | 12:50–12:55: up to five 45-second demos, 75 s vote/award; name tool and elapsed work time, label estimates; CHALLENGE.md | If a presenter is unavailable, use backup; if no entries, take an app question and continue |
 | PURT racing | Slide 21 → next pylon racing competition will leverage Rumoca → site and QR | 12:40–12:45; upcoming dates/rules announced on the competition site | Link and QR; do not repeat April 2026 dates as upcoming |
-| Close | Slide 24 → ask which model attendees would try next → community QR and research/model collaboration form | Exactly 12:55–13:00; invite conversation with James Goppert or Micah Condie | COMMUNITY.md + compiler/model-library links |
+| Close | Slide 27 → ask which model attendees would try next → community QR and research/model collaboration form | Exactly 12:55–13:00; invite conversation with James Goppert or Micah Condie | COMMUNITY.md + compiler/model-library links |
 
 Three core commands (copy individually):
 

@@ -5,6 +5,10 @@
     "mathematic.vscode-pdf",
     "leanprover.lean4",
     "samuelcolvin.jinjahtml",
-    "bierner.markdown-preview-github-styles"
+    "bierner.markdown-preview-github-styles",
+    "openai.chatgpt",
+    "anthropic.claude-code",
+    "GitHub.copilot-chat",
+    "ms-vscode-remote.remote-containers"
   ]
 }

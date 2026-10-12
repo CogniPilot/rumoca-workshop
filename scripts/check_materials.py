@@ -58,15 +58,19 @@ def main():
     with zipfile.ZipFile(ROOT/"slides/workshop.pptx") as deck:
         slides = [n for n in deck.namelist() if re.fullmatch(r"ppt/slides/slide\d+\.xml", n)]
         notes = [n for n in deck.namelist() if re.fullmatch(r"ppt/notesSlides/notesSlide\d+\.xml", n)]
-        assert len(slides) == build["slides"] == len(notes) == 28
+        assert len(slides) == build["slides"] == len(notes) == 27
         presentation = ET.fromstring(deck.read("ppt/presentation.xml"))
-        assert len(presentation.find("p:sldIdLst", ns)) == 28
-        for index in range(1, 29):
-            number = f"{index:02}" if index <= 24 else f"A{index-24}"
+        assert len(presentation.find("p:sldIdLst", ns)) == 27
+        for index in range(1, 28):
+            number = f"{index:02}" if index <= build["main_slides"] else f"A{index-build['main_slides']}"
             expected = {link["url"] for link in build["hyperlinks"] if link["slide"] == number}
             relations = ET.fromstring(deck.read(f"ppt/slides/_rels/slide{index}.xml.rels"))
             actual = {r.attrib["Target"] for r in relations if r.attrib["Type"].endswith("/hyperlink")}
             assert expected and expected <= actual, f"Missing clickable slide links: {number}"
+        actual_movies = {hashlib.sha256(deck.read(name)).hexdigest()
+                         for name in deck.namelist() if name.startswith("ppt/media/") and name.endswith(".mp4")}
+        assert actual_movies == {movie["sha256"] for movie in build["embedded_movies"]}
+        assert len(actual_movies) == 2, "Both recordings must be embedded, not linked from a local file"
     pdf = (ROOT/"slides/workshop.pdf").read_bytes()
     for link in build["hyperlinks"]:
         # ReportLab emits URL annotations as literal PDF strings, escaping parentheses.
@@ -82,14 +86,14 @@ def main():
         for target, expected in receipt["target_sha256"].items():
             assert digest(f"templates/torch-ode/{target}") == expected
     assert read("verification/user-guide.json")["status"] == "PASS"
-    report = {"status":"PASS", "local_markdown_links":links, "slides":28, "schedule_minutes":180,
+    report = {"status":"PASS", "local_markdown_links":links, "slides":27, "schedule_minutes":180,
               "break_minutes":20, "model_sha256":source,
               "checks":["local links", "shared model/result/CSV/formal/browser provenance", "deck input/artifact hashes",
                         "PPTX slides, notes, clickable links and office-renderer provenance", "app rehearsal receipts",
                         "Torch target and policy source/template provenance", "embedded user-guide rehearsal receipt"],
               "scope":"Packaging consistency. Mathematical, numerical and UI checks have separate receipts."}
     (ROOT/"verification/materials.json").write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8", newline="\n")
-    print(f"MATERIALS PASS: {links} local links, 28 slides with notes, 180 minutes, matching provenance")
+    print(f"MATERIALS PASS: {links} local links, 27 slides with notes and 2 embedded movies, 180 minutes, matching provenance")
 
 if __name__ == "__main__":
     main()

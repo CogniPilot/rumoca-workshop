@@ -10,6 +10,14 @@ Links: Repository | https://github.com/CogniPilot/rumoca_workshop_amc2026 ; Work
 Time: 10:00–10:05
 Layout: title
 Visual: assets/repo-qr.png
+Photo: assets/purt-facility.png
+Purdue logo: assets/purdue-logo.png
+Penn State logo: assets/penn-state-logo.png
+NXP logo: assets/nxp-logo.png
+Presenter 1: James Goppert
+Role 1: Managing Director, PURT · Research Assistant Professor
+Presenter 2: Micah Condie
+Role 2: PhD student · School of Aeronautics and Astronautics
 Badge: American Modelica Conference · October 12, 2026
 
 - James Goppert · Micah Condie
@@ -17,9 +25,9 @@ Badge: American Modelica Conference · October 12, 2026
 - Georgia Tech · 10:00–13:00
 - Any modeling domain welcome · no aerospace background needed
 
-Checkpoint: Scan to create the core Codespace · repository link above
+Checkpoint: Scan to create the core Codespace · materials linked below
 Notes:
-Welcome to Hands-On with Rumoca. Lead with the reason to care: “We want your declared physics to travel into simulation, identification, optimization and verification without silently becoming different models. Today you will take one small Modelica model through simulation, fitting and a constrained flight plan.” Introduce presenters James Goppert and Micah Condie, Purdue University, School of Aeronautics and Astronautics, and the Georgia Tech venue. Point to the QR and ask attendees to keep the participant worksheet open. No aerospace background is required. Welcome models and expertise from other disciplines; the closing slide has concrete ways to join the work. Allow five minutes for arrivals and orientation; announce the optional experiment challenge on the next slide.
+Welcome to Hands-On with Rumoca. Lead with the reason to care: “We want your declared physics to travel into simulation, identification, optimization and verification without silently becoming different models. Today you will take one small Modelica model through simulation, fitting and a constrained flight plan.” Introduce James Goppert as Managing Director of the Purdue UAS Research and Test Facility (PURT) and Research Assistant Professor in Purdue’s School of Aeronautics and Astronautics. Introduce Micah Condie as his PhD student in that school. Explain that PURT connects modeling with motion capture, closed-loop experiments and flight validation; the facility photograph comes from the supplied PURT overview deck. Acknowledge Penn State’s firmware-rehosting research collaboration and the NXP hardware ecosystem; the small logos identify these contributors and platforms, not additional workshop presenters. Welcome the Georgia Tech audience. Point to the QR and ask attendees to keep the participant worksheet open. No aerospace background is required. Welcome models and expertise from other disciplines; the closing slide has concrete ways to join the work. Allow five minutes for arrivals and orientation; announce the optional experiment challenge on the next slide.
 
 ## 02 · Run the core. Explore your own question.
 Links: Challenge rules | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/CHALLENGE.md ; Example prompts | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/APP_PROMPT.md
@@ -54,15 +62,16 @@ Ask first: “How many versions of the same physics do you maintain?” Independ
 ## 04 · Declare once. Ask different questions.
 Links: Workshop guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md
 Time: 10:15–10:20
-Layout: wide
+Layout: bridge
 Visual: assets/architecture.png
+Photo: assets/purt-fixed-wing.jpg
 Badge: Verified workshop architecture
 
 - Quadrotor.mo → JAX + CasADi · the same declared equations
 
 Checkpoint: Modelica declares physics · Rumoca compiles · backends compute.
 Notes:
-Explain that VS Code is the authoring/LSP path and the playground is browser modeling/simulation. Python 0.10.2 exports JAX and CasADi; deployed browser 0.8.13 is separate. Open examples/simulate.py and point to rum.Session().load(...) then model.to_jax(); open examples/optimize_casadi.py and point to model.to_casadi(). Python code performs integration and builds optimization objectives, not another plant. Full language/backends are not certified by this example. The compiler structure is an extension seam for solver specialization and heterogeneous compute. Fast Monte Carlo and RL, native AD or JAX/CasADi/PyTorch integrations, and extensible targets are research directions. Today's core qualifies particular CPU exports; the guide and small Torch target are separate demonstrations, not a general hardware-partitioning or throughput claim.
+The fixed-wing photograph, from the PURT overview, shows the physical experiment side of the digital-twin workflow. Connect modeling, identification and optimization with measured flight; this photographed aircraft is contextual, not the planar exercise model. Explain that VS Code is the authoring/LSP path and the playground is browser modeling/simulation. Python 0.10.2 exports JAX and CasADi; deployed browser 0.8.13 is separate. Open examples/simulate.py and point to rum.Session().load(...) then model.to_jax(); open examples/optimize_casadi.py and point to model.to_casadi(). Python code performs integration and builds optimization objectives, not another plant. Full language/backends are not certified by this example. The compiler structure is an extension seam for solver specialization and heterogeneous compute. Fast Monte Carlo and RL, native AD or JAX/CasADi/PyTorch integrations, and extensible targets are research directions. Today's core qualifies particular CPU exports; the guide and small Torch target are separate demonstrations, not a general hardware-partitioning or throughput claim.
 
 ## 05 · Everyone gets a browser plot
 Links: Open playground | https://rumoca.cognipilot.org/playground/ ; Browser model | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/browser/Quadrotor_browser.mo
@@ -85,14 +94,14 @@ Time: 10:25–10:30
 Layout: cards
 Badge: Setup decision · worksheet has every link
 
-- Browser: modeling and predictions; no account
-- Codespaces: Python + VS Code; login and allowance
-- Local uv: Python + VS Code; pinned CPU packages
-- Pair or screenshare: keep working if setup fails
+- Local container: Docker + Reopen in Container
+- Codespaces: same container; login and allowance
+- Local uv: optional native installation
+- Browser or pair: keep working during setup
 
 Checkpoint: Switch route after ten minutes of setup trouble.
 Notes:
-Codespaces URL https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1. Codespaces requires an account with allowance or billing enabled. Cloud qualification is recorded in VERIFICATION.md; account availability varies. Local: download/extract ZIP, install uv/extension, uv sync --frozen. Python and released editor are qualified on Linux/Windows x64 and macOS Intel/Apple Silicon. The local route uses uv and CPU packages.
+Codespaces URL https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1. Codespaces requires an account with allowance or billing enabled. Cloud qualification is recorded in VERIFICATION.md; account availability varies. Local: download/extract ZIP, install uv/extension, uv sync --frozen. Python and released editor are qualified on Linux/Windows x64 and macOS Intel/Apple Silicon. The local Dev Container route uses the same configuration as Codespaces: install Docker and the VS Code Dev Containers extension, open the workshop folder, run Dev Containers: Reopen in Container, and select the core workshop. Wait for WORKSHOP PASS. No host uv or Nix is required. Docker Desktop uses Linux containers / WSL 2 on Windows; Docker Engine works on Linux. Native uv remains an optional route.
 
 ## 07 · Configure the experiment, then run it
 Links: Simulation walkthrough | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/WORKSHOP.md ; Scenario model | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/models/BrowserFlight.mo
@@ -225,7 +234,7 @@ Badge: Checkpoint · go deeper at your own pace
 
 Checkpoint: Fit complete? Continue your experiment or explore the optional checks.
 Notes:
-Spend one minute showing where the result files are and four minutes on independent work and questions. Ask whether the held-out prediction improved; no aerospace background is needed. App builders can continue the open challenge. Offer detailed gradient, excitation and proof discussion only when requested, using MATH_REVIEW.md and Appendix A1–A2. The audit checks six starting guesses, twelve noise seeds, Jacobians, analytic coasting and re-optimized profiles. Lean checks scoped exact-real equation equality and invariants; numerical and statistical claims have separate evidence.
+Spend one minute showing where the result files are and four minutes on independent work and questions. Ask whether the held-out prediction improved; no aerospace background is needed. App builders can continue the open challenge. Offer detailed gradient, excitation and proof discussion only when requested, using MATH_REVIEW.md. The audit checks six starting guesses, twelve noise seeds, Jacobians, analytic coasting and re-optimized profiles. Lean checks scoped exact-real equation equality and invariants; numerical and statistical claims have separate evidence.
 
 ## 17 · Make a target. Learn a policy.
 Links: Backend walkthrough | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BACKENDS.md ; Torch target.toml | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/templates/torch-ode/target.toml ; Lean Jinja target | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/templates/lean-proof/rhs.lean.jinja
@@ -281,10 +290,14 @@ Notes:
 Allow about 15 minutes to run and inspect plots/JSON, with the remaining time for questions or app development. Live computation takes about 1–2 seconds locally. Show acceleration tilt and opposite tilt for braking. Confirm drag matches JAX values, defects near 1e−14, exact endpoint constraints at nodes, and about 2 mm altitude error under finer/adaptive integration. Analytic interval pitch extrema are about 0.542 rad, below 0.55. Checks allow 1e−6 numerical tolerance. Explain continuous/discretized differences and the absence of an all-time formal certificate. A source hash requires refitting after edits. Recover with canonical source/reference fit, then a clearly labeled reference figure. Optional --target-x 3 was separately rehearsed; its receipt is in verification/. MPC would repeat optimization online; it is not demonstrated.
 
 ## 21 · Next up: pylon racing at PURT
-Links: PURT pylon racing | https://pylon-racing.geddes.rcac.purdue.edu/ ; Challenge rules | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/CHALLENGE.md
+Links: PURT pylon racing | https://pylon-racing.geddes.rcac.purdue.edu/ ; Watch race video | https://github.com/CogniPilot/rumoca_workshop_amc2026/releases/download/workshop-amc2026-r3/purt-fpv-chase.mp4 ; Challenge rules | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/CHALLENGE.md
 Time: 12:40–12:45
+Time group: Physical experiments
 Layout: race
 Visual: assets/pylon-qr.png
+Movie: media/purt-fpv-chase.mp4
+Poster: assets/purt-fpv-chase-poster.jpg
+Video link: https://github.com/CogniPilot/rumoca_workshop_amc2026/releases/download/workshop-amc2026-r3/purt-fpv-chase.mp4
 Badge: Purdue UAS Research and Test Facility · upcoming competition
 
 - Design, simulate, then flight-test your autonomy
@@ -293,24 +306,77 @@ Badge: Purdue UAS Research and Test Facility · upcoming competition
 
 Checkpoint: pylon-racing.geddes.rcac.purdue.edu
 Notes:
-Advertise the upcoming autonomous fixed-wing pylon racing competition at Purdue UAS Research and Test Facility (PURT). Say: “The next competition will leverage Rumoca. Build your autonomy, learn in a digital twin, and bring it to the experiment.” Point attendees to https://pylon-racing.geddes.rcac.purdue.edu/ for announcements and information. The published competition format connects software-in-the-loop digital-twin simulation with physical flight tests; current public dated details are for the April 2026 edition, so do not announce those dates as upcoming. Future-event dates, registration, rules and exact Rumoca integration will be announced by the organizers. The race-course graphic is illustrative, not an official course or safety envelope. Official facility source: https://engineering.purdue.edu/PURT. Public CogniPilot workspace https://github.com/CogniPilot/cognipilot_workspace documents pure Modelica, host Zephyr SIL and FastDyn/QEMU Cortex-M7 binary-in-the-loop; those paths were not executed here. Synthetic fitting does not establish real-aircraft validity. Briefly connect today's model → identify → optimize workflow with racing and physical validation. Collect challenge entries at 12:40, draw if more than five are ready, and announce presenters/order by 12:45. Move to the fixed-wing workbench at 12:45.
+Advertise the upcoming autonomous fixed-wing pylon racing competition at Purdue UAS Research and Test Facility (PURT). Say: “The next competition will leverage Rumoca. Build your autonomy, learn in a digital twin, and bring it to the experiment.” Point attendees to https://pylon-racing.geddes.rcac.purdue.edu/ for announcements and information. The published competition format connects software-in-the-loop digital-twin simulation with physical flight tests; current public dated details are for the April 2026 edition, so do not announce those dates as upcoming. Future-event dates, registration, rules and exact Rumoca integration will be announced by the organizers. Play 20–30 seconds of the embedded September 2025 PURT FPV chase recording to show actual fixed-wing flight; pause before continuing. The complete 5:58 video is embedded as compressed 1080p H.264/AAC, with a downloadable MP4 fallback and a clickable poster in the PDF. The original user-provided SharePoint recording and matching local movie are the source. This is past event footage, not a newly announced event date. Keep the original 4K file as the quality master; no conference-network streaming is needed for the PPTX. Official facility source: https://engineering.purdue.edu/PURT. Public CogniPilot workspace https://github.com/CogniPilot/cognipilot_workspace documents pure Modelica, host Zephyr SIL and FastDyn/QEMU Cortex-M7 binary-in-the-loop; those paths were not executed here. Synthetic fitting does not establish real-aircraft validity. Briefly connect today's model → identify → optimize workflow with racing and physical validation. Collect challenge entries at 12:40, draw if more than five are ready, and announce presenters/order by 12:45. Move to the fixed-wing workbench at 12:45.
 
-## 22 · Explore the fixed-wing workbench
-Links: Fixed-wing demo | https://cognipilot.github.io/rumoca_fixed_wing/ ; Fixed-wing code | https://github.com/CogniPilot/rumoca_fixed_wing ; Mocap demo | https://cognipilot.github.io/mocap_sysid/ ; Mocap code | https://github.com/CogniPilot/mocap_sysid ; SLAM (in dev) | https://cognipilot.github.io/slam_web/ ; SLAM code | https://github.com/CogniPilot/slam_web
+## 22 · FastDyn: fly the firmware against declared physics
+Links: FastDyn demo guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/FASTDYN.md ; BoardRunner paper | https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html ; FastDyn source | https://github.com/jgoppert/FastDyn ; Recorded Monte Carlo | https://github.com/CogniPilot/rumoca_workshop_amc2026/releases/download/workshop-amc2026-r3/fastdyn-monte-carlo.mp4
+Time: 12:40–12:45
+Time group: Physical experiments
+Layout: firmware
+Visual: assets/fastdyn-monte-carlo-poster.png
+Movie: media/fastdyn-monte-carlo.mp4
+Video link: https://github.com/CogniPilot/rumoca_workshop_amc2026/releases/download/workshop-amc2026-r3/fastdyn-monte-carlo.mp4
+Badge: Arslan Khan’s group · Penn State + Purdue · BoardRunner, CCS ’26
+
+- Modelica → Rumoca FMI 3 plant
+- ArduPilot firmware → FastDyn / QEMU
+- Recorded: 100 paired wind scenarios
+- Try: 3 load trials in a FastDyn Codespace
+
+Command: uv run --frozen python scripts/fastdyn_demo.py
+Checkpoint: Choose the FastDyn container · open results/live/fastdyn/trajectories.png
+Notes:
+Credit Arslan Khan’s group at Penn State and the Penn State/Purdue collaboration. Cite Muhammad Hammad Bashir, Michael Rooney, Colin Smith, Dongyan Xu and Arslan Khan, “BoardRunner: Automatic Firmware Rehosting using High-Fidelity Compositional Device Models,” ACM CCS 2026. The accepted-paper program verifies the title and authors: https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html. BoardRunner is the firmware-rehosting work; the Rumoca/FMI coupling and workshop campaign are integration examples, not results attributed to that paper. Play the supplied 30-second public Monte Carlo recording. Its documented study compares 100 paired wind scenarios / 200 firmware-in-the-loop flights with and without ideal modeled current-based compass compensation; it uses a generic quadrotor and ArduCopter 4.7.0. It is separate recorded research evidence, not today’s three-load campaign (ArduCopter 4.6.2), and was not independently rerun by this workshop. The ideal compensation uses known synthetic coupling/current, empirical trajectories are not a reachable-set proof, and results do not establish field failure probabilities. Preserve the supplied drone-mesh CC BY 4.0 attribution; see slides/media/README.md. Instruction-counted virtual time coordinates firmware and plant steps. Follow the loop: firmware actuator command → FMU motor/rigid-body dynamics → simulated sensor values → firmware. This executes a rehosted hardware firmware binary, rather than ArduPilot SITL. The optional FastDyn configuration uses its own pinned Rumoca 0.10.0, separate from the workshop Python 0.10.2. The three-run example holds the vehicle, gains and mission fixed, applies prescribed external payload weight at a motor, and records seed, sources, telemetry, completion and failure reasons. It does not change inertial mass or simulate swinging payload motion. Three samples do not estimate rare-event probabilities or establish safety. Launch from https://github.com/codespaces/new/CogniPilot/rumoca_workshop_amc2026 using New with options and select FastDyn + Rumoca: optional firmware Monte Carlo, rather than the default core configuration. Then run the displayed command in its VS Code terminal, or select Terminal → Run Task → Workshop: optional FastDyn Monte Carlo. Open results/live/fastdyn/trajectories.png and compare the three flights; seed, sources, firmware logs and outcome summaries are retained. The pinned optional environment was created and the reference, 100 g endpoint and one seeded 87.7 g trial all completed the mission and landing in an actual two-core Codespace, taking about 74, 68 and 61 seconds after setup. Show the saved plot if the network is slow. See docs/FASTDYN.md for setup, storage and scope. Main workshop remains model → simulate → identify → optimize. Solver specialization, heterogeneous compute, batched Monte Carlo/RL and extensible AD targets remain research directions.
+
+## 23 · Explore the fixed-wing workbench
+Links: Try fixed-wing | https://cognipilot.github.io/rumoca_fixed_wing/ ; Source code | https://github.com/CogniPilot/rumoca_fixed_wing ; Experiment guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BROWSER_APPS.md
 Time: 12:45–12:50
+Time group: App showcase
 Layout: image
 Visual: assets/app-rumoca_fixed_wing.png
 Badge: AGENT-BUILT APPS · try fixed-wing or finish your own demo
 
 - Modelica flight simulation + autopilot
 - Try 50 Hz → 20 Hz, restart, then observe
-- Also: slam_web (in development), mocap_sysid
+- Change a setting. Check what changes.
 
 Checkpoint: Live links + short experiments: BROWSER_APPS.md
 Notes:
 Lead with rumoca_fixed_wing, the more complete app example. Coding agents helped build the interface and experiments; engineers review models and validate output. Briefly show Autopilot → Start sim, waypoint progress, then 50 to 20 Hz → Start sim again → pause. Invite participants to try that interaction or finish their challenge app. SLAM Lab is an additional example in development; only its inertial baseline and filter variant were rehearsed, not the complete visual-SLAM pipeline. Mocap is a viewer for stored benchmark results, not browser retraining. Fixed-wing and SLAM use WASM; the tested mocap viewer interaction does not. No login, agent account or API key is needed to explore these examples manually. They use different models from the core exercise and are outside its Lean proof scope. Keep the recorded screenshots available for network/graphics recovery. At 12:50 move to participant demos.
 
-## 23 · Show your experiment. Vote for the cap.
+## 24 · Explore motion-capture identification
+Links: Try the app | https://cognipilot.github.io/mocap_sysid/ ; Source code | https://github.com/CogniPilot/mocap_sysid ; Experiment guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BROWSER_APPS.md
+Time: 12:45–12:50
+Time group: App showcase
+Layout: image
+Visual: assets/app-mocap_sysid.png
+Badge: AGENT-BUILT APPS · explore your own scientific question
+
+- Visualize vehicle data and model structure
+- Compare experiments and data splits
+- A viewer for exported benchmark results
+
+Checkpoint: Explore exported identification results.
+Notes:
+Show the stored synthetic 6-DOF open-loop example and its model structure. This viewer does not train models or execute a WASM simulation. Recorded benchmark data is distinct from a live fit. Invite users to explore a problem or dataset from their own domain; do not invent method scores. Together with the neighboring app slides, share the five-minute showcase slot.
+
+## 25 · Explore SLAM Lab · in development
+Links: Try the app | https://cognipilot.github.io/slam_web/ ; Source code | https://github.com/CogniPilot/slam_web ; Experiment guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/BROWSER_APPS.md
+Time: 12:45–12:50
+Time group: App showcase
+Layout: image
+Visual: assets/app-slam_web.png
+Badge: AGENT-BUILT APPS · explore your own scientific question
+
+- Try the inertial estimation baseline
+- Inspect RGB, depth and trajectories
+- Visual SLAM and loop closure are in development
+
+Checkpoint: Start with the tested inertial baseline.
+Notes:
+Show the tested InertialOnly or ResponsiveInertial model. This is an additional app in development, with a browser WASM path; the full visual-SLAM pipeline was not qualified. Point out the declared estimator model. Invite users to explore the supported baseline or continue their challenge. Together with the neighboring app slides, share the five-minute showcase slot.
+
+## 26 · Show your experiment. Vote for the cap.
 Links: Challenge rules | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/CHALLENGE.md ; Optional gallery | https://github.com/CogniPilot/rumoca_workshop_amc2026/issues/1
 Time: 12:50–12:55
 Layout: statement
@@ -324,7 +390,7 @@ Checkpoint: Random draw if more than 5 ready entries → audience hand vote
 Notes:
 Use up to five 45-second demos, selected by the announced readiness check and random draw if needed. Draw order and a backup in advance. Each entrant shows a question Rumoca helps explore, their original change, a working interaction or before/after comparison, one checked result, tool used and elapsed work time. Local files, browser tabs and screenshares are acceptable; public source links are optional. Manual experiments are welcome; name the agent if used and label estimated times. Have tabs/files ready and use the same limit for everyone. Five demos leave 75 seconds for a hand vote and award. Each attendee votes for one entry; count visibly. If tied, run a quick vote between the tied entries; if still tied, draw among them. Award one stocking cap; a team chooses its recipient. Share voluntary links from all entries, including those not drawn. If no entries are ready, take a brief question and continue. CHALLENGE.md carries the same rules. Keep the core exercise as the workshop's main focus.
 
-## 24 · Bring your model. Join the work.
+## 27 · Bring your model. Join the work.
 Links: Join the community | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/COMMUNITY.md ; Rumoca compiler | https://github.com/CogniPilot/rumoca ; Model library | https://github.com/CogniPilot/modelica_models
 Time: 12:55–13:00
 Layout: title
@@ -337,61 +403,5 @@ Badge: Your Modelica expertise can move this research forward
 
 Checkpoint: Scan to join the work · COMMUNITY.md · questions welcome
 Notes:
-Use a concrete invitation: “You already bring Modelica knowledge we need. Bring a model from your domain, one scientific question, and one result we can check together. Help us make declared mathematics reusable across simulation, identification, optimization and verification.” The community QR opens COMMUNITY.md, with a research/model collaboration issue form and links to the compiler and model library. Modelers can contribute small models with units and expected behavior; researchers can propose a measurable identification, geometry or verification question; software contributors can share a minimal compiler/backend reproduction or improvement. No aerospace background or coding-agent subscription is needed. Invite attendees to speak with James Goppert or Micah Condie before leaving, then continue through the public collaboration form. Ask: “Which model from your work would you try next?” Allow answers and questions rather than reading the bullets. The first step is a small shared check, not an implied promise of a certified full-system workflow. Point to today's tested source/results and MATH_REVIEW.md as an example of evidence we can build together. Stop at 13:00. Appendix A3 covers research directions if asked.
+Use a concrete invitation: “You already bring Modelica knowledge we need. Bring a model from your domain, one scientific question, and one result we can check together. Help us make declared mathematics reusable across simulation, identification, optimization and verification.” The community QR opens COMMUNITY.md, with a research/model collaboration issue form and links to the compiler and model library. Modelers can contribute small models with units and expected behavior; researchers can propose a measurable identification, geometry or verification question; software contributors can share a minimal compiler/backend reproduction or improvement. No aerospace background or coding-agent subscription is needed. Invite attendees to speak with James Goppert or Micah Condie before leaving, then continue through the public collaboration form. Ask: “Which model from your work would you try next?” Allow answers and questions rather than reading the bullets. The first step is a small shared check, not an implied promise of a certified full-system workflow. Point to today's tested source/results and MATH_REVIEW.md as an example of evidence we can build together. Stop at 13:00. Link to MATH_REVIEW.md for detailed proofs and references.
 
-## A1 · Exact-real proofs and numerical evidence
-Links: Lean proof source | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/formal/Workshop.lean ; Math evidence | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/MATH_REVIEW.md
-Time: Appendix
-Layout: image
-Visual: ../results/reference/math_audit.png
-Badge: Scope matters · MATH_REVIEW.md
-
-- Lean: equation equality and invariants
-- Audit: gradients, profiles, integration
-- Papers: model and method choices
-
-Checkpoint: None of these certify arbitrary edits or real flight.
-Notes:
-Lean 4.29.1 and public Mathlib v4.29.1 are pinned. The proof representation comes from the actual Solve operation program. No admissions or custom axioms; standard propext, Classical.choice and Quot.sound only. The compiler/Jinja target and real-arithmetic interpretation remain trusted. Assumptions: nonnegative coefficients, positive smoothing, nonzero mass/inertia for energy algebra. The profile threshold is asymptotic Gaussian; a finite grid does not guarantee confidence coverage.
-
-## A2 · Primary papers behind the approach
-Links: Papers & references | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/MATH_REVIEW.md
-Time: Appendix
-Layout: statement
-Badge: Full citations and checked equations: MATH_REVIEW.md
-
-- Faessler et al., RA-L 2018: rotor-drag physics and excitation
-- Andersson et al., 2019: CasADi AD and multiple shooting
-- Raue 2009; Wieland 2021: practical identifiability and profiles
-
-Checkpoint: World-axis teaching drag differs from body-axis rotor aerodynamics.
-Notes:
-Faessler DOI 10.1109/LRA.2017.2776353, equation 2: mass-normalized body-frame R D Rᵀ drag; we do not invoke their flatness theorem. CasADi DOI 10.1007/s12532-018-0139-4, sections 2.6 and 5.4: AD and multiple shooting. Journal: Mathematical Programming Computation. Raue DOI 10.1093/bioinformatics/btp358, primary abstract; Wieland arXiv 2102.05100, equation 6/full method checked. No paper figures or extensive quotations are reproduced.
-
-## A3 · FastDyn: fly the firmware against declared physics
-Links: FastDyn demo guide | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/FASTDYN.md ; BoardRunner paper | https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html ; FastDyn source | https://github.com/jgoppert/FastDyn
-Time: Appendix
-Layout: cards
-Badge: Arslan Khan’s group · Penn State + Purdue · BoardRunner, CCS ’26
-
-- Rumoca compiles the Modelica plant into an FMI 3 FMU.
-- FastDyn couples sensors and actuators to ArduPilot firmware in QEMU.
-- Instruction-counted virtual time coordinates firmware and plant steps.
-- New with options → select FastDyn + Rumoca. Run three load trials.
-
-Command: uv run --frozen python scripts/fastdyn_demo.py
-Checkpoint: Choose the FastDyn container · open results/live/fastdyn/trajectories.png
-Notes:
-Credit Arslan Khan’s group at Penn State and the Penn State/Purdue collaboration. Cite Muhammad Hammad Bashir, Michael Rooney, Colin Smith, Dongyan Xu and Arslan Khan, “BoardRunner: Automatic Firmware Rehosting using High-Fidelity Compositional Device Models,” ACM CCS 2026. The accepted-paper program verifies the title and authors: https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html. BoardRunner is the firmware-rehosting work; the Rumoca/FMI coupling and workshop campaign are integration examples, not results attributed to that paper. Follow the loop: firmware actuator command → FMU motor/rigid-body dynamics → simulated sensor values → firmware. This executes a rehosted hardware firmware binary, rather than ArduPilot SITL. The optional FastDyn configuration uses its own pinned Rumoca 0.10.0, separate from the workshop Python 0.10.2. The three-run example holds the vehicle, gains and mission fixed, applies prescribed external payload weight at a motor, and records seed, sources, telemetry, completion and failure reasons. It does not change inertial mass or simulate swinging payload motion. Three samples do not estimate rare-event probabilities or establish safety. Launch from https://github.com/codespaces/new/CogniPilot/rumoca_workshop_amc2026 using New with options and select FastDyn + Rumoca: optional firmware Monte Carlo, rather than the default core configuration. Then run the displayed command in its VS Code terminal, or select Terminal → Run Task → Workshop: optional FastDyn Monte Carlo. Open results/live/fastdyn/trajectories.png and compare the three flights; seed, sources, firmware logs and outcome summaries are retained. The pinned optional environment was created and the reference, 100 g endpoint and one seeded 87.7 g trial all completed the mission and landing in an actual two-core Codespace, taking about 74, 68 and 61 seconds after setup. Show the saved plot if the network is slow. See docs/FASTDYN.md for setup, storage and scope. Main workshop remains model → simulate → identify → optimize. Solver specialization, heterogeneous compute, batched Monte Carlo/RL and extensible AD targets remain research directions.
-
-## A4 · Numerical constraints need validation
-Links: Numerical evidence | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/VERIFICATION.md
-Time: Appendix
-Layout: wide
-Visual: ../results/reference/optimization.png
-Badge: Node solution ≠ exact continuous-time flight
-
-- Reintegrate the inputs independently; inspect errors by physical unit.
-Checkpoint: Small defects, pitch margin and fine rollout are separate checks.
-Notes:
-Default physical constraints: T 0–20 N, torque ±0.35 N m, pitch ±0.55 rad (nodes ±0.54), altitude 0.25–4 m, rotor pairs 0–10 N. Finer/adaptive peak pitch is about 0.542 rad. No interval-bound certificate, actuator dynamics or feedback is provided. IPOPT solves a local NLP. Active bounds can differ by about 1e−8 from floating-point solver tolerance; checks allow 1e−6. RK4 verification uses dt=0.025 s; DOP853 output samples are 0.01 s. These numerical checks are separate from exact-real Lean proofs.

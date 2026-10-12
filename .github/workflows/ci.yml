@@ -59,8 +59,12 @@ jobs:
           name: lean-verification
           path: verification/lean-ci.txt
   container:
-    name: Devcontainer configuration, features and startup
-    runs-on: ubuntu-latest
+    name: Devcontainer configuration, features and startup (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
@@ -74,7 +78,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: results-devcontainer
+          name: results-devcontainer-${{ matrix.os }}
           path: results/live/
   workshop:
     name: ${{ matrix.os }} / Python 3.12

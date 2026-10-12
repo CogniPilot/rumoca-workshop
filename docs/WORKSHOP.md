@@ -34,7 +34,9 @@ compact planar vehicle below for the Python Session API exercises.
    Rumoca opens the scenario editor. This TOML describes the run; it does not
    replace the Modelica equations.
 4. Check **Model = BrowserFlight**, **model file = BrowserFlight.mo**,
-   **source roots = ["."]**, **solver = auto**, and **end time = 8 seconds**.
+   **solver = auto**, and **Batch end time = 8 seconds**. Under **Plot panels**,
+   replace `*states` in **y series** with `x` and `vx` on separate lines so the
+   two quantities are easy to compare.
    Use the scenario settings form, or **Reopen Editor With → Text Editor** to
    inspect the TOML. Its key sections are:
 
@@ -52,6 +54,11 @@ compact planar vehicle below for the Python Session API exercises.
    solver = "auto"
    t_end = 8.0
    ```
+
+   The newly generated TOML may omit `source_roots`: sources next to the model
+   file are found automatically. The explicit `["."]` above describes that
+   same folder. The default generated batch horizon is 10 seconds; change it
+   to 8 in the form and save before running.
 
 5. Save and **Run Current Rumoca Scenario**. Use the scenario editor's Run
    control or the Command Palette command. Inspect horizontal speed `vx` and

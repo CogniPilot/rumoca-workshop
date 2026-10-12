@@ -1,0 +1,172 @@
+{
+  "status": "PASS",
+  "tested_at_utc": "2026-10-12",
+  "browser": "Chromium 150, software rendering",
+  "checks": {
+    "app-mocap_sysid": {
+      "name": "mocap_sysid",
+      "url": "https://cognipilot.github.io/mocap_sysid/",
+      "tested_at": "2026-10-12T05:25:07.285Z",
+      "browser": "Chromium, software WebGL fallback",
+      "steps": [
+        "choose synthetic open-loop dataset",
+        "Time Histories",
+        "Data Splits",
+        "Models \u2192 LinearSS"
+      ],
+      "dataset": "aircraft_6dof_open_loop",
+      "run_metadata": "schema 0.1.0 | 410d7d0 | 6/25/2026, 9:05:31 PM",
+      "models_status": "The fitted parameters behind each browser-runnable prediction method",
+      "scope": "Explore stored benchmark traces/splits/model information. Training and benchmark metrics were not regenerated or independently audited here.",
+      "status": "PASS",
+      "elapsed_seconds": 6.755,
+      "wasm": [],
+      "page_errors": []
+    },
+    "app-rumoca_fixed_wing": {
+      "name": "rumoca_fixed_wing",
+      "url": "https://cognipilot.github.io/rumoca_fixed_wing/",
+      "tested_at": "2026-10-12T05:25:07.271Z",
+      "browser": "Chromium, software WebGL fallback",
+      "steps": [
+        "Autopilot tab",
+        "Start sim",
+        "compiled Modelica controller + plant",
+        "simulation advances",
+        "change controller rate 50 \u2192 20 Hz",
+        "Start sim again to recompile at new rate",
+        "simulation advances at 20 Hz",
+        "Pause"
+      ],
+      "status_text": "CubControl autopilot running lockstep at 50 Hz.",
+      "waypoint_before": "Target WP 2/6 | 5.08 m | 50 Hz target | sim 1.0 s",
+      "waypoint_after": "Target WP 1/6 | 3.74 m | 20 Hz target | sim 0.7 s",
+      "scope": "Public default autopilot UI execution only; no validation of real aircraft or arbitrary edits.",
+      "status": "PASS",
+      "elapsed_seconds": 41.164,
+      "wasm": [
+        {
+          "url": "https://cognipilot.github.io/rumoca_fixed_wing/public/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+          "status": 200
+        }
+      ],
+      "page_errors": []
+    },
+    "app-slam_web": {
+      "name": "slam_web",
+      "url": "https://cognipilot.github.io/slam_web/",
+      "tested_at": "2026-10-12T05:25:07.273Z",
+      "browser": "Chromium, software WebGL fallback",
+      "steps": [
+        "Run default InertialOnly",
+        "time advances; pause",
+        "select ResponsiveInertial",
+        "Run; time advances; pause"
+      ],
+      "default_time": "t = 0.30 s",
+      "variant_time": "t = 0.03 s",
+      "model": "SLAM.Examples.ResponsiveInertial",
+      "rendering_warning": "Software rendering detected: graphics are running on the CPU. Reduced preview: 160 \u00d7 90 RGB-D and 64 \u00d7 128 LiDAR, with graphics below Low. Enable browser hardware acceleration for full quality.",
+      "scope": "Inertial baseline + variant, camera/depth scene; full connected visual SLAM is pending. No mapping/loop-closure or deployment claim.",
+      "status": "PASS",
+      "elapsed_seconds": 42.384,
+      "wasm": [
+        {
+          "url": "https://cognipilot.github.io/slam_web/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+          "status": 200
+        },
+        {
+          "url": "https://cognipilot.github.io/slam_web/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+          "status": 200
+        },
+        {
+          "url": "https://cognipilot.github.io/slam_web/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+          "status": 200
+        },
+        {
+          "url": "https://cognipilot.github.io/slam_web/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+          "status": 200
+        },
+        {
+          "url": "https://cognipilot.github.io/slam_web/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+          "status": 200
+        },
+        {
+          "url": "https://cognipilot.github.io/slam_web/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+          "status": 200
+        },
+        {
+          "url": "https://cognipilot.github.io/slam_web/vendor/rumoca/rumoca_bind_wasm_bg.wasm",
+          "status": 200
+        }
+      ],
+      "page_errors": []
+    },
+    "browser": {
+      "tested_at": "2026-10-12T05:38:34.603Z",
+      "url": "https://rumoca.cognipilot.org/playground/",
+      "frame_url": "https://rumoca.cognipilot.org/playground/app/index.html",
+      "browser": "Chromium",
+      "source": "browser/Quadrotor_browser.mo",
+      "runs": [
+        {
+          "k_quad": 0,
+          "elapsed_seconds": 1.363,
+          "summary": "501 pts, 8 vars (48ms)",
+          "runtime": "Rumoca v0.8.13 - Modelica Compiler"
+        },
+        {
+          "k_quad": 0.08,
+          "elapsed_seconds": 1.317,
+          "summary": "501 pts, 8 vars (11ms)",
+          "runtime": "Rumoca v0.8.13 - Modelica Compiler"
+        }
+      ],
+      "syntax_error_markers": [
+        {
+          "message": "unexpected `;` (expected one of: (, +, -, ., [, break, ... (+13 more))",
+          "startLineNumber": 2
+        },
+        {
+          "message": "unexpected end of input (expected one of: ., algorithm, annotation, block, class, connector, ... (+31 more))",
+          "startLineNumber": 3
+        }
+      ],
+      "scope": "Actual public playground UI; pasted model, used visible gear/settings model selector, selected BrowserFlight, clicked Play at both drag settings; screenshot and plot produced. Python backends execute separately."
+    },
+    "user-guide": {
+      "status": "PASS",
+      "url": "https://cognipilot.github.io/rumoca/user-guide/language/arrays-pde.html#2-d-navierstokes-flow-over-a-naca-2412-airfoil",
+      "tested_at": "2026-10-12T05:26:15.459Z",
+      "browser": "Chromium 150, software WebGPU (SwiftShader)",
+      "original_source_sha256": "262adf7cdc1171a0dd80e7bf4e777a31a9ff5b95d2867dcc70dc03cae22b5f8d",
+      "source_edit": "StopTime = 30 \u2192 StopTime = 2; default NX=30, NY=18 unchanged",
+      "steps": [
+        "Open embedded Monaco editor",
+        "Shorten StopTime",
+        "Simulate on WebGPU",
+        "Select final frame",
+        "Switch Pressure \u2192 Vorticity"
+      ],
+      "status_text": "solver wgsl-ode RK4 (f32) \u00b7 21 points \u00b7 t = 0\u20262 s \u00b7 6754.3 ms",
+      "elapsed_seconds": 24.411,
+      "wasm": [
+        {
+          "url": "https://cognipilot.github.io/rumoca/pkg/release-full-web/rumoca_bind_wasm_bg.wasm",
+          "status": 200
+        },
+        {
+          "url": "https://cognipilot.github.io/rumoca/pkg/release-full-web/rumoca_bind_wasm_bg.wasm",
+          "status": 200
+        },
+        {
+          "url": "https://cognipilot.github.io/rumoca/pkg/release-full-web/rumoca_bind_wasm_diffsol_bg.wasm",
+          "status": 200
+        }
+      ],
+      "page_errors": [],
+      "scope": "Deployed guide UI and a short default-grid simulation. Artificial-compressibility, penalized coarse-grid teaching visualization; no aerodynamic-accuracy, stability, lift/drag or hardware-performance validation."
+    }
+  },
+  "scope": "Fresh public browser UI rehearsals using the committed test scripts. Actual source/model editing and execution were observed. Screenshots were kept separately from the published deck so its artifact provenance remains unchanged. Mathematical validation, CPU workflows and native editor checks have separate receipts."
+}

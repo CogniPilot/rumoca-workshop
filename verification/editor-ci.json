@@ -1,1 +1,371 @@
-{"conclusion":"success","headSha":"b87d1d787056860a83dc88d902a318280c0e83fc","jobs":[{"completedAt":"2026-10-12T03:11:21Z","conclusion":"success","databaseId":114647102606,"name":"editor (ubuntu-latest, linux-x64)","startedAt":"2026-10-12T03:10:39Z","status":"completed","steps":[{"completedAt":"2026-10-12T03:10:41Z","conclusion":"success","name":"Set up job","number":1,"startedAt":"2026-10-12T03:10:40Z","status":"completed"},{"completedAt":"2026-10-12T03:10:47Z","conclusion":"success","name":"Run actions/checkout@v4","number":2,"startedAt":"2026-10-12T03:10:41Z","status":"completed"},{"completedAt":"2026-10-12T03:10:51Z","conclusion":"success","name":"Run actions/setup-node@v4","number":3,"startedAt":"2026-10-12T03:10:47Z","status":"completed"},{"completedAt":"2026-10-12T03:10:54Z","conclusion":"success","name":"Install isolated test harness","number":4,"startedAt":"2026-10-12T03:10:51Z","status":"completed"},{"completedAt":"2026-10-12T03:11:18Z","conclusion":"success","name":"Run xvfb-run -a node verification/vscode-ci.mjs","number":5,"startedAt":"2026-10-12T03:10:54Z","status":"completed"},{"completedAt":"2026-10-12T03:11:18Z","conclusion":"skipped","name":"Run node verification/vscode-ci.mjs","number":6,"startedAt":"2026-10-12T03:11:18Z","status":"completed"},{"completedAt":"2026-10-12T03:11:19Z","conclusion":"success","name":"Run actions/upload-artifact@v4","number":7,"startedAt":"2026-10-12T03:11:18Z","status":"completed"},{"completedAt":"2026-10-12T03:11:19Z","conclusion":"success","name":"Post Run actions/setup-node@v4","number":13,"startedAt":"2026-10-12T03:11:19Z","status":"completed"},{"completedAt":"2026-10-12T03:11:19Z","conclusion":"success","name":"Post Run actions/checkout@v4","number":14,"startedAt":"2026-10-12T03:11:19Z","status":"completed"},{"completedAt":"2026-10-12T03:11:19Z","conclusion":"success","name":"Complete job","number":15,"startedAt":"2026-10-12T03:11:19Z","status":"completed"}],"url":"https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38198722800/job/114647102606"},{"completedAt":"2026-10-12T03:11:57Z","conclusion":"success","databaseId":114647102788,"name":"editor (windows-latest, win32-x64)","startedAt":"2026-10-12T03:10:42Z","status":"completed","steps":[{"completedAt":"2026-10-12T03:10:43Z","conclusion":"success","name":"Set up job","number":1,"startedAt":"2026-10-12T03:10:42Z","status":"completed"},{"completedAt":"2026-10-12T03:10:50Z","conclusion":"success","name":"Run actions/checkout@v4","number":2,"startedAt":"2026-10-12T03:10:43Z","status":"completed"},{"completedAt":"2026-10-12T03:10:55Z","conclusion":"success","name":"Run actions/setup-node@v4","number":3,"startedAt":"2026-10-12T03:10:50Z","status":"completed"},{"completedAt":"2026-10-12T03:11:07Z","conclusion":"success","name":"Install isolated test harness","number":4,"startedAt":"2026-10-12T03:10:55Z","status":"completed"},{"completedAt":"2026-10-12T03:11:07Z","conclusion":"skipped","name":"Run xvfb-run -a node verification/vscode-ci.mjs","number":5,"startedAt":"2026-10-12T03:11:07Z","status":"completed"},{"completedAt":"2026-10-12T03:11:52Z","conclusion":"success","name":"Run node verification/vscode-ci.mjs","number":6,"startedAt":"2026-10-12T03:11:07Z","status":"completed"},{"completedAt":"2026-10-12T03:11:53Z","conclusion":"success","name":"Run actions/upload-artifact@v4","number":7,"startedAt":"2026-10-12T03:11:52Z","status":"completed"},{"completedAt":"2026-10-12T03:11:53Z","conclusion":"success","name":"Post Run actions/setup-node@v4","number":13,"startedAt":"2026-10-12T03:11:53Z","status":"completed"},{"completedAt":"2026-10-12T03:11:55Z","conclusion":"success","name":"Post Run actions/checkout@v4","number":14,"startedAt":"2026-10-12T03:11:53Z","status":"completed"},{"completedAt":"2026-10-12T03:11:55Z","conclusion":"success","name":"Complete job","number":15,"startedAt":"2026-10-12T03:11:55Z","status":"completed"}],"url":"https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38198722800/job/114647102788"},{"completedAt":"2026-10-12T03:11:28Z","conclusion":"success","databaseId":114647102823,"name":"editor (macos-15-intel, darwin-x64)","startedAt":"2026-10-12T03:10:40Z","status":"completed","steps":[{"completedAt":"2026-10-12T03:10:42Z","conclusion":"success","name":"Set up job","number":1,"startedAt":"2026-10-12T03:10:41Z","status":"completed"},{"completedAt":"2026-10-12T03:10:48Z","conclusion":"success","name":"Run actions/checkout@v4","number":2,"startedAt":"2026-10-12T03:10:42Z","status":"completed"},{"completedAt":"2026-10-12T03:10:50Z","conclusion":"success","name":"Run actions/setup-node@v4","number":3,"startedAt":"2026-10-12T03:10:48Z","status":"completed"},{"completedAt":"2026-10-12T03:10:52Z","conclusion":"success","name":"Install isolated test harness","number":4,"startedAt":"2026-10-12T03:10:50Z","status":"completed"},{"completedAt":"2026-10-12T03:10:52Z","conclusion":"skipped","name":"Run xvfb-run -a node verification/vscode-ci.mjs","number":5,"startedAt":"2026-10-12T03:10:52Z","status":"completed"},{"completedAt":"2026-10-12T03:11:23Z","conclusion":"success","name":"Run node verification/vscode-ci.mjs","number":6,"startedAt":"2026-10-12T03:10:52Z","status":"completed"},{"completedAt":"2026-10-12T03:11:24Z","conclusion":"success","name":"Run actions/upload-artifact@v4","number":7,"startedAt":"2026-10-12T03:11:23Z","status":"completed"},{"completedAt":"2026-10-12T03:11:24Z","conclusion":"success","name":"Post Run actions/setup-node@v4","number":13,"startedAt":"2026-10-12T03:11:24Z","status":"completed"},{"completedAt":"2026-10-12T03:11:25Z","conclusion":"success","name":"Post Run actions/checkout@v4","number":14,"startedAt":"2026-10-12T03:11:24Z","status":"completed"},{"completedAt":"2026-10-12T03:11:25Z","conclusion":"success","name":"Complete job","number":15,"startedAt":"2026-10-12T03:11:25Z","status":"completed"}],"url":"https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38198722800/job/114647102823"},{"completedAt":"2026-10-12T03:11:31Z","conclusion":"success","databaseId":114647102826,"name":"editor (macos-latest, darwin-arm64)","startedAt":"2026-10-12T03:10:45Z","status":"completed","steps":[{"completedAt":"2026-10-12T03:10:47Z","conclusion":"success","name":"Set up job","number":1,"startedAt":"2026-10-12T03:10:46Z","status":"completed"},{"completedAt":"2026-10-12T03:10:55Z","conclusion":"success","name":"Run actions/checkout@v4","number":2,"startedAt":"2026-10-12T03:10:47Z","status":"completed"},{"completedAt":"2026-10-12T03:10:56Z","conclusion":"success","name":"Run actions/setup-node@v4","number":3,"startedAt":"2026-10-12T03:10:55Z","status":"completed"},{"completedAt":"2026-10-12T03:10:58Z","conclusion":"success","name":"Install isolated test harness","number":4,"startedAt":"2026-10-12T03:10:56Z","status":"completed"},{"completedAt":"2026-10-12T03:10:58Z","conclusion":"skipped","name":"Run xvfb-run -a node verification/vscode-ci.mjs","number":5,"startedAt":"2026-10-12T03:10:58Z","status":"completed"},{"completedAt":"2026-10-12T03:11:26Z","conclusion":"success","name":"Run node verification/vscode-ci.mjs","number":6,"startedAt":"2026-10-12T03:10:58Z","status":"completed"},{"completedAt":"2026-10-12T03:11:28Z","conclusion":"success","name":"Run actions/upload-artifact@v4","number":7,"startedAt":"2026-10-12T03:11:26Z","status":"completed"},{"completedAt":"2026-10-12T03:11:28Z","conclusion":"success","name":"Post Run actions/setup-node@v4","number":13,"startedAt":"2026-10-12T03:11:28Z","status":"completed"},{"completedAt":"2026-10-12T03:11:28Z","conclusion":"success","name":"Post Run actions/checkout@v4","number":14,"startedAt":"2026-10-12T03:11:28Z","status":"completed"},{"completedAt":"2026-10-12T03:11:29Z","conclusion":"success","name":"Complete job","number":15,"startedAt":"2026-10-12T03:11:28Z","status":"completed"}],"url":"https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38198722800/job/114647102826"}],"status":"completed"}
+{
+  "conclusion": "success",
+  "headSha": "77e3b2bb3aee68fdc23e78a118546c91d2b01fd8",
+  "jobs": [
+    {
+      "completedAt": "2026-10-12T06:05:10Z",
+      "conclusion": "success",
+      "databaseId": 114684171719,
+      "name": "editor (macos-latest, darwin-arm64)",
+      "startedAt": "2026-10-12T06:04:20Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-12T06:04:21Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-12T06:04:20Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:32Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "startedAt": "2026-10-12T06:04:21Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:33Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v4",
+          "number": 3,
+          "startedAt": "2026-10-12T06:04:32Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:35Z",
+          "conclusion": "success",
+          "name": "Install isolated test harness",
+          "number": 4,
+          "startedAt": "2026-10-12T06:04:33Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:35Z",
+          "conclusion": "skipped",
+          "name": "Run xvfb-run -a node verification/vscode-ci.mjs",
+          "number": 5,
+          "startedAt": "2026-10-12T06:04:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:04Z",
+          "conclusion": "success",
+          "name": "Run node verification/vscode-ci.mjs",
+          "number": 6,
+          "startedAt": "2026-10-12T06:04:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:06Z",
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4",
+          "number": 7,
+          "startedAt": "2026-10-12T06:05:04Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:06Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v4",
+          "number": 13,
+          "startedAt": "2026-10-12T06:05:06Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:07Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 14,
+          "startedAt": "2026-10-12T06:05:06Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:09Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 15,
+          "startedAt": "2026-10-12T06:05:07Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38210766937/job/114684171719"
+    },
+    {
+      "completedAt": "2026-10-12T06:05:57Z",
+      "conclusion": "success",
+      "databaseId": 114684171901,
+      "name": "editor (macos-15-intel, darwin-x64)",
+      "startedAt": "2026-10-12T06:04:18Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-12T06:04:21Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-12T06:04:19Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:35Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "startedAt": "2026-10-12T06:04:21Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:39Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v4",
+          "number": 3,
+          "startedAt": "2026-10-12T06:04:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:44Z",
+          "conclusion": "success",
+          "name": "Install isolated test harness",
+          "number": 4,
+          "startedAt": "2026-10-12T06:04:39Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:44Z",
+          "conclusion": "skipped",
+          "name": "Run xvfb-run -a node verification/vscode-ci.mjs",
+          "number": 5,
+          "startedAt": "2026-10-12T06:04:44Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:52Z",
+          "conclusion": "success",
+          "name": "Run node verification/vscode-ci.mjs",
+          "number": 6,
+          "startedAt": "2026-10-12T06:04:44Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:54Z",
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4",
+          "number": 7,
+          "startedAt": "2026-10-12T06:05:52Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:54Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v4",
+          "number": 13,
+          "startedAt": "2026-10-12T06:05:54Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:55Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 14,
+          "startedAt": "2026-10-12T06:05:54Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:55Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 15,
+          "startedAt": "2026-10-12T06:05:55Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38210766937/job/114684171901"
+    },
+    {
+      "completedAt": "2026-10-12T06:04:56Z",
+      "conclusion": "success",
+      "databaseId": 114684171952,
+      "name": "editor (ubuntu-latest, linux-x64)",
+      "startedAt": "2026-10-12T06:04:15Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-12T06:04:17Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-12T06:04:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:25Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "startedAt": "2026-10-12T06:04:17Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:26Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v4",
+          "number": 3,
+          "startedAt": "2026-10-12T06:04:25Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:29Z",
+          "conclusion": "success",
+          "name": "Install isolated test harness",
+          "number": 4,
+          "startedAt": "2026-10-12T06:04:26Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:52Z",
+          "conclusion": "success",
+          "name": "Run xvfb-run -a node verification/vscode-ci.mjs",
+          "number": 5,
+          "startedAt": "2026-10-12T06:04:29Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:52Z",
+          "conclusion": "skipped",
+          "name": "Run node verification/vscode-ci.mjs",
+          "number": 6,
+          "startedAt": "2026-10-12T06:04:52Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:53Z",
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4",
+          "number": 7,
+          "startedAt": "2026-10-12T06:04:52Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:53Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v4",
+          "number": 13,
+          "startedAt": "2026-10-12T06:04:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:53Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 14,
+          "startedAt": "2026-10-12T06:04:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:53Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 15,
+          "startedAt": "2026-10-12T06:04:53Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38210766937/job/114684171952"
+    },
+    {
+      "completedAt": "2026-10-12T06:05:58Z",
+      "conclusion": "success",
+      "databaseId": 114684171969,
+      "name": "editor (windows-latest, win32-x64)",
+      "startedAt": "2026-10-12T06:04:15Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-12T06:04:17Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-12T06:04:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:27Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "startedAt": "2026-10-12T06:04:17Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:31Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v4",
+          "number": 3,
+          "startedAt": "2026-10-12T06:04:27Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:42Z",
+          "conclusion": "success",
+          "name": "Install isolated test harness",
+          "number": 4,
+          "startedAt": "2026-10-12T06:04:31Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:04:42Z",
+          "conclusion": "skipped",
+          "name": "Run xvfb-run -a node verification/vscode-ci.mjs",
+          "number": 5,
+          "startedAt": "2026-10-12T06:04:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:52Z",
+          "conclusion": "success",
+          "name": "Run node verification/vscode-ci.mjs",
+          "number": 6,
+          "startedAt": "2026-10-12T06:04:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:53Z",
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4",
+          "number": 7,
+          "startedAt": "2026-10-12T06:05:52Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:54Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v4",
+          "number": 13,
+          "startedAt": "2026-10-12T06:05:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:56Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 14,
+          "startedAt": "2026-10-12T06:05:54Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-12T06:05:56Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 15,
+          "startedAt": "2026-10-12T06:05:56Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38210766937/job/114684171969"
+    }
+  ],
+  "status": "completed"
+}

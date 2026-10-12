@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "runs": [
+    {
+      "file": "rumoca-result.20261012T060449Z.browserflight.json",
+      "model": "BrowserFlight",
+      "final_values": {
+        "T": 11.772,
+        "tau": 0,
+        "x": 27.95222338542964,
+        "z": 1,
+        "theta": 0,
+        "vx": 1.8071664921854549,
+        "vz": 0,
+        "omega": 0
+      },
+      "points": 501,
+      "variables": 8,
+      "requested": {
+        "solver": "auto",
+        "t_start": 0,
+        "t_end": 8,
+        "dt": null,
+        "rtol": 1e-06,
+        "atol": 1e-06
+      },
+      "actual": {
+        "t_start": 0,
+        "t_end": 8,
+        "points": 501,
+        "variables": 8
+      }
+    },
+    {
+      "file": "rumoca-result.20261012T061129Z.browserflight.json",
+      "model": "BrowserFlight",
+      "final_values": {
+        "T": 11.772,
+        "tau": 0,
+        "x": 15.7805950476291,
+        "z": 1,
+        "theta": 0,
+        "vx": 0.6311154993048391,
+        "vz": 0,
+        "omega": 0
+      },
+      "points": 501,
+      "variables": 8,
+      "requested": {
+        "solver": "auto",
+        "t_start": 0,
+        "t_end": 8,
+        "dt": null,
+        "rtol": 1e-06,
+        "atol": 1e-06
+      },
+      "actual": {
+        "t_start": 0,
+        "t_end": 8,
+        "points": 501,
+        "variables": 8
+      }
+    }
+  ],
+  "model_restored": "PASS",
+  "tested_at_utc": "2026-10-12T06:16:15.092927+00:00",
+  "source_commit": "77e3b2bb3aee68fdc23e78a118546c91d2b01fd8",
+  "environment": "Actual two-core GitHub Codespace, native Rumoca Modelica 0.10.2, VS Code desktop 1.119.0 over Remote SSH",
+  "steps": [
+    "Open BrowserFlight.mo",
+    "Click lightning-bolt Create Rumoca Scenario",
+    "Save generated TOML next to model",
+    "Set batch horizon 10 \u2192 8 seconds",
+    "Set y series to x and vx",
+    "Save and Run Simulation",
+    "Inspect completed Results panel and Run Details",
+    "Change saved quadratic drag 0 \u2192 0.08",
+    "Run same scenario again; inspect Results",
+    "Restore canonical model"
+  ],
+  "checks": [
+    "Both runs reach 8 s with 501 points and 8 variables",
+    "Linear coast agrees with analytic solution within 1e-4 m and m/s",
+    "Quadratic coast agrees with independent JAX result within 1e-4 m and m/s",
+    "Quadratic drag reduces travel"
+  ],
+  "scope": "Actual native scenario editor and results UI plus saved numerical payloads. The required native VSIX was installed into the Remote SSH server for this additional desktop route. Codespaces preinstalls it into its own cloud extension directory. Initial indexing warning from the optional upstream scenario motivated renaming that snapshot; fresh-container startup is qualified separately."
+}

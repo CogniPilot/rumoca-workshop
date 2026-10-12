@@ -6,9 +6,9 @@ smooth ODE and its stated parameters, not arbitrary Modelica or real flight.
 
 ## Reproducibility and measured CPU time
 
-[Clean CI run 38189451071](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38189451071)
-at commit `5c59bd3` passed all **seven** jobs: four Python OS runners,
-full devcontainer configuration, features and startup commands, pinned-flake CPU/Torch checks, and
+[Clean CI run 38210766972](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38210766972)
+at commit `77e3b2b` passed all **eight** jobs: four Python OS runners,
+Linux x64 and ARM64 devcontainer configuration and startup commands, pinned-flake CPU/Torch checks, and
 generated-equation Lean proof checking.
 The machine-readable [job receipt](../verification/ci-jobs.json) and
 [platform reports](../verification/platforms) record exact platforms and results.
@@ -37,7 +37,8 @@ in clean CI. Frozen Python 3.12 dependencies: Rumoca 0.10.2, JAX 0.4.38,
 CasADi 3.7.2, NumPy 2.2.6, SciPy 1.15.3, Matplotlib 3.10.3; uv 0.11.21 in CI.
 No GPU/CUDA or attendee compiler installation is needed.
 
-Linux ARM64 wheel URLs are pinned but not executed in this matrix. macOS ≥14,
+The Linux ARM64 core packages also ran in container CI. The optional Torch
+target is restricted to Linux x64. macOS ≥14,
 glibc ≥2.28 Linux x64, and Windows x64 are supported wheel assumptions; CI
 qualifies the exact versions above, not every older OS build.
 
@@ -117,7 +118,7 @@ Verified activation, no errors on the canonical model, `sin` completion,
 parameter hover, errors on intentionally invalid syntax, and clean diagnostics
 after restoring valid source. CI checks the exact version and
 [release VSIX hashes](../verification/vsix-sha256.json) before qualification.
-[Editor CI run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38189450891)
+[Editor CI run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38210766937)
 passed all four jobs. Receipts: [verification/editors](../verification/editors),
 local [vscode-linux.json](../verification/vscode-linux.json), actual
 `vscode-quadrotor.png`, and test source in `verification/`.
@@ -149,7 +150,8 @@ complete rollout gradients and fixed-sampling fine integration passed.
 in the actual two-core Codespace: about **11 s** and **14 s** after package setup.
 This is a restricted differentiable policy-learning task with known parameters,
 not a full-flight or model-free RL qualification. The optional CPU package is
-qualified on Linux x64 only and is excluded from the base install.
+qualified on Linux x64 only. It remains optional for native uv setup; the
+published x64 container caches and prepares it for the workshop.
 
 The deployed [user guide](https://cognipilot.github.io/rumoca/user-guide/) embeds
 editors and simulations. Its NACA flow example passed an edit from 30 to 2 s,
@@ -197,6 +199,13 @@ visual-SLAM completion, real flight or the applications’ complete mathematics.
 The workshop’s planar-model Lean proofs do not cover these different models.
 Agents helped build the apps, as described by the presenters; engineering
 review and validation remain necessary.
+
+The October 12 [browser rehearsal](../verification/rehearsal-browser.json)
+repeated the deployed fixed-wing, SLAM and mocap interactions, the NACA field
+switching and both playground drag runs. All completed successfully, with no
+application page errors. This refresh keeps the published slide screenshots
+and their provenance intact; elapsed times include browser loading and vary
+with network and software rendering.
 
 ## Qualified package artifacts
 
@@ -299,10 +308,21 @@ the planar Session API exercise remains separate. The new frame-conversion
 explanation was checked by exact matrix multiplication. The [settings
 walkthrough](SIMULATION_SETUP.md) links the primary files.
 
+The [native scenario rehearsal](../verification/vscode-scenario.json) clicked
+the lightning bolt in VS Code inside the actual Codespace, saved the generated
+TOML, set an eight-second horizon and `x`/`vx` plots, then ran both drag cases.
+Both produced 501 points and eight variables. The linear coast matched the
+analytic solution; the quadratic coast matched an independent JAX run within
+1e-4 m and m/s. The canonical model was restored. The copied booster TOML is
+now an inspection-only `.example` file, so its unbundled upstream library is
+not automatically indexed when opening the core workspace.
+
 The [prebuilt-image Codespace check](../verification/codespace-prebuilt.json)
 confirms Rumoca **0.10.2**, the full core numerical workflow, all three terminal
 agents, the requested editor extensions and the native LSP executable in an
-actual two-core cloud environment. Its core test took **19.59 seconds** after
-setup. Initial VM allocation and the approximately 2 GB image pull take
+actual two-core cloud environment rebuilt with the replacement image. Its
+lifecycle core test took **21.39 seconds** after setup. All three interactive
+terminal screens then passed without accounts or model requests. Initial VM
+allocation and the approximately 2.3 GB x64 image pull take
 additional time; there is no shared Codespaces snapshot prebuild. This receipt
 distinguishes installed extensions from separately qualified editor behavior.

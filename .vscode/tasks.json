@@ -38,6 +38,18 @@
       "problemMatcher": []
     },
     {
+      "label": "Workshop: FMU and eFMU export",
+      "type": "process",
+      "command": "uv",
+      "args": [
+        "run",
+        "--frozen",
+        "python",
+        "examples/export_fmi.py"
+      ],
+      "problemMatcher": []
+    },
+    {
       "label": "Workshop: smoke test",
       "type": "process",
       "command": "uv",

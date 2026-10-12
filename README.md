@@ -51,6 +51,7 @@ Ctrl+Shift+V (Linux/Windows), Cmd+Shift+V (Mac). Open the PDF for slides.
 
 After the core: [browser experiments](docs/BROWSER_APPS.md),
 [open challenge](docs/CHALLENGE.md), [custom targets](docs/BACKENDS.md),
+[FMU / eFMU export](docs/EXPORTS.md),
 [optional FastDyn/QEMU Codespace](docs/FASTDYN.md),
 [optional coding agents](docs/AGENT_SETUP.md).
 The upcoming [PURT pylon racing competition](https://pylon-racing.geddes.rcac.purdue.edu/)

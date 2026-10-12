@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "source_sha256": "960e4ebd6ecbe60671bc3d5e086e6be1dc568af5fb9126066a24080052c8a6d3",
+  "efmu_sha256": "5e3200e3d5b91214160d07174978f64e16526d735f13669c864c05d8b0c6a110",
+  "script_sha256": "803bf94aecbdd20f767cb84e464951f21703f7dcdac9cd4b6a94ae2b8f82b95e",
+  "harness_sha256": "d1ae0de339798fed74d26966498e296dc30858ca8fbc22112f22a2e9c1e5930a",
+  "schemas": [
+    "__content.xml",
+    "AlgorithmCode/manifest.xml",
+    "ProductionCode/manifest.xml"
+  ],
+  "checksum_checks": 9,
+  "generated_C_cases": 515,
+  "max_thrust_error_N": 2.8742424014183143e-06,
+  "hover_thrust_N": 11.7720013,
+  "high_saturation_N": 25.0,
+  "low_saturation_N": 0.200000003,
+  "sample_period_s": 0.01,
+  "real_precision": "float32",
+  "scope": "Bundled eFMI schemas and checksum web; compile and execute generated C for finite test inputs. No MISRA, DO-178C, full stability or drone safety claim."
+}

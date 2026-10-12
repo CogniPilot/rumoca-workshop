@@ -20,7 +20,7 @@ extension. Local users follow [setup](LOCAL_SETUP.md).
 
 ## Interactive quadrotor walkthrough
 
-Slides 7–10 use the [user guide’s Quadrotor SIL](https://cognipilot.github.io/rumoca/user-guide/simulation/interactive.html#quadrotor-sil).
+Slides 8–11 use the [user guide’s Quadrotor SIL](https://cognipilot.github.io/rumoca/user-guide/simulation/interactive.html#quadrotor-sil).
 Follow [the simulation settings and Three.js walkthrough](SIMULATION_SETUP.md)
 for the TOML, controls, signal routing and frame conversion. Then return to the
 compact planar vehicle below for the Python Session API exercises.
@@ -143,6 +143,6 @@ The optional [FastDyn firmware demo](FASTDYN.md) has a separate Codespace.
 extensions. They are outside the core Session → JAX → CasADi path.
 
 If a setup or run fails, use [recovery](TROUBLESHOOTING.md), the presenters' plots
-or the [browser playground](https://rumoca.cognipilot.org/playground/).
+or the [browser playground](https://cognipilot.github.io/rumoca/).
 Finish by [joining the research community](COMMUNITY.md) with your model and one
 result we can check together.

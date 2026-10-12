@@ -1,7 +1,7 @@
 # Configure and visualize a quadrotor simulation
 
 Open the [user guide’s Quadrotor SIL example](https://cognipilot.github.io/rumoca/user-guide/simulation/interactive.html#quadrotor-sil).
-Slides 7–10 walk through its actual scenario and Three.js scene. This example
+Slides 8–11 walk through its actual scenario and Three.js scene. This example
 uses a full 3D vehicle and controller; the workshop’s `models/Quadrotor.mo`
 is a smaller planar model for the Python Session API exercises.
 

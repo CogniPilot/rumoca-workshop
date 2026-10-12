@@ -85,7 +85,7 @@ Both raw code-generation targets `jax-ode` and `casadi-ode` were executed.
 
 ## Lean and primary literature
 
-Slides 4 and 19 now connect the compiler representations with the actual Lean
+Slides 5 and 20 now connect the compiler representations with the actual Lean
 target: AST/Flat/DAE/Solve, the separate GaLEC embedded-control projection,
 manifest IR/capabilities/files, Jinja iteration/substitution and a scoped hover
 theorem. The [template exercise receipt](../verification/lean-target-walkthrough.json)
@@ -111,13 +111,14 @@ identifiability, global optimum, all-time state constraints or safe flight.
 
 ## Browser and editor
 
-The actual public [playground](https://rumoca.cognipilot.org/playground/) was
-tested in Chromium, with the complete browser bundle, visible gear/settings
-model selector, **BrowserFlight** selected, and Play at quadratic values 0 and
-0.08. Both compiled balanced and produced **501 points, 8 variables** and a
-plot. Browser-reported simulation times approximately 48 ms and 10 ms;
-automation waited longer for rendering. Runtime **0.8.13**, distinct from the
-Python release. Intentional syntax errors produced browser LSP markers.
+The actual public [browser editor](https://cognipilot.github.io/rumoca/) was
+retested in Chromium 154 after the link change. Wait for **Runtime: Ready**,
+paste the complete browser bundle into Main.mo, click the lightning bolt
+**Create Scenario**, set **Model name = BrowserFlight** and **Batch end time = 8 s**,
+then Save and Run Simulation. Both quadratic values 0 and 0.08 compiled balanced
+and produced **501 points, 8 variables** and plots. Intentional syntax errors
+produced browser LSP markers; no page errors were observed. This public browser
+build is deployed independently of the pinned Python/CLI release.
 Evidence: [browser.json](../verification/browser.json), actual screenshots in
 `slides/assets/`, reproducible [UI test](../verification/browser-proof.mjs).
 
@@ -233,9 +234,37 @@ needs GitHub's staged VS Code Server and is qualified by the separate actual
 cloud rehearsal. Formal CI pins the public Mathlib release and checks the
 generated proof terms from a clean environment.
 
+## FMU and eFMU command-line export
+
+The [export rehearsal](../verification/exports.json) uses the released
+Rumoca 0.10.2 CLI and **FMPy 0.3.30**. Both FMI 2 and 3 packages passed
+FMPy validation and native C compilation. Sixteen Linux x64 runs cover both
+Model Exchange and Co-Simulation, with hover, analytic linear coast,
+nonlinear drag and coupled pitch, each sampled at 101 times. Every state
+was compared with the same Modelica model's Session-generated JAX dynamics;
+the largest observed SI absolute discrepancy was about **6.2e-8** against
+a per-state **3e-6** tolerance. The ARM64 route tests Co-Simulation because
+FMPy's packaged Linux CVode library is x64. The exporter does not add missing
+unit annotations: 0.10.2 FMU XML records the time unit, and the tests/documentation
+use the source's explicit SI contract for other quantities.
+
+The exported 100 Hz altitude-controller eFMU passed three bundled XML schemas
+and nine checksum checks. The actual archived generated C99 was compiled and
+executed for **515 finite input cases**, including hover and both thrust limits;
+the maximum observed float32 thrust error was **2.9e-6 N**, below the explicit
+**4e-6 N** tolerance. This tests packaging and the controller calling/arithmetic
+contract; it does not establish full closed-loop stability, scheduling,
+MISRA/DO-178C compliance or physical-flight safety. The existing Lean proofs
+remain scoped to the continuous planar model's exact-real equations; they do
+not certify the FMI ABI or this controller's generated float32 machine code.
+
+[EXPORTS.md](EXPORTS.md) provides exact CLI/FMPy/C commands. Linux x64/ARM64 CI
+and the image publishing workflow repeat the exports and execution. FMI-LS-WASM
+is identified as planned for Rumoca **0.11**, separate from this native-FMU test.
+
 ## Presentation and external limits
 
-The deck has 31 main slides, no appendices, a contiguous **180-minute** schedule
+The deck has 35 main slides, no appendices, a contiguous **180-minute** schedule
 and **two ten-minute breaks**. One editable Markdown source builds both PPTX
 with speaker notes and PDF. Presenter credits name **James Goppert and Micah
 Condie**. The design uses Purdue gold with deep navy, a light background for
@@ -243,14 +272,14 @@ technical figures, and teal/blue/terracotta accents for the three core phases.
 The opening explains why Rumoca and the broader Lie-group, reachability,
 formal-verification, identification and digital-twin context. A dedicated PURT
 pylon-racing slide links the competition site and its next event's planned
-Rumoca use; it does not repeat old event dates. All 31 PDF pages were rendered; revised layouts were visually reviewed;
+Rumoca use; it does not repeat old event dates. All 35 PDF pages were rendered; revised layouts were visually reviewed;
 commands, QR, screenshots and reference plots are real. Presenter text uses
 large type; small evidence plots/screenshots are backups for live zoomable demos.
 The PDF embeds fonts. Inspect the PPTX in the actual presentation application
 for font substitution/projector differences before class.
 
 The editable PPTX was also rendered by **LibreOffice Impress 26.2.1.2** on Linux.
-All 31 pages retained every authored text item, with extracted text inside page
+All 35 pages retained every authored text item, with extracted text inside page
 bounds. [Presentation receipt](../verification/presentation.json) records the
 artifact hash and scope. This adds an office-renderer check to the PDF review;
 the actual presentation laptop and projector remain preflight items.
@@ -260,7 +289,19 @@ public-page previews and simulator/app/source links. Their source integrations
 were reviewed at recorded commits; both public pages loaded with HTTP 200.
 [Community-user receipt](../verification/community-users.json) records that scope.
 No third-party mission or agent workflow was executed, and these projects are
-outside the workshop mathematical proof scope.
+outside the workshop mathematical proof scope. Taskyon is presented as
+browser-native Modelica/Rumoca tooling for reusable AI-friendly system-design
+recipes; full recipe replay/agent orchestration was not rehearsed.
+
+The SLAM slide explains whole-system mathematical representation, AD across
+smooth vision kernels, tensor-native Solve IR, heterogeneous CPU/GPU placement
+and precision planning as research directions. Its roughly 12-million-variable
+scale is the maintainer's estimate, not an independently recounted workshop
+statistic. Only the inertial browser subset was rehearsed. The NACA/PDE slide
+connects array-native modeling to our differentiable vortex-lattice experiments;
+no vortex-lattice optimizer or differentiated XFOIL implementation is supplied
+or numerically qualified by this workshop. Method differences and derivative
+obligations remain explicit in notes and linked guides.
 
 An actual two-core Codespace built the devcontainer and passed the core, audit,
 optional Torch and native remote-LSP checks. The [cloud receipt](../verification/codespace.json)
@@ -319,7 +360,7 @@ remain untested.
 
 The [quadrotor guide rehearsal](../verification/quadrotor-guide.json) covers
 its actual scenario/scene sources, browser start, rendering, keyboard arming
-and stop. Slides 7–10 use that example for TOML and Three.js configuration;
+and stop. Slides 8–11 use that example for TOML and Three.js configuration;
 the planar Session API exercise remains separate. The new frame-conversion
 explanation was checked by exact matrix multiplication. The [settings
 walkthrough](SIMULATION_SETUP.md) links the primary files.

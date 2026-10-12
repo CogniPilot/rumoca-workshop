@@ -104,7 +104,7 @@ def main():
     with zipfile.ZipFile(ROOT/"slides/workshop.pptx") as deck:
         slides = [n for n in deck.namelist() if re.fullmatch(r"ppt/slides/slide\d+\.xml", n)]
         notes = [n for n in deck.namelist() if re.fullmatch(r"ppt/notesSlides/notesSlide\d+\.xml", n)]
-        assert len(slides) == build["slides"] == len(notes) == 32
+        assert len(slides) == build["slides"] == len(notes) == 35
         presentation = ET.fromstring(deck.read("ppt/presentation.xml"))
         assert len(presentation.find("p:sldIdLst", ns)) == len(slides)
         for index in range(1, len(slides)+1):
@@ -132,6 +132,17 @@ def main():
         for target, expected in receipt["target_sha256"].items():
             assert digest(f"templates/torch-ode/{target}") == expected
     assert read("verification/user-guide.json")["status"] == "PASS"
+    exports = read("verification/exports.json")
+    assert exports["status"] == "PASS" and exports["cli_version"] == "rumoca 0.10.2"
+    for fmu in exports["fmu"]:
+        assert fmu["status"] == "PASS" and fmu["source_sha256"] == source
+        assert fmu["script_sha256"] == digest("examples/run_fmu.py")
+        assert {case["case"] for case in fmu["checks"]} == {"hover", "linear coast", "quadratic coast", "pitch excitation"}
+    efmu = exports["efmu"]
+    assert efmu["status"] == "PASS" and efmu["generated_C_cases"] == 515 and efmu["checksum_checks"] == 9
+    assert efmu["source_sha256"] == digest("extras/exports/HoverController.mo")
+    assert efmu["script_sha256"] == digest("examples/export_fmi.py")
+    assert efmu["harness_sha256"] == digest("extras/exports/check_controller.c")
     community = read("verification/community-users.json")
     assert community["status"] == "PASS"
     for project in community["projects"]:
@@ -144,6 +155,7 @@ def main():
                         "rounded slide and presenter schedules agree", "shared model/result/CSV/formal/browser provenance", "deck input/artifact hashes",
                         "PPTX slides, notes, clickable links and office-renderer provenance", "app rehearsal receipts",
                         "Torch target and policy source/template provenance", "embedded user-guide rehearsal receipt",
+                        "CLI FMI 2/3 FMPy and eFMU generated-C rehearsal provenance",
                         "LunCoSim and Taskyon public-page/source integration review"],
               "scope":"Packaging consistency. Mathematical, numerical and UI checks have separate receipts."}
     (ROOT/"verification/materials.json").write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8", newline="\n")

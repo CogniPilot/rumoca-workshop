@@ -31,3 +31,11 @@ The community-user slide credits [LunCoSim](https://lunco.space/luncosim)
 and [Taskyon](https://taskyon.space/). Its previews are captures of their public
 project pages taken October 12, 2026, with the project names and links retained.
 They illustrate the project interfaces; no mission or agent execution is claimed.
+
+## Additional community previews
+
+`community-forgelab.png` records the public ForgeLab welcome screen, supplied
+by Micah Condie in PR #2 (October 12, 2026): <https://app.forgelab.space/#/forgelab>.
+`community-joulios.jpg` is the public thumbnail of the Modelica Joulios Power
+Analysis Demo: <https://www.youtube.com/watch?v=VsuDOLvGzg8>. These previews
+acknowledge the independent projects; their full simulations were not executed.

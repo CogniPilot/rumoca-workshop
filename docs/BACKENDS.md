@@ -1,5 +1,9 @@
 # Make a small target; learn with the same vehicle
 
+For terminal packaging and independent execution, see
+[FMU and eFMU export](EXPORTS.md): native FMI 2/3 via FMPy, plus fixed-sample
+GALEC/C99 controller export. FMI-LS-WASM is planned for Rumoca 0.11.
+
 Rumoca separates declared physics from numerical execution. This optional
 presenter demonstration uses the **same `models/Quadrotor.mo`** as the core,
 then renders its checked scalar Solve program into batched PyTorch operations.
@@ -84,7 +88,15 @@ and PyTorch, and deployment across CPU, GPU and embedded hardware. Today's core
 qualifies specific CPU workflows; this target demonstrates one extension seam.
 The guide's browser flow demo exercises a separate experimental WebGPU path.
 Automatic hardware partitioning, general solver optimization and production
-RL throughput remain research questions to benchmark and validate.
+RL throughput remain research questions to benchmark and validate. Array-native
+IR is also important for PDE discretizations and connected vision pipelines.
+Our differentiable vortex-lattice experiments target aerodynamic design:
+geometry → model → objective → gradients → geometry update. An XFOIL-like
+design workflow is an analogy; vortex-lattice and XFOIL airfoil/boundary-layer
+models have different assumptions. The NACA flow editor is a qualitative PDE
+demo, not a supplied vortex-lattice or differentiated XFOIL implementation.
+For method context, see [AeroSandbox's vortex-lattice implementation](https://aerosandbox.readthedocs.io/en/master/autoapi/aerosandbox/aerodynamics/aero_3D/vortex_lattice_method/)
+and [XFOIL](https://web.mit.edu/drela/Public/web/xfoil/).
 
 ## Compiler stages and target inputs
 
@@ -108,7 +120,7 @@ checked representation before the target renders it.
 
 ## Walk through the Lean target
 
-Slide 19 uses these actual files. Start with
+Slide 20 uses these actual files. Start with
 [target.toml](../templates/lean-proof/target.toml): `version = 1` is the manifest
 version and `ir = "solve"` selects its input representation. `[capabilities]`
 declares supported features. Each `[[files]]` block names an output and its

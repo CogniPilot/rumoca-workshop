@@ -10,7 +10,7 @@
       forSystem = system:
         let
           pkgs = import nixpkgs { inherit system; };
-          tools = (with pkgs; [ uv python312 nodejs git gh ])
+          tools = (with pkgs; [ uv python312 nodejs git gh stdenv.cc cmake gnumake ])
             ++ nixpkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [ pkgs.devcontainer ];
           runtime = nixpkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc.lib pkgs.zlib ];
         in {
@@ -20,10 +20,12 @@
             OMP_NUM_THREADS = "1";
             OPENBLAS_NUM_THREADS = "1";
             MKL_NUM_THREADS = "1";
+            WORKSHOP_CMAKE = "${pkgs.cmake}/bin/cmake";
             shellHook = ''
               export TMPDIR="$HOME/scratch/rumoca-workshop/tmp"
               export UV_CACHE_DIR="$HOME/scratch/rumoca-workshop/cache/uv"
               export UV_PROJECT_ENVIRONMENT="$HOME/scratch/rumoca-workshop/venv"
+              export WORKSHOP_CMAKE="${pkgs.cmake}/bin/cmake"
               mkdir -p "$TMPDIR" "$UV_CACHE_DIR"
               ${nixpkgs.lib.optionalString pkgs.stdenv.hostPlatform.isLinux ''export LD_LIBRARY_PATH="${runtime}''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"''}
             '';
@@ -36,6 +38,7 @@
               export UV_CACHE_DIR="$HOME/scratch/rumoca-workshop/cache/uv"
               export UV_PROJECT_ENVIRONMENT="$HOME/scratch/rumoca-workshop/venv"
               mkdir -p "$TMPDIR" "$UV_CACHE_DIR"
+              export WORKSHOP_CMAKE="${pkgs.cmake}/bin/cmake"
               ${nixpkgs.lib.optionalString pkgs.stdenv.hostPlatform.isLinux ''export LD_LIBRARY_PATH="${runtime}''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"''}
               exec bash scripts/ci_checks.sh "$@"
             '';

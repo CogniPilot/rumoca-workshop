@@ -1,0 +1,287 @@
+{
+  "status": "PASS",
+  "fmu": [
+    {
+      "status": "PASS",
+      "rumoca_version": "0.10.2",
+      "fmpy_version": "0.3.30",
+      "fmi_version": "2.0",
+      "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+      "input_units_SI": {
+        "T": "N",
+        "tau": "N.m"
+      },
+      "unit_metadata_note": "Rumoca 0.10.2 omits non-time units in FMU XML; use the Modelica SI contract.",
+      "script_sha256": "2e7100b510ed55d2042fd51fa52adfd666caa5119fd3d9d4bb39636a902c52b6",
+      "fmu_sha256": "99761d690ecfee04df3c0b7dfed88ff1945ae3d05a265b31c47fa2ea2c4838c9",
+      "checks": [
+        {
+          "case": "hover",
+          "profile": "CoSimulation",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 0.0,
+            "z": 0.0,
+            "theta": 0.0,
+            "vx": 0.0,
+            "vz": 0.0,
+            "omega": 0.0
+          },
+          "analytic_max_error": null
+        },
+        {
+          "case": "hover",
+          "profile": "ModelExchange",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 0.0,
+            "z": 0.0,
+            "theta": 0.0,
+            "vx": 0.0,
+            "vz": 0.0,
+            "omega": 0.0
+          },
+          "analytic_max_error": null
+        },
+        {
+          "case": "linear coast",
+          "profile": "CoSimulation",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 8.881784197001252e-15,
+            "z": 0.0,
+            "theta": 0.0,
+            "vx": 4.440892098500626e-15,
+            "vz": 0.0,
+            "omega": 0.0
+          },
+          "analytic_max_error": 2.6645352591003757e-15
+        },
+        {
+          "case": "linear coast",
+          "profile": "ModelExchange",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 1.2048274156128969e-08,
+            "z": 0.0,
+            "theta": 0.0,
+            "vx": 1.8072370266963844e-09,
+            "vz": 0.0,
+            "omega": 0.0
+          },
+          "analytic_max_error": 1.2048273934084364e-08
+        },
+        {
+          "case": "quadratic coast",
+          "profile": "CoSimulation",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 3.3217872896784684e-13,
+            "z": 0.0,
+            "theta": 0.0,
+            "vx": 2.5490720645393594e-13,
+            "vz": 0.0,
+            "omega": 0.0
+          },
+          "analytic_max_error": null
+        },
+        {
+          "case": "quadratic coast",
+          "profile": "ModelExchange",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 2.4906962936555033e-08,
+            "z": 0.0,
+            "theta": 0.0,
+            "vx": 6.147850939441923e-08,
+            "vz": 0.0,
+            "omega": 0.0
+          },
+          "analytic_max_error": null
+        },
+        {
+          "case": "pitch excitation",
+          "profile": "CoSimulation",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 3.036848550408422e-12,
+            "z": 1.6964207816272392e-12,
+            "theta": 6.640660243917296e-13,
+            "vx": 4.394928865281145e-12,
+            "vz": 1.6962334314918337e-12,
+            "omega": 1.0625944568687373e-12
+          },
+          "analytic_max_error": null
+        },
+        {
+          "case": "pitch excitation",
+          "profile": "ModelExchange",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 4.720607016395206e-08,
+            "z": 2.0357064367537703e-08,
+            "theta": 2.8316333167133223e-09,
+            "vx": 4.556641064468181e-08,
+            "vz": 5.25587239876002e-09,
+            "omega": 4.946816734019421e-09
+          },
+          "analytic_max_error": null
+        }
+      ],
+      "scope": "This event-free planar model: schema, metadata, hover, analytic linear coast, nonlinear drag and coupled pitch traces. Not whole-compiler or hardware assurance."
+    },
+    {
+      "status": "PASS",
+      "rumoca_version": "0.10.2",
+      "fmpy_version": "0.3.30",
+      "fmi_version": "3.0",
+      "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+      "input_units_SI": {
+        "T": "N",
+        "tau": "N.m"
+      },
+      "unit_metadata_note": "Rumoca 0.10.2 omits non-time units in FMU XML; use the Modelica SI contract.",
+      "script_sha256": "2e7100b510ed55d2042fd51fa52adfd666caa5119fd3d9d4bb39636a902c52b6",
+      "fmu_sha256": "bf33976d5cd550b1575ed962945328f630272e70a889516008092b880076ef70",
+      "checks": [
+        {
+          "case": "hover",
+          "profile": "CoSimulation",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 0.0,
+            "z": 0.0,
+            "theta": 0.0,
+            "vx": 0.0,
+            "vz": 0.0,
+            "omega": 0.0
+          },
+          "analytic_max_error": null
+        },
+        {
+          "case": "hover",
+          "profile": "ModelExchange",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 0.0,
+            "z": 0.0,
+            "theta": 0.0,
+            "vx": 0.0,
+            "vz": 0.0,
+            "omega": 0.0
+          },
+          "analytic_max_error": null
+        },
+        {
+          "case": "linear coast",
+          "profile": "CoSimulation",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 8.881784197001252e-15,
+            "z": 0.0,
+            "theta": 0.0,
+            "vx": 4.440892098500626e-15,
+            "vz": 0.0,
+            "omega": 0.0
+          },
+          "analytic_max_error": 2.6645352591003757e-15
+        },
+        {
+          "case": "linear coast",
+          "profile": "ModelExchange",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 1.2048274156128969e-08,
+            "z": 0.0,
+            "theta": 0.0,
+            "vx": 1.8072370266963844e-09,
+            "vz": 0.0,
+            "omega": 0.0
+          },
+          "analytic_max_error": 1.2048273934084364e-08
+        },
+        {
+          "case": "quadratic coast",
+          "profile": "CoSimulation",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 3.3217872896784684e-13,
+            "z": 0.0,
+            "theta": 0.0,
+            "vx": 2.5490720645393594e-13,
+            "vz": 0.0,
+            "omega": 0.0
+          },
+          "analytic_max_error": null
+        },
+        {
+          "case": "quadratic coast",
+          "profile": "ModelExchange",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 2.4906962936555033e-08,
+            "z": 0.0,
+            "theta": 0.0,
+            "vx": 6.147850939441923e-08,
+            "vz": 0.0,
+            "omega": 0.0
+          },
+          "analytic_max_error": null
+        },
+        {
+          "case": "pitch excitation",
+          "profile": "CoSimulation",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 3.036848550408422e-12,
+            "z": 1.6964207816272392e-12,
+            "theta": 6.640660243917296e-13,
+            "vx": 4.394928865281145e-12,
+            "vz": 1.6962334314918337e-12,
+            "omega": 1.0625944568687373e-12
+          },
+          "analytic_max_error": null
+        },
+        {
+          "case": "pitch excitation",
+          "profile": "ModelExchange",
+          "samples": 101,
+          "max_error_by_state_SI": {
+            "x": 4.720607016395206e-08,
+            "z": 2.0357064367537703e-08,
+            "theta": 2.8316333167133223e-09,
+            "vx": 4.556641064468181e-08,
+            "vz": 5.25587239876002e-09,
+            "omega": 4.946816734019421e-09
+          },
+          "analytic_max_error": null
+        }
+      ],
+      "scope": "This event-free planar model: schema, metadata, hover, analytic linear coast, nonlinear drag and coupled pitch traces. Not whole-compiler or hardware assurance."
+    }
+  ],
+  "efmu": {
+    "status": "PASS",
+    "source_sha256": "960e4ebd6ecbe60671bc3d5e086e6be1dc568af5fb9126066a24080052c8a6d3",
+    "efmu_sha256": "5e3200e3d5b91214160d07174978f64e16526d735f13669c864c05d8b0c6a110",
+    "script_sha256": "803bf94aecbdd20f767cb84e464951f21703f7dcdac9cd4b6a94ae2b8f82b95e",
+    "harness_sha256": "d1ae0de339798fed74d26966498e296dc30858ca8fbc22112f22a2e9c1e5930a",
+    "schemas": [
+      "__content.xml",
+      "AlgorithmCode/manifest.xml",
+      "ProductionCode/manifest.xml"
+    ],
+    "checksum_checks": 9,
+    "generated_C_cases": 515,
+    "max_thrust_error_N": 2.8742424014183143e-06,
+    "hover_thrust_N": 11.7720013,
+    "high_saturation_N": 25.0,
+    "low_saturation_N": 0.200000003,
+    "sample_period_s": 0.01,
+    "real_precision": "float32",
+    "scope": "Bundled eFMI schemas and checksum web; compile and execute generated C for finite test inputs. No MISRA, DO-178C, full stability or drone safety claim."
+  },
+  "cli_version": "rumoca 0.10.2",
+  "platform": "x86_64",
+  "scope": "Native FMI 2/3 and eFMI exports. FMI-LS-WASM is a planned Rumoca 0.11 feature; not this workshop demo."
+}

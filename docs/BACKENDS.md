@@ -1,5 +1,9 @@
 # Make a small target; learn with the same vehicle
 
+For terminal packaging and independent execution, see
+[FMU and eFMU export](EXPORTS.md): native FMI 2/3 via FMPy, plus fixed-sample
+GALEC/C99 controller export. FMI-LS-WASM is planned for Rumoca 0.11.
+
 Rumoca separates declared physics from numerical execution. This optional
 presenter demonstration uses the **same `models/Quadrotor.mo`** as the core,
 then renders its checked scalar Solve program into batched PyTorch operations.

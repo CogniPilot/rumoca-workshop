@@ -233,9 +233,37 @@ needs GitHub's staged VS Code Server and is qualified by the separate actual
 cloud rehearsal. Formal CI pins the public Mathlib release and checks the
 generated proof terms from a clean environment.
 
+## FMU and eFMU command-line export
+
+The [export rehearsal](../verification/exports.json) uses the released
+Rumoca 0.10.2 CLI and **FMPy 0.3.30**. Both FMI 2 and 3 packages passed
+FMPy validation and native C compilation. Sixteen Linux x64 runs cover both
+Model Exchange and Co-Simulation, with hover, analytic linear coast,
+nonlinear drag and coupled pitch, each sampled at 101 times. Every state
+was compared with the same Modelica model's Session-generated JAX dynamics;
+the largest observed SI absolute discrepancy was about **6.2e-8** against
+a per-state **3e-6** tolerance. The ARM64 route tests Co-Simulation because
+FMPy's packaged Linux CVode library is x64. The exporter does not add missing
+unit annotations: 0.10.2 FMU XML records the time unit, and the tests/documentation
+use the source's explicit SI contract for other quantities.
+
+The exported 100 Hz altitude-controller eFMU passed three bundled XML schemas
+and nine checksum checks. The actual archived generated C99 was compiled and
+executed for **515 finite input cases**, including hover and both thrust limits;
+the maximum observed float32 thrust error was **2.9e-6 N**, below the explicit
+**4e-6 N** tolerance. This tests packaging and the controller calling/arithmetic
+contract; it does not establish full closed-loop stability, scheduling,
+MISRA/DO-178C compliance or physical-flight safety. The existing Lean proofs
+remain scoped to the continuous planar model's exact-real equations; they do
+not certify the FMI ABI or this controller's generated float32 machine code.
+
+[EXPORTS.md](EXPORTS.md) provides exact CLI/FMPy/C commands. Linux x64/ARM64 CI
+and the image publishing workflow repeat the exports and execution. FMI-LS-WASM
+is identified as planned for Rumoca **0.11**, separate from this native-FMU test.
+
 ## Presentation and external limits
 
-The deck has 31 main slides, no appendices, a contiguous **180-minute** schedule
+The deck has 34 main slides, no appendices, a contiguous **180-minute** schedule
 and **two ten-minute breaks**. One editable Markdown source builds both PPTX
 with speaker notes and PDF. Presenter credits name **James Goppert and Micah
 Condie**. The design uses Purdue gold with deep navy, a light background for
@@ -243,14 +271,14 @@ technical figures, and teal/blue/terracotta accents for the three core phases.
 The opening explains why Rumoca and the broader Lie-group, reachability,
 formal-verification, identification and digital-twin context. A dedicated PURT
 pylon-racing slide links the competition site and its next event's planned
-Rumoca use; it does not repeat old event dates. All 31 PDF pages were rendered; revised layouts were visually reviewed;
+Rumoca use; it does not repeat old event dates. All 34 PDF pages were rendered; revised layouts were visually reviewed;
 commands, QR, screenshots and reference plots are real. Presenter text uses
 large type; small evidence plots/screenshots are backups for live zoomable demos.
 The PDF embeds fonts. Inspect the PPTX in the actual presentation application
 for font substitution/projector differences before class.
 
 The editable PPTX was also rendered by **LibreOffice Impress 26.2.1.2** on Linux.
-All 31 pages retained every authored text item, with extracted text inside page
+All 34 pages retained every authored text item, with extracted text inside page
 bounds. [Presentation receipt](../verification/presentation.json) records the
 artifact hash and scope. This adds an office-renderer check to the PDF review;
 the actual presentation laptop and projector remain preflight items.

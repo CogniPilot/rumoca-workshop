@@ -29,21 +29,21 @@ reference figures on your laptop. Participant entry:
 | Clock | Slides | Activity / presenter cue |
 |---|---|---|
 | 10:00–10:10 | 1–2 | Welcome, core outcomes and **open experiment challenge**. Announce small interactive experiments, optional agents/hosting, hand vote and prize now. |
-| 10:10–10:20 | 3–4 | Why Rumoca; Lie groups, reachable sets, formal verification, identification and digital twins. Show Cerebri RDD2: Modelica → eFMI C → Zephyr → real drone, with property-specific verification goals. Walk through AST → Flat → DAE → Solve and the separate GaLEC branch; connect Solve to today's JAX / CasADi Session API examples. |
-| 10:20–10:30 | 5–6 | Browser plot and local/cloud setup. |
-| 10:30–10:40 | 7–10 | User-guide Quadrotor SIL: Settings/TOML, clock, controls, signal routing and Three.js scene. Use SIMULATION_SETUP.md and the saved capture. |
-| 10:40–10:45 | 11 | Embedded NACA editor and flow visualization. |
-| 10:45–11:00 | 12–14 | Planar model, parameter edit and Python Session API simulation. |
-| 11:00–11:10 | 15 | **Break 1**, ten full minutes. |
-| 11:10–11:50 | 16–18 | Synthetic data, JAX fit and before/after outputs. |
-| 11:50–11:55 | 19 | Fit checkpoint; Lean target.toml, Jinja loop and scoped theorem walkthrough. |
-| 11:55–12:00 | 20 | target.toml → Torch dynamics → differentiable hover policy. |
-| 12:00–12:10 | 21 | **Break 2**, ten full minutes. |
-| 12:10–12:40 | 22–23 | Constraints, CasADi solve and plots. |
-| 12:40–12:45 | 24–25 | PURT pylon racing and FastDyn Monte Carlo: embedded movies, links and run command. Announce challenge presenters. |
-| 12:45–12:50 | 26–29 | Fixed-wing and mocap apps; SLAM as one declared ROS computation graph, ~12M-variable tensor Solve stress test, whole-vision AD, CPU/GPU and precision research vision; recognize LunCoSim and Taskyon's browser-native Modelica/Rumoca design recipes in 30 seconds; finish challenge demos. |
-| 12:50–12:55 | 30 | Participant demos, audience vote and stocking-cap award. |
-| 12:55–13:00 | 31 | Research community invitation, jgoppert@purdue.edu and questions. |
+| 10:10–10:20 | 3–5 | Why Rumoca; Lie groups, reachable sets, formal verification, identification and digital twins. Tour the modelica_models package families and their library reference. Show Cerebri RDD2: Modelica → eFMI C → Zephyr → real drone, with property-specific verification goals. Walk through AST → Flat → DAE → Solve and the separate GaLEC branch; connect Solve to today's JAX / CasADi Session API examples. |
+| 10:20–10:30 | 6–7 | Browser plot and local/cloud setup. |
+| 10:30–10:40 | 8–11 | User-guide Quadrotor SIL: Settings/TOML, clock, controls, signal routing and Three.js scene. Use SIMULATION_SETUP.md and the saved capture. |
+| 10:40–10:45 | 12 | Embedded NACA editor and flow visualization. |
+| 10:45–11:00 | 13–15 | Planar model, parameter edit and Python Session API simulation. |
+| 11:00–11:10 | 16 | **Break 1**, ten full minutes. |
+| 11:10–11:50 | 17–19 | Synthetic data, JAX fit and before/after outputs. |
+| 11:50–11:55 | 20 | Fit checkpoint; Lean target.toml, Jinja loop and scoped theorem walkthrough. |
+| 11:55–12:00 | 21–23 | Brief target gallery: Torch policy, CLI FMU export → FMPy run, and eFMU controller export → generated C99 execution. |
+| 12:00–12:10 | 24 | **Break 2**, ten full minutes. |
+| 12:10–12:40 | 25–26 | Constraints, CasADi solve and plots. |
+| 12:40–12:45 | 27–28 | PURT pylon racing and FastDyn Monte Carlo: embedded movies, links and run command. Announce challenge presenters. |
+| 12:45–12:50 | 29–32 | Fixed-wing and mocap apps; SLAM as one declared ROS computation graph, ~12M-variable tensor Solve stress test, whole-vision AD, CPU/GPU and precision research vision; recognize LunCoSim and Taskyon's browser-native Modelica/Rumoca design recipes in 30 seconds; finish challenge demos. |
+| 12:50–12:55 | 33 | Participant demos, audience vote and stocking-cap award. |
+| 12:55–13:00 | 34 | Research community invitation, jgoppert@purdue.edu and questions. |
 
 Total **180 minutes**, including **20 minutes of breaks**. All clock cues
 use five- or ten-minute boundaries (for example, 10:05 and 10:10). The slide
@@ -252,7 +252,7 @@ starting points; broad hardware partitioning and scaling remain research work.
 
 ## Optional firmware demonstration
 
-Main slide 25 gives the FastDyn container choice, terminal command and plot path.
+Main slide 28 gives the FastDyn container choice, terminal command and plot path.
 Prepare a separate **FastDyn + Rumoca: optional firmware Monte Carlo** Codespace
 before the session. Run `uv run --frozen python scripts/fastdyn_demo.py` and open
 `results/live/fastdyn/trajectories.png`. The three flights completed in the actual

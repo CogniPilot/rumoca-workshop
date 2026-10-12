@@ -20,10 +20,13 @@ and execute the end-to-end pipeline using them. This qualification is specific
 to the Python wheels and supported macOS version; it does not qualify upstream
 editor binaries. CasADi, JAX, NumPy, SciPy, Matplotlib, Mathlib and presentation
 libraries are separate third-party dependencies with their own notices.
+FMPy is distributed under the BSD 2-Clause license; see its
+[license](https://github.com/CATIA-Systems/FMPy/blob/v0.3.30/LICENSE.txt).
 
 Browser and VS Code screenshots record real executions of public Rumoca tools.
 Workshop plots/diagrams are generated locally from the supplied teaching model;
-no third-party paper figures or institutional logos are reproduced.
+Asset credits, including institutional marks, are recorded in
+[slides/media/README.md](../slides/media/README.md).
 
 The optional gallery screenshots record the public CogniPilot
 [fixed-wing app](https://github.com/CogniPilot/rumoca_fixed_wing),

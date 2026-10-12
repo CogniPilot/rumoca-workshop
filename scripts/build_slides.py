@@ -45,7 +45,7 @@ def parse():
             breaks.append(minutes(b) - minutes(a))
         previous = minutes(b)
         previous_slot = slot
-    assert previous == 780 and len(main_slides) == 31 and len(slides) == 31
+    assert previous == 780 and len(main_slides) == 34 and len(slides) == 34
     assert breaks == [10, 10], "Keep two full ten-minute breaks"
     return slides
 
@@ -160,10 +160,10 @@ def main():
                         (xx+aw)*72, (H-yy)*72), relative=0, thickness=0)
         # Each phase has one accent, reused in navigation, prompts and plots.
         num = int(spec["number"]) if spec["number"].isdigit() else 99
-        phase = "MODEL" if num <= 14 else "FIT" if num <= 21 else "OPTIMIZE" if num <= 23 else "EXPLORE"
+        phase = "MODEL" if num <= 15 else "FIT" if num <= 24 else "OPTIMIZE" if num <= 26 else "EXPLORE"
         accent = {"MODEL": TEAL, "FIT": BLUE, "OPTIMIZE": ORANGE, "EXPLORE": TEAL}[phase]
         layout = spec["layout"]
-        dark = layout in {"title", "break", "race"} or num in {2, 30}
+        dark = layout in {"title", "break", "race"} or num in {2, 33}
         bg, fg = (INK, WHITE) if dark else (PAPER, INK)
         rect(0, 0, W, H, bg)
         rect(0, 0, W, .065, GOLD)
@@ -258,7 +258,7 @@ def main():
             text("Cerebri RDD2: Modelica → eFMI C → Zephyr RTOS → real drone",
                  .7, 5.88, 11.9, 19, TEAL, bold=True, max_lines=1)
             text(spec["directions"], .7, 6.32, 11.9, 14, MUTED, max_lines=1)
-        elif num in {2, 30}:
+        elif num in {2, 33}:
             heading()
             if num == 2:
                 label("YOUR QUESTION. YOUR EXPERIMENT.", .7, 1.8, 8.6, GOLD)
@@ -284,7 +284,18 @@ def main():
                 text(spec["bullets"][2], .7, 5.77, 11.9, 23, GOLD, bold=True, max_lines=1)
         else:
             heading()
-            if layout == "pipeline":
+            if layout == "model-library":
+                for i in range(1, 5):
+                    x, y = .65+((i-1)%2)*6.17, 1.75+((i-1)//2)*1.83
+                    color = [TEAL, BLUE, ORANGE, TEAL][i-1]
+                    rect(x, y, 5.82, 1.65, WHITE, rounded=True)
+                    text(spec[f"family {i}"], x+.22, y+.17, 5.38, 23, color, bold=True, max_lines=1)
+                    text(spec[f"packages {i}"], x+.22, y+.71, 5.38, 17, INK, bold=True, max_lines=1)
+                    text(spec[f"use {i}"], x+.22, y+1.17, 5.38, 15, MUTED, max_lines=1)
+                text(spec["utilities"], .7, 5.52, 11.9, 19, INK, max_lines=1)
+                rect(.65, 6.02, 12.03, .46, INK, rounded=True)
+                text(spec["deployment"], .85, 6.07, 11.6, 19, WHITE, bold=True, max_lines=1)
+            elif layout == "pipeline":
                 text("Modelica source → parse", .7, 1.67, 11.9, 22, INK, bold=True, max_lines=1)
                 stages = [
                     ("AST", "Parsed syntax +\nsource locations", TEAL),
@@ -374,8 +385,17 @@ def main():
                 image_h = 4.22 if "command" in spec else 4.45
                 rect(4.82, 1.7, 7.86, image_h, WHITE, rounded=True)
                 picture(spec["visual"], 4.94, 1.83, 7.62, image_h-.26)
-                label("TRY THIS" if num in {5,7,11,26,27,28} else "READ THE MODEL" if num == 12 else "THE IDEA", .7, 1.86, 4)
+                label("TRY THIS" if num in {6,8,12,29,30,31} else "READ THE MODEL" if num == 13 else "THE IDEA", .7, 1.86, 4)
                 steps(spec["bullets"], .7, 2.35, 3.83, size=22, gap=.38)
+            elif layout == "fmu-export":
+                rect(.65, 1.73, 7.2, 4.7, INK, rounded=True)
+                text(spec["code title"], .9, 1.95, 6.7, 14, GOLD, bold=True, max_lines=1)
+                for i, line in enumerate(spec["code"].split(r"\n")):
+                    if line:
+                        text(line, .9, 2.43+i*.30, 6.7, 15, WHITE, mono=True, max_lines=1)
+                label("INDEPENDENT PYTHON IMPORTER", 8.12, 1.96, 4.55, TEAL)
+                picture(spec["visual"], 8.12, 2.35, 4.55, 2.03)
+                steps(spec["bullets"], 8.12, 4.63, 4.55, size=17, gap=.16)
             elif layout == "code":
                 rect(.65, 1.73, 6.55, 4.7, INK, rounded=True)
                 text(spec["code title"], .9, 1.95, 6.05, 14, GOLD, bold=True, max_lines=1)

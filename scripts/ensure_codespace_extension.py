@@ -84,9 +84,9 @@ def main():
                                 ("samuelcolvin.jinjahtml", "0.20.0"),
                                 ("bierner.markdown-preview-github-styles", "2.2.0")):
         install(identifier, version)
-        installed = [json.loads(path.read_text())
+        packages = [json.loads(path.read_text())
                      for path in extension_root.glob(identifier.lower()+"-*/package.json")]
-        if not any(package.get("version") == version for package in installed):
+        if not any(package.get("version") == version for package in packages):
             raise RuntimeError(f"Workshop extension was not installed: {identifier}")
         print(f"Workshop extension installed: {identifier} {version}")
     for metadata in extension_root.glob("jamesgoppert.rumoca-modelica-*/package.json"):

@@ -30,7 +30,7 @@ simulate**, or follow the participant guide.
 The core configuration pulls a **tested public image** (Linux x64 and ARM64)
 with Rumoca **0.10.2**, Node, GitHub CLI, tmux, and the Codex/Claude/Copilot CLIs
 already installed. It also caches the Python dependencies and editor packages.
-The first local pull downloads about **2 GB compressed**, so prepare it before
+The first local pull downloads about **2.3 GB compressed on x64** (2.0 GB on ARM64), so prepare it before
 arriving if bandwidth is limited. Codespaces pulls this image in the cloud;
 your laptop does not download the container. The workspace is synchronized and
 checked after creation. Cloud VM startup and image pulling still take time.

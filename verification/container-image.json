@@ -1,25 +1,27 @@
 {
   "status": "PASS",
-  "build_commit": "8e01c22aac5357bfbbd1cb85ae82390a6119c396",
-  "workflow_url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38197248187",
-  "image": "ghcr.io/cognipilot/rumoca_workshop_amc2026@sha256:7f8454046ae9b1811d77c4913f3e9d203c32364bf2604d8e99b915ca52680751",
+  "build_commit": "45618a0463bd1b54627e9ca9cb24319485119434",
+  "workflow_url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38209256409",
+  "image": "ghcr.io/cognipilot/rumoca_workshop_amc2026@sha256:ee7277d1f9e1bf41dac2cc52d4d35c32e20aab2e9f3d7c968a0b3c4f79467c80",
   "architectures": [
     {
       "architecture": "amd64",
-      "manifest_digest": "sha256:701fd080ae183708055a1d11757db2cfe9c9aa26692d4ba0397f565d833fc8b1",
-      "compressed_layer_bytes": 2012530734,
+      "manifest_digest": "sha256:2b3ea00510c4a9be1387af13cfb09b014b342bb616f57489bee9d81059668ed3",
+      "compressed_layer_bytes": 2260515523,
       "anonymous_manifest_and_config": "PASS"
     },
     {
       "architecture": "arm64",
-      "manifest_digest": "sha256:16b5cb4a63b796b7fdb3e298f9dc2031daa85ea15cf65f427a6540235d08d208",
-      "compressed_layer_bytes": 1938985326,
+      "manifest_digest": "sha256:9910e8f02c2c42d80f8ac4ba889c9215d9ff86ac4708068f0bedcbfa7933f679",
+      "compressed_layer_bytes": 1990389574,
       "anonymous_manifest_and_config": "PASS"
     }
   ],
   "checks": [
-    "Exact published image runs the agent CLI version/help checks and the complete JAX/CasADi smoke test on both Linux architectures",
+    "Exact published image runs all three initial agent screens through attached tmux terminals on Linux x64 and ARM64, using fresh private homes and no credentials",
+    "Complete official Codex package, CLI versions/help, Node/npm, GitHub CLI and tmux",
+    "Complete core JAX/CasADi smoke on both architectures; Torch export/AD checks on x64",
     "Anonymous registry access verified for image index, architecture manifests and configuration"
   ],
-  "scope": "Public prebuilt Docker image. Codespaces VM startup, cloud image pull and editor activation are checked separately."
+  "scope": "Public prebuilt Docker image. Account authentication and model execution are separate rehearsals. VM startup, image pull, editor activation and class capacity remain separate checks."
 }

@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "agents": {
+    "codex": {
+      "status": "PASS",
+      "version": "codex-cli 0.162.1",
+      "initial_screen": "Welcome to Codex",
+      "wall_seconds": 1.928
+    },
+    "claude": {
+      "status": "PASS",
+      "version": "2.1.296 (Claude Code)",
+      "initial_screen": "Welcome to Claude Code",
+      "wall_seconds": 0.343
+    },
+    "copilot": {
+      "status": "PASS",
+      "version": "GitHub Copilot CLI 1.0.95.\nRun 'copilot update' to check for updates.",
+      "initial_screen": "Confirm folder trust",
+      "wall_seconds": 4.535
+    }
+  },
+  "scope": "Fresh private homes; real tmux clients attached through PTYs. Initial UI only, no authentication or model requests."
+}

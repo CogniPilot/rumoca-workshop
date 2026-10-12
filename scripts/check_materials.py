@@ -41,6 +41,12 @@ def main():
         assert digest("templates/lean-proof/"+name) == expected
     bundle = (ROOT/"browser/Quadrotor_browser.mo").read_text(encoding="utf-8")
     assert source in bundle and (ROOT/"models/Quadrotor.mo").read_text(encoding="utf-8").strip() in bundle
+    booster = read("extras/reusable_booster/provenance.json")
+    for name, expected in booster["files_sha256"].items():
+        assert digest("extras/reusable_booster/"+name) == expected, f"Copied guide source changed: {name}"
+    # This snapshot's external library is intentionally not bundled. An active
+    # scenario would make the LSP index a missing root when opening core models.
+    assert not list((ROOT/"extras/reusable_booster").glob("rumoca-scenario*.toml")), "Booster inspection snapshot must not register an active scenario"
     with (ROOT/"data/noisy_flight.csv").open(newline="") as f:
         rows = list(csv.DictReader(f))
     assert len(rows) == 644 and len({r["flight"] for r in rows}) == 4

@@ -107,7 +107,8 @@ The core Dev Container uses a public, digest-pinned image built and tested on
 Linux x64 and ARM64. [Image receipt](../verification/container-image.json)
 records the build and anonymous access checks. Rumoca Python and native LSP
 are pinned to **0.10.2**. Python dependencies, terminal agents and editor
-packages are cached in the image. The initial compressed pull is about 2 GB;
+packages are cached in the image, including the optional x64 Torch group.
+The initial compressed pull is about 2.3 GB on x64 and 2.0 GB on ARM64;
 Codespaces downloads it inside the cloud, not onto participants' laptops.
 The core configuration does not rebuild Docker layers or reinstall features.
 It still needs VM allocation, an image pull and workspace preparation.

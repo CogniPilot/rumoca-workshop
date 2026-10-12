@@ -11,4 +11,7 @@ resets, **Q** stops. Inspect the Modelica and TOML tabs before changing one sett
 This is a reusable-booster teaching model, not a validated SpaceX Falcon 9
 performance model. The copied scenario retains the upstream library path; it
 requires the pinned library setup described in the guide for native execution.
-Do not treat this snapshot as a zero-setup native demo.
+The TOML is stored as `rumoca-scenario.toml.example` for inspection. This keeps
+VS Code from automatically indexing its unavailable upstream library when you
+open the core workshop. Its contents are unchanged. Use the live guide above
+for the runnable example; do not treat this snapshot as a zero-setup native demo.

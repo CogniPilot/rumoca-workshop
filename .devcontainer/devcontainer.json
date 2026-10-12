@@ -1,6 +1,6 @@
 {
   "name": "Rumoca workshop (CPU JAX + CasADi)",
-  "image": "ghcr.io/cognipilot/rumoca_workshop_amc2026@sha256:7f8454046ae9b1811d77c4913f3e9d203c32364bf2604d8e99b915ca52680751",
+  "image": "ghcr.io/cognipilot/rumoca_workshop_amc2026@sha256:ee7277d1f9e1bf41dac2cc52d4d35c32e20aab2e9f3d7c968a0b3c4f79467c80",
   "remoteUser": "vscode",
   "containerEnv": {
     "JAX_PLATFORMS": "cpu",

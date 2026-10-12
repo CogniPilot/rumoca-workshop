@@ -5,6 +5,10 @@ CLIs, Node/npm, GitHub CLI and tmux, plus Codex, Claude Code and GitHub Copilot
 Chat extensions. Versions are recorded in [the tool manifest](../scripts/agent_tools.json);
 these are the latest releases checked when this workshop image was prepared.
 A running Codespace keeps its installed versions until you update or rebuild it.
+If your Codespace predates this rehearsal's image update, pull the repository
+and run **Codespaces: Rebuild Container** once before class. The complete Codex
+package is required for its interactive background server. In an older container,
+`codex --no-daemon` is a temporary terminal fallback.
 
 ## Sign in with your own account
 

@@ -268,8 +268,29 @@ startup, CLI version/help checks and a detached tmux-session check. Codex 0.162.
 Claude Code 2.1.296, Copilot CLI 1.0.95, Node 22, npm and GitHub CLI were installed automatically.
 Receipts: [x64](../verification/agent-tools-ci-x86_64.json) and
 [ARM64](../verification/agent-tools-ci-aarch64.json). This verifies installation
-and startup, not authenticated model execution; participants use their own
-accounts. The four native desktop editor qualifications also passed.
+and startup; participants use their own accounts. The four native desktop editor
+qualifications also passed. The deeper rehearsal found that Codex's default
+interactive server needs its complete official package, including resources,
+rather than the standalone executable alone. The replacement public image
+includes that package and caches the optional x64 Torch dependencies.
+
+All three initial terminal screens are now checked through attached tmux clients
+with fresh private homes, both in the image publication and normal container CI:
+[x64](../verification/agent-terminals-ci-x86_64.json),
+[ARM64](../verification/agent-terminals-ci-aarch64.json). These tests make no model
+requests and use no accounts. Authenticated edit/run rehearsals are recorded
+separately below; they do not establish participant account access or usage limits.
+
+The [authenticated collaboration rehearsal](../verification/agent-collaboration.json)
+used an isolated checkout on the maintainer Linux machine. Codex **0.162.1** ran
+the first-experiment prompt from AGENT_SETUP.md, generated a script and plot,
+and checked three quadratic-drag coast responses and timestep refinement.
+The unchanged model's linear-drag case also matched its analytic solution in
+an independent check. Locally authenticated Claude **2.1.284** edited and ran
+a small Session → JAX/CasADi parity and gradient example. These tests kept
+credentials on the maintainer machine. The container's Claude **2.1.296** startup
+is separately qualified; authenticated Copilot and participant account access
+remain untested.
 
 The [quadrotor guide rehearsal](../verification/quadrotor-guide.json) covers
 its actual scenario/scene sources, browser start, rendering, keyboard arming

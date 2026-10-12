@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "tested_at_utc": "2026-10-12T05:55:19.815885+00:00",
+  "environment": "Authenticated maintainer Linux machine; isolated disposable Git checkouts, Rumoca 0.10.2 CPU environment. Credentials stayed on this machine.",
+  "codex": {
+    "version": "0.162.1",
+    "task": "Exact first-experiment prompt in docs/AGENT_SETUP.md, with rehearsal-only instructions forbidding network, credential inspection and delegation",
+    "wall_seconds_checkout_to_final_response": 80.578,
+    "generated_outputs": [
+      "comparison Python script",
+      "PNG response plot",
+      "CSV states",
+      "JSON measurements"
+    ],
+    "model_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
+    "core_model_and_examples_unchanged": true,
+    "coast_duration_s": 8.0,
+    "quadratic_drag_coefficients": [
+      0.0,
+      0.04,
+      0.08
+    ],
+    "travel_m": [
+      27.952231523128326,
+      19.752623247393796,
+      15.780527449870783
+    ],
+    "step_halving_max_state_difference": [
+      3.661106973140704e-10,
+      1.3078818028589012e-08,
+      6.270744368208625e-08
+    ],
+    "independent_linear_coast_analytic_check": "PASS, speed and travel within 1e-7 of closed form"
+  },
+  "claude": {
+    "version": "2.1.284",
+    "task": "Edit and execute a compact Rumoca Session JAX/CasADi parity and gradient example",
+    "provider_reported_wall_seconds": 123.461,
+    "rhs_expected_and_measured": -0.8,
+    "parameter_gradient_expected_and_measured": -4,
+    "assertions": "PASS"
+  },
+  "scope": "Authenticated model-assisted editing and execution on the maintainer machine. The Codespace separately qualifies all three installed CLI versions and initial terminal screens. Codespace account login, authenticated Copilot execution and participant provider quotas were not tested. Claude inference used the locally authenticated 2.1.284 CLI; the installed container 2.1.296 initial UI is separately tested."
+}

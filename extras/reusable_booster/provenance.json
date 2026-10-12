@@ -3,9 +3,9 @@
   "revision": "0b249f0f725431613c25bb56e40fbbe0df54c4d2",
   "files_sha256": {
     "ReusableBoosterLanding.mo": "180760c31308ed7a49d6cedd9869e5f29619695b7e138f23feb5268939fdc38e",
-    "rumoca-scenario.toml": "148b5d78e979382587bc1571087cfe9d229b1d190c6b1136d2adf2b374ef1dd7",
+    "rumoca-scenario.toml.example": "148b5d78e979382587bc1571087cfe9d229b1d190c6b1136d2adf2b374ef1dd7",
     "reusable_booster_scene.js": "d5f737e76abcf0ad549a0e24df7fe61bc88abd7421306f3de5fb75fd18beb7f9"
   },
   "license": "Apache-2.0",
-  "scope": "Unmodified upstream source snapshot. The upstream scenario requires its pinned model library; use the hosted user-guide widget for the workshop. Native copied-source execution has not been qualified."
+  "scope": "Unmodified upstream file contents. The scenario filename adds .example so editors do not index its unavailable upstream library automatically. Use the hosted user-guide widget for the workshop. Native copied-source execution has not been qualified."
 }

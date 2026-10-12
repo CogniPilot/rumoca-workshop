@@ -3,6 +3,7 @@
     "JamesGoppert.rumoca-modelica",
     "ms-python.python",
     "mathematic.vscode-pdf",
-    "leanprover.lean4"
+    "leanprover.lean4",
+    "samuelcolvin.jinjahtml"
   ]
 }

@@ -46,6 +46,6 @@
     "time_gradcheck": true,
     "incompatible_batch_rejected": true
   },
-  "elapsed_seconds": 4.443418319999992,
+  "elapsed_seconds": 4.250901171999999,
   "scope": "Small teaching target for explicit scalar ODEs with the listed primitives. Runtime/autograd checks for this model; no full Modelica, GPU or compiler-correctness claim."
 }

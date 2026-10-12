@@ -40,19 +40,24 @@ def build_assets():
     ax.text(6., 3.75, "Same declared equations; separate numerical workflows", ha="center", fontsize=20)
     save(fig, "architecture.png")
     fig, ax = canvas(4.6)
+    ax.set_aspect("equal")
     cx, cz, angle = 6., 2.0, np.pi/6
     dx, dz = 1.5*np.cos(angle), -1.5*np.sin(angle)
     ax.plot([cx-dx, cx+dx], [cz-dz, cz+dz], color=ink, lw=11, solid_capstyle="round")
+    rotor_dx, rotor_dz = .5*np.cos(angle), -.5*np.sin(angle)
     for xx, zz in [(cx-dx, cz-dz), (cx+dx, cz+dz)]:
-        ax.plot([xx-.5, xx+.5], [zz, zz], lw=7, color=gold)
-    arrow(ax, (cx, cz), (cx+1.2, cz+2.05))
+        rotor_x, rotor_z = xx+.18*np.sin(angle), zz+.18*np.cos(angle)
+        ax.plot([xx, rotor_x], [zz, rotor_z], lw=5, color=ink)
+        ax.plot([rotor_x-rotor_dx, rotor_x+rotor_dx],
+                [rotor_z-rotor_dz, rotor_z+rotor_dz], lw=7, color=gold)
+    arrow(ax, (cx, cz), (cx+2.4*np.sin(angle), cz+2.4*np.cos(angle)))
     ax.text(cx+1.5, cz+1.6, "T", color=teal, fontsize=30)
     ax.annotate("", xy=(cx, .45), xytext=(cx, cz),
                 arrowprops={"arrowstyle": "->", "lw": 3, "color": orange})
     ax.text(cx+.2, .75, "mg", color=orange, fontsize=26)
     ax.plot([cx, cx], [cz, cz+1.25], "--", color="#888888")
     ax.add_patch(Arc((cx, cz), 1.8, 1.8, theta1=60, theta2=90, lw=2, color=ink))
-    ax.text(cx+.35, cz+1., r"$\theta>0$", fontsize=24)
+    ax.text(cx+.35, cz+1., r"$\theta$", fontsize=24)
     arrow(ax, (1., .7), (3.2, .7)); arrow(ax, (1., .7), (1., 3.2))
     ax.text(3.3, .65, "x", fontsize=25); ax.text(.9, 3.4, "z", fontsize=25)
     ax.text(9.4, 2.4, "Thrust toward +x\nwhen pitch is positive", ha="center", fontsize=20)

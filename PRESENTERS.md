@@ -27,7 +27,7 @@ reference figures on your laptop. Participant entry:
 
 | Clock | Slides | Activity / presenter cue |
 |---|---|---|
-| 10:00–10:10 | 1–2 | Welcome, core outcomes and **open app challenge**. Announce small interactive experiments, optional agents/hosting, hand vote and prize now. |
+| 10:00–10:10 | 1–2 | Welcome, core outcomes and **open experiment challenge**. Announce small interactive experiments, optional agents/hosting, hand vote and prize now. |
 | 10:10–10:20 | 3–4 | Why Rumoca; Lie groups, reachable sets, formal verification, identification and digital twins. Then show today's Modelica → JAX / CasADi compiler bridge. |
 | 10:20–10:35 | 5–7 | Browser plot, cloud/local setup and smoke. Experienced participants can begin their app when ready. |
 | 10:35–10:40 | 8 | User-guide embedded editor and NACA flow visualization. Use a warm successful tab; keep the saved capture ready. |

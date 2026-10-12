@@ -1,18 +1,20 @@
 {
   "status": "PASS",
-  "source_commit": "cf973d01e809944c66ee7bc54b73fd8a3c5fa7b4",
+  "source_commit": "5c59bd3527c6d2cf3ec3a65b7db02c62de61a16b",
   "environment": "Actual GitHub Codespace, Linux x64, 2 cores, 8 GB RAM, non-root vscode user",
   "configuration_sha256": {
-    ".devcontainer/devcontainer.json": "fa385d9dd0cfc0f76a54a2bf15ddbebb624abae565f13d687953b6560b7af56a",
-    ".devcontainer/Dockerfile": "a0089da7822a42fa5acdf5e2d5c0a18cc0ae308d7b7d96d0352303dff77238c8",
-    "scripts/ensure_codespace_extension.py": "f51934c4beb069dd0ad415b7d0a06dd47e3061c2a3c8f6d6d001eb315f5634da"
+    ".devcontainer/devcontainer.json": "ec7def2893623be8ef63074f630770664c83639cee2837f310672eff727fc7a9",
+    "scripts/ensure_codespace_extension.py": "69da27c0c6ade2d5d6229cccdf28791a4293e585fda62050fa1bda87dfaf25b8",
+    ".devcontainer/Dockerfile": "a0089da7822a42fa5acdf5e2d5c0a18cc0ae308d7b7d96d0352303dff77238c8"
   },
   "startup": {
     "fresh_rebuild": "PASS",
     "post_create_command": "PASS",
     "native_extension_install": "PASS",
     "extension_version": "0.10.2",
-    "post_create_smoke_seconds": 15.85
+    "post_create_smoke_seconds": 15.87,
+    "pdf_viewer_install": "PASS",
+    "lean_extension_install": "PASS"
   },
   "smoke": {
     "status": "PASS",
@@ -22,16 +24,16 @@
     "rumoca_version": "0.10.2",
     "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
     "command_wall_seconds": {
-      "simulate": 1.4709166810000625,
-      "fit_drag_jax": 6.287089167999966,
-      "optimize_casadi": 1.7186435510000138
+      "simulate": 2.809575230000064,
+      "fit_drag_jax": 12.624846170000183,
+      "optimize_casadi": 3.0330994769997233
     },
     "checks": {
       "max_rhs_parity_error": 0,
       "jax_gradient": -10.379535595670434,
       "finite_difference": -10.379535595905764
     },
-    "total_seconds": 12.767795161999857
+    "total_seconds": 24.583734505000393
   },
   "math_audit": {
     "status": "PASS",
@@ -320,7 +322,7 @@
       2.06119239448889
     ],
     "trajectory_check": "Generated CasADi RHS, DOP853 rtol=1e-11 atol=1e-12, 10 samples/interval; analytic pitch extrema. Numerical evidence, not interval arithmetic certification.",
-    "runtime_seconds": 9.982732754999915
+    "runtime_seconds": 16.75946679699973
   },
   "torch_backend": {
     "status": "PASS",
@@ -370,7 +372,7 @@
       "time_gradcheck": true,
       "incompatible_batch_rejected": true
     },
-    "elapsed_seconds": 5.725502002999974,
+    "elapsed_seconds": 10.589456415999848,
     "scope": "Small teaching target for explicit scalar ODEs with the listed primitives. Runtime/autograd checks for this model; no full Modelica, GPU or compiler-correctness claim."
   },
   "torch_policy": {
@@ -505,10 +507,11 @@
       "vz": 1.3245995097999064e-06,
       "omega": 0.0
     },
-    "elapsed_seconds": 13.415076248999867,
+    "elapsed_seconds": 13.797678440999789,
     "scope": "Synthetic fixed-parameter, two-second vertical task. Feedback optimized on 64 initial states and checked on 128 new states. No full-vehicle RL, disturbance robustness, continuous-time safety or physical-flight claim."
   },
   "native_editor_receipt": "verification/codespace-editor.json",
   "scope": "Individual Codespace rebuild, startup, same CI commands and native remote VS Code LSP. Browser frontend, quotas, billing, prebuilds, region availability, venue network and simultaneous class capacity require presenter preflight.",
-  "tested_date_utc": "2026-10-12"
+  "tested_date_utc": "2026-10-12",
+  "extension_receipt": "verification/codespace-extensions.json"
 }

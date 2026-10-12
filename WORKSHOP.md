@@ -35,7 +35,7 @@ public hosting are optional. Enter by **12:40**; up to five presenters give shor
 at **12:50**. An audience hand vote chooses the winner of a
 **free CogniPilot stocking cap**. Our lead example is `rumoca_fixed_wing`;
 `slam_web` is another example in development. See [CHALLENGE.md](CHALLENGE.md).
-You can begin when ready and return to your app during independent work.
+You can begin when ready and return to your experiment during independent work.
 Copy the short experiment prompt in [APP_PROMPT.md](APP_PROMPT.md). Its public
 Three.js launch app and fixed-wing app prompts are optional stretches, not
 assigned projects. AD-based fixed-wing MPC is an ambitious
@@ -299,8 +299,8 @@ autopilot experiment: change its controller rate, restart and observe.
 This is the lead example of an app we built with coding agents. `slam_web` is
 another example **in development**; `mocap_sysid` is a stored-results viewer.
 No agent account or API key is required to explore the examples manually.
-Selected app builders can use this time to rehearse their 45-second demo and
-open their app and GitHub repo. All entries remain in the shared gallery.
+Selected entrants can use this time to rehearse their 45-second demo and
+open their model, plot or simulator. Public gallery links are optional.
 
 **Checkpoint 5:** describe one observation and one test needed before trusting
 it. These apps use their own models and data. The workshop’s planar-model Lean
@@ -310,9 +310,11 @@ results rather than retraining methods in your browser.
 
 ## 12:50–12:55 · Participant demos and audience vote
 
-Show your app and GitHub repository, explain your contribution, and demonstrate
-one working interaction in **45 seconds**. Name the agent used and elapsed
-build time, labeling estimates. Any subject is welcome. An audience **show-of-hands vote**
+Show your experiment, explain your contribution, and demonstrate one interaction
+or before/after comparison plus one checked result in **45 seconds**. Name your
+agent/tool (or “manual”) and elapsed work time, labeling estimates. A local file
+or screen share is welcome; a public app or repository is optional. Any subject
+is welcome. An audience **show-of-hands vote**
 chooses the winner of a **free CogniPilot stocking cap**.
 [CHALLENGE.md](CHALLENGE.md) gives the short-demo format and voting rules.
 
@@ -328,8 +330,10 @@ and explain one model limitation before suggesting an extension.
 ## Slides and proofs in VS Code
 
 The Codespace installs [PDF Viewer](https://marketplace.visualstudio.com/items?itemName=mathematic.vscode-pdf)
-and [Lean 4](https://marketplace.visualstudio.com/items?itemName=leanprover.lean4)
-alongside Rumoca. Open `slides/workshop.pdf` in Explorer to view the slides
+[Lean 4](https://marketplace.visualstudio.com/items?itemName=leanprover.lean4),
+and [Better Jinja](https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml)
+alongside Rumoca. Open `templates/torch-ode/rhs.py.jinja` for Jinja/Python
+syntax highlighting and `formal/Generated.lean` for the proof source. Open `slides/workshop.pdf` in Explorer to view the slides
 inside VS Code; if necessary choose **Open With → PDF View**. Existing Codespaces
 need **Codespaces: Rebuild Container** to apply the updated configuration.
 

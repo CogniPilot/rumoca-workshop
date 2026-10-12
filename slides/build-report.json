@@ -14,7 +14,7 @@
     "results/reference/torch_policy.png": "b67366d51acfc5a515419f060eb4efdb283c6501379897cd3d8ecc65352bd8dc",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
     "scripts/build_slides.py": "07e9fdb62d0b5fba7e850b61cbd4d45b2acf0e7aa235f82906bc7e7c5cebc58f",
-    "scripts/slide_assets.py": "95ead0a4fd083d407c0f8024ef43a17e59c21d7b5393e7b6ae1d888e6ad6fb09",
+    "scripts/slide_assets.py": "69c4aaa8032e20a954e5c1081fc9367dddff0d56c2b10709ebfa019cb2bff508",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
     "slides/assets/architecture.png": "264ab4f7e3ec35c65e3bcbb56328d42414409c4739dfb59fee95275293c02bde",
     "slides/assets/browser-drag-linear.png": "641732c3c7ceaab4eb393cd290446cbb977172d5a67ee7614b2282c3ce1cd747",
@@ -26,17 +26,17 @@
     "slides/assets/fit-hero.png": "0ba401f4c7d8994c078b10e9bbff0cd2857825c92329834aa0f95364d0918198",
     "slides/assets/fit-workflow.png": "c54a93202c66c00c1ff76d6a16e280140b2c9dbd70fe6657357ab002174f17a6",
     "slides/assets/pylon-qr.png": "7328a84a4db146ed49df5e748f9dcfd136d4bd420145c6e7266eb2ba42a3345f",
-    "slides/assets/quadrotor.png": "38398d48885fa1ceda300563223912fbc9cc82be73132214fc36db5c525a29a0",
+    "slides/assets/quadrotor.png": "a128ef82b974bec61e3f2beb6a126f29d166f8fa8214e7e34e80c15b2e550ef7",
     "slides/assets/repo-qr.png": "454cf12d53b2ccd6305ec58dde300c9b124cd4a83d89b9562ffed49b5e271861",
     "slides/assets/simulation-hero.png": "30e4af0a1707e14ff7c1aafbdf71813f2421cfb64d06f281590a29c26a7f24c9",
     "slides/assets/user-guide-naca.png": "cd554217d939e7fabf149829cb6deba75e87cc44c5b8f1c130b6d00ff2dd3d98",
     "slides/assets/vscode-quadrotor.png": "e6002a5b2109928f38ff2598ba587ec0800c3947858c54fcc54bbd7b782467ed",
-    "slides/workshop.md": "b60912b0632898203246cb9b5b967b62f9232a6b0939c5db0209210301a73baf",
+    "slides/workshop.md": "b277dd137f95265553c483700a055d51f2943ac09e57c8787d467fab9e0c5b91",
     "uv.lock": "9ee98bf337e21af4a4fc616c25e4f3d63f8b16bc6500b375dad975be5a4d9799"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "3c855607786807b1df1e7abdf252fc440ed760a3c17c9710fa2ab535536ab60d",
-    "slides/workshop.pdf": "a2316e8448f84cbaf49248020f4ada0f7e902090fcf96b3faa5b095c682059ee"
+    "slides/workshop.pptx": "3ae76bd4e70eab160b7650c3a00aece0c9ad63c2193104926952be0729ead38b",
+    "slides/workshop.pdf": "d6af773614d0cc03ac8e6ba384f6975eefa7933219eb05f875573028f0ee49cc"
   },
   "rendered_text": [
     {
@@ -2341,7 +2341,7 @@
     },
     {
       "slide": "16",
-      "text": "Fit complete? Continue your app or explore the optional checks.",
+      "text": "Fit complete? Continue your experiment or explore the optional checks.",
       "font_pt": 18,
       "lines": 1,
       "x": 0.85,

@@ -17,10 +17,11 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "JamesGoppert.rumoca-modelica",
+        "JamesGoppert.rumoca-modelica@0.10.2",
         "ms-python.python",
-        "mathematic.vscode-pdf",
-        "leanprover.lean4"
+        "mathematic.vscode-pdf@0.1.11",
+        "leanprover.lean4@0.0.240",
+        "samuelcolvin.jinjahtml@0.20.0"
       ],
       "settings": {
         "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
@@ -28,7 +29,10 @@
         "workbench.editorAssociations": {
           "*.pdf": "pdf.view"
         },
-        "pdf.defaultZoomValue": "page-fit"
+        "pdf.defaultZoomValue": "page-fit",
+        "files.associations": {
+          "*.py.jinja": "jinja-py"
+        }
       }
     }
   },

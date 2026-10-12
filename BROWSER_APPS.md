@@ -15,7 +15,7 @@ works, while the full visual-SLAM pipeline is still being developed.
 
 Allow one minute for the introduction and four minutes to explore. Open one
 app at a time on a modest laptop. If you are entering the
-[open app challenge](CHALLENGE.md), you can use this time to finish your own
+[open experiment challenge](CHALLENGE.md), you can use this time to finish your own
 demo instead. Participant demos and the audience hand vote begin at **12:50**.
 
 | App | Open the live app | Source | Short experiment |

@@ -6,8 +6,8 @@ smooth ODE and its stated parameters, not arbitrary Modelica or real flight.
 
 ## Reproducibility and measured CPU time
 
-[Clean CI run 38188583674](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38188583674)
-at commit `cf973d0` passed all **seven** jobs: four Python OS runners,
+[Clean CI run 38189451071](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38189451071)
+at commit `5c59bd3` passed all **seven** jobs: four Python OS runners,
 full devcontainer configuration, features and startup commands, pinned-flake CPU/Torch checks, and
 generated-equation Lean proof checking.
 The machine-readable [job receipt](verification/ci-jobs.json) and
@@ -23,12 +23,12 @@ dominate the first simulation.
 | Tested environment | Simulate | JAX fit | CasADi optimize | Full smoke |
 |---|---:|---:|---:|---:|
 | Local Linux x64, Ryzen 9 5950X, Python 3.12.13 | 1.4 s | 5.9 s | 1.7 s | 11.7 s |
-| Ubuntu hosted x64 | 2.2 s | 5.6 s | 1.4 s | 12.7 s |
-| Windows Server 2025 hosted x64 | 4.8 s | 6.7 s | 1.5 s | 17.7 s |
-| macOS 26.6.2 hosted Apple Silicon | 24.3 s | 5.1 s | 1.0 s | 36.0 s |
-| macOS 15.7.9 hosted Intel | 37.8 s | 16.1 s | 2.5 s | 67.5 s |
-| Debian devcontainer, non-root vscode user | 1.6 s | 4.3 s | 1.1 s | 9.6 s |
-| Actual two-core Codespace, Python 3.12.11 | 1.5 s | 6.3 s | 1.7 s | 12.8 s |
+| Ubuntu hosted x64 | 2.6 s | 6.3 s | 1.6 s | 14.4 s |
+| Windows Server 2025 hosted x64 | 5.4 s | 7.0 s | 1.6 s | 19.2 s |
+| macOS 26.6.2 hosted Apple Silicon | 14.8 s | 3.9 s | 1.0 s | 23.3 s |
+| macOS 15.7.9 hosted Intel | 31.7 s | 12.5 s | 6.1 s | 60.0 s |
+| Debian devcontainer, non-root vscode user | 2.1 s | 5.6 s | 1.4 s | 12.4 s |
+| Actual two-core Codespace, Python 3.12.11 | 2.8 s | 12.6 s | 3.0 s | 24.6 s |
 
 Each of the three examples finishes under the one-minute acceptance target on
 these runs. Local NixOS supplies system libraries through a machine-specific
@@ -111,7 +111,7 @@ Verified activation, no errors on the canonical model, `sin` completion,
 parameter hover, errors on intentionally invalid syntax, and clean diagnostics
 after restoring valid source. CI checks the exact version and
 [release VSIX hashes](verification/vsix-sha256.json) before qualification.
-[Editor CI run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38188583675)
+[Editor CI run](https://github.com/CogniPilot/rumoca_workshop_amc2026/actions/runs/38189450891)
 passed all four jobs. Receipts: [verification/editors](verification/editors),
 local [vscode-linux.json](verification/vscode-linux.json), actual
 `vscode-quadrotor.png`, and test source in `verification/`.
@@ -122,6 +122,10 @@ over Remote SSH; the remote test ran the same activation, hover, completion,
 broken-syntax and restoration checks. [Cloud editor receipt](verification/codespace-editor.json).
 Startup also installed the pinned, hash-checked VSIX in Codespaces' normal
 remote extension directory and confirmed the second invocation was idempotent.
+The latest full rebuild also installed **PDF Viewer** and **Lean 4** before
+editor attachment; [extension receipt](verification/codespace-extensions.json).
+The Lean extension supplies editor support; toolchain/Mathlib setup remains
+optional and separate from the CI proof qualification.
 
 **Not qualified:** browser-native Python and GitHub's browser frontend.
 The editor test is independent of Python CI; exact release/platform
@@ -136,7 +140,7 @@ policy's held-out cost improved **0.1156→0.0210** on 128 new initial condition
 complete rollout gradients and fixed-sampling fine integration passed.
 [Backend receipt](results/reference/torch_backend.json),
 [policy receipt](results/reference/torch_policy.json). Both commands also passed
-in the actual two-core Codespace: about **6 s** and **13 s** after package setup.
+in the actual two-core Codespace: about **11 s** and **14 s** after package setup.
 This is a restricted differentiable policy-learning task with known parameters,
 not a full-flight or model-free RL qualification. The optional CPU package is
 qualified on Linux x64 only and is excluded from the base install.

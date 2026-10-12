@@ -2,18 +2,18 @@
   "status": "PASS",
   "platform": "Windows-2025Server-10.0.26100-SP0",
   "python": "3.12.10",
-  "processor": "AMD64 Family 25 Model 17 Stepping 1, AuthenticAMD",
+  "processor": "AMD64 Family 25 Model 1 Stepping 1, AuthenticAMD",
   "rumoca_version": "0.10.2",
   "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
   "command_wall_seconds": {
-    "simulate": 4.797328300000004,
-    "fit_drag_jax": 6.732096200000001,
-    "optimize_casadi": 1.4637914000000194
+    "simulate": 5.402269999999987,
+    "fit_drag_jax": 7.027401099999992,
+    "optimize_casadi": 1.568983000000003
   },
   "checks": {
     "max_rhs_parity_error": 0,
     "jax_gradient": -10.379535595670434,
     "finite_difference": -10.379535595905764
   },
-  "total_seconds": 17.72845220000002
+  "total_seconds": 19.159971000000013
 }

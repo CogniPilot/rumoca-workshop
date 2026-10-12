@@ -30,7 +30,7 @@ local container CI cannot establish it. [VERIFICATION.md](VERIFICATION.md)
 records cloud and editor qualification separately from the container test.
 
 The Codespace installs Python packages and the native **Rumoca Modelica 0.10.2**
-extension, plus PDF Viewer and Lean 4. Open `slides/workshop.pdf` to read
+extension, plus PDF Viewer, Lean 4 and Better Jinja. Open `slides/workshop.pdf` to read
 the slides inside VS Code. Lean proof checking also requires the toolchain
 and Mathlib setup in [MATH_REVIEW.md](MATH_REVIEW.md). Startup includes a hash-checked release-VSIX fallback before the first
 editor attaches; normal recommended extension installation remains enabled.

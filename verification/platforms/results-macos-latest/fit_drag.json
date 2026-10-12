@@ -57,7 +57,7 @@
   "optimizer": "L-BFGS-B, JAX autodiff through generated RHS + RK4 scan; log-positive parameters",
   "iterations": 12,
   "success": true,
-  "runtime_seconds": 4.682456041999984,
+  "runtime_seconds": 3.6347145830000045,
   "source_sha256": "3864d44035bd894931586749afc60c33a4190e6810b3b81b69fde9c52fddb56a",
   "data_sha256": "05f347f1ac9fc48fa225381f8d7fa5c0a8acaaefbcd89e9528aadc2350a94576",
   "rumoca_version": "0.10.2"

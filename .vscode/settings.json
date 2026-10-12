@@ -1,5 +1,12 @@
 {
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
-  "files.associations": {"*.mo": "modelica"},
-  "terminal.integrated.env.linux": {"JAX_PLATFORMS": "cpu", "OMP_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1"}
+  "files.associations": {
+    "*.mo": "modelica",
+    "*.py.jinja": "jinja-py"
+  },
+  "terminal.integrated.env.linux": {
+    "JAX_PLATFORMS": "cpu",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  }
 }

@@ -28,14 +28,17 @@ def main():
     servers = [path for path in candidates if path.is_file() and os.access(path, os.X_OK)]
     if not servers:
         raise RuntimeError("VS Code Server unavailable; rebuild the Codespace to finish extension setup.")
-    for identifier in ("mathematic.vscode-pdf", "leanprover.lean4"):
-        subprocess.run([str(servers[0]), "--install-extension", identifier,
-                        "--extensions-dir", str(extension_root)], check=True)
+    # Keep the viewer compatible with both the qualified desktop and cloud editors.
+    for identifier, version in (("mathematic.vscode-pdf", "0.1.11"),
+                                ("leanprover.lean4", "0.0.240"),
+                                ("samuelcolvin.jinjahtml", "0.20.0")):
+        subprocess.run([str(servers[0]), "--install-extension", identifier+"@"+version,
+                        "--extensions-dir", str(extension_root), "--force"], check=True)
         installed = [json.loads(path.read_text())
                      for path in extension_root.glob(identifier.lower()+"-*/package.json")]
-        if not installed:
+        if not any(package.get("version") == version for package in installed):
             raise RuntimeError(f"Workshop extension was not installed: {identifier}")
-        print(f"Workshop extension installed: {identifier} {installed[-1]['version']}")
+        print(f"Workshop extension installed: {identifier} {version}")
     for metadata in extension_root.glob("jamesgoppert.rumoca-modelica-*/package.json"):
         package = json.loads(metadata.read_text())
         server = metadata.parent/"bin/rumoca-lsp"

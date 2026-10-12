@@ -18,7 +18,7 @@ Badge: American Modelica Conference · October 12, 2026
 
 Checkpoint: github.com/CogniPilot/rumoca_workshop_amc2026
 Notes:
-Welcome to Hands-On with Rumoca. Lead with the reason to care: “We want your declared physics to travel into simulation, identification, optimization and verification without silently becoming different models. Today you will take one small Modelica model through simulation, fitting and a constrained flight plan.” Introduce presenters James Goppert and Micah Condie, Purdue University, School of Aeronautics and Astronautics, and the Georgia Tech venue. Point to the QR and ask attendees to keep the participant worksheet open. No aerospace background is required. Welcome models and expertise from other disciplines; the closing slide has concrete ways to join the work. Allow five minutes for arrivals and orientation; announce the optional app challenge on the next slide.
+Welcome to Hands-On with Rumoca. Lead with the reason to care: “We want your declared physics to travel into simulation, identification, optimization and verification without silently becoming different models. Today you will take one small Modelica model through simulation, fitting and a constrained flight plan.” Introduce presenters James Goppert and Micah Condie, Purdue University, School of Aeronautics and Astronautics, and the Georgia Tech venue. Point to the QR and ask attendees to keep the participant worksheet open. No aerospace background is required. Welcome models and expertise from other disciplines; the closing slide has concrete ways to join the work. Allow five minutes for arrivals and orientation; announce the optional experiment challenge on the next slide.
 
 ## 02 · Run the core. Explore your own question.
 Time: 10:05–10:10
@@ -196,7 +196,7 @@ Badge: HANDS-ON · estimates ≈ 0.18042 and 0.07991
 Command: uv run --frozen python scripts/fit_drag_jax.py
 Checkpoint: Two coefficients · lower loss · improved held-out prediction
 Notes:
-Give at least 15 minutes for running the fit, inspecting outputs and individual questions. Participants who finish can return to the app challenge. Reference truth kl=.18 N s/m, kq=.08 N s²/m². Loss roughly 26932→1.073, about 25000×. Read rms_by_state with separate units or noise_scaled_rms; avoid calling mixed-unit legacy RMS metres. Recovery --one-coefficient assumes known kl=.18. Stretch: different initial guess; audit already checks six. Do not use holdout to tune parameters during this exercise. If live fails, label reference plot honestly.
+Give at least 15 minutes for running the fit, inspecting outputs and individual questions. Participants who finish can return to the experiment challenge. Reference truth kl=.18 N s/m, kq=.08 N s²/m². Loss roughly 26932→1.073, about 25000×. Read rms_by_state with separate units or noise_scaled_rms; avoid calling mixed-unit legacy RMS metres. Recovery --one-coefficient assumes known kl=.18. Stretch: different initial guess; audit already checks six. Do not use holdout to tune parameters during this exercise. If live fails, label reference plot honestly.
 
 ## 16 · Check your result. Keep building.
 Time: 11:50–11:55
@@ -208,7 +208,7 @@ Badge: Checkpoint · go deeper at your own pace
 - Stretch: rerun from another starting guess
 - App builders: keep your prototype moving
 
-Checkpoint: Fit complete? Continue your app or explore the optional checks.
+Checkpoint: Fit complete? Continue your experiment or explore the optional checks.
 Notes:
 Spend one minute showing where the result files are and four minutes on independent work and questions. Ask whether the held-out prediction improved; no aerospace background is needed. App builders can continue the open challenge. Offer detailed gradient, excitation and proof discussion only when requested, using MATH_REVIEW.md and Appendix A1–A2. The audit checks six starting guesses, twelve noise seeds, Jacobians, analytic coasting and re-optimized profiles. Lean checks scoped exact-real equation equality and invariants; numerical and statistical claims have separate evidence.
 

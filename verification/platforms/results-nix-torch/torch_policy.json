@@ -130,6 +130,6 @@
     "vz": 1.3245995097999064e-06,
     "omega": 0.0
   },
-  "elapsed_seconds": 11.83563206800001,
+  "elapsed_seconds": 11.468426902000004,
   "scope": "Synthetic fixed-parameter, two-second vertical task. Feedback optimized on 64 initial states and checked on 128 new states. No full-vehicle RL, disturbance robustness, continuous-time safety or physical-flight claim."
 }

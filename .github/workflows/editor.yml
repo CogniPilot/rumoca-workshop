@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
   pull_request:
   push:
+    branches: [main]
     paths:
       - 'models/**'
       - 'verification/vscode-*'
@@ -11,6 +12,9 @@ on:
       - '.devcontainer/**'
       - '.vscode/**'
       - 'docs/LOCAL_SETUP.md'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:

@@ -5,13 +5,14 @@
   "checks": [
     "All authored slide text survives actual PPTX rendering within its intended text panel",
     "All extracted text lies within page bounds",
-    "Visual review of compiler pipeline, Lean/Jinja target, FMU/eFMU terminal commands, library overview, SLAM vision and community-user layouts; automatic text retention and bounds checks on all 35 slides"
+    "Visual review of compiler pipeline, Lean/Jinja target, FMU/eFMU terminal commands, library overview, SLAM vision and community-user layouts; automatic text retention and bounds checks on all 35 slides",
+    "Quadrotor slide 8 QR decoded from actual PPTX and PDF renders to https://rumoca.cognipilot.org/simulation"
   ],
   "presenters": [
     "James Goppert",
     "Micah Condie"
   ],
   "design": "Purdue gold and deep navy; teal, blue and terracotta phase accents; editable native layout shapes",
-  "pptx_sha256": "e406c8c488a171ee1c733786cf9e965a20ff8abc67b50675fdbccac2df30fab6",
+  "pptx_sha256": "703e70b925693f2c2ecc4e3b3477abb4c615d3185103570510cb2b5be4a5c616",
   "scope": "Actual LibreOffice rendering. PowerPoint and the venue projector require presenter preflight."
 }

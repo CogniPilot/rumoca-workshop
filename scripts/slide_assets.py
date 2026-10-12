@@ -141,6 +141,7 @@ def build_assets():
     save(fig, "research-loop.png")
     qrcode.make("https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1").save(dest/"repo-qr.png")
     qrcode.make("https://pylon-racing.geddes.rcac.purdue.edu/").save(dest/"pylon-qr.png")
+    qrcode.make("https://rumoca.cognipilot.org/simulation").save(dest/"simulation-qr.png")
 
 
 if __name__ == "__main__":

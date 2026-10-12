@@ -384,7 +384,14 @@ def main():
             elif layout == "image":
                 image_h = 4.22 if "command" in spec else 4.45
                 rect(4.82, 1.7, 7.86, image_h, WHITE, rounded=True)
-                picture(spec["visual"], 4.94, 1.83, 7.62, image_h-.26)
+                if "qr" in spec:
+                    picture(spec["visual"], 4.94, 1.83, 5.30, image_h-.26)
+                    text("SCAN TO EXPLORE", 10.40, 2.22, 2.13, 12, TEAL, bold=True, max_lines=1)
+                    picture(spec["qr"], 10.40, 2.75, 2.13, 2.13)
+                    text(spec["qr url"].removeprefix("https://").replace("/", "\n/", 1),
+                         10.40, 5.10, 2.13, 12, INK, max_lines=2)
+                else:
+                    picture(spec["visual"], 4.94, 1.83, 7.62, image_h-.26)
                 label("TRY THIS" if num in {6,8,12,29,30,31} else "READ THE MODEL" if num == 13 else "THE IDEA", .7, 1.86, 4)
                 steps(spec["bullets"], .7, 2.35, 3.83, size=20 if num == 6 else 22, gap=.25 if num == 6 else .38)
             elif layout == "fmu-export":
@@ -488,7 +495,7 @@ def main():
               "results/reference/fit_drag.json", "results/reference/trajectory.npz",
               "scripts/build_slides.py", "scripts/slide_assets.py", "pyproject.toml", "uv.lock"}
     inputs.update({"templates/lean-proof/target.toml", "templates/lean-proof/rhs.lean.jinja"})
-    media_keys = ["visual", "movie", "poster", "photo", "purdue logo", "penn state logo", "nxp logo"]
+    media_keys = ["visual", "movie", "poster", "photo", "qr", "purdue logo", "penn state logo", "nxp logo"]
     inputs.update(str((out/s[key]).resolve().relative_to(ROOT))
                   for s in slides for key in media_keys if key in s)
     digest = lambda path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest()

@@ -131,11 +131,13 @@ Notes:
 Codespaces URL https://codespaces.new/CogniPilot/rumoca_workshop_amc2026?quickstart=1. Codespaces requires an account with allowance or billing enabled. Cloud qualification is recorded in VERIFICATION.md; account availability varies. Local: download/extract ZIP, install uv/extension, uv sync --frozen. Python and released editor are qualified on Linux/Windows x64 and macOS Intel/Apple Silicon. In Codespaces, select the core workshop and wait for WORKSHOP PASS. Native uv remains an optional route.
 
 ## 08 · Fly the user guide’s quadrotor
-Links: Open Quadrotor SIL | https://cognipilot.github.io/rumoca/user-guide/simulation/interactive.html#quadrotor-sil ; Walkthrough | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/SIMULATION_SETUP.md
+Links: Open Quadrotor SIL | https://cognipilot.github.io/rumoca/user-guide/simulation/interactive.html#quadrotor-sil ; Simulation apps | https://rumoca.cognipilot.org/simulation ; Walkthrough | https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/SIMULATION_SETUP.md
 Time: 10:30–10:40
 Time group: Simulation setup
 Layout: image
 Visual: assets/user-guide-quadrotor.png
+QR: assets/simulation-qr.png
+QR URL: https://rumoca.cognipilot.org/simulation
 Badge: LIVE WALKTHROUGH · one scenario connects model, inputs and view
 
 - Open Quadrotor SIL → Settings

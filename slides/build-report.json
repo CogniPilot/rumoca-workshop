@@ -12,8 +12,8 @@
     "results/reference/fmu.png": "1daf0edebdd790695806fa727785af032e6979d002f776685f58f1fcb8f2758f",
     "results/reference/torch_policy.png": "b67366d51acfc5a515419f060eb4efdb283c6501379897cd3d8ecc65352bd8dc",
     "results/reference/trajectory.npz": "fb61b6e7e92ebace3eef0653832f393d380aa3bb3a7c497f49c1037bdb812ea3",
-    "scripts/build_slides.py": "dffffc195edd82b2fd018d19ef567227307f0f4f5eb54b3086ce5f857bb25cc0",
-    "scripts/slide_assets.py": "92d9cdba091574331dbf3a4c61257a2757a47367e022ff358aa27ea5966d7149",
+    "scripts/build_slides.py": "f815f5c49de63e0972f4604bafb7a3577b4ff978ca52ac3943b2b5b310dfea1a",
+    "scripts/slide_assets.py": "881ac80a82ac0fbd4dbd89c9ffa32b630fa7e56dad0085b8a911620c8fa7cc40",
     "slides/assets/app-rumoca_fixed_wing.png": "33bb0fca21e2522d7b31f1e30c969020943d99d248b6a5103c7342393d3b02f0",
     "slides/assets/browser-drag-linear.png": "2bc282cffb57bd0335bb29fab743289d548892ec854f47843d159a79cf6a859b",
     "slides/assets/community-forgelab.png": "56eaed08e9584df0a08c079ee5c5f33e48813311d3ee4ea34602e12552d6eafd",
@@ -38,18 +38,19 @@
     "slides/assets/showcase-mocap_sysid.png": "b92f04609a7e38d1b40786a321129880402b8ac474b46e082b1083d45bd5a325",
     "slides/assets/showcase-slam_web.png": "bc1fb433b33ea9c541610bb5923b3c14b0ce55295ed97cff809aec22c2bf2179",
     "slides/assets/simulation-hero.png": "30e4af0a1707e14ff7c1aafbdf71813f2421cfb64d06f281590a29c26a7f24c9",
+    "slides/assets/simulation-qr.png": "3cd6616652d6a5ab5e2d95b16a84b498016e373d2f92267ea477508c4ebc9a39",
     "slides/assets/user-guide-naca.png": "cd554217d939e7fabf149829cb6deba75e87cc44c5b8f1c130b6d00ff2dd3d98",
     "slides/assets/user-guide-quadrotor.png": "6a66a7c8198da6ed1dd82f1ad9f936a805851fa30243c3ea5cfee6d4cd8b3191",
     "slides/media/fastdyn-monte-carlo.mp4": "2a688f567c51d837c23555806250dd5ebd31a34cf16cb14c4d15fe85200f4ab1",
     "slides/media/purt-fpv-chase.mp4": "0cb09e6a72a4f8543ba2e7ad786b1a4e7da1d8580ebf9daccde99c463c37bcef",
-    "slides/workshop.md": "837fc297fc2e7fd49e061a267f420c0df3ca96333bb4527f33ef684c98172225",
+    "slides/workshop.md": "fef9642748424907822a6eff182db7c4644448713c35df9d05da9380410a316a",
     "templates/lean-proof/rhs.lean.jinja": "89ed252b731b68f2b766b3f9ffe0179b61bdd068667f5d257ccf0d80a7e51e24",
     "templates/lean-proof/target.toml": "b6278e81cbda221c41f144174c359e52239ca24b4bc2c14914d065a119073fb8",
     "uv.lock": "8a9104caf13c681e96d14361f6f49d495861e823cffd7ebd916a0b5377f9cc81"
   },
   "artifact_sha256": {
-    "slides/workshop.pptx": "e406c8c488a171ee1c733786cf9e965a20ff8abc67b50675fdbccac2df30fab6",
-    "slides/workshop.pdf": "8fe46cd9a5d467cd6ecf1c05d380c0ef5cf519dae41ea5b1e84d40a95237857c"
+    "slides/workshop.pptx": "703e70b925693f2c2ecc4e3b3477abb4c615d3185103570510cb2b5be4a5c616",
+    "slides/workshop.pdf": "c055a2d133c30b27a2dfd04b9158444886ee9fca43b5c8330b7e305412db1cb1"
   },
   "rendered_text": [
     {
@@ -1514,6 +1515,26 @@
     },
     {
       "slide": "08",
+      "text": "SCAN TO EXPLORE",
+      "font_pt": 12,
+      "lines": 1,
+      "x": 10.4,
+      "y": 2.22,
+      "width": 2.13,
+      "height": 0.26666666666666666
+    },
+    {
+      "slide": "08",
+      "text": "rumoca.cognipilot.org\n/simulation",
+      "font_pt": 12,
+      "lines": 2,
+      "x": 10.4,
+      "y": 5.1,
+      "width": 2.13,
+      "height": 0.47333333333333333
+    },
+    {
+      "slide": "08",
       "text": "TRY THIS",
       "font_pt": 11,
       "lines": 1,
@@ -1599,7 +1620,17 @@
       "lines": 1,
       "x": 0.77,
       "y": 7.075,
-      "width": 5.5600000000000005,
+      "width": 3.586666666666667,
+      "height": 0.2838888888888889
+    },
+    {
+      "slide": "08",
+      "text": "Simulation apps \u2197",
+      "font_pt": 13,
+      "lines": 1,
+      "x": 4.716666666666667,
+      "y": 7.075,
+      "width": 3.586666666666667,
       "height": 0.2838888888888889
     },
     {
@@ -1607,9 +1638,9 @@
       "text": "Walkthrough \u2197",
       "font_pt": 13,
       "lines": 1,
-      "x": 6.690000000000001,
+      "x": 8.663333333333332,
       "y": 7.075,
-      "width": 5.5600000000000005,
+      "width": 3.586666666666667,
       "height": 0.2838888888888889
     },
     {
@@ -6009,16 +6040,25 @@
       "url": "https://cognipilot.github.io/rumoca/user-guide/simulation/interactive.html#quadrotor-sil",
       "x": 0.65,
       "y": 7.035,
-      "width": 5.800000000000001,
+      "width": 3.8266666666666667,
+      "height": 0.4
+    },
+    {
+      "slide": "08",
+      "label": "Simulation apps",
+      "url": "https://rumoca.cognipilot.org/simulation",
+      "x": 4.596666666666667,
+      "y": 7.035,
+      "width": 3.8266666666666667,
       "height": 0.4
     },
     {
       "slide": "08",
       "label": "Walkthrough",
       "url": "https://github.com/CogniPilot/rumoca_workshop_amc2026/blob/main/docs/SIMULATION_SETUP.md",
-      "x": 6.570000000000001,
+      "x": 8.543333333333333,
       "y": 7.035,
-      "width": 5.800000000000001,
+      "width": 3.8266666666666667,
       "height": 0.4
     },
     {
